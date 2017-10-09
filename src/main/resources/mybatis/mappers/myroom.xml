@@ -136,4 +136,50 @@
 			and type_no = #{type}
 		</if>
 	</select>
+	
+	<insert id="addComment" parameterType="com.vestis.vo.CodiCoVo">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			select seq_codi_comment_no.nextval from dual 
+		</selectKey>
+		<![CDATA[
+			insert into codi_comment
+			values(#{no}, #{personNo}, #{codiNo}, #{content}, TO_DATE(#{regDate},'YYYY-MM-DD hh24:mi:ss'))			
+		]]>
+	</insert>
+	
+	<select id="getComment" parameterType="int" resultType="com.vestis.vo.CodiCoVo">
+		<![CDATA[
+			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
+			from codi_comment, person, img
+			where codi_comment.no = #{no}
+	            and person_no = person.no
+	            and person.profile_no = img.no
+		]]>
+	</select>
+	
+	<select id="getCommentList" parameterType="int" resultType="com.vestis.vo.CodiCoVo">
+		<![CDATA[
+			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
+			from codi_comment, person, img
+			where codi_no= #{no}
+	            and person_no = person.no
+	            and person.profile_no = img.no
+	        order by codi_comment.no asc
+		]]>
+	</select>
+	
+	<update id="changeSaveImg" parameterType="map">
+		<![CDATA[
+			update codi
+			set codi_photo_no = #{imgNo}
+			where no = #{no}	
+		]]>
+	</update>
+	
+	<delete id="removeComment" parameterType="int">
+		<![CDATA[
+			delete from codi_comment
+			where no = #{no}	
+		]]>
+	</delete>
 </mapper>

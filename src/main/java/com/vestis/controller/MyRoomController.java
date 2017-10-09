@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +23,7 @@ import com.vestis.service.FileUploadService;
 import com.vestis.service.MyRoomService;
 import com.vestis.vo.ClothListVo;
 import com.vestis.vo.ClothWeatherVo;
+import com.vestis.vo.CodiCoVo;
 import com.vestis.vo.CodibookVo;
 import com.vestis.vo.ImgVo;
 import com.vestis.vo.UserVo;
@@ -186,9 +186,11 @@ public class MyRoomController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/codibookSave", method = RequestMethod.POST)
-	public String codibookSave(@RequestBody MultipartFile file) {
-		System.out.println(file);
+	public String codibookSave(@RequestParam("wearImg") MultipartFile file, @RequestParam("no") int no) {
+		System.out.println(file.toString());
 		System.out.println(file.getOriginalFilename());
+		System.out.println(no);
+		myRoomService.saveWearImg(file, no);
 		return "success";
 	}
 
@@ -247,6 +249,27 @@ public class MyRoomController {
 	@RequestMapping(value="/add")
 	public String add() {
 		return "/myroom/add";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/addComment", method=RequestMethod.POST)
+	public CodiCoVo addComment(@RequestParam("no") int no, @RequestParam("authNo") int userNo  , @RequestParam("comment") String comment) {
+		System.out.println(no+comment+userNo);
+		return myRoomService.addComment(no, userNo, comment);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/commentList", method=RequestMethod.POST)
+	public List<CodiCoVo> commentList(@RequestParam("no") int no) {
+		System.out.println("댓글 리스트 가져오기");
+		return myRoomService.getCommentList(no);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/removeComment", method=RequestMethod.POST)
+	public String removeComment(@RequestParam("no") int no) {
+		myRoomService.removeComment(no);
+		return "success";
 	}
 
 }

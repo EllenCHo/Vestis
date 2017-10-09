@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.vestis.vo.ClothListVo;
 import com.vestis.vo.ClothWeatherVo;
+import com.vestis.vo.CodiCoVo;
 import com.vestis.vo.CodiVo;
 import com.vestis.vo.CodibookVo;
 import com.vestis.vo.ImgVo;
@@ -91,5 +92,38 @@ public class MyRoomDao {
 		map.put("userNo", userNo);
 		
 		return sqlSession.selectList("myroom.getClothList", map);
+	}
+	
+	public int addComment(CodiCoVo codiCo) {
+		System.out.println("댓글 저장 dao");
+		
+		sqlSession.insert("myroom.addComment", codiCo);
+		
+		return codiCo.getNo();
+	}
+	
+	public CodiCoVo getComment(int no) {
+		return sqlSession.selectOne("myroom.getComment", no);
+	}
+	
+	public List<CodiCoVo> getCommentList(int no) {
+		return sqlSession.selectList("myroom.getCommentList", no);
+	}
+	
+	public int saveWearImg(ImgVo imgVo) {
+		sqlSession.insert("myroom.insertImg", imgVo);
+		return imgVo.getNo();
+	}
+	
+	public void changeSaveImg(int no, int imgNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("no", no);
+		map.put("imgNo", imgNo);
+		
+		sqlSession.update("myroom.changeSaveImg", map);
+	}
+	
+	public void removeComment(int no) {
+		sqlSession.delete("myroom.removeComment", no);
 	}
 }

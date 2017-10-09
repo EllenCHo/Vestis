@@ -1,17 +1,24 @@
 package com.vestis.service;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vestis.repository.MyRoomDao;
 import com.vestis.util.WeatherInfo;
 import com.vestis.util.WeatherVo;
 import com.vestis.vo.ClothListVo;
 import com.vestis.vo.ClothWeatherVo;
+import com.vestis.vo.CodiCoVo;
 import com.vestis.vo.CodiVo;
 import com.vestis.vo.CodibookVo;
 import com.vestis.vo.ImgVo;
@@ -94,5 +101,70 @@ public class MyRoomService {
 		System.out.println("옷 들어옴");
 		return myRoomDao.getClothList(type, userNo);
 	}
+	
+	public CodiCoVo addComment(int no, int userNo, String content) {
+		System.out.println("댓글 Vo");
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(cal.getTime());
+		
+		CodiCoVo codiCo = new CodiCoVo();
+		codiCo.setCodiNo(no);
+		codiCo.setPersonNo(userNo);
+		codiCo.setContent(content);
+		codiCo.setRegDate(date);
+		
+		int commentNo = myRoomDao.addComment(codiCo);
+		
+		return myRoomDao.getComment(commentNo);
+	}
 
+	public List<CodiCoVo> getCommentList(int no) {
+		return myRoomDao.getCommentList(no);
+	}
+	
+	public void saveWearImg(MultipartFile file, int no) {
+		String orgName = file.getOriginalFilename(); // 원래 이름을 따로 저장
+		String exName = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")); // 파일 확장자 따로
+																											// 저장
+		String saveName = System.currentTimeMillis() + UUID.randomUUID().toString() + exName; // 랜덤으로 해도 파일이 많으면 겹칠수 있으니
+																								// 앞에 시간과 같이 저장해서 완전한
+																								// 랜덤으로 저장
+																								// 파일 확장자는 따로 뺀것을 붙여서 저장
+		long fileSize = file.getSize(); // 파일 사이즈 저장, byte라서 long으로 받음
+
+		String url = "D:\\javaStudy\\file\\";
+
+		System.out.println(orgName);
+		System.out.println(exName);
+		System.out.println(saveName);
+		System.out.println(fileSize);
+		System.out.println(url);
+		
+		String filePath = url + saveName;
+		try {
+
+			byte[] fileData = file.getBytes(); // size가 아니고 실제데이터 그림의 배열같은거
+			System.out.println("fileData: " + fileData);
+			OutputStream out = new FileOutputStream(filePath);
+			BufferedOutputStream bout = new BufferedOutputStream(out);
+
+			bout.write(fileData);
+			if (bout != null) {
+				bout.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
+		ImgVo imgVo = new ImgVo(url, orgName, exName, fileSize, saveName);
+		int imgNo = myRoomDao.saveWearImg(imgVo);
+		myRoomDao.changeSaveImg(no, imgNo);
+	}
+	
+	public void removeComment(int no) {
+		myRoomDao.removeComment(no);
+	}
 }
