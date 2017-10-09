@@ -126,4 +126,8 @@ public class MyRoomDao {
 	public void removeComment(int no) {
 		sqlSession.delete("myroom.removeComment", no);
 	}
+	
+	public String getWearImage(int no) {
+		return sqlSession.selectOne("myroom.getWearImage", no);
+	}
 }

@@ -167,4 +167,10 @@ public class MyRoomService {
 	public void removeComment(int no) {
 		myRoomDao.removeComment(no);
 	}
+	
+	public String getWearImage(int no) {
+		String str =  myRoomDao.getWearImage(no);
+		System.out.println(str+12341);
+		return str;
+	}
 }

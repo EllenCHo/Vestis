@@ -272,5 +272,11 @@ public class MyRoomController {
 		return "success";
 	}
 
+	@ResponseBody
+	@RequestMapping(value="/getWearImage", method=RequestMethod.POST)
+	public String getWearImage(@RequestParam("no") int no) {
+		System.out.println("착용사진 가져오기1");
+		return myRoomService.getWearImage(no);
+	}
 }
 

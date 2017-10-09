@@ -41,13 +41,12 @@
 	
 	<select id="getCodiBookList" resultType="com.vestis.vo.CodibookVo" parameterType="map">
 		<![CDATA[
-			select no, otherNo, otherNicname, profile, codi, wear, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
+			select no, otherNo, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
 			from like_person, (select codi.no no, person.no otherNo, p2.nicname otherNicname, 
 									pro_img.db_name profile,
 									codiimg.db_name codi,
-									wear.db_name wear,
 									choose, NVL(likes, 0) likes
-									from codi, person, img wear, img codiimg, img pro_img, person p2,
+									from codi, person, img codiimg, img pro_img, person p2,
 									     (select codi_no like_codi_no, count(like_person.person_no) likes 
 						                 from like_person
 						                 group by like_person.person_no, codi_no)
@@ -63,7 +62,6 @@
 											</if>
 										<![CDATA[
 			                            and codi_no = codiimg.no
-									    and codi_photo_no = wear.no
 									    and p2.profile_no = pro_img.no
 			                            and codi.no = like_codi_no(+)
 									order by codi.no desc)
@@ -182,4 +180,13 @@
 			where no = #{no}	
 		]]>
 	</delete>
+	
+	<select id="getWearImage" parameterType="int" resultType="String">
+		<![CDATA[
+			select db_name
+			from codi, img
+			where codi.no = #{no}
+				and codi_photo_no = img.no	
+		]]>
+	</select>
 </mapper>

@@ -264,7 +264,7 @@
 			  console.log(no);
 			  var img = info[0].image; // Extract info from data-* attributes
 			  console.log(img);
-			  var wearimg = info[0].wearimage; // Extract info from data-* attributes
+			  /* var wearimg = info[0].wearimage; // Extract info from data-* attributes */
 			  var profile = info[0].profile;
 			  console.log(profile);
 			  var nicname = info[0].nicname;
@@ -277,8 +277,9 @@
 			  str += "<img class=\"prifile_photo\" src=\"\" alt=\"프로필사진\" style=\"margin-right: 10px;\">";
 			  str += nicname;
 			  
+			  getWearImage(no);
+			  
 			  $('.showPic').attr('src', img);
-			  $('#wearclothimg').attr('src', wearimg);
 			  $('.nicname').html(str);
 			  $('.prifile_photo').attr('src', profile);
 			  $('#codiNoSave').val(no);
@@ -358,7 +359,6 @@
 		str += "	<div id=\"openModal"+CodibookVo.no+"\"";
 		str += "	 	data-no=\""+CodibookVo.no+"\" ";
 		str += "	 	data-image=\"${pageContext.request.contextPath}/upload/"+CodibookVo.codi+"\" ";
-		str += "	 	data-wearimage=\"${pageContext.request.contextPath}/upload/"+CodibookVo.wear+"\" ";
 		str += "	 	data-profile=\"${pageContext.request.contextPath}/upload/"+CodibookVo.profile+"\" ";
 		str += "	 	data-nicname=\""+CodibookVo.otherNicname+"\" ";
 		str += "		data-toggle=\"modal\" data-target=\'#modal\' data-keyboard=\"true\"";
@@ -621,6 +621,23 @@
 			}
 		});
 	});
+	
+	function getWearImage(no) {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/myroom/getWearImage",
+			type : "post",
+			dataType : "json",
+			data : {"no":no},
+			success : function(wearImg) {
+				console.log(wearImg);
+				$('#wearclothimg').attr('src', "${pageContext.request.contextPath}/upload/"+wearImg);
+			},
+
+			error : function(XHR, status, error) {
+				console.log("실패");
+			}
+		});
+	}
 </script>
 
 </html>
