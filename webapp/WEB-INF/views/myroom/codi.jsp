@@ -144,9 +144,10 @@ div:focus {
 					<h10 class="text-left" style="color:white;">>>메인>My Room>코디북>코디하기</h10>
 				</div>
 			</div>  
-
+			
 			<div class="bts" style="margin-top: 27px; margin-bottom:5px;">
-				<button id="reset" class="btn btn-default" style="margin-left: 37%;">Reset</button>
+				<h4 class="text-left" style="display:inline;"><strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.</strong></h4>
+				<button id="reset" class="btn btn-default" style="margin-left:3.5%;">Reset</button>
 				<form id="canvas" action="${pageContext.request.contextPath}/myroom/save"
 					method="post" style="margin: 0px; display: inline">
 					<Button id="save" class="btn btn-default">Save</Button> 
@@ -154,7 +155,6 @@ div:focus {
 					<input id="info_weather" name="weather" type="hidden" value="${weatherNo }">
 					<input id="info_temp" name="temp" type="hidden" value="${temp }">	
 				</form>
-
 			</div>
 			<div id="space">
 				<div class="left-box" style="border-radius: 1em;">

@@ -82,28 +82,7 @@
 				  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 				</ol>
 				<!-- 사진 -->
-				<div class="carousel-inner" role="listbox">
-				  <div class="carousel-item active">
-				    <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-1.jpg" alt="1">
-				  <div class="carousel-caption d-none d-md-block">
-				    <h3 class="text-shadow">First Slide</h3>
-				    <p class="text-shadow">This is the caption for the first slide.</p>
-				  </div>
-				</div>
-				<div class="carousel-item">
-				  <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/c.JPG" alt="2">
-				  <div class="carousel-caption d-none d-md-block">
-				    <h3 class="text-shadow">Second Slide</h3>
-				    <p class="text-shadow">This is the caption for the second slide.</p>
-				  </div>
-				</div>
-				<div class="carousel-item">
-				  <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-3.jpg" alt="3">
-				    <div class="carousel-caption d-none d-md-block">
-				      <h3 class="text-shadow">Third Slide</h3>
-				      <p class="text-shadow">This is the caption for the third slide.</p>
-				    </div>
-				  </div>
+				<div class="carousel-inner personCodiList" role="listbox">
 				</div>
 				<!-- 양쪽버튼 -->
 				 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -172,9 +151,41 @@
     <script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	
-	 
-	
-	
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var no = ${userNo};
+		console.log(no);
+		$.ajax({
+			url : "${pageContext.request.contextPath }/myroom/getCodiThree",
+			type : "post",
+			dataType : "json",
+			data : {"no":no},
+			success :function(codiList) {
+				for(var i = 0; i<codiList.length; i++) {
+					//$("#personCodi"+i).attr('src', "${pageContext.request.contextPath}/upload/"+dbList[i]);
+					showCodiList(codiList[i], i);
+					$('.list0').addClass('active');
+				}
+			},
+			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
+				console.error(status + " : " + error);
+			}
+		});
+	});
+	
+	function showCodiList(codiList, no) {
+		var str="";
+		str += "<div class=\"list"+no+" carousel-item\">";
+		str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/upload/"+codiList.codi+"\" alt=\"3\">";
+		str += "    <div class=\"carousel-caption d-none d-md-block\">";
+		str += "      <p class=\"text-shadow\" style=\"color:black;\">"+codiList.otherNicname+"님이 해주신 코디입니다.</p>";
+		str += "    </div>";
+		str += "</div>";
+		$(".personCodiList").append(str);
+	} 
+
+</script>
+
+
 </html>

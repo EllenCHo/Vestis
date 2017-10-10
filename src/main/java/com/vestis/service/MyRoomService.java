@@ -170,7 +170,10 @@ public class MyRoomService {
 	
 	public String getWearImage(int no) {
 		String str =  myRoomDao.getWearImage(no);
-		System.out.println(str+12341);
 		return str;
+	}
+	
+	public List<CodibookVo> getCodiThree(int no) {
+		return myRoomDao.getCodiThree(no);
 	}
 }

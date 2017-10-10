@@ -278,5 +278,12 @@ public class MyRoomController {
 		System.out.println("착용사진 가져오기1");
 		return myRoomService.getWearImage(no);
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/getCodiThree", method=RequestMethod.POST)
+	public List<CodibookVo> getCodiThree(@RequestParam("no") int no) {
+		return myRoomService.getCodiThree(no);
+	}
 }
 

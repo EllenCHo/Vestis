@@ -130,4 +130,8 @@ public class MyRoomDao {
 	public String getWearImage(int no) {
 		return sqlSession.selectOne("myroom.getWearImage", no);
 	}
+	
+	public List<CodibookVo> getCodiThree(int no) {
+		return sqlSession.selectList("myroom.getCodiThree", no);
+	}
 }

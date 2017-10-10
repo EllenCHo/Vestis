@@ -189,4 +189,18 @@
 				and codi_photo_no = img.no	
 		]]>
 	</select>
+	
+	<select id="getCodiThree" parameterType="int" resultType="com.vestis.vo.CodibookVo">
+		<![CDATA[
+			select db_name codi, nicname otherNicname
+			from (  select rownum rn, db_name, person.nicname
+			        from codi, img, person
+			        where other_no = #{no}
+			        and person_no != #{no}
+			        and person_no = person.no
+			        and codi_no = img.no
+			        order by codi.no desc)
+			where rn <= 3
+		]]>
+	</select>
 </mapper>
