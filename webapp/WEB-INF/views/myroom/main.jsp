@@ -162,10 +162,22 @@
 			dataType : "json",
 			data : {"no":no},
 			success :function(codiList) {
-				for(var i = 0; i<codiList.length; i++) {
-					showCodiList(codiList[i], i);
+				if(codiList.length == 0) {
+					var str="";
+					str += "<div class=\"list0 carousel-item\">";
+					str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/assets/img/base_recommendImg.png\" alt=\"추천코디\">";
+					str += "</div>";
+					$(".personCodiList").append(str);
+					
 					$('.list0').addClass('active');
+				} else {
+					for(var i = 0; i<codiList.length; i++) {
+						showCodiList(codiList[i], i);
+						$('.list0').addClass('active');
+					}
 				}
+				
+				
 			},
 			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
 				console.error(status + " : " + error);
@@ -176,7 +188,7 @@
 	function showCodiList(codiList, no) {
 		var str="";
 		str += "<div class=\"list"+no+" carousel-item\">";
-		str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/upload/"+codiList.codi+"\" alt=\"3\">";
+		str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/upload/"+codiList.codi+"\" alt=\"추천코디\">";
 		str += "    <div class=\"carousel-caption d-none d-md-block\">";
 		str += "      <p class=\"text-shadow\" style=\"color:black;\">"+codiList.otherNicname+"님이 해주신 코디입니다.</p>";
 		str += "    </div>";

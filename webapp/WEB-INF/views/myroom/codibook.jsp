@@ -134,6 +134,12 @@
 	left: 0;
 	right: 0;
 }
+
+
+ a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+ a:hover { color: black; text-decoration: none;}
+
 </style>
 
 </head>
@@ -147,9 +153,11 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<p class="text-left nicname" style="margin-bottom: 0;">
+						<a>
 						<img class="prifile_photo"
 							src="http://bootdey.com/img/Content/user_1.jpg" alt="프로필사진"
 							style="margin-right: 10px;">
+						</a>
 					</p>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close" aria-hidden="true">&times;</button>
@@ -262,6 +270,7 @@
 			  console.log(info);
 			  var no = info[0].no;
 			  console.log(no);
+			  var otherNo = info[0].other;
 			  var img = info[0].image; // Extract info from data-* attributes
 			  console.log(img);
 			  /* var wearimg = info[0].wearimage; // Extract info from data-* attributes */
@@ -274,8 +283,10 @@
 
 			  
 			  var str = ""
+			  str += "<a href=\"${pageContext.request.contextPath }/myroom/"+otherNo+"\" style=\"text-decoration: none;\">";
 			  str += "<img class=\"prifile_photo\" src=\"\" alt=\"프로필사진\" style=\"margin-right: 10px;\">";
 			  str += nicname;
+			  str += "</a>";
 			  
 			  getWearImage(no);
 			  
@@ -358,6 +369,7 @@
 		str += "	<button class=\"btn btn-default btn-xs deleteCodiBtn\" style=\"float:right;\" value="+CodibookVo.no+">X</button>";
 		str += "	<div id=\"openModal"+CodibookVo.no+"\"";
 		str += "	 	data-no=\""+CodibookVo.no+"\" ";
+		str += "	 	data-other=\""+CodibookVo.otherNo+"\" ";
 		str += "	 	data-image=\"${pageContext.request.contextPath}/upload/"+CodibookVo.codi+"\" ";
 		str += "	 	data-profile=\"${pageContext.request.contextPath}/upload/"+CodibookVo.profile+"\" ";
 		str += "	 	data-nicname=\""+CodibookVo.otherNicname+"\" ";
