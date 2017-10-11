@@ -59,6 +59,14 @@ public class MyRoomDao {
 		sqlSession.update("myroom.chooseClick", no);
 	}
 	
+	public List<Integer> getCodiNo(int no) {
+		return sqlSession.selectList("myroom.getCodiNo", no);
+	}
+	
+	public void setCount(int no) {
+		sqlSession.update("myroom.setCount", no);
+	}
+	
 	public int getWeather(int no) {
 		return sqlSession.selectOne("myroom.getWeather", no);
 	}

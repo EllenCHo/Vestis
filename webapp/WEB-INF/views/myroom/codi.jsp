@@ -138,13 +138,7 @@ div:focus {
 	<div class="container">
 		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 		
-		<div class="codi-space">
-			<div id="row">
-				<div class="col-md-12">
-					<h10 class="text-left" style="color:white;">>>메인>My Room>코디북>코디하기</h10>
-				</div>
-			</div>  
-			
+		<div class="codi-space">			
 			<div class="bts" style="margin-top: 27px; margin-bottom:5px;">
 				<h4 class="text-left" style="display:inline;"><strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.</strong></h4>
 				<button id="reset" class="btn btn-default" style="margin-left:3.5%;">Reset</button>

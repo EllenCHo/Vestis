@@ -203,4 +203,22 @@
 			where rn <= 3
 		]]>
 	</select>
+	
+	<select id="getCodiNo" parameterType="int" resultType="int">
+		<![CDATA[
+			select cloth_no
+			from codi_cloth
+			where codi_no = #{no}
+		]]>
+	</select>
+	
+	<update id="setCount" parameterType="int">
+		<![CDATA[
+			update cloth
+			set count = (select count+1
+			             from cloth
+			             where no = #{no})
+			where no = #{no}
+		]]>
+	</update>
 </mapper>

@@ -97,7 +97,7 @@
 	    </div>
 	    
       <!-- 사진 전체틀2 -->
-	  	<div class="photo bg-faded my-4">
+	  <div class="photo bg-faded my-4">
 	    	<!-- Image Carousel -->
 	    	<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 	        	<!-- 사진 내에 버튼 -->
@@ -107,7 +107,7 @@
 				  <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
 				</ol>
 				<!-- 사진 -->
-				<div class="carousel-inner" role="listbox">
+				<div class="carousel-inner systemCodiList" role="listbox">
 				  <div class="carousel-item active">
 				    <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/k.png" alt="1">
 				  <div class="carousel-caption d-none d-md-block">
@@ -163,7 +163,6 @@
 			data : {"no":no},
 			success :function(codiList) {
 				for(var i = 0; i<codiList.length; i++) {
-					//$("#personCodi"+i).attr('src', "${pageContext.request.contextPath}/upload/"+dbList[i]);
 					showCodiList(codiList[i], i);
 					$('.list0').addClass('active');
 				}
@@ -184,7 +183,6 @@
 		str += "</div>";
 		$(".personCodiList").append(str);
 	} 
-
 </script>
 
 

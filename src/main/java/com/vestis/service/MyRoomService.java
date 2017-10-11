@@ -86,6 +86,11 @@ public class MyRoomService {
 		myRoomDao.setChoiceWeather(choiceWeather, temp, weatherNo);
 		System.out.println("채택 날씨 저장 완료");
 		myRoomDao.chooseClick(no);
+		List<Integer> list = myRoomDao.getCodiNo(no);
+		System.out.println(list.size());
+		for(int i=0; i<list.size(); i++) {
+			myRoomDao.setCount(list.get(i));
+		}
 	}
 	
 	public void likebtnClick(int voNo, int authNo) {
