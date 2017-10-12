@@ -44,10 +44,12 @@ public class MyRoomController {
 		UserVo userVo = myRoomService.getUserLL(userNo);
 		
 		//내일 날씨
-		ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
+		//ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
 		
-		String ToTemp = clothToWeatherVo.getTemp() + "°C";
-		int ToIndexNo = clothToWeatherVo.getWeatherNo();
+		//String ToTemp = clothToWeatherVo.getTemp() + "°C";
+		//int ToIndexNo = clothToWeatherVo.getWeatherNo();
+		String ToTemp = 20 + "°C";
+		int ToIndexNo = 1;
 		System.out.println(ToTemp);
 		System.out.println(weather[ToIndexNo]);
 		
@@ -60,7 +62,6 @@ public class MyRoomController {
 		
 		model.addAttribute("tomorrowTemp", ToTemp);
 		model.addAttribute("tomorrowWeather", weather[ToIndexNo]);
-		model.addAttribute("tomorrowWeatherNo", ToIndexNo);
 		//내일 날씨 끝
 		
 		//오늘 날씨
@@ -70,17 +71,22 @@ public class MyRoomController {
 		} else {*/
 			//오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
 			//오늘 날씨 가져오기
-			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
+			/*ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
 			
 			String temp = clothWeatherVo.getTemp() + "°C";
-			int indexNo = clothWeatherVo.getWeatherNo();
+			int indexNo = clothWeatherVo.getWeatherNo();*/
 			
+			String temp = 20 + "°C";
+			int indexNo = 1;
 			//db에서 날씨에 맞게 옷을 가져오기
 			
+			//서비스단에서 하나씩 옷 imgVo를 가져와서 list에 add한다음 return
 			//db에서 옷을 뽑아와서 리스트(ImgVo)로 넘길것 -> 코디를 저장하기 위함
 			String[] dbName = {"1505462846543fb63546f-ec73-4695-bf93-eea166829f4c.png", "1505461833031f9d8acf8-b313-4528-aa9e-660a9cca1ca5.png", "7809fc1e-81b5-4ddb-9c62-d3f072b881ea.png"};
+			//온도랑 날씨, index 넘기기
+			List<ImgVo> clothImg = myRoomService.getDayCloth(userNo, 20, indexNo);
 			
-			model.addAttribute("todayCloth", dbName);
+			model.addAttribute("todayCloth", clothImg);
 			
 			model.addAttribute("todayTemp", temp);
 			model.addAttribute("todayWeather", weather[indexNo]);
@@ -149,8 +155,10 @@ public class MyRoomController {
 	public String save(@RequestParam("data") String binaryData, @RequestParam("choice") String[] choice,
 			@RequestParam("weather") String weather, @RequestParam("temp") String temper,
 			@PathVariable("userNo") int userNo, Model model, HttpSession session) throws Exception {
+		System.out.println("save 들어옴");
 		System.out.println(weather + temper);
 		System.out.println(userNo);
+
 
 		temper = temper.substring(0, temper.length() - 2);
 		int temp = Integer.parseInt(temper);

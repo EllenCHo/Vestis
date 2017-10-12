@@ -81,10 +81,12 @@ public class MyRoomDao {
 		sqlSession.update("myroom.setChoiceWeather", map);
 	}
 	
-	public void likebtnClick(int voNo, int authNo) {
+	public void likebtnClick(int voNo, int authNo, String date) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("voNo", voNo);
 		map.put("authNo", authNo);
+		map.put("date", date);
+		
 		sqlSession.insert("myroom.likebtnClick", map);
 	}
 	
@@ -155,5 +157,15 @@ public class MyRoomDao {
 		map.put("date", date);
 		
 		sqlSession.insert("myroom.addCalData", map);
+	}
+	
+	public ImgVo getDayCloth(int userNo, int type, int temp, int indexNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userNo", userNo);
+		map.put("type", type);	
+		map.put("temp", temp);	
+		map.put("indexNo", indexNo);
+		
+		return sqlSession.selectOne("myroom.getDayCloth", map);
 	}
 }

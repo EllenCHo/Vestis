@@ -322,11 +322,12 @@
 								console.log("종아요 버튼");
 
 								var authNo = ${authUser.no};
+								
 								console.log($($this).val());
 								likebtnClick($this.val(), authNo);
+								
 								var c = $this.data('count');
-								if (!c)
-									c = 0;
+								console.log(c);
 								c++;
 								$this.data('count', c);							
 								$('#' + this.id + '-bs').html(c);
@@ -407,7 +408,7 @@
 			str += "		</button>";
 		} else {
 			str += "		<button class=\"btn btn-sm btn-default btn-hover likebtn\"";
-			str += "			style=\"display: inline; float:right; margin-top:5%\" data="+CodibookVo.likes+" value="+CodibookVo.no+"	 id=\"like"
+			str += "			style=\"display: inline; float:right; margin-top:5%\" data-count="+CodibookVo.likes+" value="+CodibookVo.no+"	 id=\"like"
 					+ CodibookVo.no + "\">";
 			str += "			<span class=\"glyphicon glyphicon-thumbs-up\"><div id=\"like"+CodibookVo.no+"-bs\" style=\"display: inline; margin-left: 2px;\">"
 					+ CodibookVo.likes + "</div></span>";

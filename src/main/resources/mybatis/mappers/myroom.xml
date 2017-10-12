@@ -98,7 +98,7 @@
 	<insert id="likebtnClick" parameterType="map">
 		<![CDATA[
 			insert into like_person
-			values(#{voNo}, #{authNo})			
+			values(#{voNo}, #{authNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))			
 		]]>
 	</insert>
 	
@@ -236,4 +236,12 @@
 			values(seq_calculation_no.nextval, #{clothNo}, #{weatherNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))
 		]]>
 	</insert>
+	
+	<select id="getDayCloth" parameterType="map" resultType="com.vestis.vo.ImgVo">
+		<![CDATA[
+			select no, db_name dbName
+			from img
+			where no = 48
+		]]>
+	</select>
 </mapper>

@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
@@ -102,7 +103,11 @@ public class MyRoomService {
 	}
 	
 	public void likebtnClick(int voNo, int authNo) {
-		myRoomDao.likebtnClick(voNo, authNo);
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(cal.getTime());
+		
+		myRoomDao.likebtnClick(voNo, authNo, date);
 	}
 	
 	public void deleteBtnClick(int no) {
@@ -192,5 +197,17 @@ public class MyRoomService {
 	
 	public UserVo getUserLL(int no) {
 		return myRoomDao.getUserLL(no);
+	}
+	
+	public List<ImgVo> getDayCloth(int userNo, int temp, int indexNo) {
+		List<ImgVo> clothList = new ArrayList<ImgVo>();
+		//2 : top, 3:bottom, 4:shoes
+		ImgVo top = myRoomDao.getDayCloth(userNo, 2, temp, indexNo);
+		clothList.add(top);
+		ImgVo bottom = myRoomDao.getDayCloth(userNo, 3, temp, indexNo);
+		clothList.add(bottom);
+		ImgVo shoes = myRoomDao.getDayCloth(userNo, 4, temp, indexNo);
+		clothList.add(shoes);
+		return null;
 	}
 }

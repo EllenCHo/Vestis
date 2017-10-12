@@ -400,47 +400,50 @@ div:focus {
 		var weather = $("#info_weather");
 		var temp = $("#info_temp");
 		
-		console.log(chsitems)
-		//이미지 만들기
-		html2canvas($(".left-box"), {
-			onrendered : function(canvas) {
-				// canvas is the final rendered <canvas> element
-				//이미지 형태 지정
-				var myImage = canvas.toDataURL("image/png");
-
-				$("#data").val(myImage);
-
-				console.log(myImage);
-				var jb = jQuery.noConflict();
-				jQuery.ajaxSettings.traditional = true;
-				var allData = {
-					"data" : $("#data").serialize(),
-					"choice" : chsitems,
-					"weather" : $("#info_weather").val(),
-					"temp" : $("#info_temp").val()
-				};
-				
-				console.log(allData);
-				jb.ajax({
-					url : "${pageContext.request.contextPath}/myroom/save/${userNo}",
-					type : "POST",
+		console.log(chsitems.length)
+		if(chsitems.length == 0) {
+			alert("옷을 선택해주세요.");
+		} else {
+			//이미지 만들기
+			html2canvas($(".left-box"), {
+				onrendered : function(canvas) {
+					// canvas is the final rendered <canvas> element
+					//이미지 형태 지정
+					var myImage = canvas.toDataURL("image/png");
+	
+					$("#data").val(myImage);
+	
+					//console.log(myImage);
+					var jb = jQuery.noConflict();
+					jQuery.ajaxSettings.traditional = true;
+					var allData = {
+						"data" : $("#data").serialize(),
+						"choice" : chsitems,
+						"weather" : $("#info_weather").val(),
+						"temp" : $("#info_temp").val()
+					};
 					
-					data : allData,
-					
-					success : function(result) {
-						console.log(result);
-						alert("저장됐습니다.");
-						window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}");
-					},
-
-					error : function(XHR, status, error) {
-						//window.location.replace("${pageContext.request.contextPath}/myroom/codi");
-						console.log("실패");
-					}
-				});
-			}
-		});
-
+					console.log(allData);
+					jb.ajax({
+						url : "${pageContext.request.contextPath}/myroom/save/${userNo}",
+						type : "POST",
+						
+						data : allData,
+						
+						success : function(result) {
+							console.log(result);
+							alert("저장됐습니다.");
+							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}");
+						},
+	
+						error : function(XHR, status, error) {
+							//window.location.replace("${pageContext.request.contextPath}/myroom/codi");
+							console.log("실패");
+						}
+					});
+				}
+			});
+		}
 	});
 </script>
 </html>
