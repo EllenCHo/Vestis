@@ -52,8 +52,26 @@
 }
  */
  
+.system-box {
+	background: #FFFFFF;
+	float: left;
+	width: 100%;
+	height: 522.61px;
+	padding: 1%
+}
 
 
+.cWeather {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    z-index: 10;
+}
+
+.systemLabel{
+	bottom : 1px !important;
+	padding-bottom : 1px !important;
+}
 </style>
 
 
@@ -76,11 +94,11 @@
 	    	<!-- Image Carousel -->
 	    	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	        	<!-- 사진 내에 버튼 -->
-				<ol class="carousel-indicators">
+				<!-- <ol class="carousel-indicators">
 				  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 				  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				</ol>
+				</ol> -->
 				<!-- 사진 -->
 				<div class="carousel-inner personCodiList" role="listbox">
 				</div>
@@ -101,33 +119,43 @@
 	    	<!-- Image Carousel -->
 	    	<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 	        	<!-- 사진 내에 버튼 -->
-				<ol class="carousel-indicators">
+				<!-- <ol class="carousel-indicators">
 				  <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active" ></li>
 				  <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
 				  <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-				</ol>
+				</ol> -->
 				<!-- 사진 -->
 				<div class="carousel-inner systemCodiList" role="listbox">
-				  <div class="carousel-item active">
-				    <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/k.png" alt="1">
+				 <%--  <div class="carousel-item">
+				    <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/base_systemRecommendImg.png" alt="1">
 				  <div class="carousel-caption d-none d-md-block">
-				    <h3 class="text-shadow">First Slide</h3>
-				    <p class="text-shadow">This is the caption for the first slide.</p>
+				    <h3 class="text-shadow"><strong>어제의 추천 코디</strong></h3>
+				      <p class="text-shadow">어제의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 				  </div>
-				</div>
-				<div class="carousel-item">
-				  <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-2.jpg" alt="2">
-				  <div class="carousel-caption d-none d-md-block">
-				    <h3 class="text-shadow">Second Slide</h3>
-				    <p class="text-shadow">This is the caption for the second slide.</p>
+				</div>--%>
+				<div class="carousel-item active">
+				  <canvas id="todayCanvas" width="412" height="522.61" style="background: #FFFEEE; border-radius: 1em;"></canvas>
+				  <div class="cWeather" style="float:left;">
+						<img alt="날씨"
+							src="${pageContext.request.contextPath}/assets/img/${todayWeather}.png"
+							style="width: 30%; height: auto;">${todayTemp}
 				  </div>
-				</div>
+				  <div class="carousel-caption d-none d-md-block systemLabel">
+				      <h3 class="text-shadow" style="color:black;"><strong>오늘의 추천 코디</strong></h3>
+				      <p class="text-shadow">오늘의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+				  </div>
+				</div> 
 				<div class="carousel-item">
-				  <img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-3.jpg" alt="3">
-				    <div class="carousel-caption d-none d-md-block">
-				      <h3 class="text-shadow">Third Slide</h3>
-				      <p class="text-shadow">This is the caption for the third slide.</p>
-				    </div>
+				 <canvas id="tomorrowCanvas" width="412" height="522.61" style="background: #FFFEEE; border-radius: 1em;"></canvas>
+				 <div class="cWeather" style="float:left;">
+						<img alt="날씨"
+							src="${pageContext.request.contextPath}/assets/img/${tomorrowWeather}.png"
+							style="width: 30%; height: auto;">${tomorrowTemp}
+				</div>
+				 <div class="carousel-caption d-none d-md-block systemLabel">
+				    <h3 class="text-shadow" style="color:black;"><strong>내일의 추천 코디</strong></h3>
+				    <p class="text-shadow">내일의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+				  </div>
 				  </div>
 				</div>
 				<!-- 양쪽버튼 -->
@@ -154,8 +182,58 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
+		if("${todayImg}" != ""){
+			console.log("오늘 코디 이미 해줌");
+		} else {
+			var todayCloth = new Array();
+			var clothItems = new Array();
+			
+			<c:forEach items="${todayCloth}" var="cloth">
+				var json = new Object();
+				//var noJson = new Object();
+				json = "${cloth}";
+				//json = "${cloth.dbName}";
+				//noJson = "${cloth.no}";
+				console.log(json);
+				todayCloth.push(json);
+				//clothItems.push(noJson);
+			</c:forEach>
+			
+			console.log(todayCloth);
+			
+			//캔버스에 옷 그리기
+			drawCloth(todayCloth, $('#todayCanvas'));
+			
+			//캔버스에 그려진것 저장하는 함수
+			var Image = $('#todayCanvas').toDataURL();
+			
+			jQuery.ajaxSettings.traditional = true;
+			/* var allData = {
+				"data" : Image.serialize(),
+				"choice" : chsitems,
+				"weather" : $("#info_weather").val(),
+				"temp" : $("#info_temp").val()
+			}; */
+			
+		}
+		
+		var tomorrowCloth = new Array();
+		
+		<c:forEach items="${tomorrowCloth}" var="cloth">
+			var json = new Object();
+			json = "${cloth}";
+			console.log(json);
+			tomorrowCloth.push(json);
+		</c:forEach>
+		
+		console.log(tomorrowCloth);
+		drawCloth(tomorrowCloth, $('#tomorrowCanvas'));
 		var no = ${userNo};
-		console.log(no);
+		getPersonCodi(no);
+	});
+	
+	//사용자 추천 ajax 함수
+	function getPersonCodi(no) {
 		$.ajax({
 			url : "${pageContext.request.contextPath }/myroom/getCodiThree",
 			type : "post",
@@ -183,18 +261,69 @@
 				console.error(status + " : " + error);
 			}
 		});
-	});
+	}
 	
+	//사용자 추천 코디 보여주기
 	function showCodiList(codiList, no) {
 		var str="";
 		str += "<div class=\"list"+no+" carousel-item\">";
 		str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/upload/"+codiList.codi+"\" alt=\"추천코디\">";
 		str += "    <div class=\"carousel-caption d-none d-md-block\">";
-		str += "      <p class=\"text-shadow\" style=\"color:black;\">"+codiList.otherNicname+"님이 해주신 코디입니다.</p>";
+		str += "      <h5 class=\"text-shadow\" style=\"color:black;\">\""+codiList.otherNicname+"\"님의 추천 코디</h5>";
 		str += "    </div>";
 		str += "</div>";
 		$(".personCodiList").append(str);
 	} 
+	
+	function drawCloth(day, canvas) {
+		//이미지 객체 생성
+        var topImg = new Image();
+        var bottomImg = new Image();
+        var shoesImg = new Image();
+        var ctx = canvas.get(0).getContext("2d"); 
+        
+        //페이지 로드후 이미지가 로드 되었을 때 이미지 출력
+        topImg.addEventListener('load', function(){
+            //로드된 이미지를 캔버스에 출력
+            //var context = document.getElementById('tomorrowCanvas').getContext("2d");
+
+            //canvas.drawImage() 함수를 사용하여 이미지 출력
+            //drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+            ctx.drawImage(topImg , 30, 20, 200, 200);
+            
+       
+        },false);
+        
+      //페이지 로드후 이미지가 로드 되었을 때 이미지 출력
+        bottomImg.addEventListener('load', function(){
+            //로드된 이미지를 캔버스에 출력
+            //var context = document.getElementById('tomorrowCanvas').getContext("2d");
+
+            //canvas.drawImage() 함수를 사용하여 이미지 출력
+            //drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+            ctx.drawImage(bottomImg , 90, 150, 200, 200);
+       
+        },false);
+      
+      //페이지 로드후 이미지가 로드 되었을 때 이미지 출력
+        shoesImg.addEventListener('load', function(){
+            //로드된 이미지를 캔버스에 출력
+            //var context = document.getElementById('tomorrowCanvas').getContext("2d");
+            //canvas.drawImage() 함수를 사용하여 이미지 출력
+            //drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+            ctx.drawImage(shoesImg , 200, 280, 150, 150);
+       
+        },false);
+
+      console.log(day[0]);
+      console.log(day[1]);
+        //이미지 경로 설정
+        topImg.src="${pageContext.request.contextPath}/upload/"+day[0]+"";
+      //이미지 경로 설정
+        bottomImg.src="${pageContext.request.contextPath}/upload/"+day[1]+"";
+      //이미지 경로 설정
+        shoesImg.src="${pageContext.request.contextPath}/upload/"+day[2]+"";     
+	}
 </script>
 
 

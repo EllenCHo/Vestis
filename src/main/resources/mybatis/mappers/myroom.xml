@@ -221,4 +221,19 @@
 			where no = #{no}
 		]]>
 	</update>
+	
+	<select id="getUserLL" parameterType="int" resultType="com.vestis.vo.UserVo">
+		<![CDATA[
+			select lat, lon
+			from person
+			where no = #{no}
+		]]>
+	</select>
+	
+	<insert id="addCalData" parameterType="map">
+		<![CDATA[
+			insert into calculation
+			values(seq_calculation_no.nextval, #{clothNo}, #{weatherNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))
+		]]>
+	</insert>
 </mapper>

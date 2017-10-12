@@ -47,12 +47,13 @@ public class MyRoomService {
 		for(int i=0; i<choice.length; i++) {
 			int no = Integer.parseInt(choice[i]);
 			myRoomDao.addCodiCloth(codiNo, no);
+			myRoomDao.addCalData(no, weatherSaveNo, date);
 		}
 
 	}
 	
-	public ClothWeatherVo getWeather(UserVo authUser) {
-		WeatherVo weatherVo = WeatherInfo.setting(authUser.getLat(), authUser.getLon());
+	public ClothWeatherVo getWeather(int type, UserVo authUser) {
+		WeatherVo weatherVo = WeatherInfo.setting(type, authUser.getLat(), authUser.getLon());
 		String code = weatherVo.getSkyCode();
 		code = code.substring(code.length() - 2, code.length());
 		int weatherNo = Integer.parseInt(code);
@@ -81,15 +82,22 @@ public class MyRoomService {
 	}
 	
 	public void chooseClick(int no, int temp, int weatherNo) {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(cal.getTime());
+		
 		int choiceWeather = myRoomDao.getWeather(no);
 		System.out.println(choiceWeather);
 		myRoomDao.setChoiceWeather(choiceWeather, temp, weatherNo);
 		System.out.println("채택 날씨 저장 완료");
 		myRoomDao.chooseClick(no);
+		
 		List<Integer> list = myRoomDao.getCodiNo(no);
 		System.out.println(list.size());
+		
 		for(int i=0; i<list.size(); i++) {
 			myRoomDao.setCount(list.get(i));
+			myRoomDao.addCalData(list.get(i), choiceWeather, date);
 		}
 	}
 	
@@ -180,5 +188,9 @@ public class MyRoomService {
 	
 	public List<CodibookVo> getCodiThree(int no) {
 		return myRoomDao.getCodiThree(no);
+	}
+	
+	public UserVo getUserLL(int no) {
+		return myRoomDao.getUserLL(no);
 	}
 }

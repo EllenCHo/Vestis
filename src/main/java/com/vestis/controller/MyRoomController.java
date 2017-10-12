@@ -39,6 +39,54 @@ public class MyRoomController {
 	
 	@RequestMapping(value = "/{userNo}")
 	public String main(@PathVariable("userNo") int userNo, Model model) {
+		String[] weather = { "sunny", "cloudy", "rainy", "snow" };
+		
+		UserVo userVo = myRoomService.getUserLL(userNo);
+		
+		//내일 날씨
+		ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
+		
+		String ToTemp = clothToWeatherVo.getTemp() + "°C";
+		int ToIndexNo = clothToWeatherVo.getWeatherNo();
+		System.out.println(ToTemp);
+		System.out.println(weather[ToIndexNo]);
+		
+		//db에서 날씨에 맞게 옷을 가져오기
+		
+		//db에서 옷을 뽑아와서 배열에 저장
+		String[] ToDbName = {"1505462846543fb63546f-ec73-4695-bf93-eea166829f4c.png", "1505461833031f9d8acf8-b313-4528-aa9e-660a9cca1ca5.png", "7809fc1e-81b5-4ddb-9c62-d3f072b881ea.png"};
+		
+		model.addAttribute("tomorrowCloth", ToDbName);
+		
+		model.addAttribute("tomorrowTemp", ToTemp);
+		model.addAttribute("tomorrowWeather", weather[ToIndexNo]);
+		model.addAttribute("tomorrowWeatherNo", ToIndexNo);
+		//내일 날씨 끝
+		
+		//오늘 날씨
+		//오눌 날씨에 대한 코디 테이블이 있는지 검사 -> 있으면 그걸을 화면에 뿌려짐
+		/*if() {
+			model.addAttribute("todayCloth", dbName);
+		} else {*/
+			//오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
+			//오늘 날씨 가져오기
+			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
+			
+			String temp = clothWeatherVo.getTemp() + "°C";
+			int indexNo = clothWeatherVo.getWeatherNo();
+			
+			//db에서 날씨에 맞게 옷을 가져오기
+			
+			//db에서 옷을 뽑아와서 리스트(ImgVo)로 넘길것 -> 코디를 저장하기 위함
+			String[] dbName = {"1505462846543fb63546f-ec73-4695-bf93-eea166829f4c.png", "1505461833031f9d8acf8-b313-4528-aa9e-660a9cca1ca5.png", "7809fc1e-81b5-4ddb-9c62-d3f072b881ea.png"};
+			
+			model.addAttribute("todayCloth", dbName);
+			
+			model.addAttribute("todayTemp", temp);
+			model.addAttribute("todayWeather", weather[indexNo]);
+			model.addAttribute("todayWeatherNo", indexNo);		
+		/*}*/
+
 		model.addAttribute("userNo", userNo);
 		return "/myroom/main";
 	}
@@ -55,7 +103,7 @@ public class MyRoomController {
 
 		// 자신의 페이지에서 코디할 경우 지금의 날씨를 알려줌
 		if (userNo == authNo) {
-			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(authUser);
+			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
 			
 			String temp = clothWeatherVo.getTemp() + "°C";
 			int indexNo = clothWeatherVo.getWeatherNo();
@@ -163,7 +211,7 @@ public class MyRoomController {
 	@RequestMapping(value ="/chooseClick", method=RequestMethod.POST)
 	public String chooseClick(@RequestParam("no") int no, HttpSession session) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		ClothWeatherVo clothWeatherVo = myRoomService.getWeather(authUser);
+		ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
 		System.out.println("채택버튼 클릭");
 		myRoomService.chooseClick(no, clothWeatherVo.getTemp(), clothWeatherVo.getWeatherNo());		
 		return "success";
@@ -240,9 +288,7 @@ public class MyRoomController {
 	@ResponseBody//리턴값을 컨트롤러로보냄
 	@RequestMapping(value="/send")
 	public List<ImgVo> send(@RequestParam ("clothNo") int clothNo) {
-		/*System.out.println(clothNo);*/
 		List<ImgVo> list=fileUploadService.send(clothNo);
-		/*System.out.println(list);*/
 		return list;
 	}
 	
@@ -261,7 +307,6 @@ public class MyRoomController {
 	@ResponseBody
 	@RequestMapping(value="/commentList", method=RequestMethod.POST)
 	public List<CodiCoVo> commentList(@RequestParam("no") int no) {
-		System.out.println("댓글 리스트 가져오기");
 		return myRoomService.getCommentList(no);
 	}
 	
@@ -275,7 +320,6 @@ public class MyRoomController {
 	@ResponseBody
 	@RequestMapping(value="/getWearImage", method=RequestMethod.POST)
 	public String getWearImage(@RequestParam("no") int no) {
-		System.out.println("착용사진 가져오기1");
 		return myRoomService.getWearImage(no);
 	}
 	

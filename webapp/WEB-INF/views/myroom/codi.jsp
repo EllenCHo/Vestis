@@ -48,7 +48,7 @@
 }
 
 .left-box {
-	background: #FFFEEE;
+	background: #FFFFFF;
 	float: left;
 	width: 49.5%;
 	height: 600px;
@@ -414,7 +414,7 @@ div:focus {
 				var jb = jQuery.noConflict();
 				jQuery.ajaxSettings.traditional = true;
 				var allData = {
-					"data" : $("#canvas").serialize(),
+					"data" : $("#data").serialize(),
 					"choice" : chsitems,
 					"weather" : $("#info_weather").val(),
 					"temp" : $("#info_temp").val()

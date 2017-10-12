@@ -14,6 +14,7 @@ import com.vestis.vo.CodiCoVo;
 import com.vestis.vo.CodiVo;
 import com.vestis.vo.CodibookVo;
 import com.vestis.vo.ImgVo;
+import com.vestis.vo.UserVo;
 
 @Repository
 public class MyRoomDao {
@@ -141,5 +142,18 @@ public class MyRoomDao {
 	
 	public List<CodibookVo> getCodiThree(int no) {
 		return sqlSession.selectList("myroom.getCodiThree", no);
+	}
+	
+	public UserVo getUserLL(int no) {
+		return sqlSession.selectOne("myroom.getUserLL", no);
+	}
+	
+	public void addCalData(int clothNo, int weatherNo, String date) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("clothNo", clothNo);	
+		map.put("weatherNo", weatherNo);	
+		map.put("date", date);
+		
+		sqlSession.insert("myroom.addCalData", map);
 	}
 }
