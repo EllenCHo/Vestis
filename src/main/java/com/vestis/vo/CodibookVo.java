@@ -3,6 +3,8 @@ package com.vestis.vo;
 public class CodibookVo {
 	private int no;			//Codi db 번호
 	private int otherNo;	//코디해준사람 번호
+	private int ownerNo;
+	private int ownername;
 	private String otherNicname;	//코디해준 사람 닉네임
 	private String profile;		//프로필사진 
 	private String codi;		//코디사진
@@ -97,5 +99,21 @@ public class CodibookVo {
 
 	public void setLikeflag(int likeflag) {
 		this.likeflag = likeflag;
+	}
+
+	public int getOwnerNo() {
+		return ownerNo;
+	}
+
+	public void setOwnerNo(int ownerNo) {
+		this.ownerNo = ownerNo;
+	}
+
+	public int getOwnername() {
+		return ownername;
+	}
+
+	public void setOwnername(int ownername) {
+		this.ownername = ownername;
 	}
 }
