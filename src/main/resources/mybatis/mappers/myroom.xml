@@ -49,7 +49,7 @@
 									from codi, person, img codiimg, img pro_img, person p2,
 									     (select codi_no like_codi_no, count(like_person.person_no) likes 
 						                 from like_person
-						                 group by like_person.person_no, codi_no)
+						                 group by codi_no)
 									where p2.no = codi.person_no
                             			and person.no = codi.other_no	
 										and other_no=#{num}
