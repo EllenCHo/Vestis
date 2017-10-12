@@ -210,4 +210,12 @@ public class MyRoomService {
 		clothList.add(shoes);
 		return clothList;
 	}
+	
+	public String getTodaySystemCodi(int no) {
+		return myRoomDao.getTodaySystemCodi(no);
+	}
+	
+	public String getYesSystemCodi(int no) {
+		return myRoomDao.getYesSystemCodi(no);
+	}
 }

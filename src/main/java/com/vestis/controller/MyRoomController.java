@@ -43,6 +43,8 @@ public class MyRoomController {
 		
 		UserVo userVo = myRoomService.getUserLL(userNo);
 		
+		String ysDbName = myRoomService.getYesSystemCodi(userNo);
+		model.addAttribute("yesterImg", ysDbName);
 		//내일 날씨
 		//ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
 		
@@ -65,9 +67,13 @@ public class MyRoomController {
 		
 		//오늘 날씨
 		//오눌 날씨에 대한 코디 테이블이 있는지 검사 -> 있으면 그걸을 화면에 뿌려짐
-		/*if() {
-			model.addAttribute("todayCloth", dbName);
-		} else {*/
+		String dbName = myRoomService.getTodaySystemCodi(userNo);
+		System.out.println(dbName);
+		if(dbName != null) {
+			model.addAttribute("todayImg", dbName);
+			
+		} else {
+			System.out.println("오늘 시스템 코디 추천");
 			//오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
 			//오늘 날씨 가져오기
 			/*ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
@@ -86,7 +92,7 @@ public class MyRoomController {
 			model.addAttribute("todayTemp", temp);
 			model.addAttribute("todayWeather", weather[indexNo]);
 			model.addAttribute("todayWeatherNo", indexNo);		
-		/*}*/
+		}
 
 		model.addAttribute("userNo", userNo);
 		return "/myroom/main";

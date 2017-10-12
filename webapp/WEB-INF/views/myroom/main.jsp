@@ -146,7 +146,7 @@
 							<p class="text-shadow">어제의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
-					<div class="carousel-item active">
+					<div id = "todaySystem" class="carousel-item active">
 						<canvas id="todayCanvas" width="412" height="522.61"
 							style="background: #FFFFF; border-radius: 1em;"></canvas>
 						<input id="data" name="data" type="hidden"> <input
@@ -187,15 +187,15 @@
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
-	<div style="display: none">
+	<div id="imageStore" style="display: none">
 		<img id="todayTopImg"
-			src="${pageContext.request.contextPath}/upload/${todayCloth[0].dbName}">
+			src="">
 		<img id="todayBottomImg"
-			src="${pageContext.request.contextPath}/upload/${todayCloth[1].dbName}">
+			src="">
 		<img id="todayShoesImg"
-			src="${pageContext.request.contextPath}/upload/${todayCloth[2].dbName}">
+			src="">
 		<img id="todayWeatherImg"
-			src="${pageContext.request.contextPath}/assets/img/${todayWeather}.png">
+			src="">
 	</div>
 
 	<!-- Bootstrap core JavaScript -->
@@ -210,6 +210,29 @@
 	$(document).ready(function() {
 		var tomorrowCloth = new Array();
 		drawTomorrowCloth();
+
+		if("${yesterImg}" != "") {
+			console.log("어제한 코디가 있다");
+			$("yesterdayCodi").attr('src', "${pageContext.request.contextPath}/upload/${yesterImg}");
+		}
+		
+		if ("${todayImg}" == "") {
+			console.log("오늘 코디 이미 해줌");
+			$("todayTopImg").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[0].dbName}");
+			$("todayBottomImg").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[1].dbName}");
+			$("todayShoesImg").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[2].dbName}");
+			$("todayWeatherImg").attr('src', "${pageContext.request.contextPath}/assets/img/${todayWeather}.png");
+		} else {
+			$('#todayCanvas').remove();
+			
+			str = "";
+			str += "<img class=\"d-block img-fluid w-100\"";
+			str += "	src=\"${pageContext.request.contextPath}/upload/${todayImg}\"";
+			str += "	alt=\"1\">";
+			
+			$('#todaySystem').prepend(str);
+			
+		} 
 
 		var no = ${userNo};
 		getPersonCodi(no);

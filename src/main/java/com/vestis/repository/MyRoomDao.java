@@ -168,4 +168,12 @@ public class MyRoomDao {
 		
 		return sqlSession.selectOne("myroom.getDayCloth", map);
 	}
+	
+	public String getTodaySystemCodi(int no) {
+		return sqlSession.selectOne("myroom.getTodaySystemCodi", no);
+	}
+	
+	public String getYesSystemCodi(int no) {
+		return sqlSession.selectOne("myroom.getYesSystemCodi", no);
+	}
 }

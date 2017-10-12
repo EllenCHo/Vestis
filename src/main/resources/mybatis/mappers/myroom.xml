@@ -247,4 +247,26 @@
 			where no = 48
 		]]>
 	</select>
+	
+	<select id="getTodaySystemCodi" parameterType="int" resultType="String">
+		<![CDATA[
+			select db_name dbName
+			from codi, img, (select to_date(sysdate, 'YYYY-MM-DD') today from dual)
+			where codi.codi_no = img.no
+			and to_date(codi.codi_date, 'YYYY-MM-DD') = today
+			and other_no = #{no}
+			and person_no = 0
+		]]>
+	</select>
+	
+	<select id="getYesSystemCodi" parameterType="int" resultType="String">
+		<![CDATA[
+			select db_name dbName
+			from codi, img, (select to_date(sysdate-1, 'YYYY-MM-DD') today from dual)
+			where codi.codi_no = img.no
+			and to_date(codi.codi_date, 'YYYY-MM-DD') = today
+			and other_no = #{no}
+			and person_no = 0
+		]]>
+	</select>
 </mapper>
