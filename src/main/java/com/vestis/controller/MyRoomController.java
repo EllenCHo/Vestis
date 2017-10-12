@@ -56,9 +56,8 @@ public class MyRoomController {
 		//db에서 날씨에 맞게 옷을 가져오기
 		
 		//db에서 옷을 뽑아와서 배열에 저장
-		String[] ToDbName = {"1505462846543fb63546f-ec73-4695-bf93-eea166829f4c.png", "1505461833031f9d8acf8-b313-4528-aa9e-660a9cca1ca5.png", "7809fc1e-81b5-4ddb-9c62-d3f072b881ea.png"};
-		
-		model.addAttribute("tomorrowCloth", ToDbName);
+		List<ImgVo> ToclothImg = myRoomService.getDayCloth(userNo, 20, ToIndexNo);
+		model.addAttribute("tomorrowCloth", ToclothImg);
 		
 		model.addAttribute("tomorrowTemp", ToTemp);
 		model.addAttribute("tomorrowWeather", weather[ToIndexNo]);
@@ -79,13 +78,9 @@ public class MyRoomController {
 			String temp = 20 + "°C";
 			int indexNo = 1;
 			//db에서 날씨에 맞게 옷을 가져오기
-			
-			//서비스단에서 하나씩 옷 imgVo를 가져와서 list에 add한다음 return
-			//db에서 옷을 뽑아와서 리스트(ImgVo)로 넘길것 -> 코디를 저장하기 위함
-			String[] dbName = {"1505462846543fb63546f-ec73-4695-bf93-eea166829f4c.png", "1505461833031f9d8acf8-b313-4528-aa9e-660a9cca1ca5.png", "7809fc1e-81b5-4ddb-9c62-d3f072b881ea.png"};
 			//온도랑 날씨, index 넘기기
 			List<ImgVo> clothImg = myRoomService.getDayCloth(userNo, 20, indexNo);
-			
+			System.out.println(clothImg.toString());
 			model.addAttribute("todayCloth", clothImg);
 			
 			model.addAttribute("todayTemp", temp);
@@ -154,19 +149,16 @@ public class MyRoomController {
 	@RequestMapping(value = "/save/{userNo}", method = RequestMethod.POST)
 	public String save(@RequestParam("data") String binaryData, @RequestParam("choice") String[] choice,
 			@RequestParam("weather") String weather, @RequestParam("temp") String temper,
-			@PathVariable("userNo") int userNo, Model model, HttpSession session) throws Exception {
+			@PathVariable("userNo") int userNo, @RequestParam("authNo") int authNo, Model model, HttpSession session) throws Exception {
 		System.out.println("save 들어옴");
-		System.out.println(weather + temper);
-		System.out.println(userNo);
-
 
 		temper = temper.substring(0, temper.length() - 2);
 		int temp = Integer.parseInt(temper);
 		System.out.println(temp);
 		int weatherNo = Integer.parseInt(weather);
 		System.out.println(weatherNo);
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int authNo = authUser.getNo();
+		/*UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int authNo = authUser.getNo();*/
 		System.out.println(authNo);
 		binaryData = URLDecoder.decode(binaryData, "UTF-8");
 

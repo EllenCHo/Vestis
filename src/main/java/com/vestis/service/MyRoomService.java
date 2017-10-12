@@ -208,6 +208,6 @@ public class MyRoomService {
 		clothList.add(bottom);
 		ImgVo shoes = myRoomDao.getDayCloth(userNo, 4, temp, indexNo);
 		clothList.add(shoes);
-		return null;
+		return clothList;
 	}
 }

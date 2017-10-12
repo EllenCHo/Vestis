@@ -412,7 +412,7 @@ div:focus {
 					var myImage = canvas.toDataURL("image/png");
 	
 					$("#data").val(myImage);
-	
+					var authNo = ${authUser.no};
 					//console.log(myImage);
 					var jb = jQuery.noConflict();
 					jQuery.ajaxSettings.traditional = true;
@@ -420,7 +420,8 @@ div:focus {
 						"data" : $("#data").serialize(),
 						"choice" : chsitems,
 						"weather" : $("#info_weather").val(),
-						"temp" : $("#info_temp").val()
+						"temp" : $("#info_temp").val(),
+						"authNo" : authNo
 					};
 					
 					console.log(allData);

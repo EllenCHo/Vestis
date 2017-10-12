@@ -60,6 +60,9 @@
 											<if test="purpose.equals('other')">
 												and codi.person_no != #{num}
 											</if>
+											<if test="purpose.equals('system')">
+												and codi.person_no = 0
+											</if>
 										<![CDATA[
 			                            and codi_no = codiimg.no
 									    and p2.profile_no = pro_img.no
