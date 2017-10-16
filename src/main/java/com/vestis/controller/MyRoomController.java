@@ -134,8 +134,10 @@ public class MyRoomController {
 			stream.write(file);
 			stream.close();
 			System.out.println(fileName + ".png 파일 작성 완료");
-
+			
 			myRoomService.SaveCodi(choice, temp, weatherNo, userNo, authNo, fileName, file.length);
+			
+			System.out.println("코디 저장 완료");
 		} catch (Exception e) {
 			System.out.println("파일이 정상적으로 넘어오지 않았습니다");
 		} finally {
@@ -233,7 +235,7 @@ public class MyRoomController {
 		return list;
 	}
 	
-	@RequestMapping(value="/add")
+	@RequestMapping(value="/clothes/add")
 	public String add() {
 		return "/myroom/add";
 	}

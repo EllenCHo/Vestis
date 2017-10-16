@@ -28,7 +28,7 @@
 }
 #loginhead {
 	font-weight:bolder;
-	color:#4B3838;
+	color:#FFFFFF;
 /* 수직 수평 정렬
 		text-align:center;
 	vertical-align:middle;
@@ -36,34 +36,36 @@
 }
 .loginhead{
 	font-weight:bolder;
-	color:#4B3838;
+	color:#FFFFFF;
 }
+.space {
+   margin:10px;
+  }
 </style>
 
 
 <div class="login_menu text-center text-heading text-shadow" id="head">
 		
 		<!-- 1. 로그인 화면에 마우스를 댔을 때 반응이 있게 만들기  -->
-    	<div class="row" id="inhead">
-    		<div class="col-md-4"></div>
-  			<div class="col-md-4"></div>
+    	<div class="row" id="inhead" >
+    		<div class="col-md-8"></div>
   			<c:choose>
 				<c:when test="${empty sessionScope.authUser }">
 					<!-- 로그인 전 -->
-					<div class="col-md-1">
+					<div class="space">
 						<a data-role="button" id="loginhead" 
 							data-toggle="modal" data-target="#loginpop">로그인</a>
 					</div>
-					<div class="col-md-1">
+					<div class="space">
 						<a data-role="button" class="loginhead" href="${pageContext.request.contextPath }/user/joinform">회원가입</a>
 					</div>
 				</c:when>
 					<c:otherwise>	
 					<!-- 로그인 후 -->
-					<div class="col-md-1">
+					<div class="space">
 						<a data-role="button" id="loginhead" >${sessionScope.authUser.nicname}님</button>
 					</div>
-					<div class="col-md-1">
+					<div class="space">
 						<a data-role="button" class="loginhead" id="logout" href="${pageContext.request.contextPath }/user/logout">로그아웃</a>
 					</div>
 					</c:otherwise>
@@ -95,7 +97,7 @@
 	</div>
     	
     </div>
-    <a href="${pageContext.request.contextPath }/main" class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block"><span style="color:white">VESTIS</span></a>
+    <a href="${pageContext.request.contextPath }/main" class="tagline-upper text-center text-heading text-shadow text-white d-none d-lg-block"><span style="color:white">VESTIS</span></a>
     
     
     <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
@@ -130,7 +132,7 @@
               	<a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath }/cogell/list">codi gallery</a>
             </li>
             <li class="nav-item px-lg-4">
-              	<a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath }/market/list?currNo=1">market</a>
+              	<a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath }/market/list">market</a>
             </li>
             <li class="nav-item px-lg-4">
               	<a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath }/center/list">service center</a>

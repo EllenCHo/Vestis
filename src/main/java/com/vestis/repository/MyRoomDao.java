@@ -23,6 +23,7 @@ public class MyRoomDao {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("codiNo", codiNo);
 		map.put("no", no);
+		System.out.println("코디북 저장 dao");
 		sqlSession.insert("myroom.insertCodiCloth", map);
 	}
 	
@@ -38,6 +39,7 @@ public class MyRoomDao {
 	}
 	
 	public int addCodi(CodiVo codiVo) {
+		System.out.println("코디 넣기");
 		sqlSession.insert("myroom.insertCodi", codiVo);
 		
 		return codiVo.getNo();

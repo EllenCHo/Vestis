@@ -5,17 +5,24 @@
 
 
 .absolute {
-  position: absolute;
+ /*  position: absolute; */
  bottom:0;
  width:100%;
  /*  width: 300px;
   height: 200px; */
 }
+
+#footer {
+    background: #292b2c;
+    padding: 60px 0 30px;
+    color: #A2A2A2;
+    color: rgba(255, 255, 255, .8);
+    border-top: 2px solid #55A79A;
+}
 </style>
  
  
- 
- <footer class=" bg-faded text-center py-5 clear ">
+ <footer id="footer" class="absolute">
       <div class="container">
         <p class="m-0"> &copy;</p>
       </div>

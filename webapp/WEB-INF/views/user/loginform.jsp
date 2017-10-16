@@ -1,8 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/vendor/jquery/jquery-1.12.4.js"></script>
+
+
+<!-- 로그인관련 카카오 js -->
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 <style>
 /* 나가기 버튼 */
 #btnn {
@@ -29,10 +31,11 @@
 	margin-bottom:5px;
 }
 
-
-
 </style>
+
+<!-- 로그인관련 페이스북 js -->
 <script id="facebook-jssdk" src="//connect.facebook.com/ko_KR/sdk.js"></script>
+
 <div class="modal fade" id="loginpop">
   <div class="modal-dialog">
     <div class="modal-content">

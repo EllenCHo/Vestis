@@ -30,15 +30,17 @@ public class MyRoomService {
 		ClothWeatherVo clothWeatherVo = new ClothWeatherVo(weatherNo, temp);
 		int weatherSaveNo = myRoomDao.addWeather(clothWeatherVo);
 		int weatherchsNo = myRoomDao.addWeather(clothWeatherVo);
-
+		System.out.println("코디북 여기까지44");
 		ImgVo imgVo = new ImgVo("D:\\javastudy\\file\\", filename, ".png", fileSize, filename+".png");
 		int imgNo = myRoomDao.addImg(imgVo);		
-
+		System.out.println("코디북 여기까지33");
 		CodiVo codiVo = new CodiVo(authNo, userNo, 1, imgNo, 0, date, weatherSaveNo, date, weatherchsNo);
 		int codiNo = myRoomDao.addCodi(codiVo);
 		
+		System.out.println("코디북 여기까지");
 		for(int i=0; i<choice.length; i++) {
 			int no = Integer.parseInt(choice[i]);
+			System.out.println("코디북 여기까지2");
 			myRoomDao.addCodiCloth(codiNo, no);
 		}
 
