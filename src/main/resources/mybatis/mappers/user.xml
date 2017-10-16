@@ -5,14 +5,14 @@
 	<insert id="join" parameterType="com.vestis.vo.UserVo">
 		<![CDATA[
 		insert into person
-			values(seq_person_no.nextval,0,#{address},#{email},#{password},#{name},#{phone},#{gender},#{nicname},#{birth},0,#{lat},#{lon})	
+			values(seq_person_no.nextval,0,#{address},#{email},#{password},#{name},#{phone},#{gender},#{nicname},#{birth},0,#{lat},#{lon},sysdate)	
 				]]>
 	</insert>
 	
 	<insert id="snsjoin" parameterType="com.vestis.vo.UserVo">
 		<![CDATA[
 		insert into person
-			values(seq_person_no.nextval,0,'noinput',#{email},#{password},#{name},'noinput','noinput',#{nicname},sysdate,0,0,0)	
+			values(seq_person_no.nextval,0,'noinput',#{email},#{password},#{name},'noinput','noinput',#{nicname},sysdate,0,0,0,sysdate)	
 				]]>
 	</insert>
 	
@@ -30,6 +30,15 @@
 			select name
 			from person
 			where email=#{email}
+		]]>
+	</select>
+	
+	<select id="getUserInfo" parameterType="int" resultType="com.vestis.vo.UserVo">
+		<![CDATA[
+			select db_name profileDBName, nicname, point 
+			from person, img
+			where person.no=#{no}
+				and profile_no = img.no
 		]]>
 	</select>
 	

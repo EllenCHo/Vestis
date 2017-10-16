@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +23,7 @@ import com.vestis.service.FileUploadService;
 import com.vestis.service.MyRoomService;
 import com.vestis.vo.ClothListVo;
 import com.vestis.vo.ClothWeatherVo;
+import com.vestis.vo.CodiCoVo;
 import com.vestis.vo.CodibookVo;
 import com.vestis.vo.ImgVo;
 import com.vestis.vo.UserVo;
@@ -39,6 +39,58 @@ public class MyRoomController {
 	
 	@RequestMapping(value = "/{userNo}")
 	public String main(@PathVariable("userNo") int userNo, Model model) {
+		String[] weather = { "sunny", "cloudy", "rainy", "snow" };
+		
+		UserVo userVo = myRoomService.getUserLL(userNo);
+		
+		String ysDbName = myRoomService.getYesSystemCodi(userNo);
+		model.addAttribute("yesterImg", ysDbName);
+		//내일 날씨
+		ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
+		
+		String ToTemp = clothToWeatherVo.getTemp() + "°C";
+		int ToIndexNo = clothToWeatherVo.getWeatherNo();
+		/*String ToTemp = 20 + "°C";
+		int ToIndexNo = 1;*/
+		System.out.println(ToTemp);
+		System.out.println(weather[ToIndexNo]);
+		
+		//db에서 날씨에 맞게 옷을 가져오기
+		
+		//db에서 옷을 뽑아와서 배열에 저장
+		List<ImgVo> ToclothImg = myRoomService.getDayCloth(userNo, 20, ToIndexNo);
+		model.addAttribute("tomorrowCloth", ToclothImg);
+		
+		model.addAttribute("tomorrowTemp", ToTemp);
+		model.addAttribute("tomorrowWeather", weather[ToIndexNo]);
+		//내일 날씨 끝
+		
+		//오늘 날씨
+		//오눌 날씨에 대한 코디 테이블이 있는지 검사 -> 있으면 그걸을 화면에 뿌려짐
+		String dbName = myRoomService.getTodaySystemCodi(userNo);
+		if(dbName != null) {
+			model.addAttribute("todayImg", dbName);
+			
+		} else {
+			System.out.println("오늘 시스템 코디 추천");
+			//오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
+			//오늘 날씨 가져오기
+			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
+			
+			String temp = clothWeatherVo.getTemp() + "°C";
+			int indexNo = clothWeatherVo.getWeatherNo();
+			
+			//db에서 날씨에 맞게 옷을 가져오기
+			//온도랑 날씨, index 넘기기
+			List<ImgVo> clothImg = myRoomService.getDayCloth(userNo, 20, indexNo);
+			System.out.println(clothImg.toString());
+			model.addAttribute("todayCloth", clothImg);
+			
+			model.addAttribute("todayTemp", temp);
+			model.addAttribute("todayWeather", weather[indexNo]);
+			model.addAttribute("todayWeatherNo", indexNo);		
+		}
+
 		model.addAttribute("userNo", userNo);
 		return "/myroom/main";
 	}
@@ -55,7 +107,7 @@ public class MyRoomController {
 
 		// 자신의 페이지에서 코디할 경우 지금의 날씨를 알려줌
 		if (userNo == authNo) {
-			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(authUser);
+			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
 			
 			String temp = clothWeatherVo.getTemp() + "°C";
 			int indexNo = clothWeatherVo.getWeatherNo();
@@ -100,17 +152,16 @@ public class MyRoomController {
 	@RequestMapping(value = "/save/{userNo}", method = RequestMethod.POST)
 	public String save(@RequestParam("data") String binaryData, @RequestParam("choice") String[] choice,
 			@RequestParam("weather") String weather, @RequestParam("temp") String temper,
-			@PathVariable("userNo") int userNo, Model model, HttpSession session) throws Exception {
-		System.out.println(weather + temper);
-		System.out.println(userNo);
+			@PathVariable("userNo") int userNo, @RequestParam("authNo") int authNo, Model model, HttpSession session) throws Exception {
+		System.out.println("save 들어옴");
 
 		temper = temper.substring(0, temper.length() - 2);
 		int temp = Integer.parseInt(temper);
 		System.out.println(temp);
 		int weatherNo = Integer.parseInt(weather);
 		System.out.println(weatherNo);
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int authNo = authUser.getNo();
+		/*UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int authNo = authUser.getNo();*/
 		System.out.println(authNo);
 		binaryData = URLDecoder.decode(binaryData, "UTF-8");
 
@@ -163,8 +214,11 @@ public class MyRoomController {
 	
 	@ResponseBody
 	@RequestMapping(value ="/chooseClick", method=RequestMethod.POST)
-	public String chooseClick(@RequestParam("no") int no) {
-		myRoomService.chooseClick(no);		
+	public String chooseClick(@RequestParam("no") int no, HttpSession session) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
+		System.out.println("채택버튼 클릭");
+		myRoomService.chooseClick(no, clothWeatherVo.getTemp(), clothWeatherVo.getWeatherNo());		
 		return "success";
 	}
 
@@ -176,10 +230,20 @@ public class MyRoomController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value ="/deleteBtnClick", method=RequestMethod.POST)
+	public String deleteBtnClick(@RequestParam("no") int no) {
+		System.out.println("삭제버튼1");
+		myRoomService.deleteBtnClick(no);
+		return "seccess";
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/codibookSave", method = RequestMethod.POST)
-	public String codibookSave(@RequestBody MultipartFile file) {
-		System.out.println(file);
+	public String codibookSave(@RequestParam("wearImg") MultipartFile file, @RequestParam("no") int no) {
+		System.out.println(file.toString());
 		System.out.println(file.getOriginalFilename());
+		System.out.println(no);
+		myRoomService.saveWearImg(file, no);
 		return "success";
 	}
 
@@ -198,13 +262,14 @@ public class MyRoomController {
 		return "myroom/form";
 	}
 	
-	@RequestMapping(value="/upload")
+	@RequestMapping(value="/upload/{userNo}")
 	public String upload(@RequestParam("file") MultipartFile file, Model model, @RequestParam("valh") String valh, @RequestParam("huserNo") int huserNo) {
 		
 		System.out.println(valh);	//옷 타입 번호
 		String imgNo=fileUploadService.restore(file);
 		
 		System.out.println(huserNo);	//올린 사람 번호
+		int userNo=huserNo;
 		int val=Integer.valueOf(valh);
 		System.out.println(imgNo);	//이미지 번호 
 		
@@ -213,6 +278,7 @@ public class MyRoomController {
 		
 		List<ImgVo> list1= fileUploadService.list();
 		model.addAttribute("list",list1);
+		model.addAttribute("userNo", huserNo);
 		
 		return "myroom/clothes";
 	}
@@ -229,16 +295,49 @@ public class MyRoomController {
 	@ResponseBody//리턴값을 컨트롤러로보냄
 	@RequestMapping(value="/send")
 	public List<ImgVo> send(@RequestParam ("clothNo") int clothNo) {
-		/*System.out.println(clothNo);*/
 		List<ImgVo> list=fileUploadService.send(clothNo);
-		/*System.out.println(list);*/
 		return list;
 	}
 	
 	@RequestMapping(value="/clothes/add")
 	public String add() {
-		return "/myroom/add";
+		System.out.println("add");
+		return "myroom/add";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/addComment", method=RequestMethod.POST)
+	public CodiCoVo addComment(@RequestParam("no") int no, @RequestParam("authNo") int userNo  , @RequestParam("comment") String comment) {
+		System.out.println(no+comment+userNo);
+		return myRoomService.addComment(no, userNo, comment);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/commentList", method=RequestMethod.POST)
+	public List<CodiCoVo> commentList(@RequestParam("no") int no) {
+		System.out.println("commentList"+no);
+		return myRoomService.getCommentList(no);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/removeComment", method=RequestMethod.POST)
+	public String removeComment(@RequestParam("no") int no) {
+		myRoomService.removeComment(no);
+		return "success";
 	}
 
+	@ResponseBody
+	@RequestMapping(value="/getWearImage", method=RequestMethod.POST)
+	public String getWearImage(@RequestParam("no") int no) {
+		System.out.println("getWearImage"+no);
+		return myRoomService.getWearImage(no);
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/getCodiThree", method=RequestMethod.POST)
+	public List<CodibookVo> getCodiThree(@RequestParam("no") int no) {
+		return myRoomService.getCodiThree(no);
+	}
 }
 

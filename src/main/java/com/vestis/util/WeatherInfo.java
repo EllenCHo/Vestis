@@ -10,10 +10,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class WeatherInfo {
-	public static WeatherVo setting(double lat, double lon) {
+	//type 0 : today, 1 : tomorrow
+	public static WeatherVo setting(int type, double lat, double lon) {
 		WeatherVo weatherVo = new WeatherVo();
 		try {
-			String address = "http://apis.skplanetx.com/weather/current/hourly?version=1&lat=" + lat + "&lon=" + lon
+			String address = "http://apis.skplanetx.com/weather/summary?version=1&lat=" + lat + "&lon=" + lon
 					+ "&appKey=41e1162f-7a4b-3add-8f1b-0a60e13c0a98";
 			BufferedReader br;
 			String protocol = "GET";
@@ -24,31 +25,49 @@ public class WeatherInfo {
 			br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String json;
 			json = br.readLine();
-			System.out.println(
-					"============================================================================================================");
-			JSONParser parser = new JSONParser();
-			JSONObject objs = (JSONObject) parser.parse(json);
-			JSONObject weathers = (JSONObject) objs.get("weather");
-			JSONArray hourlys = (JSONArray) weathers.get("hourly");
-			JSONObject hours = (JSONObject) hourlys.get(0);
-			JSONObject temperature = (JSONObject) hours.get("temperature");
-			JSONObject grids = (JSONObject) hours.get("grid");
-			System.out.println("현재온도: " + temperature.get("tc"));
-			String temp = (String) temperature.get("tc");
-			System.out.println("습도: " + hours.get("humidity"));
-			String humidity = (String) hours.get("humidity");
-			JSONObject sky = (JSONObject) hours.get("sky");
-			System.out.println("하늘상태: " + sky.get("name"));
-			String skyName = (String) sky.get("name");
-			System.out.println("하늘상태코드: " + sky.get("code"));
-			String skyCode = (String) sky.get("code");
-			System.out.println(grids.get("city"));
-			System.out.println(grids.get("county"));
-			System.out.println(grids.get("village"));
-			weatherVo.setTemperature(temp);
+			System.out.println("============================================================================================================");
+	        JSONParser parser=new JSONParser();
+	        JSONObject objs=(JSONObject)parser.parse(json);
+	         //System.out.println(objs);
+	        JSONObject weathers=(JSONObject)objs.get("weather");      
+	         //System.out.println(weathers);
+	        JSONArray summarys=(JSONArray)weathers.get("summary");
+	         //System.out.println(hourlys);
+	        JSONObject summary=(JSONObject)summarys.get(0);
+	         //System.out.println(hours);
+	        if(type == 0) {
+		        JSONObject today=(JSONObject)summary.get("today");
+		         //System.out.println(today);
+		        JSONObject todaysky=(JSONObject)today.get("sky");
+		        System.out.println(todaysky);
+		        String todaycode=(String)todaysky.get("code");
+		        System.out.println(todaycode);
+		        JSONObject todayTemp=(JSONObject)today.get("temperature");
+		        System.out.println(todayTemp);
+		        String todayTmax=(String)todayTemp.get("tmax");
+		        System.out.println(todayTmax);
+		        
+		        weatherVo.setSkyCode(todaycode);
+		        weatherVo.setTemperature(todayTmax);
+	        } else {
+	        	JSONObject tomorrow=(JSONObject)summary.get("tomorrow");
+		         //System.out.println(today);
+		        JSONObject tomorrowsky=(JSONObject)tomorrow.get("sky");
+		        System.out.println(tomorrowsky);
+		        String tomorrowcode=(String)tomorrowsky.get("code");
+		        System.out.println(tomorrowcode);
+		        JSONObject tomorrowTemp=(JSONObject)tomorrow.get("temperature");
+		        System.out.println(tomorrowTemp);
+		        String tomorrowTmax=(String)tomorrowTemp.get("tmax");
+		        System.out.println(tomorrowTmax);
+		        
+		        weatherVo.setSkyCode(tomorrowcode);
+		        weatherVo.setTemperature(tomorrowTmax);
+	        }
+			/*weatherVo.setTemperature(temp);
 			weatherVo.setHumidity(humidity);
 			weatherVo.setSkyName(skyName);
-			weatherVo.setSkyCode(skyCode);
+			weatherVo.setSkyCode(skyCode);*/
 			System.out.println(
 					"============================================================================================================");
 		} catch (Exception e) {
