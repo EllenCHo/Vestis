@@ -4,9 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,10 +29,6 @@ public class MyRoomService {
 	MyRoomDao myRoomDao;
 	
 	public void SaveCodi(String[] choice, int temp, int weatherNo, int userNo, int authNo, String filename, long fileSize) {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date = sdf.format(cal.getTime());
-
 		ClothWeatherVo clothWeatherVo = new ClothWeatherVo(weatherNo, temp);
 		int weatherSaveNo = myRoomDao.addWeather(clothWeatherVo);
 		int weatherchsNo = myRoomDao.addWeather(clothWeatherVo);
@@ -42,13 +36,13 @@ public class MyRoomService {
 		ImgVo imgVo = new ImgVo("D:\\javastudy\\file\\", filename, ".png", fileSize, filename+".png");
 		int imgNo = myRoomDao.addImg(imgVo);		
 
-		CodiVo codiVo = new CodiVo(authNo, userNo, 1, imgNo, 0, date, weatherSaveNo, date, weatherchsNo);
+		CodiVo codiVo = new CodiVo(authNo, userNo, 1, imgNo, 0, weatherSaveNo, weatherchsNo);
 		int codiNo = myRoomDao.addCodi(codiVo);
 		
 		for(int i=0; i<choice.length; i++) {
 			int no = Integer.parseInt(choice[i]);
 			myRoomDao.addCodiCloth(codiNo, no);
-			myRoomDao.addCalData(no, weatherSaveNo, date);
+			myRoomDao.addCalData(no, weatherSaveNo);
 		}
 
 	}
@@ -82,11 +76,7 @@ public class MyRoomService {
 		return myRoomDao.getList(purpose, num, no);
 	}
 	
-	public void chooseClick(int no, int temp, int weatherNo) {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date = sdf.format(cal.getTime());
-		
+	public void chooseClick(int no, int temp, int weatherNo) {		
 		int choiceWeather = myRoomDao.getWeather(no);
 		System.out.println(choiceWeather);
 		myRoomDao.setChoiceWeather(choiceWeather, temp, weatherNo);
@@ -98,16 +88,12 @@ public class MyRoomService {
 		
 		for(int i=0; i<list.size(); i++) {
 			myRoomDao.setCount(list.get(i));
-			myRoomDao.addCalData(list.get(i), choiceWeather, date);
+			myRoomDao.addCalData(list.get(i), choiceWeather);
 		}
 	}
 	
-	public void likebtnClick(int voNo, int authNo) {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date = sdf.format(cal.getTime());
-		
-		myRoomDao.likebtnClick(voNo, authNo, date);
+	public void likebtnClick(int voNo, int authNo) {		
+		myRoomDao.likebtnClick(voNo, authNo);
 	}
 	
 	public void deleteBtnClick(int no) {
@@ -122,16 +108,11 @@ public class MyRoomService {
 	
 	public CodiCoVo addComment(int no, int userNo, String content) {
 		System.out.println("댓글 Vo");
-		
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String date = sdf.format(cal.getTime());
-		
+
 		CodiCoVo codiCo = new CodiCoVo();
 		codiCo.setCodiNo(no);
 		codiCo.setPersonNo(userNo);
 		codiCo.setContent(content);
-		codiCo.setRegDate(date);
 		
 		int commentNo = myRoomDao.addComment(codiCo);
 		

@@ -40,6 +40,18 @@ public class CodiVo {
 		this.choiceDate = choiceDate;
 		this.choiceWeather = choiceWeather;
 	}
+	
+	public CodiVo(int userNo, int otherNo, int codiPhotoNo, int codiNo, int choose, int codiWeather,
+			int choiceWeather) {
+		super();
+		this.userNo = userNo;
+		this.otherNo = otherNo;
+		this.codiPhotoNo = codiPhotoNo;
+		this.codiNo = codiNo;
+		this.choose = choose;
+		this.codiWeather = codiWeather;
+		this.choiceWeather = choiceWeather;
+	}
 
 	public int getNo() {
 		return no;

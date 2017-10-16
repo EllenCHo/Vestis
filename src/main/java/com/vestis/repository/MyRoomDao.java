@@ -81,11 +81,10 @@ public class MyRoomDao {
 		sqlSession.update("myroom.setChoiceWeather", map);
 	}
 	
-	public void likebtnClick(int voNo, int authNo, String date) {
+	public void likebtnClick(int voNo, int authNo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("voNo", voNo);
 		map.put("authNo", authNo);
-		map.put("date", date);
 		
 		sqlSession.insert("myroom.likebtnClick", map);
 	}
@@ -150,11 +149,10 @@ public class MyRoomDao {
 		return sqlSession.selectOne("myroom.getUserLL", no);
 	}
 	
-	public void addCalData(int clothNo, int weatherNo, String date) {
+	public void addCalData(int clothNo, int weatherNo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("clothNo", clothNo);	
 		map.put("weatherNo", weatherNo);	
-		map.put("date", date);
 		
 		sqlSession.insert("myroom.addCalData", map);
 	}

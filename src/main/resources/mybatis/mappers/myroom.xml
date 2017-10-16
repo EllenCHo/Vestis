@@ -28,7 +28,7 @@
 		</selectKey>
 		<![CDATA[
 			insert into codi
-			values(#{no}, #{userNo}, #{otherNo}, #{codiPhotoNo}, #{codiNo}, #{choose}, TO_DATE(#{codiDate},'YYYY-MM-DD hh24:mi:ss'), #{codiWeather}, TO_DATE(#{choiceDate},'YYYY-MM-DD hh24:mi:ss'), #{choiceWeather})			
+			values(#{no}, #{userNo}, #{otherNo}, #{codiPhotoNo}, #{codiNo}, #{choose}, sysdate, #{codiWeather}, sysdate, #{choiceWeather})			
 		]]>
 	</insert>
 	
@@ -101,11 +101,7 @@
 	<insert id="likebtnClick" parameterType="map">
 		<![CDATA[
 			insert into like_person
-<<<<<<< HEAD
 			values(#{voNo}, #{authNo},sysdate)			
-=======
-			values(#{voNo}, #{authNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))			
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 		]]>
 	</insert>
 	
@@ -148,7 +144,7 @@
 		</selectKey>
 		<![CDATA[
 			insert into codi_comment
-			values(#{no}, #{personNo}, #{codiNo}, #{content}, TO_DATE(#{regDate},'YYYY-MM-DD hh24:mi:ss'))			
+			values(#{no}, #{personNo}, #{codiNo}, #{content}, sysdate)			
 		]]>
 	</insert>
 	
@@ -240,7 +236,7 @@
 	<insert id="addCalData" parameterType="map">
 		<![CDATA[
 			insert into calculation
-			values(seq_calculation_no.nextval, #{clothNo}, #{weatherNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))
+			values(seq_calculation_no.nextval, #{clothNo}, #{weatherNo}, sysdate)
 		]]>
 	</insert>
 	

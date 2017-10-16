@@ -5,7 +5,6 @@ public class CodibookVo {
 	private int otherNo;	//코디해준사람 번호
 	private int ownerNo;	//코디 받은 사람
 	private String ownername; //코디 받은 사람 닉네임
-
 	private String otherNicname;	//코디해준 사람 닉네임
 	private String profile;		//프로필사진 
 	private String codi;		//코디사진
