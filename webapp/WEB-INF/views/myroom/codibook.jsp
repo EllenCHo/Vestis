@@ -225,9 +225,10 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-		
+
+
 	<div class="container">
 		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 
@@ -302,7 +303,6 @@
 	function es_fetchBook(purpose) {
 		var num = ${userNo};
 		var authNo = ${authUser.no};
-		
 		console.log(purpose+num);
 		$.ajax({
 					url : "${pageContext.request.contextPath }/myroom/codibookList",
@@ -363,8 +363,9 @@
 	function es_render(CodibookVo) {
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
+		
 		var str = "";
-		str += "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3' id=\"codibookItem"+CodibookVo.no+"\">";
+		str += "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3' id=\"codibookItem"+CodibookVo.no+"\" style=\"height:25%;\">";
 		str += "<div class=\"thumbnail bts\">";
 		if (userNo == authNo) {
 		str += "	<button class=\"btn btn-default btn-xs deleteCodiBtn\" style=\"float:right;\" value="+CodibookVo.no+">X</button>";
@@ -423,71 +424,6 @@
 
 		$("#codibookItemList").append(str);
 	}
-	
-		
-		
-	function es_render(CodibookVo) {
-		var userNo = ${userNo};
-		var authNo = ${authUser.no};
-		
-		var str = "";
-		str += "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3' id=\"codibookItem"+CodibookVo.no+"\">";
-		str += "<div class=\"thumbnail bts\">";
-		str += "	<button class=\"btn btn-default btn-xs deleteCodiBtn\" style=\"float:right;\" value="+CodibookVo.no+">X</button>";
-		str += "	<div id=\"openModal"+CodibookVo.no+"\"";
-		str += "	 	data-image=\"${pageContext.request.contextPath}/upload/"+CodibookVo.codi+"\" ";
-		str += "	 	data-wearimage=\"${pageContext.request.contextPath}/upload/"+CodibookVo.wear+"\" ";
-		str += "	 	data-profile=\"${pageContext.request.contextPath}/upload/"+CodibookVo.profile+"\" ";
-		str += "	 	data-nicname=\""+CodibookVo.otherNicname+"\" ";
-		str += "		data-toggle=\"modal\" data-target=\'#modal\' data-keyboard=\"true\"";
-		str += "		data-backdrop=\"false\">";
-		str += "		<img class=\"img-responsive getSrc\" alt=\"\"";
-		str += "			src=${pageContext.request.contextPath}/upload/"+CodibookVo.codi+" style=\"cursor:pointer\"/>";
-		str += "	</div> ";
-		str += "	<div class=\"row\">";
-		str += "	<div class=\"col-md-8\">";
-		str += "		<p class=\"text-left\" style=\"margin: 2%;\">";
-		str += "			<img class=\"prifile_photo\" src=${pageContext.request.contextPath}/upload/"+CodibookVo.profile+" alt=\"프로필사진\" style=\"margin-right:10px;\">"
-				+ CodibookVo.otherNicname + "</p>";
-		str += " 	</div>";
-		str += " 	<div class=\"col-md-4\" style=\"padding-top:2%; padding-left:auto;\">";
-		if (userNo == authNo) {
-		//if(true){
-			if (CodibookVo.choose != 0) {
-				str += "<button class=\"btn btn-sm btn-hover btn-default btn-success\" value="+CodibookVo.no+" style=\"float:right;\">";
-				str += "<span class=\"glyphicon glyphicon-check\"></span>";
-				str += "</button>";
-			} else {
-				str += "<button class=\"btn btn-sm btn-hover btn-default chsbtn\" value="+CodibookVo.no+" style=\"float:right;\">";
-				str += "<span class=\"glyphicon glyphicon-check\" ></span>";
-				str += "</button>";
-			}
-			
-		}
-		if(CodibookVo.likeflag != 0){
-			str += "		<button class=\"btn btn-sm btn-hover btn-primary\"";
-			str += "			style=\"display: inline; float:right; margin-top:5%\" data="+CodibookVo.likes+" value="+CodibookVo.no+" id=\"like"
-					+ CodibookVo.no + "\">";
-			str += "			<span class=\"glyphicon glyphicon-thumbs-up\"><div id=\"like"+CodibookVo.no+"-bs\" style=\"display: inline; margin-left: 2px;\">"
-					+ CodibookVo.likes + "</div></span>";
-			str += "		</button>";
-		} else {
-			str += "		<button class=\"btn btn-sm btn-default btn-hover likebtn\"";
-			str += "			style=\"display: inline; float:right; margin-top:5%\" data="+CodibookVo.likes+" value="+CodibookVo.no+"	 id=\"like"
-					+ CodibookVo.no + "\">";
-			str += "			<span class=\"glyphicon glyphicon-thumbs-up\"><div id=\"like"+CodibookVo.no+"-bs\" style=\"display: inline; margin-left: 2px;\">"
-					+ CodibookVo.likes + "</div></span>";
-			str += "		</button>";
-		}
-		str += "	</div>";
-		str += "	</div>";
-		str += "</div>";
-
-		str += "</div>";
-
-		$("#codibookItemList").append(str);
-	}
-		
 		
 	function choosebtnClick(no) {
 		$.ajax({
@@ -581,6 +517,7 @@
  		var no = $('.es_commentButton').val();
  		var authNo = ${authUser.no};
  		var comment = $('.es_commentInput').val();
+ 		$('.es_commentInput').val(null);
  		console.log(comment);
  		
  		$.ajax({
@@ -590,6 +527,15 @@
 			data : {"no":no, "authNo":authNo, "comment":comment},
 			success :function(codiCoVo) {
 				addComment(codiCoVo);
+				
+				$('.deleteCommentBtn').click(function() {
+					  console.log("삭제버튼3");
+					  var $this = $(this);
+					  var no = $this.val();
+				 	  console.log(no);	 	
+				 	  removeComment(no);
+				 	  $("#coDel"+no).remove();
+				});
 			},
 			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
 				console.error(status + " : " + error);

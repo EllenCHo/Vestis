@@ -150,7 +150,7 @@
 	
 	<select id="getComment" parameterType="int" resultType="com.vestis.vo.CodiCoVo">
 		<![CDATA[
-			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
+			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(codi_comment.reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
 			from codi_comment, person, img
 			where codi_comment.no = #{no}
 	            and person_no = person.no
@@ -160,7 +160,7 @@
 	
 	<select id="getCommentList" parameterType="int" resultType="com.vestis.vo.CodiCoVo">
 		<![CDATA[
-			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
+			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(codi_comment.reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
 			from codi_comment, person, img
 			where codi_no= #{no}
 	            and person_no = person.no

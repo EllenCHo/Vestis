@@ -68,7 +68,6 @@ public class MyRoomController {
 		//오늘 날씨
 		//오눌 날씨에 대한 코디 테이블이 있는지 검사 -> 있으면 그걸을 화면에 뿌려짐
 		String dbName = myRoomService.getTodaySystemCodi(userNo);
-		System.out.println(dbName);
 		if(dbName != null) {
 			model.addAttribute("todayImg", dbName);
 			
@@ -314,6 +313,7 @@ public class MyRoomController {
 	@ResponseBody
 	@RequestMapping(value="/commentList", method=RequestMethod.POST)
 	public List<CodiCoVo> commentList(@RequestParam("no") int no) {
+		System.out.println("commentList"+no);
 		return myRoomService.getCommentList(no);
 	}
 	
@@ -327,6 +327,7 @@ public class MyRoomController {
 	@ResponseBody
 	@RequestMapping(value="/getWearImage", method=RequestMethod.POST)
 	public String getWearImage(@RequestParam("no") int no) {
+		System.out.println("getWearImage"+no);
 		return myRoomService.getWearImage(no);
 	}
 	
