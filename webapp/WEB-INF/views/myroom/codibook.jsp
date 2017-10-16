@@ -363,9 +363,8 @@
 	function es_render(CodibookVo) {
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
-		console.log("asdf");
 		var str = "";
-		str += "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3' id=\"codibookItem"+CodibookVo.no+"\" style=\"height:25%;\">";
+		str += "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3' id=\"codibookItem"+CodibookVo.no+"\">";
 		str += "<div class=\"thumbnail bts\">";
 		if (userNo == authNo) {
 		str += "	<button class=\"btn btn-default btn-xs deleteCodiBtn\" style=\"float:right;\" value="+CodibookVo.no+">X</button>";
