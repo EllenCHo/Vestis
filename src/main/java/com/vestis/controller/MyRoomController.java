@@ -46,12 +46,12 @@ public class MyRoomController {
 		String ysDbName = myRoomService.getYesSystemCodi(userNo);
 		model.addAttribute("yesterImg", ysDbName);
 		//내일 날씨
-		//ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
+		ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
 		
-		//String ToTemp = clothToWeatherVo.getTemp() + "°C";
-		//int ToIndexNo = clothToWeatherVo.getWeatherNo();
-		String ToTemp = 20 + "°C";
-		int ToIndexNo = 1;
+		String ToTemp = clothToWeatherVo.getTemp() + "°C";
+		int ToIndexNo = clothToWeatherVo.getWeatherNo();
+		/*String ToTemp = 20 + "°C";
+		int ToIndexNo = 1;*/
 		System.out.println(ToTemp);
 		System.out.println(weather[ToIndexNo]);
 		
@@ -76,13 +76,11 @@ public class MyRoomController {
 			System.out.println("오늘 시스템 코디 추천");
 			//오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
 			//오늘 날씨 가져오기
-			/*ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
+			ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
 			
 			String temp = clothWeatherVo.getTemp() + "°C";
-			int indexNo = clothWeatherVo.getWeatherNo();*/
+			int indexNo = clothWeatherVo.getWeatherNo();
 			
-			String temp = 20 + "°C";
-			int indexNo = 1;
 			//db에서 날씨에 맞게 옷을 가져오기
 			//온도랑 날씨, index 넘기기
 			List<ImgVo> clothImg = myRoomService.getDayCloth(userNo, 20, indexNo);
