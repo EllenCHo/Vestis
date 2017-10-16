@@ -10,9 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import com.vestis.vo.ClothListVo;
 import com.vestis.vo.ClothWeatherVo;
+import com.vestis.vo.CodiCoVo;
 import com.vestis.vo.CodiVo;
 import com.vestis.vo.CodibookVo;
 import com.vestis.vo.ImgVo;
+import com.vestis.vo.UserVo;
 
 @Repository
 public class MyRoomDao {
@@ -58,6 +60,14 @@ public class MyRoomDao {
 		sqlSession.update("myroom.chooseClick", no);
 	}
 	
+	public List<Integer> getCodiNo(int no) {
+		return sqlSession.selectList("myroom.getCodiNo", no);
+	}
+	
+	public void setCount(int no) {
+		sqlSession.update("myroom.setCount", no);
+	}
+	
 	public int getWeather(int no) {
 		return sqlSession.selectOne("myroom.getWeather", no);
 	}
@@ -71,10 +81,12 @@ public class MyRoomDao {
 		sqlSession.update("myroom.setChoiceWeather", map);
 	}
 	
-	public void likebtnClick(int voNo, int authNo) {
+	public void likebtnClick(int voNo, int authNo, String date) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("voNo", voNo);
 		map.put("authNo", authNo);
+		map.put("date", date);
+		
 		sqlSession.insert("myroom.likebtnClick", map);
 	}
 	
@@ -91,5 +103,77 @@ public class MyRoomDao {
 		map.put("userNo", userNo);
 		
 		return sqlSession.selectList("myroom.getClothList", map);
+	}
+	
+	public int addComment(CodiCoVo codiCo) {
+		System.out.println("댓글 저장 dao");
+		
+		sqlSession.insert("myroom.addComment", codiCo);
+		
+		return codiCo.getNo();
+	}
+	
+	public CodiCoVo getComment(int no) {
+		return sqlSession.selectOne("myroom.getComment", no);
+	}
+	
+	public List<CodiCoVo> getCommentList(int no) {
+		return sqlSession.selectList("myroom.getCommentList", no);
+	}
+	
+	public int saveWearImg(ImgVo imgVo) {
+		sqlSession.insert("myroom.insertImg", imgVo);
+		return imgVo.getNo();
+	}
+	
+	public void changeSaveImg(int no, int imgNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("no", no);
+		map.put("imgNo", imgNo);
+		
+		sqlSession.update("myroom.changeSaveImg", map);
+	}
+	
+	public void removeComment(int no) {
+		sqlSession.delete("myroom.removeComment", no);
+	}
+	
+	public String getWearImage(int no) {
+		return sqlSession.selectOne("myroom.getWearImage", no);
+	}
+	
+	public List<CodibookVo> getCodiThree(int no) {
+		return sqlSession.selectList("myroom.getCodiThree", no);
+	}
+	
+	public UserVo getUserLL(int no) {
+		return sqlSession.selectOne("myroom.getUserLL", no);
+	}
+	
+	public void addCalData(int clothNo, int weatherNo, String date) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("clothNo", clothNo);	
+		map.put("weatherNo", weatherNo);	
+		map.put("date", date);
+		
+		sqlSession.insert("myroom.addCalData", map);
+	}
+	
+	public ImgVo getDayCloth(int userNo, int type, int temp, int indexNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userNo", userNo);
+		map.put("type", type);	
+		map.put("temp", temp);	
+		map.put("indexNo", indexNo);
+		
+		return sqlSession.selectOne("myroom.getDayCloth", map);
+	}
+	
+	public String getTodaySystemCodi(int no) {
+		return sqlSession.selectOne("myroom.getTodaySystemCodi", no);
+	}
+	
+	public String getYesSystemCodi(int no) {
+		return sqlSession.selectOne("myroom.getYesSystemCodi", no);
 	}
 }

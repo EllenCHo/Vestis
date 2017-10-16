@@ -134,6 +134,12 @@
 	left: 0;
 	right: 0;
 }
+
+
+ a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+ a:hover { color: black; text-decoration: none;}
+
 </style>
 
 </head>
@@ -147,9 +153,11 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<p class="text-left nicname" style="margin-bottom: 0;">
+						<a>
 						<img class="prifile_photo"
 							src="http://bootdey.com/img/Content/user_1.jpg" alt="프로필사진"
 							style="margin-right: 10px;">
+						</a>
 					</p>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close" aria-hidden="true">&times;</button>
@@ -173,6 +181,7 @@
 									enctype="multipart/form-data" style="display: inline;">
 									<input type="file" id="fileopen" name="file" accept="image/*"
 										style="display: none;">
+									<input type="hidden" id="codiNoSave">
 									<button id="inputfilebtn" class="btn btn-default" type="button"
 										style="margin-left: 17%; margin-bottom: 3%;">사진선택</button>
 								</form>
@@ -191,25 +200,24 @@
 						<div class="row">
 							<div class="input-group"
 								style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
-								<form action="">
-								<input class="form-control" placeholder="Add a comment"
+								<input class="form-control es_commentInput" placeholder="Add a comment"
 									type="text" style="width:96%;"> 
-									<button class="input-group-addon" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
-								</form>
+									<button class="input-group-addon es_commentButton" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
 							</div>
 							<ul class="comments-list"
 								style="padding-left: 3.2%; padding-right: 3.2%; list-style: none; width: 100%;">
-								<li class="comment"><a class="pull-left" href="#"> <img
-										class="avatar" src="http://bootdey.com/img/Content/user_1.jpg"
+								<li class="comment"><img
+										class="avatar pull-left" src="http://bootdey.com/img/Content/user_1.jpg"
 										alt="avatar">
-								</a>
 									<div class="comment-body">
 										<div class="comment-heading">
 											<h4 class="user">Gavino Free</h4>
 											<h5 class="time">5 minutes ago</h5>
+											<button class="btn btn-default btn-xs deleteCommentBtn" style="float:right;" value="">X</button>
 										</div>
 										<p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
-									</div></li>
+									</div>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -248,7 +256,7 @@
 
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<!-- 코디북 리스트 뿌리기 -->
+<!-- 코디북 리스트 뿌리기 & 모달창 관리 -->
 <script type="text/javascript">
 	$(document).ready(function() {
 		es_fetchBook("all");
@@ -259,9 +267,12 @@
 			  console.log('모달모달');
 			  var info = $(event.relatedTarget.dataset); // Button that triggered the modal
 			  console.log(info);
+			  var no = info[0].no;
+			  console.log(no);
+			  var otherNo = info[0].other;
 			  var img = info[0].image; // Extract info from data-* attributes
 			  console.log(img);
-			  var wearimg = info[0].wearimage; // Extract info from data-* attributes
+			  /* var wearimg = info[0].wearimage; // Extract info from data-* attributes */
 			  var profile = info[0].profile;
 			  console.log(profile);
 			  var nicname = info[0].nicname;
@@ -271,17 +282,21 @@
 
 			  
 			  var str = ""
+			  str += "<a href=\"${pageContext.request.contextPath }/myroom/"+otherNo+"\" style=\"text-decoration: none;\">";
 			  str += "<img class=\"prifile_photo\" src=\"\" alt=\"프로필사진\" style=\"margin-right: 10px;\">";
 			  str += nicname;
+			  str += "</a>";
+			  
+			  getWearImage(no);
 			  
 			  $('.showPic').attr('src', img);
-			  $('#wearclothimg').attr('src', wearimg);
 			  $('.nicname').html(str);
 			  $('.prifile_photo').attr('src', profile);
-			  
-
-
-			});
+			  $('#codiNoSave').val(no);
+			  $('.es_commentButton').val(no);
+			  $('.comments-list').empty();
+			  fetch_comment(no);
+		});
 	});
 
 	function es_fetchBook(purpose) {
@@ -307,11 +322,12 @@
 								console.log("종아요 버튼");
 
 								var authNo = ${authUser.no};
+								
 								console.log($($this).val());
 								likebtnClick($this.val(), authNo);
+								
 								var c = $this.data('count');
-								if (!c)
-									c = 0;
+								console.log(c);
 								c++;
 								$this.data('count', c);							
 								$('#' + this.id + '-bs').html(c);
@@ -337,18 +353,6 @@
 							
 							$("#codibookItem"+no).remove();
 						});
-						
-						/* $('.getSrc').click(function() {
-							console.log("hello");
-							var src = $(this).attr('src');
-							
-							//프로필 사진과 닉네임을 가져와야한다
-							//db를 통해서 할것이므로 눌렀을 때 코디번호를 모달창에 전해야한다.
-							$('.showPic').attr('src', src);
-						}); */	
-						
-						
-
 					},
 					error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
 						console.error(status + " : " + error);
@@ -359,14 +363,16 @@
 	function es_render(CodibookVo) {
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
-		
 		var str = "";
 		str += "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3' id=\"codibookItem"+CodibookVo.no+"\">";
 		str += "<div class=\"thumbnail bts\">";
+		if (userNo == authNo) {
 		str += "	<button class=\"btn btn-default btn-xs deleteCodiBtn\" style=\"float:right;\" value="+CodibookVo.no+">X</button>";
+		}
 		str += "	<div id=\"openModal"+CodibookVo.no+"\"";
+		str += "	 	data-no=\""+CodibookVo.no+"\" ";
+		str += "	 	data-other=\""+CodibookVo.otherNo+"\" ";
 		str += "	 	data-image=\"${pageContext.request.contextPath}/upload/"+CodibookVo.codi+"\" ";
-		str += "	 	data-wearimage=\"${pageContext.request.contextPath}/upload/"+CodibookVo.wear+"\" ";
 		str += "	 	data-profile=\"${pageContext.request.contextPath}/upload/"+CodibookVo.profile+"\" ";
 		str += "	 	data-nicname=\""+CodibookVo.otherNicname+"\" ";
 		str += "		data-toggle=\"modal\" data-target=\'#modal\' data-keyboard=\"true\"";
@@ -403,7 +409,7 @@
 			str += "		</button>";
 		} else {
 			str += "		<button class=\"btn btn-sm btn-default btn-hover likebtn\"";
-			str += "			style=\"display: inline; float:right; margin-top:5%\" data="+CodibookVo.likes+" value="+CodibookVo.no+"	 id=\"like"
+			str += "			style=\"display: inline; float:right; margin-top:5%\" data-count="+CodibookVo.likes+" value="+CodibookVo.no+"	 id=\"like"
 					+ CodibookVo.no + "\">";
 			str += "			<span class=\"glyphicon glyphicon-thumbs-up\"><div id=\"like"+CodibookVo.no+"-bs\" style=\"display: inline; margin-left: 2px;\">"
 					+ CodibookVo.likes + "</div></span>";
@@ -529,6 +535,7 @@
 	}
 </script>
 
+<!-- 코디북 분류 -->
 <script type="text/javascript">
 	$("[name=clothlistchoice]").on('click', function() {
 		console.log("분류 클릭");
@@ -539,6 +546,95 @@
 	});
 </script>
 
+<!-- 댓글창 스크립트 -->
+<script type="text/javascript">
+	function fetch_comment(no) {
+			$.ajax({
+			url : "${pageContext.request.contextPath }/myroom/commentList",
+			type : "post",
+			dataType : "json",
+			data : {"no":no},
+			success :function(commentList) {
+				for (var i = 0; i < commentList.length; i++) {
+					addComment(commentList[i]);
+				}
+				
+				$('.deleteCommentBtn').click(function() {
+					  console.log("삭제버튼3");
+					  var $this = $(this);
+					  var no = $this.val();
+				 	  console.log(no);	 	
+				 	  removeComment(no);
+				 	  $("#coDel"+no).remove();
+				});
+			 	
+			},
+			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
+				console.error(status + " : " + error);
+			}
+		});
+	}
+	
+ 	$('.es_commentButton').on('click', function() {
+ 		console.log("코멘트 버튼 클릭")
+
+ 		var no = $('.es_commentButton').val();
+ 		var authNo = ${authUser.no};
+ 		var comment = $('.es_commentInput').val();
+ 		console.log(comment);
+ 		
+ 		$.ajax({
+			url : "${pageContext.request.contextPath }/myroom/addComment",
+			type : "post",
+			dataType : "json",
+			data : {"no":no, "authNo":authNo, "comment":comment},
+			success :function(codiCoVo) {
+				addComment(codiCoVo);
+			},
+			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
+				console.error(status + " : " + error);
+			}
+		});
+ 	});
+ 	
+ 	function addComment(codiCoVo) { 		
+ 		var authNo = ${authUser.no};
+ 		
+ 		var str = "";
+ 		str += "<li id=\"coDel"+codiCoVo.no+"\" class=\"comment\" style=\"padding-top:1%;\">";
+ 		str += "	<img class=\"avatar pull-left\" src=\"${pageContext.request.contextPath}/upload/"+codiCoVo.dbName+"\" alt=\"avatar\">";
+		str += "	<div class=\"comment-body\">";
+		str += "		<div class=\"comment-heading\">";
+		str += "			<h4 class=\"user\">"+codiCoVo.nicname+"</h4>";
+ 		str += "			<h5 class=\"time\">"+codiCoVo.regDate+"</h5>";
+ 		if(authNo == codiCoVo.personNo) {
+			str += " 			<button class=\"btn btn-default btn-xs deleteCommentBtn\" style=\"float:right;\" value=\""+codiCoVo.no+"\">x</button>";
+ 		}
+		str += "		</div>";
+		str += "		<p>"+codiCoVo.content+"</p>";
+		str += "	</div>";
+		str += "</li>";
+		
+		$('.comments-list').append(str);
+ 	}
+	
+ 	function removeComment(no) {
+ 		$.ajax({
+			url : "${pageContext.request.contextPath }/myroom/removeComment",
+			type : "post",
+			dataType : "json",
+			data : {"no":no},
+			success :function() {
+				console.log("댓글 지우기");
+			},
+			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
+				console.error(status + " : " + error);
+			}
+		});
+ 	}
+</script>
+
+<!-- 착용사진 올리기 -->
 <script type="text/javascript">
 	//이벤트 발생시 첨부파일 열기버튼이 눌리도록
 	function eventOccur(evEle, evType) {
@@ -585,7 +681,10 @@
 		var form = $('#sendimgfile')[0];
 		var formData = new FormData(form);
 		formData.append("wearImg", $("#fileopen")[0].files[0]);
-
+		var no = $('#codiNoSave').val();
+		formData.append("no", no)
+		
+		console.log(no);
 		$.ajax({
 			url : "${pageContext.request.contextPath}/myroom/codibookSave",
 			type : "POST",
@@ -601,6 +700,23 @@
 			}
 		});
 	});
+	
+	function getWearImage(no) {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/myroom/getWearImage",
+			type : "post",
+			dataType : "json",
+			data : {"no":no},
+			success : function(wearImg) {
+				console.log(wearImg);
+				$('#wearclothimg').attr('src', "${pageContext.request.contextPath}/upload/"+wearImg);
+			},
+
+			error : function(XHR, status, error) {
+				console.log("실패");
+			}
+		});
+	}
 </script>
 
 </html>

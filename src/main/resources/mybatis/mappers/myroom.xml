@@ -41,16 +41,15 @@
 	
 	<select id="getCodiBookList" resultType="com.vestis.vo.CodibookVo" parameterType="map">
 		<![CDATA[
-			select no, otherNo, otherNicname, profile, codi, wear, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
-			from like_person, (select codi.no no, person.no otherNo, p2.nicname otherNicname, 
+			select no, otherNo, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname, 
 									pro_img.db_name profile,
 									codiimg.db_name codi,
-									wear.db_name wear,
 									choose, NVL(likes, 0) likes
-									from codi, person, img wear, img codiimg, img pro_img, person p2,
+									from codi, person, img codiimg, img pro_img, person p2,
 									     (select codi_no like_codi_no, count(like_person.person_no) likes 
 						                 from like_person
-						                 group by like_person.person_no, codi_no)
+						                 group by codi_no)
 									where p2.no = codi.person_no
                             			and person.no = codi.other_no	
 										and other_no=#{num}
@@ -61,9 +60,11 @@
 											<if test="purpose.equals('other')">
 												and codi.person_no != #{num}
 											</if>
+											<if test="purpose.equals('system')">
+												and codi.person_no = 0
+											</if>
 										<![CDATA[
 			                            and codi_no = codiimg.no
-									    and codi_photo_no = wear.no
 									    and p2.profile_no = pro_img.no
 			                            and codi.no = like_codi_no(+)
 									order by codi.no desc)
@@ -100,7 +101,11 @@
 	<insert id="likebtnClick" parameterType="map">
 		<![CDATA[
 			insert into like_person
+<<<<<<< HEAD
 			values(#{voNo}, #{authNo},sysdate)			
+=======
+			values(#{voNo}, #{authNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))			
+>>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 		]]>
 	</insert>
 	
@@ -135,5 +140,173 @@
 		<if test="type != 0">
 			and type_no = #{type}
 		</if>
+	</select>
+	
+	<insert id="addComment" parameterType="com.vestis.vo.CodiCoVo">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			select seq_codi_comment_no.nextval from dual 
+		</selectKey>
+		<![CDATA[
+			insert into codi_comment
+			values(#{no}, #{personNo}, #{codiNo}, #{content}, TO_DATE(#{regDate},'YYYY-MM-DD hh24:mi:ss'))			
+		]]>
+	</insert>
+	
+	<select id="getComment" parameterType="int" resultType="com.vestis.vo.CodiCoVo">
+		<![CDATA[
+			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
+			from codi_comment, person, img
+			where codi_comment.no = #{no}
+	            and person_no = person.no
+	            and person.profile_no = img.no
+		]]>
+	</select>
+	
+	<select id="getCommentList" parameterType="int" resultType="com.vestis.vo.CodiCoVo">
+		<![CDATA[
+			select codi_comment.no, person_no personNo, content, db_name dbName, nicname, to_char(reg_date,'yyyy-mm-dd hh24:mi:ss') regDate
+			from codi_comment, person, img
+			where codi_no= #{no}
+	            and person_no = person.no
+	            and person.profile_no = img.no
+	        order by codi_comment.no asc
+		]]>
+	</select>
+	
+	<update id="changeSaveImg" parameterType="map">
+		<![CDATA[
+			update codi
+			set codi_photo_no = #{imgNo}
+			where no = #{no}	
+		]]>
+	</update>
+	
+	<delete id="removeComment" parameterType="int">
+		<![CDATA[
+			delete from codi_comment
+			where no = #{no}	
+		]]>
+	</delete>
+	
+	<select id="getWearImage" parameterType="int" resultType="String">
+		<![CDATA[
+			select db_name
+			from codi, img
+			where codi.no = #{no}
+				and codi_photo_no = img.no	
+		]]>
+	</select>
+	
+	<select id="getCodiThree" parameterType="int" resultType="com.vestis.vo.CodibookVo">
+		<![CDATA[
+			select db_name codi, nicname otherNicname
+			from (  select rownum rn, db_name, person.nicname
+			        from codi, img, person
+			        where other_no = #{no}
+			        and person_no != #{no}
+			        and person_no = person.no
+			        and codi_no = img.no
+			        order by codi.no desc)
+			where rn <= 3
+		]]>
+	</select>
+	
+	<select id="getCodiNo" parameterType="int" resultType="int">
+		<![CDATA[
+			select cloth_no
+			from codi_cloth
+			where codi_no = #{no}
+		]]>
+	</select>
+	
+	<update id="setCount" parameterType="int">
+		<![CDATA[
+			update cloth
+			set count = (select count+1
+			             from cloth
+			             where no = #{no})
+			where no = #{no}
+		]]>
+	</update>
+	
+	<select id="getUserLL" parameterType="int" resultType="com.vestis.vo.UserVo">
+		<![CDATA[
+			select lat, lon
+			from person
+			where no = #{no}
+		]]>
+	</select>
+	
+	<insert id="addCalData" parameterType="map">
+		<![CDATA[
+			insert into calculation
+			values(seq_calculation_no.nextval, #{clothNo}, #{weatherNo}, TO_DATE(#{date},'YYYY-MM-DD hh24:mi:ss'))
+		]]>
+	</insert>
+	
+	<select id="getDayCloth" parameterType="map" resultType="com.vestis.vo.ImgVo">
+		<![CDATA[
+			select no, dbName
+			from (select rownum rn, no, dbName
+			    from (select cloth.no no, db_name dbName, temp, type_no, count, person_no
+			        from cloth, img, calculation, cloth_weather
+			        where cloth.no = calculation.CLOTH_NO
+			        and cloth.img_no = img.no
+			        and calculation.WEATHER_NO = cloth_weather.no
+			        and person_no = #{userNo}
+			        and type_no = #{type}
+		]]>
+			<choose>
+				<when test="indexNo = 0">
+					<![CDATA[
+						and #{temp}+2 >= temp
+				        and #{temp}-2 <= temp
+			        ]]>
+				</when>	
+				<when test="indexNo = 1">
+					<![CDATA[
+						and #{temp} >= temp
+				        and #{temp}-3 <= temp
+			        ]]>
+				</when>	
+				<when test="indexNo = 2">
+					<![CDATA[
+						and #{temp} >= temp
+				        and #{temp}-3 <= temp
+			        ]]>
+				</when>	
+				<when test="indexNo = 3">
+					<![CDATA[
+						and #{temp} >= temp
+				        and #{temp}-4 <= temp
+			        ]]>
+				</when>		
+			</choose>
+		<![CDATA[
+					order by count desc))
+			where rn = 1
+		]]>
+	</select>
+	
+	<select id="getTodaySystemCodi" parameterType="int" resultType="String">
+		<![CDATA[
+			select db_name dbName
+			from codi, img, (select to_date(sysdate, 'YYYY-MM-DD') today from dual)
+			where codi.codi_no = img.no
+			and to_date(codi.codi_date, 'YYYY-MM-DD') = today
+			and other_no = #{no}
+			and person_no = 0
+		]]>
+	</select>
+	
+	<select id="getYesSystemCodi" parameterType="int" resultType="String">
+		<![CDATA[
+			select db_name dbName
+			from codi, img, (select to_date(sysdate-1, 'YYYY-MM-DD') today from dual)
+			where codi.codi_no = img.no
+			and to_date(codi.codi_date, 'YYYY-MM-DD') = today
+			and other_no = #{no}
+			and person_no = 0
+		]]>
 	</select>
 </mapper>

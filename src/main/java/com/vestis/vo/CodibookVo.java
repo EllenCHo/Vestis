@@ -3,8 +3,13 @@ package com.vestis.vo;
 public class CodibookVo {
 	private int no;			//Codi db 번호
 	private int otherNo;	//코디해준사람 번호
+<<<<<<< HEAD
 	private int ownerNo;	//코디 받은 사람
 	private String ownername; //코디 받은 사람 닉네임
+=======
+	private int ownerNo;
+	private int ownername;
+>>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 	private String otherNicname;	//코디해준 사람 닉네임
 	private String profile;		//프로필사진 
 	private String codi;		//코디사진
@@ -109,6 +114,7 @@ public class CodibookVo {
 		this.ownerNo = ownerNo;
 	}
 
+<<<<<<< HEAD
 	public String getOwnername() {
 		return ownername;
 	}
@@ -120,4 +126,13 @@ public class CodibookVo {
 	
 	
 	
+=======
+	public int getOwnername() {
+		return ownername;
+	}
+
+	public void setOwnername(int ownername) {
+		this.ownername = ownername;
+	}
+>>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 }

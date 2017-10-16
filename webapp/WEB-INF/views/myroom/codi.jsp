@@ -48,7 +48,7 @@
 }
 
 .left-box {
-	background: #FFFEEE;
+	background: #FFFFFF;
 	float: left;
 	width: 49.5%;
 	height: 600px;
@@ -138,15 +138,10 @@ div:focus {
 	<div class="container">
 		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 		
-		<div class="codi-space">
-			<div id="row">
-				<div class="col-md-12">
-					<h10 class="text-left" style="color:white;">>>메인>My Room>코디북>코디하기</h10>
-				</div>
-			</div>  
-
+		<div class="codi-space">			
 			<div class="bts" style="margin-top: 27px; margin-bottom:5px;">
-				<button id="reset" class="btn btn-default" style="margin-left: 37%;">Reset</button>
+				<h4 class="text-left" style="display:inline;"><strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.</strong></h4>
+				<button id="reset" class="btn btn-default" style="margin-left:3.5%;">Reset</button>
 				<form id="canvas" action="${pageContext.request.contextPath}/myroom/save"
 					method="post" style="margin: 0px; display: inline">
 					<Button id="save" class="btn btn-default">Save</Button> 
@@ -154,7 +149,6 @@ div:focus {
 					<input id="info_weather" name="weather" type="hidden" value="${weatherNo }">
 					<input id="info_temp" name="temp" type="hidden" value="${temp }">	
 				</form>
-
 			</div>
 			<div id="space">
 				<div class="left-box" style="border-radius: 1em;">
@@ -406,47 +400,51 @@ div:focus {
 		var weather = $("#info_weather");
 		var temp = $("#info_temp");
 		
-		console.log(chsitems)
-		//이미지 만들기
-		html2canvas($(".left-box"), {
-			onrendered : function(canvas) {
-				// canvas is the final rendered <canvas> element
-				//이미지 형태 지정
-				var myImage = canvas.toDataURL("image/png");
-
-				$("#data").val(myImage);
-
-				console.log(myImage);
-				var jb = jQuery.noConflict();
-				jQuery.ajaxSettings.traditional = true;
-				var allData = {
-					"data" : $("#canvas").serialize(),
-					"choice" : chsitems,
-					"weather" : $("#info_weather").val(),
-					"temp" : $("#info_temp").val()
-				};
-				
-				console.log(allData);
-				jb.ajax({
-					url : "${pageContext.request.contextPath}/myroom/save/${userNo}",
-					type : "POST",
+		console.log(chsitems.length)
+		if(chsitems.length == 0) {
+			alert("옷을 선택해주세요.");
+		} else {
+			//이미지 만들기
+			html2canvas($(".left-box"), {
+				onrendered : function(canvas) {
+					// canvas is the final rendered <canvas> element
+					//이미지 형태 지정
+					var myImage = canvas.toDataURL("image/png");
+	
+					$("#data").val(myImage);
+					var authNo = ${authUser.no};
+					//console.log(myImage);
+					var jb = jQuery.noConflict();
+					jQuery.ajaxSettings.traditional = true;
+					var allData = {
+						"data" : $("#data").serialize(),
+						"choice" : chsitems,
+						"weather" : $("#info_weather").val(),
+						"temp" : $("#info_temp").val(),
+						"authNo" : authNo
+					};
 					
-					data : allData,
-					
-					success : function(result) {
-						console.log(result);
-						alert("저장됐습니다.");
-						window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}");
-					},
-
-					error : function(XHR, status, error) {
-						//window.location.replace("${pageContext.request.contextPath}/myroom/codi");
-						console.log("실패");
-					}
-				});
-			}
-		});
-
+					console.log(allData);
+					jb.ajax({
+						url : "${pageContext.request.contextPath}/myroom/save/${userNo}",
+						type : "POST",
+						
+						data : allData,
+						
+						success : function(result) {
+							console.log(result);
+							alert("저장됐습니다.");
+							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}");
+						},
+	
+						error : function(XHR, status, error) {
+							//window.location.replace("${pageContext.request.contextPath}/myroom/codi");
+							console.log("실패");
+						}
+					});
+				}
+			});
+		}
 	});
 </script>
 </html>
