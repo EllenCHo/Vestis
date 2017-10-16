@@ -195,6 +195,7 @@ public class MyRoomService {
 		return myRoomDao.getCodiThree(no);
 	}
 	
+	//유저의 위치정보 알아내는 것
 	public UserVo getUserLL(int no) {
 		return myRoomDao.getUserLL(no);
 	}
@@ -208,6 +209,7 @@ public class MyRoomService {
 		clothList.add(bottom);
 		ImgVo shoes = myRoomDao.getDayCloth(userNo, 4, temp, indexNo);
 		clothList.add(shoes);
+		
 		return clothList;
 	}
 	

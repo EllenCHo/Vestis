@@ -188,11 +188,11 @@
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
 	<div id="imageStore" style="display: none">
-		<img id="todayTopImg"
+		<img id="todayImg0"
 			src="">
-		<img id="todayBottomImg"
+		<img id="todayImg1"
 			src="">
-		<img id="todayShoesImg"
+		<img id="todayImg2"
 			src="">
 		<img id="todayWeatherImg"
 			src="">
@@ -217,11 +217,18 @@
 		}
 		
 		if ("${todayImg}" == "") {
-			console.log("오늘 코디 이미 해줌");
-			$("todayTopImg").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[0].dbName}");
-			$("todayBottomImg").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[1].dbName}");
-			$("todayShoesImg").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[2].dbName}");
-			$("todayWeatherImg").attr('src', "${pageContext.request.contextPath}/assets/img/${todayWeather}.png");
+			console.log("오늘 코디 해줘야함");
+
+			$("#todayWeatherImg").attr('src', "${pageContext.request.contextPath}/assets/img/${todayWeather}.png");
+			for(var i=0; i<3; i++) {
+				//var str = 
+				if("${todayCloth[i].dbName}" != "") {
+					$("todayImgi").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[i].dbName}");
+				}
+			}
+			/* $("todayImg0").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[0].dbName}");
+			$("todayImg1").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[1].dbName}");
+			$("todayImg2").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[2].dbName}"); */
 		} else {
 			$('#todayCanvas').remove();
 			
@@ -243,6 +250,7 @@
 		if ("${todayImg}" != "") {
 			console.log("오늘 코디 이미 해줌");
 		} else {
+			console.log("오늘의 코디");
 			//캔버스에 옷 그리기
 			drawTodayCloth();
 
@@ -302,9 +310,15 @@
 		var weatherImg = new Image();
 
 		//이미지 경로 설정
-		topImg.src = "${pageContext.request.contextPath}/upload/${tomorrowCloth[0].dbName}";
-		bottomImg.src = "${pageContext.request.contextPath}/upload/${tomorrowCloth[1].dbName}";
-		shoesImg.src = "${pageContext.request.contextPath}/upload/${tomorrowCloth[2].dbName}";
+		if("${tomorrowCloth[0].dbName}" != "") {
+			topImg.src = "${pageContext.request.contextPath}/upload/${tomorrowCloth[0].dbName}";
+		}
+		if("${tomorrowCloth[1].dbName}" != "") {
+			bottomImg.src = "${pageContext.request.contextPath}/upload/${tomorrowCloth[1].dbName}";
+		}
+		if("${tomorrowCloth[2].dbName}" != "") {
+			shoesImg.src = "${pageContext.request.contextPath}/upload/${tomorrowCloth[2].dbName}";
+		}
 		weatherImg.src = "${pageContext.request.contextPath}/assets/img/${tomorrowWeather}.png";
 
 		console.log("변경6");
@@ -353,14 +367,14 @@
 		ctx.fillStyle = "white";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-		var topImg = document.getElementById("todayTopImg");
+		var topImg = document.getElementById("todayImg0");
 		console.log(topImg);
 		ctx.drawImage(topImg, 30, 20, 200, 200);
 
-		var bottomImg = document.getElementById("todayBottomImg");
+		var bottomImg = document.getElementById("todayImg1");
 		ctx.drawImage(bottomImg, 90, 150, 200, 200);
 
-		var shoseImg = document.getElementById("todayShoesImg");
+		var shoseImg = document.getElementById("todayImg2");
 		ctx.drawImage(shoseImg, 200, 280, 150, 150);
 
 		var weatherImg = document.getElementById("todayWeatherImg");

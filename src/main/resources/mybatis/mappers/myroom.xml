@@ -242,9 +242,45 @@
 	
 	<select id="getDayCloth" parameterType="map" resultType="com.vestis.vo.ImgVo">
 		<![CDATA[
-			select no, db_name dbName
-			from img
-			where no = 48
+			select no, dbName
+			from (select rownum rn, no, dbName
+			    from (select cloth.no no, db_name dbName, temp, type_no, count, person_no
+			        from cloth, img, calculation, cloth_weather
+			        where cloth.no = calculation.CLOTH_NO
+			        and cloth.img_no = img.no
+			        and calculation.WEATHER_NO = cloth_weather.no
+			        and person_no = #{userNo}
+			        and type_no = #{type}
+		]]>
+			<choose>
+				<when test="indexNo = 0">
+					<![CDATA[
+						and #{temp}+2 >= temp
+				        and #{temp}-2 <= temp
+			        ]]>
+				</when>	
+				<when test="indexNo = 1">
+					<![CDATA[
+						and #{temp} >= temp
+				        and #{temp}-3 <= temp
+			        ]]>
+				</when>	
+				<when test="indexNo = 2">
+					<![CDATA[
+						and #{temp} >= temp
+				        and #{temp}-3 <= temp
+			        ]]>
+				</when>	
+				<when test="indexNo = 3">
+					<![CDATA[
+						and #{temp} >= temp
+				        and #{temp}-4 <= temp
+			        ]]>
+				</when>		
+			</choose>
+		<![CDATA[
+					order by count desc))
+			where rn = 1
 		]]>
 	</select>
 	
