@@ -14,6 +14,9 @@
 	
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+    
+    <!-- Theme style -->
+	<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
  p { font-size: 18px; }
@@ -84,8 +87,16 @@ height: 35px;
  </style>
 </head>
 <body>
-	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+
+<div class="myroomimg">
+	<div class="container">
+	<h3>market</h3>
+	</div>
+</div>
 	
+	
+<!-- ----------------------------------------------------------------------------------- -->
 	<div class="container">
 
       <div class="bg-faded p-4 my-4">
@@ -189,6 +200,9 @@ height: 35px;
 
 
       </div>
+
+
+<!-- ---------------------------------------------------------------------- -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	</body>
 </html>
