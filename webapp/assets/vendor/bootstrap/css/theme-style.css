@@ -297,6 +297,10 @@ h-body {
 	padding-right:30px;
 	padding-left:30px;
 }
+/* add버튼 */
+.h-border-color{
+	border-color: #55A79A!important;
+}
 /* footer */
 body {
     margin: 0; /* 리셋을 하지 않은 경우 추가 */

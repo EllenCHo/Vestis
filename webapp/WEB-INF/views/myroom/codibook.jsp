@@ -226,12 +226,34 @@
 		</div>
 	</div>
 
-	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-
+<div class="myroomimg">
 	<div class="container">
-		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
+	<h3>codibook</h3>
+	</div>
+</div>
 
+<div class="container">
+<div class="row">
+
+<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
+
+
+<!-- ---------------------------------------------------------------------- -->
+	<div class="col-md-10">
+	
+		<!-- 서브메뉴(탭) -->
+		<ul class="nav nav-tabs flex-column flex-lg-row tb2" role="tablist">
+			<li class="nav-item h-lr active"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true">All Codi Set</a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false">My Codi Set</a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false">Other Codi Set</a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false">System Codi Set</a> </li>
+		</ul>
+	
+	
+	
+	
 		<div class="top center" style="margin-top:0;">
 			<fieldset class="list">
 				<label for="allbtn" style="margin-left: 5%;"><input type="radio" id="allbtn" name="clothlistchoice" value="all" checked="checked">All</label> 
@@ -252,7 +274,12 @@
 			<!-- row / end -->
 		</div>
 	</div>
+</div>
+</div>
 
+
+
+<!-- ---------------------------------------------------------------------- -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
 </body>

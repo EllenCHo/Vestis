@@ -112,6 +112,7 @@ public class UserService {
 			BufferedOutputStream bout = new BufferedOutputStream(out);
 
 			bout.write(fileData);
+			bout.flush();
 			if (bout != null) {
 				bout.close();
 			}

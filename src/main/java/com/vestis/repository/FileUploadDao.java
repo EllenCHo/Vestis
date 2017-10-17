@@ -24,7 +24,8 @@ public class FileUploadDao {
 		System.out.println(imgVo);
 		sqlSession.insert("img.upload", imgVo);
 		String dbName=imgVo.getDbName();
-		int imgNu=sqlSession.selectOne("img.selectByImg",dbName );
+		ImgVo imgvo=sqlSession.selectOne("img.selectByImg",dbName );
+		int imgNu=imgvo.getNo();
 		String imgNo=String.valueOf(imgNu);
 		System.out.println(imgNo);
 		return imgNo;

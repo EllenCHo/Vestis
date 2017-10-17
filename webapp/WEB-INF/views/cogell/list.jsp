@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,22 +14,15 @@
 
 
 <!-- Custom fonts for this template -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
-	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"	rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
-<link
-	href="${pageContext.request.contextPath}/assets/css/business-casual.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
 
 
 <!--  -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -194,170 +186,419 @@
 </style>
 
 </head>
-
 <body>
 
 	
-	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	
-	<div class="modal bs-example-modal-lg" id="modal" tabindex="-1"
-		role="dialog" aria-labelledby="gridSystemModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<p class="text-left nicname" style="margin-bottom: 0;">
-						<img class="prifile_photo"
-							src="http://bootdey.com/img/Content/user_1.jpg" alt="프로필사진"
-							style="margin-right: 10px;">
-					</p>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid bts">
+<div class="myroomimg">
+	<div class="container">
+	<h3>codi gallery</h3>
+	</div>
+</div>
 
-						<div class="row" style="height: 71%">
-							<div class="col-md-6">
-								<label
-									style="margin-left: 5%; margin-bottom: 3%; margin-top: 3%;">추천한
-									코디</label> <img class="img-responsive showPic" src=""
-									style="border: 1px solid #FFD7B9; border-radius: 1em;">
-							</div>
+<!-- -------------------------------------------------------------------------------  -->
 
-
-							<div class="col-md-6 bts">
-								<label style="margin-left: 5%; display: inline;">실제로 입은
-									사진</label>
-								<form id="sendimgfile" action="" method="post"
-									enctype="multipart/form-data" style="display: inline;">
-									<input type="file" id="fileopen" name="file" accept="image/*"
-										style="display: none;">
-									<button id="inputfilebtn" class="btn btn-default" type="button"
-										style="margin-left: 17%; margin-bottom: 3%;">사진선택</button>
-								</form>
-								<button id="saveimgbtn" class="btn btn-default"
-									style="margin-bottom: 3%;">저장</button>
-								<div
-									style="border: 1px solid #FFD7B9; border-radius: 1em; overflow: hidden; height: 91%; position: relative;">
-									<img id="wearclothimg" class="img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/base_img.png"
-										alt="">
-								</div>
-							</div>
+	<div class="container">
+		<!-- 서브메뉴 -->
+	<div class="row">
+	
+	<div class="col-md-10">
+		 <!-- 카드하나 -->
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
+		</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥♡3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+         
+         
+         <!-- 카드하나 -->
+	            <div class="col-md-3">
+	              <div class="card bg-white bg-shadow text-center card-outline-primary">
+	              	<div class="row tb4">
+	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	                	<div class="h-ic" >
+	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
 						</div>
-
-						<hr>
-						<div class="row">
-							<div class="input-group"
-								style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
-								<form action="">
-								<input class="form-control" placeholder="Add a comment"
-									type="text" style="width:96%;"> 
-									<button class="input-group-addon" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
-								</form>
-							</div>
-							<ul class="comments-list"
-								style="padding-left: 3.2%; padding-right: 3.2%; list-style: none; width: 100%;">
-								<li class="comment"><a class="pull-left" href="#"> <img
-										class="avatar" src="http://bootdey.com/img/Content/user_1.jpg"
-										alt="avatar">
-								</a>
-									<div class="comment-body">
-										<div class="comment-heading">
-											<h4 class="user">Gavino Free</h4>
-											<h5 class="time">5 minutes ago</h5>
-										</div>
-										<p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
-									</div></li>
-							</ul>
+	                	<div class="h-ic h-iec" >X</div>
+	              	</div>
+	                <p class="hh-line "></p>
+	                <!-- <div class="card-body"> -->
+	                <div >
+	                  <ul class="list-unstyled list-border-dots">
+	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	                  </ul>
+	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+	                </div>
+	                 <a class="hh-line "></a>
+	                 <div class="row">
+	               		<div class="h-ic h-iec"><span>
+	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	                	</span></div>
+	                	<div class="h-ic" style="margin-top:20px;"><span>
+	                		<a>베라님</a>
+	                	</span></div>
+	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	                		<a>♥♡3</a>
+						</span></div>
+					
+	                </div>
+	              </div>
+	              
+	            </div>
+	            
+	            <!-- 카드하나 -->
+	            <div class="col-md-3">
+	              <div class="card bg-white bg-shadow text-center card-outline-primary">
+	              	<div class="row tb4">
+	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	                	<div class="h-ic" >
+	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	                	<div class="h-ic h-iec" >X</div>
+	              	</div>
+	                <p class="hh-line "></p>
+	                <!-- <div class="card-body"> -->
+	                <div >
+	                  <ul class="list-unstyled list-border-dots">
+	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	                  </ul>
+	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+	                </div>
+	                 <a class="hh-line "></a>
+	                 <div class="row">
+	               		<div class="h-ic h-iec"><span>
+	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	                	</span></div>
+	                	<div class="h-ic" style="margin-top:20px;"><span>
+	                		<a>베라님</a>
+	                	</span></div>
+	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	                		<a>♥♡3</a>
+						</span></div>
+					
+	                </div>
+	              </div>
+	              
+	            </div>
+	            
+	            <!-- 카드하나 -->
+	            <div class="col-md-3">
+	              <div class="card bg-white bg-shadow text-center card-outline-primary">
+	              	<div class="row tb4">
+	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	                	<div class="h-ic" >
+	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
+						</div>
+	                	<div class="h-ic h-iec" >X</div>
+	              	</div>
+	                <p class="hh-line "></p>
+	                <!-- <div class="card-body"> -->
+	                <div >
+	                  <ul class="list-unstyled list-border-dots">
+	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	                  </ul>
+	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+	                </div>
+	                 <a class="hh-line "></a>
+	                 <div class="row">
+	               		<div class="h-ic h-iec"><span>
+	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	                	</span></div>
+	                	<div class="h-ic" style="margin-top:20px;"><span>
+	                		<a>베라님</a>
+	                	</span></div>
+	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	                		<a>♥♡3</a>
+						</span></div>
+					
+	                </div>
+	              </div>
+	              
+	            </div>
+	            
+	            <!-- 카드하나 -->
+	            <div class="col-md-3">
+	              <div class="card bg-white bg-shadow text-center card-outline-primary">
+	              	<div class="row tb4">
+	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	                	<div class="h-ic" >
+	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
+						</div>
+	                	<div class="h-ic h-iec" >X</div>
+	              	</div>
+	                <p class="hh-line "></p>
+	                <!-- <div class="card-body"> -->
+	                <div >
+	                  <ul class="list-unstyled list-border-dots">
+	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	                  </ul>
+	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+	                </div>
+	                 <a class="hh-line "></a>
+	                 <div class="row">
+	               		<div class="h-ic h-iec"><span>
+	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	                	</span></div>
+	                	<div class="h-ic" style="margin-top:20px;"><span>
+	                		<a>베라님</a>
+	                	</span></div>
+	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	                		<a>♥♡3</a>
+						</span></div>
+					
+	                </div>
+	              </div>
+	              
+	            </div>
+	            
+	            <!-- 카드하나 -->
+	            <div class="col-md-3">
+	              <div class="card bg-white bg-shadow text-center card-outline-primary">
+	              	<div class="row tb4">
+	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	                	<div class="h-ic" >
+	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
+						</div>
+	                	<div class="h-ic h-iec" >X</div>
+	              	</div>
+	                <p class="hh-line "></p>
+	                <!-- <div class="card-body"> -->
+	                <div >
+	                  <ul class="list-unstyled list-border-dots">
+	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	                  </ul>
+	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+	                </div>
+	                 <a class="hh-line "></a>
+	                 <div class="row">
+	               		<div class="h-ic h-iec"><span>
+	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	                	</span></div>
+	                	<div class="h-ic" style="margin-top:20px;"><span>
+	                		<a>베라님</a>
+	                	</span></div>
+	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	                		<a>♥♡3</a>
+						</span></div>
+					
+	                </div>
+	              </div>
+	              
+	            </div>
+	            
+	            <!-- 카드하나 -->
+	            <div class="col-md-3">
+	              <div class="card bg-white bg-shadow text-center card-outline-primary">
+	              	<div class="row tb4">
+	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	                	<div class="h-ic" >
+	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
+						</div>
+	                	<div class="h-ic h-iec" >X</div>
+	              	</div>
+	                <p class="hh-line "></p>
+	                <!-- <div class="card-body"> -->
+	                <div >
+	                  <ul class="list-unstyled list-border-dots">
+	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	                  </ul>
+	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+	                </div>
+	                 <a class="hh-line "></a>
+	                 <div class="row">
+	               		<div class="h-ic h-iec"><span>
+	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	                	</span></div>
+	                	<div class="h-ic" style="margin-top:20px;"><span>
+	                		<a>베라님</a>
+	                	</span></div>
+	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	                		<a>♥♡3</a>
+						</span></div>
+					
+	                </div>
+	              </div>
+	              
+	            </div>
+         
+         
 	</div>
 	
 	
-      
-		<div class="container"><br>
-		<p class="hn"><button type="button" id="lastestbtn">최근 등록</button><button id="randombtn">랜덤찾기</button></p>
-			<div class="bts row">
-				<span class="col-lg-9 col-sm-12 picture tb">
-					<div class='list-group gallery' id="codibookItemList"></div>
-				</span> 
-				
-				<span class="col-lg-3 col-sm-12 tb"> 
-					<table class="table table-condensed" id="tb">
-						<tbody>
-							<tr>
-								<th>옷 많은 순위</th>
-							</tr>
-							<c:forEach items="${clist }" var="vo">
-							<tr>
-								<td><a href="#">${vo.rn }</a></td>
-								<td><a><img src='${pageContext.request.contextPath}/upload/${vo.savename }' width='40px' height='25px'></a></td>
-								<td><a href="${pageContext.request.contextPath}/myroom/codibook/${vo.no }">${vo.nicname }</a></td>
-							</tr>
-						</c:forEach>
-						</tbody>
-					</table>
-				</span> 
-				
-				
-				<span class="col-lg-9 col-sm-12 picture tb"> 
-					<div class='list-group gallery' id="codibookItemList2"></div>
-				</span> 
-				
-				<span class="col-lg-3 col-sm-12 tb"> 
-					<table class="table table-condensed" id="tb">
-						<tbody>
-						<tr>
-							<th>최근 가입한 사람</th>
-						</tr>
-						<c:forEach items="${list }" var="vo">
-							<tr>
-								<td><a><img src='${pageContext.request.contextPath}/upload/${vo.savename }' width='40px' height='25px'></a></td>
-								<td><a href="${pageContext.request.contextPath}/myroom/codibook/${vo.no }">${vo.nicname }</a></td>
-							</tr>
-						</c:forEach>
-							
-						</tbody>
-					</table>
-				</span>
-
-			<!-- 수정  -->
-			<!-- <div
-				style="overflow: auto; width: 87%; height: 37vw; padding: 2%; padding-bottom: 0; background-color: rgba(255, 255, 255, 0.9); border-radius: 1em; float: right;">
-				 <div class="bts row">
-					<div class='list-group gallery' id="codibookItemList"></div>
-					list-group / end
-				</div>
-				row / end
-			</div> -->
-			<!-- 수정 -->
-
-		</div>
-				
-				<div class="container"><br>
-				<p class="hn">월간 추천 별 랭킹</p>
-				<div class="bts row">
-				
-				<span class="col-lg-12 col-sm-12 picture tb">
-					<div class='list-group gallery' id="codibookItemList3"></div>
-				</span> 
-			</div>
 	
-		</div>
-		
+	<!-- 사람프로필 리스트 -->
+	<div class="col-md-2  tb2">
+		<div class="mb-4">
+              <ul class="nav nav-tabs">
+                <li class="nav-item active"><a href="#popular" class="nav-link " data-toggle="tab">Popular</a></li>
+                <li class="nav-item"><a href="#latest" class="nav-link" data-toggle="tab">Latest</a></li>
+              </ul>
+              <div class="tab-content tab-content-bordered">
+                <!-- Popular tab content -->
+                <div class="tab-pane fade active show blog-roll-mini" id="popular">
+                  <!-- Popular blog post 1 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/ladybird.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">At Interdico Populus Vero</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Popular blog post 2 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/ladybird.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Jugis Molior Sino Uxor</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Popular blog post 3 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/ladybird.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Cui Imputo Magna Refero</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Popular blog post 4 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/fly.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Melior Quidne Sagaciter Vindico</a>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <!-- Latest tab content -->
+                <div class="tab-pane fade blog-roll-mini" id="latest">
+                  <!-- Latest blog post 1 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/ladybird.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Abdo Esse Pertineo Praesent</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Latest blog post 2 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/ape.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Accumsan Amet Humo Populus</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Latest blog post 3 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/fly.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Inhibeo Jumentum Sit Vel</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Latest blog post 4 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/bee.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Praemitto Scisco Ulciscor Venio</a>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+	</div>
+	</div>
 	</div>
 	
 	
 	
 	
-	</div>
 	
-	<br>
+	
+<!-- -----------------------------------------------------------------------------------------------------------------------------  -->
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 

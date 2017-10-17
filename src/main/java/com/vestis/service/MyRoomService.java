@@ -35,13 +35,8 @@ public class MyRoomService {
 		System.out.println("코디북 여기까지44");
 		ImgVo imgVo = new ImgVo("D:\\javastudy\\file\\", filename, ".png", fileSize, filename+".png");
 		int imgNo = myRoomDao.addImg(imgVo);		
-<<<<<<< HEAD
-		System.out.println("코디북 여기까지33");
-		CodiVo codiVo = new CodiVo(authNo, userNo, 1, imgNo, 0, date, weatherSaveNo, date, weatherchsNo);
-=======
 
 		CodiVo codiVo = new CodiVo(authNo, userNo, 1, imgNo, 0, weatherSaveNo, weatherchsNo);
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 		int codiNo = myRoomDao.addCodi(codiVo);
 		
 		System.out.println("코디북 여기까지");

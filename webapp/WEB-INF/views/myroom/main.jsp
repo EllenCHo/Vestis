@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,30 +14,23 @@
 
 <title>My room</title>
 
-<!-- Bootstrap core CSS -->
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-
-
 <!-- Custom fonts for this template -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
-	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
-<link
-	href="${pageContext.request.contextPath}/assets/css/business-casual.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+
+
+<!-- Theme style -->
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
 
 <style>
 .photo {
 	float: right;
 	width: 40%;
 	margin-left: 30px;
+	margin-right: 50px;
 	padding: 1rem;
 }
 
@@ -46,6 +38,7 @@
 	float: left;
 	width: 40%;
 	margin-left: 30px;
+	margin-right: 30px;
 	padding: 1rem;
 }
 
@@ -84,22 +77,28 @@
 </style>
 
 
-
 </head>
-
 <body>
 
-	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
+<div class="myroomimg">
 	<div class="container">
+	<h3>MY ROOM</h3>
+	</div>
+</div>
 
-		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
+
+<div class="container ">
+<div class="row">
+<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 
 
+<!-- ---------------------------------------------------------------------- -->
 
-
+	<div class="col-md-10 content container tb2" >
 		<!-- 사진 전체틀1 -->
-		<div class="photo-size bg-faded  my-4">
+		<div class="photo-size bg-faded  my-4 hj-border">
 			<!-- Image Carousel -->
 			<div id="carouselExampleIndicators" class="carousel slide"
 				data-ride="carousel">
@@ -123,7 +122,7 @@
 		</div>
 
 		<!-- 사진 전체틀2 -->
-		<div class="photo bg-faded my-4">
+		<div class="photo bg-faded my-4 hj-border">
 			<!-- Image Carousel -->
 			<div id="carouselExampleIndicators2" class="carousel slide"
 				data-ride="carousel">
@@ -182,8 +181,13 @@
 				</a>
 			</div>
 		</div>
-
 	</div>
+</div>
+</div>
+
+
+
+<!-- ---------------------------------------------------------------------- -->
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 

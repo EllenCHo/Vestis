@@ -10,7 +10,7 @@
 		]]>
 	</insert>
 										<!-- 보내는거	 받는거 -->
-	 <select id="selectByImg" parameterType="int" resultType="int">
+	<select id="selectByImg" parameterType="String" resultType="com.vestis.vo.ImgVo">
 		<![CDATA[
 			select no
 			from img

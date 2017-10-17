@@ -19,9 +19,10 @@
 
 
 <!-- Custom styles for this template -->
-<link
-	href="${pageContext.request.contextPath}/assets/css/business-casual.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+
+<!-- Theme style -->
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
 
 
 <title>Codi</title>
@@ -133,12 +134,24 @@ div:focus {
 </style>
 </head>
 <body>
-	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-	
+
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+
+<div class="myroomimg">
 	<div class="container">
-		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
+	<h3>codi</h3>
+	</div>
+</div>
+	
+<div class="container">
+<div class="row">
+
+<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 		
-		<div class="codi-space">			
+
+<!-- ---------------------------------------------------------------------- -->
+
+		<div class="codi-space col-md-10">			
 			<div class="bts" style="margin-top: 27px; margin-bottom:5px;">
 				<h4 class="text-left" style="display:inline;"><strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.</strong></h4>
 				<button id="reset" class="btn btn-default" style="margin-left:3.5%;">Reset</button>
@@ -184,7 +197,10 @@ div:focus {
 		</div>
 	</div>
 
+</div>
 
+
+<!-- ---------------------------------------------------------------------- -->
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
