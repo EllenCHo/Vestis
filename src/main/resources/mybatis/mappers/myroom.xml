@@ -59,6 +59,7 @@
 											</if>
 											<if test="purpose.equals('other')">
 												and codi.person_no != #{num}
+												and codi.person_no != 0
 											</if>
 											<if test="purpose.equals('system')">
 												and codi.person_no = 0
@@ -200,6 +201,7 @@
 			        from codi, img, person
 			        where other_no = #{no}
 			        and person_no != #{no}
+			        and person_no != 0
 			        and person_no = person.no
 			        and codi_no = img.no
 			        order by codi.no desc)

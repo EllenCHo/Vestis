@@ -142,12 +142,12 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>어제의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow">어제의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black;">어제의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
 						<canvas id="todayCanvas" width="412" height="522.61"
-							style="background: #FFFFF; border-radius: 1em;"></canvas>
+							style="background: #FFFFF;"></canvas>
 						<input id="data" name="data" type="hidden"> <input
 							id="info_weather" name="weather" type="hidden"
 							value="${todayWeatherNo}"> <input id="info_temp"
@@ -157,17 +157,17 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>오늘의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow">오늘의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black;">오늘의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<canvas id="tomorrowCanvas" width="412" height="522.61"
-							style="background: #FFFFFF; border-radius: 1em;"></canvas>
+						<canvas id="tomorrowCanvas" width="412" height="453"
+							style="background: #FFFFFF;"></canvas>
 						<div class="carousel-caption d-none d-md-block systemLabel">
 							<h3 class="text-shadow" style="color: black;">
 								<strong>내일의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow">내일의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black;">내일의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 				</div>
@@ -217,22 +217,20 @@
 
 		if("${yesterImg}" != "") {
 			console.log("어제한 코디가 있다");
-			$("yesterdayCodi").attr('src', "${pageContext.request.contextPath}/upload/${yesterImg}");
+			$("#yesterdayCodi").attr('src', "${pageContext.request.contextPath}/upload/${yesterImg}");
 		}
 		
 		if ("${todayImg}" == "") {
 			console.log("오늘 코디 해줘야함");
 
 			$("#todayWeatherImg").attr('src', "${pageContext.request.contextPath}/assets/img/${todayWeather}.png");
-			for(var i=0; i<3; i++) {
-				//var str = 
-				if("${todayCloth[i].dbName}" != "") {
-					$("todayImgi").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[i].dbName}");
+			<c:forEach items="${todayCloth}" var="cloth" varStatus="status">
+				if("${cloth.dbName}" != "") {
+					console.log("${cloth.dbName}");
+					$("#todayImg${status.index}").attr('src', "${pageContext.request.contextPath}/upload/${cloth.dbName}");
 				}
-			}
-			/* $("todayImg0").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[0].dbName}");
-			$("todayImg1").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[1].dbName}");
-			$("todayImg2").attr('src', "${pageContext.request.contextPath}/upload/${todayCloth[2].dbName}"); */
+			</c:forEach>
+			
 		} else {
 			$('#todayCanvas').remove();
 			
@@ -335,21 +333,21 @@
 		topImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(topImg, 30, 20, 200, 200);
+			ctx.drawImage(topImg, 15, 10, 200, 200);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		bottomImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(bottomImg, 90, 150, 200, 200);
+			ctx.drawImage(bottomImg, 70, 120, 200, 200);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		shoesImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(shoesImg, 200, 280, 150, 150);
+			ctx.drawImage(shoesImg, 185, 230, 130, 130);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
@@ -399,9 +397,9 @@
 		var clothItems = new Array();
 
 		<c:forEach items="${todayCloth}" var="cloth">
-		var noJson = new Object();
-		noJson = "${cloth.no}";
-		clothItems.push(noJson);
+			var noJson = new Object();
+			noJson = "${cloth.no}";
+			clothItems.push(noJson);
 		</c:forEach>
 
 		jQuery.ajaxSettings.traditional = true;

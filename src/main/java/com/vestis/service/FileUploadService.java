@@ -1,11 +1,15 @@
 package com.vestis.service;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.UUID;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,13 +18,18 @@ import org.springframework.web.multipart.MultipartFile;
 import com.vestis.repository.FileUploadDao;
 import com.vestis.vo.ImgVo;
 
+import marvin.image.MarvinImage;
+import marvin.io.MarvinImageIO;
+
+import static marvin.MarvinPluginCollection.alphaBoundary;
+import static marvin.MarvinPluginCollection.boundaryFill;
+
 @Service
 public class FileUploadService {
-
 	@Autowired
 	private FileUploadDao uploadDao;
 	
-	public String restore(MultipartFile file) {
+	public int restore(MultipartFile file) {
 		ImgVo imgVo=new ImgVo();
 		
 		
@@ -53,7 +62,26 @@ public class FileUploadService {
 		System.out.println("filePath: "+filePath);
 		imgVo.setAddress(filePath);
 		
-		String imgNo=uploadDao.upload(imgVo);
+		
+		//배경을 제거한 후에 저장
+		try {
+			System.out.println("marvin 배경제거로 들어옴");
+			BufferedImage bfImg = ImageIO.read(file.getInputStream());
+			System.out.println(bfImg);
+			MarvinImage image = new MarvinImage(bfImg);
+			//MarvinImage image = MarvinImageIO.loadImage("D:/javastudy/workspace/marvin/images/123.jpg");
+			boundaryFill(image.clone(), image, 0, 0, Color.white, 150);
+			image.setAlphaByColor(0, 0xFFFFFFFF);
+			alphaBoundary(image, 5);
+			MarvinImageIO.saveImage(image, "D:\\javaStudy\\file\\test.png");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		System.out.println("테스트중");
+		int imgNo=uploadDao.upload(imgVo);
 		
 		//파일복사 파일패스에 실체가 저장되어 있어야지
 		try {
@@ -78,11 +106,9 @@ public class FileUploadService {
 		uploadDao.add(valh,huserNo, imgNo);
 	}
 	
-	public List<ImgVo> list() {//보내줄 조건 없고 리스트로 받아
-		return uploadDao.getImglist();
-	}
 	
-	public List<ImgVo> send(int clothNo) {//보내주고 리스트로 받아
-		return uploadDao.send(clothNo);
+	//옷 타입과 사용자 번호로 옷리스트를 가져오는 함수
+	public List<ImgVo> list(int clothNo, int userNo) {//보내줄 조건 없고 리스트로 받아
+		return uploadDao.getImglist(clothNo, userNo);
 	}
 }

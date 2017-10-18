@@ -145,7 +145,7 @@
 			</select>
 			</div>
 		
-			 <form action="${pageContext.request.contextPath }/myroom/upload" method="post" enctype="multipart/form-data" >
+			 <form action="${pageContext.request.contextPath }/myroom/upload/${userNo}" method="post" enctype="multipart/form-data" >
 			  <div class="lo">
 			      <input type="file" class="form-control h-border-color" id="images" name="file" onchange="preview_images();"/>
 			      <input id="valh" name="valh" type="hidden" ></input>   <!-- 옷종류번호 -->
