@@ -135,7 +135,7 @@
 	  	
 		<div class="col-md-9 co bg-faded p-4  ro tb2">
 		    <div class="lo">
-			<select type="text" id="clothNum"	class="form-control left" role="multiselect">
+			<select type="text" id="clothNum"	class=" form-control left h-border-color" style="margin-top:4px;" role="multiselect">
 				<option value="0"   selected="selected">옷 분류</option>
 				<option value="1" >외투</option>
 				<option value="2" >상의</option>
@@ -147,12 +147,12 @@
 		
 			 <form action="${pageContext.request.contextPath }/myroom/upload" method="post" enctype="multipart/form-data" >
 			  <div class="lo">
-			      <input type="file" class="form-control" id="images" name="file" onchange="preview_images();"/>
-			      <input id="valh" name="valh" type="text" ></input>   <!-- 옷종류번호 -->
-			      <input type="text" name="huserNo" value="${sessionScope.authUser.no}"></input>
+			      <input type="file" class="form-control h-border-color" id="images" name="file" onchange="preview_images();"/>
+			      <input id="valh" name="valh" type="hidden" ></input>   <!-- 옷종류번호 -->
+			      <input type="hidden" name="huserNo" value="${sessionScope.authUser.no}"></input>
 			  </div>
 			  <div class="lo">
-			      <input type="submit" class="btn btn-primary" name='submit_image' value="submit"/>
+			      <input type="submit" class="tb4 btn btn-primary" name='submit_image' value="submit"/>
 			  </div>
 			  
 			

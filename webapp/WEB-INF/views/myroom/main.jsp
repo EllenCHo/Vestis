@@ -31,7 +31,7 @@
 	width: 40%;
 	margin-left: 30px;
 	margin-right: 50px;
-	padding: 1rem;
+	padding: 0.2rem;
 }
 
 .photo-size {
@@ -39,7 +39,7 @@
 	width: 40%;
 	margin-left: 30px;
 	margin-right: 30px;
-	padding: 1rem;
+	padding: 0.2rem;
 }
 
 .none ul {
@@ -98,7 +98,7 @@
 
 	<div class="col-md-10 content container tb2" >
 		<!-- 사진 전체틀1 -->
-		<div class="photo-size bg-faded  my-4 hj-border">
+		<div class="photo-size h-back my-4 hj-border">
 			<!-- Image Carousel -->
 			<div id="carouselExampleIndicators" class="carousel slide"
 				data-ride="carousel">
@@ -122,7 +122,7 @@
 		</div>
 
 		<!-- 사진 전체틀2 -->
-		<div class="photo bg-faded my-4 hj-border">
+		<div class="photo h-back my-4 hj-border">
 			<!-- Image Carousel -->
 			<div id="carouselExampleIndicators2" class="carousel slide"
 				data-ride="carousel">
