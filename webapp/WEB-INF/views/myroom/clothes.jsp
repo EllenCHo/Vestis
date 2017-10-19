@@ -95,47 +95,62 @@
 					<option value="4" data-icon="glyphicon-shopping-cart">SHOES</option>
 					<option value="5" data-icon="glyphicon-shopping-cart">ACCESSORY</option>
 				</select>-->
-
-
-
-
-					<!-- 탭 -->
-					<ul class="nav nav-tabs flex-column flex-lg-row " id="selectbarh"
-						role="tablist">
-						<li class="nav-item h-lr active"><a class="nav-link"
-							data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true"
-							data-selectnum="0">ALL</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#tab-2" role="tab" aria-expanded="false" data-selectnum="1">OUTER</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#tab-3" role="tab" aria-expanded="false" data-selectnum="2">TOP</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#tab-4" role="tab" aria-expanded="false" data-selectnum="3">BOTTOMS</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#tab-3" role="tab" aria-expanded="false" data-selectnum="4">SHOES</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#tab-4" role="tab" aria-expanded="false" data-selectnum="5">ACCESSORY</a>
-						</li>
-					</ul>
-
-					<c:if test="${authUser.no == userNo }">
-						<button type="button" class="btn btn-outline-green "
-							onclick="location.href='add/${userNo}'" style="margin-left: 30%;">등록</button>
-					</c:if>
-				</div>
-
-				<div id="sendh" class="row">
-
-					<!-- 코드세트 -->
-				</div>
-				<!-- 옷사진뿌려줌 -->
+				
+				
+				
+				
+				<!-- 탭 -->
+				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist" style="width: 90%;">
+	              <li class="nav-item h-lr active"> 
+	              	<a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-selectnum="0">ALL</a>
+	               </li>
+	              <li class="nav-item"> 
+	              	<a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" data-selectnum="1">OUTER</a> 
+	              </li>
+	              <li class="nav-item"> 
+	              	<a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-selectnum="2">TOP</a> 
+	              </li>
+	              <li class="nav-item"> 
+	              	<a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-selectnum="3">BOTTOMS</a> 
+	              </li>
+	              <li class="nav-item"> 
+	              	<a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-selectnum="4">SHOES</a> 
+	              </li>
+	              <li class="nav-item"> 
+	              	<a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-selectnum="5">ACCESSORY</a>
+	              </li>
+	            </ul>
+				
+				
+				<button type="button" class="btn btn-outline-green " onclick="location.href='add'" style="height:42px;">등록</button>
 			</div>
 
-
+			<div id="sendh" class="row">
+			
+			
+		  <!-- 카드샘플 -->
+			<div class="col-md-3" >
+				<div class="card bg-white bg-shadow text-center card-outline-primary" >
+					<div class="row tb4">
+						<span style="float:left; width: 80%;"></span>
+						<span  style="float:right; width: 10%;">
+							<button type="button" class="h-btn btn-outline-green">X</button>
+						</span>
+					</div>
+					<div>
+					<ul class="list-unstyled list-border-dots">
+						<li><img src="${pageContext.request.contextPath}/assets/img/coat2.png" class="hh-back" ></li>
+					</ul>
+					</div>
+				</div>
+			</div><!-- /col-md-3 -->
+			
+			
+			
+			
+			
+				<!-- 코드세트 -->
+			</div>	<!-- 옷사진뿌려줌 -->
 		</div>
 	</div>
 

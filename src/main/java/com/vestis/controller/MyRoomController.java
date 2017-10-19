@@ -45,6 +45,7 @@ public class MyRoomController {
 
 		String ysDbName = myRoomService.getYesSystemCodi(userNo);
 		model.addAttribute("yesterImg", ysDbName);
+
 		model.addAttribute("submenu", "myroom");
 		String ToTemps;
 		int ToTemp;
@@ -83,6 +84,7 @@ public class MyRoomController {
 
 		} else {
 			System.out.println("오늘 시스템 코디 추천");
+
 			// 오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
 			// 오늘 날씨 가져오기
 
