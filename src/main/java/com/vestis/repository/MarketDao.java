@@ -1,6 +1,5 @@
 package com.vestis.repository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,11 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.vestis.vo.ClothVo;
-import com.vestis.vo.CommentVo;
 import com.vestis.vo.ImgVo;
 import com.vestis.vo.MarketCommentVo;
 import com.vestis.vo.MarketVo;
-import com.vestis.vo.QaVo;
 
 @Repository
 public class MarketDao {
