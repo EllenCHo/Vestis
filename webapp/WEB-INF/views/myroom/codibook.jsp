@@ -243,58 +243,50 @@
 	
 		<!-- 서브메뉴(탭) -->
 		<ul class="nav nav-tabs flex-column flex-lg-row tb2" role="tablist">
-			<li class="nav-item h-lr active"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true">All Codi Set</a> </li>
-			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false">My Codi Set</a> </li>
-			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false">Other Codi Set</a> </li>
-			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false">System Codi Set</a> </li>
+			<li class="nav-item h-lr active"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-type="all">All Codi Set</a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" data-type="own">My Codi Set</a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-type="other">Other Codi Set</a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-type="system">System Codi Set</a> </li>
 		</ul>
+	
 	
 	
 	 <!-- 카드샘플 -->
-<div class="col-md-3">
-	<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
-		<div class="row tb4">
-			<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
-			<span class="h-ic2"></span>
-			<span class="h-icr">
-				<button type="button" class="h-btn btn-outline-green" >Choice</button>
-				<button type="button" class="h-btn btn-outline-green">X</button>
-			</span>
-		</div>
+	<div class="col-md-3">
+		<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
+			<div class="row tb4">
+				<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
+				<span class="h-ic2"></span>
+				<span class="h-icr">
+					<button type="button" class="h-btn btn-outline-green" >Choice</button>
+					<button type="button" class="h-btn btn-outline-green">X</button>
+				</span>
+			</div>
+			
+		<p class="hh-line "></p>
+			<div>
+			<ul class="list-unstyled list-border-dots">
+				<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+			</ul>
+			</div>
+		<a class="hh-line "></a>
 		
-	<p class="hh-line "></p>
-		<div>
-		<ul class="list-unstyled list-border-dots">
-			<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-		</ul>
+			<div class="row">
+				<span class="h-ic3 h-iec">
+					<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+				</span>
+				<span class="h-ic3" style="margin-top:20px;">
+					<a href="">베라님</a>
+				</span>
+				<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+					<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+				</span>
+				<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+			</div><!-- /row -->
 		</div>
-	<a class="hh-line "></a>
-	
-		<div class="row">
-			<span class="h-ic3 h-iec">
-				<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-			</span>
-			<span class="h-ic3" style="margin-top:20px;">
-				<a href="">베라님</a>
-			</span>
-			<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
-				<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
-			</span>
-			<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
-		</div><!-- /row -->
-	</div>
-</div><!-- /col-md-3 -->
-	
-	
-	
-		<div class="top center" style="margin-top:0;">
-			<fieldset class="list">
-				<label for="allbtn" style="margin-left: 5%;"><input type="radio" id="allbtn" name="clothlistchoice" value="all" checked="checked">All</label> 
-				<label for="mycodibtn" style="margin-left: 5%;"><input type="radio" id="mycodibtn" name="clothlistchoice" value="own">My Codi </label>
-				<label for="othercodibtn" style="margin-left: 5%;"><input type="radio" id="othercodibtn" name="clothlistchoice" value="other">Other Codi </label>
-				<label for="systembtn" style="margin-left: 5%;"><input type="radio" id="systembtn" name="clothlistchoice" value="system">System</label>
-			</fieldset>
-		</div>
+	</div><!-- /col-md-3 -->
+
+
 
 		<!-- 여기서부터 건들기 -->
 		<div
@@ -533,9 +525,9 @@
 
 <!-- 코디북 분류 -->
 <script type="text/javascript">
-	$("[name=clothlistchoice]").on('click', function() {
+	$(".nav-item a").on('click', function() {
 		console.log("분류 클릭");
-		var listType = $(this).val();
+		var listType = $(this).data("type");
 		console.log(listType);
 		$("#codibookItemList").empty();
 		es_fetchBook(listType);
