@@ -50,22 +50,21 @@
 
 .left-box {
 	background: #FFFFFF;
+	float: left;
+	width: 49.5%;
 	height: 600px;
-	width:100%;
 	min-height: 65%;
-	padding: 1%;
-	border:1px solid;
-	border-color: #949494;
-	margin-bottom:50px;
+	padding: 1%
 }
 
 .right-box {
+	float: right;
+	width: 49.5%;
 	height: 600px;
 	min-height: 65%;
 	background-color: rgba(255, 255, 255, 0.9);
-	padding: 1%;
-	border:1px solid #949494;
-	margin-bottom:50px;
+	border-radius: 1em;
+	padding: 1%
 }
 
 #space {
@@ -152,73 +151,8 @@ div:focus {
 
 <!-- ---------------------------------------------------------------------- -->
 
-		<div class="col-md-10">			
-			
-			
-			
-				<!-- 좌 -->
-				<div class="col-md-6">
-				<div class="h-tabtop">
-					<button id="reset" type="button" class="btn btn-outline-green " style="margin-bottom:5px;">Reset</button>
-					<form id="canvas" action="${pageContext.request.contextPath}/myroom/save" method="post" style="margin: 0px; display: inline">
-						<button id="save" type="button" class="btn btn-outline-green " style="margin-bottom:5px;">Save</button>
-						<input id="data" name="data" type="hidden">
-						<input id="info_weather" name="weather" type="hidden" value="${weatherNo }">
-						<input id="info_temp" name="temp" type="hidden" value="${temp }">	
-					</form>
-				</div>	
-					
-					<div class="left-box">
-						<div style="float:left;">
-							<img alt="날씨" src="${pageContext.request.contextPath}/assets/img/${weather}.png" style="width: 60px; height: auto;">${temp}
-						</div>
-						<div style="float:right; margin-top:15px;">
-						<strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.&emsp;</strong>
-						</div>
-					</div> 
-				
-				</div>
-				
-				<!-- 우 -->
-				<div class="col-md-6">
-						
-					<!-- 탭 -->
-					<ul  class="nav nav-tabs flex-column flex-lg-row h-tabtop" style="margin-bottom:5px;" id="selectbarh" role="tablist">
-		              <li class="nav-item active" style="margin-left:10px;"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-selectnum="0">ALL</a>
-		               </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" data-selectnum="1">OUTER</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-selectnum="2">TOP</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-selectnum="3">BOTTOMS</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-selectnum="4">SHOES</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-selectnum="5">ACCESSORY</a>
-		              </li>
-		            </ul>
-					
-					
-					
-					<div class="bts right-box">
-						<div style="overflow:auto; width: 100%; height: 85.6%;">
-							<ul id="clothList"
-								style="list-style: none; padding-left: 0px; text-align: center; display: block;">
-							</ul>
-						</div>
-					</div> 
-				</div>
-			
-		</div>
-			
-			<!-- 위의 문구   왼쪽에 있어야지-->
-			<%-- <div class="bts" style="margin-top: 27px; margin-bottom:5px;">
+		<div class="codi-space col-md-10">			
+			<div class="bts" style="margin-top: 27px; margin-bottom:5px;">
 				<h4 class="text-left" style="display:inline;"><strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.</strong></h4>
 				<button id="reset" class="btn btn-default" style="margin-left:3.5%;">Reset</button>
 				<form id="canvas" action="${pageContext.request.contextPath}/myroom/save"
@@ -228,23 +162,18 @@ div:focus {
 					<input id="info_weather" name="weather" type="hidden" value="${weatherNo }">
 					<input id="info_temp" name="temp" type="hidden" value="${temp }">	
 				</form>
-			</div> --%>
-			
-			
-				
-				<!-- 왼쪽박스 -->
-				<%-- <div class="left-box">
+			</div>
+			<div id="space">
+				<div class="left-box" style="border-radius: 1em;">
 					<div style="float:left;">
 						<img alt="날씨"
 							src="${pageContext.request.contextPath}/assets/img/${weather}.png"
 							style="width: 30%; height: auto;">${temp}
 					</div>
-				</div> --%>
-				
-				
-				<!-- 오른쪽 박스 -->	
-				<!-- <div class="bts right-box">
-				<ul class="nav nav-pills" style="width: 100%; font-size: small">
+
+				</div>
+				<div class="bts right-box">
+					<ul class="nav nav-pills" style="width: 100%; font-size: small">
 						<li class="active menu" value="0"><a>전체
 						</a></li>
 						<li class="menu" value="2"><a>상의
@@ -263,18 +192,11 @@ div:focus {
 							style="list-style: none; padding-left: 0px; text-align: center; display: block;">
 						</ul>
 					</div>
-				</div> -->
-				
-				
-		
-		
-		
-		</div><!-- /col-md-10 -->
-	
-	
-	
-	
+				</div>
+			</div>
+		</div>
 	</div>
+
 </div>
 
 
@@ -325,13 +247,13 @@ div:focus {
 <!-- 메뉴에 대한 자바스크립트 -->
 <script type="text/javascript">
 	//메뉴를 클릭했을 때 그 메뉴가 강조
-	$(".nav-link").click(function() {
+	$(".menu").click(function() {
 		$(".menu").removeClass("active");
-		
-		var menunum = $(this).data("selectnum");
+		var $this = $(this);
+		console.log($this.context.value);
 		$("#clothList").empty();
-		fetchList(menunum);
-		/* $this.addClass("active"); */
+		fetchList($this.context.value);
+		$this.addClass("active");
 
 	});
 </script>
