@@ -38,7 +38,7 @@
 	float:left;
 	border-width:1px;
     border-style:solid;
-    border-color:#55A79A;
+    border-color:#949494;
     margin-left:30px;
     margin-right:20px;
 	/* margin:50px; */

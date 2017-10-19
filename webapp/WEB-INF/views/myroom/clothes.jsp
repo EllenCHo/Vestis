@@ -97,7 +97,7 @@
 				
 				
 				<!-- 탭 -->
-				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist">
+				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist" style="width: 90%;">
 	              <li class="nav-item h-lr active"> 
 	              	<a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-selectnum="0">ALL</a>
 	               </li>
@@ -119,10 +119,32 @@
 	            </ul>
 				
 				
-				<button type="button" class="btn btn-outline-green " onclick="location.href='add'" style="margin-left:30%;">등록</button>
+				<button type="button" class="btn btn-outline-green " onclick="location.href='add'" style="height:42px;">등록</button>
 			</div>
 
 			<div id="sendh" class="row">
+			
+			
+		  <!-- 카드샘플 -->
+			<div class="col-md-3" >
+				<div class="card bg-white bg-shadow text-center card-outline-primary" >
+					<div class="row tb4">
+						<span style="float:left; width: 80%;"></span>
+						<span  style="float:right; width: 10%;">
+							<button type="button" class="h-btn btn-outline-green">X</button>
+						</span>
+					</div>
+					<div>
+					<ul class="list-unstyled list-border-dots">
+						<li><img src="${pageContext.request.contextPath}/assets/img/coat2.png" class="hh-back" ></li>
+					</ul>
+					</div>
+				</div>
+			</div><!-- /col-md-3 -->
+			
+			
+			
+			
 			
 				<!-- 코드세트 -->
 			</div>	<!-- 옷사진뿌려줌 -->
