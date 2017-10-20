@@ -167,4 +167,8 @@ public class FileUploadService {
 	public List<ImgVo> list(int clothNo, int userNo) {// 보내줄 조건 없고 리스트로 받아
 		return uploadDao.getImglist(clothNo, userNo);
 	}
+	
+	public void removeCloth(int no) {
+		uploadDao.removeCloth(no);
+	}
 }

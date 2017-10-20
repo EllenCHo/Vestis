@@ -42,4 +42,14 @@ public class FileUploadDao {
 	    
 	    return sqlSession.selectList("img.getList",clothMap);
 	}
+	
+	public void removeCloth(int no) {
+		int clothNo = sqlSession.selectOne("img.getClothNo", no);
+		sqlSession.delete("img.removeCloth", clothNo);
+		int count = sqlSession.selectOne("img.getCount", clothNo);
+		if (count != 0) {
+			sqlSession.delete("img.removeClothCal", clothNo);
+		}
+		sqlSession.delete("img.removeClothImg", no);
+	}
 }

@@ -391,4 +391,11 @@ public class MyRoomController {
 	public List<CodibookVo> getCodiThree(@RequestParam("no") int no) {
 		return myRoomService.getCodiThree(no);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/removeCloth", method = RequestMethod.POST)
+	public String removeCloth(@RequestParam("no") int no) {
+		fileUploadService.removeCloth(no);
+		return "success";
+	}
 }

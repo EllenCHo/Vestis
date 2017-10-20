@@ -29,17 +29,54 @@
 	</insert>
 	
 	<select id="getList" parameterType="int" resultType="com.vestis.vo.ImgVo">
-	<![CDATA[
-		select c.img_no imgNo,i.db_name dbName
-		from cloth c,img i
-		where c.img_no=i.no
-			and c.person_no = #{userNo}
-	]]>
-		<if test="clothNo != 0">
-            and c.type_no = ${clothNo}
-        </if>
-    <![CDATA[
-		order by c.no desc
-	]]>
-	</select> 
+		<![CDATA[
+			select c.img_no no,i.db_name dbName
+			from cloth c,img i
+			where c.img_no=i.no
+				and c.person_no = #{userNo}
+		]]>
+			<if test="clothNo != 0">
+	            and c.type_no = ${clothNo}
+	        </if>
+	    <![CDATA[
+			order by c.no desc
+		]]>
+	</select>
+	
+	<delete id="removeClothImg" parameterType="int">
+		<![CDATA[
+			delete from img
+			where no = #{no}
+		]]>
+	</delete> 
+	
+	<select id="getClothNo" resultType="int">
+		<![CDATA[
+			select no
+			from cloth
+			where img_no = #{no}
+		]]>
+	</select>
+	
+	<delete id="removeCloth" parameterType="int">
+		<![CDATA[
+			delete from cloth
+			where no = #{no}
+		]]>
+	</delete>
+	
+	<delete id="removeCal" parameterType="int">
+		<![CDATA[
+			delete from calculation
+			where cloth+_no = #{no}
+		]]>
+	</delete>
+	
+	<select id="getCount" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(cloth_no)
+			from calculation
+			where cloth_no = #{no}
+		]]>
+	</select>
 </mapper>

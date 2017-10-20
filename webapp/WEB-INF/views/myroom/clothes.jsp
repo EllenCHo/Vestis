@@ -121,20 +121,24 @@
 	              </li>
 	            </ul>
 				
-				
-				<button type="button" class="btn btn-outline-green " onclick="location.href='add'" style="height:42px;">등록</button>
+			
+				<c:if test="${authUser.no == userNo }">
+					<button type="button" class="btn btn-outline-green " onclick="location.href='add/${userNo}'" style="height:42px;">등록</button>
+				</c:if>
 			</div>
 
 			<div id="sendh" class="row">
 			
 			
 		  <!-- 카드샘플 -->
-			<div class="col-md-3" >
+			<%-- <div class="col-md-3" >
 				<div class="card bg-white bg-shadow text-center card-outline-primary" >
 					<div class="row tb4">
 						<span style="float:left; width: 80%;"></span>
 						<span  style="float:right; width: 10%;">
-							<button type="button" class="h-btn btn-outline-green">X</button>
+							<c:if test="${authUser.no == userNo }">
+								<button type="button" class="h-btn btn-outline-green">X</button>
+							</c:if>
 						</span>
 					</div>
 					<div>
@@ -143,7 +147,7 @@
 					</ul>
 					</div>
 				</div>
-			</div><!-- /col-md-3 -->
+			</div> --%><!-- /col-md-3 -->
 			
 			
 			
@@ -172,11 +176,32 @@
 	});
 
 	function render(clothVo, updown) { //사진뿌리는 틀
+		var authNo = ${authUser.no};
+		var userNo = ${userNo};
 		var str = "";
-		str += "     <span class='col-lg-3 col-sm-12 tb '> ";
+		/* str += "     <span class='col-lg-3 col-sm-12 tb '> ";
 		str += "         <img class='img-thumbnail' src='${pageContext.request.contextPath }/upload/"+clothVo.dbName+"'>";
-		str += "     </span>";
+		str += "     </span>"; */
 
+		
+		str += "<div id=\"cloth"+clothVo.no+"\" class=\"col-md-3\" >";
+		str += "	<div class=\"card bg-white bg-shadow text-center card-outline-primary\" >";
+		str += "		<div class=\"row tb4\">";
+		str += "			<span style=\"float:left; width: 80%;\"></span>";
+		str += "			<span  style=\"float:right; width: 10%;\">";
+						if(authNo == userNo) {
+							str +=  "<button type=\"button\" class=\"h-btn btn-outline-green deleteClothBtn\" value="+clothVo.no+">X</button>";
+						}
+		str += "			</span>";
+		str += "		</div>";
+		str += "		<div>";
+		str += "		<ul class=\"list-unstyled list-border-dots\">";
+		str += "			<li><img src=\"${pageContext.request.contextPath }/upload/"+clothVo.dbName+"\" class=\"hh-back\" ></li>";
+		str += "		</ul>";
+		str += "		</div>";
+		str += "	</div>";
+		str += "</div><!-- /col-md-3 -->";
+		
 		if (updown == "up") {
 			$("#sendh").prepend(str);
 		} else if (updown == "down") {
@@ -218,6 +243,13 @@
 				for (var i = 0; i < clothList.length; i++) {
 					render(clothList[i], "down");
 				}
+				
+				$('.deleteClothBtn').click(function() {
+					var $this = $(this);
+					var no = $this.val();
+					removeCloth(no);
+					$("#cloth"+no).remove();
+				});
 			},
 
 			error : function(XHR, status, error) {
@@ -225,5 +257,20 @@
 			}
 		});
 	}
+	
+	function removeCloth(no) {
+ 		$.ajax({
+			url : "${pageContext.request.contextPath }/myroom/removeCloth",
+			type : "post",
+			dataType : "json",
+			data : {"no":no},
+			success :function() {
+				console.log("옷 지우기");
+			},
+			error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
+				console.error(status + " : " + error);
+			}
+		});
+ 	}
 </script>
 </html>
