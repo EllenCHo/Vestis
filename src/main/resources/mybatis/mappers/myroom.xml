@@ -41,8 +41,8 @@
 	
 	<select id="getCodiBookList" resultType="com.vestis.vo.CodibookVo" parameterType="map">
 		<![CDATA[
-			select no, otherNo, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
-			from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname, 
+			select no, otherNo, ownername, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname, person.nicname ownername,
 									pro_img.db_name profile,
 									codiimg.db_name codi,
 									choose, NVL(likes, 0) likes
