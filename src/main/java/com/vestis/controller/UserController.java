@@ -1,7 +1,5 @@
 package com.vestis.controller;
 
-import java.net.HttpURLConnection;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.vestis.service.UserService;
 import com.vestis.vo.UserVo;
-import com.vestis.vo.WeatherVo;
 
 @Controller
 @RequestMapping("user")

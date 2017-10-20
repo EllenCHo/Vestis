@@ -41,8 +41,8 @@
 	
 	<select id="getCodiBookList" resultType="com.vestis.vo.CodibookVo" parameterType="map">
 		<![CDATA[
-			select no, otherNo, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
-			from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname, 
+			select no, otherNo, ownername, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname, person.nicname ownername,
 									pro_img.db_name profile,
 									codiimg.db_name codi,
 									choose, NVL(likes, 0) likes
@@ -59,6 +59,7 @@
 											</if>
 											<if test="purpose.equals('other')">
 												and codi.person_no != #{num}
+												and codi.person_no != 0
 											</if>
 											<if test="purpose.equals('system')">
 												and codi.person_no = 0
@@ -200,6 +201,7 @@
 			        from codi, img, person
 			        where other_no = #{no}
 			        and person_no != #{no}
+			        and person_no != 0
 			        and person_no = person.no
 			        and codi_no = img.no
 			        order by codi.no desc)
