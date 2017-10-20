@@ -8,7 +8,7 @@
 			select no, 
 				   title,  
 				   content,
-				   reg_date regDate
+				   to_char( trunc(reg_date), 'YYYY/MM/DD' ) regDate
 		     from center
 		     where flag=0
 		     order by no desc
@@ -20,7 +20,7 @@
 			select no, 
 				   title, 
 				   content,
-				   reg_date regDate
+				   to_char( trunc(reg_date), 'YYYY/MM/DD' ) regDate
 		     from center
 		     where no = #{no}
 		     order by no desc

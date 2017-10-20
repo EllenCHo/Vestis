@@ -1,58 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+
 <title>Market</title>
-	<!-- Bootstrap core CSS -->
-    <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	
-    <!-- Custom styles for this template -->
-    <link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
-    
-    <!-- Theme style -->
-	<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
+<!--자신이 만든 css-->
+<!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
+
+<!-- Theme style -->
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
+
+
 <style>
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
- p { font-size: 18px; }
- .hn { font-family: 'Hanna'; }
 
-table.type09 {
-    border-collapse: collapse;
-    text-align: center;
-    line-height: 1.5;
 
-}
-table.type09 thead th {
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: center;
-    color: #369;
-    border-bottom: 3px solid #036;
-}
-table.type09 tbody th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: center;
-    border-bottom: 7px solid #ccc;
-    background: #f3f6f7;
-}
-table.type09 td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: center;
-    border-bottom: 7px solid #ccc;
-    white-space:nowrap;
+/* 완전 겉 테두리 */
+.table-bordered {
+  border: 1px solid #bcbdc1 !important;
 }
 
+/* 전체 테두리 */
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid  #bcbdc1 !important;
+  text-align: center;
+}
 
+.table-bordered thead th,
+.table-bordered thead td {
+ /* 번호,제목,작성자,작성일 밑 테두리 */
+  border-bottom-width: 3px !important;
+  text-align: center;
+  font-weight:bold;
+}
 
+.table th, .table td {
+	padding-top:5px;/* !important; */
+	padding-bottom:5px;
+}
+
+ .table th{
+	font-weight:bold !important;
+}
+
+/*
+.table td{
+	font-weight:bold;
+}
+ */
+.title {
+	border-bottom:3px solid #55a79a;
+	font-weight:bold;
+}
+
+.title{
+font-size:25px;
+line-height:1.5;
+margin:0 0 10px;
+padding:0;
+}
 
 </style>
  <style>
@@ -83,58 +93,161 @@ height: 35px;
 width: 75px;
 height: 35px;
 }
- 
- </style>
+/* 검색창 스타일 */
+#submit
+{       
+    background-color: #55a79a;
+    background-image: linear-gradient(#87cdc2, #2e8073); 
+    border-width: 1px;
+    border-style: solid;
+    border-color: #7eba7c #578e57 #447d43;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 
+                0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    height: 35px;
+    margin: 0 0 0 5px;
+    padding: 0;
+    width: 97px;
+    cursor: pointer;
+    font: bold 14px Arial, Helvetica;
+    color: #23441e;    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#submit:hover {       
+    background-color: #2e8073;
+    background-image: linear-gradient(#2e8073, #2e8073);
+}   
+
+#submit:active {       
+    background: #95d788;
+    outline: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;        
+}
+
+#submit::-moz-focus-inner {
+       border: 0;  /* Small centering fix for Firefox */
+}
+
+#kwd, 
+#submit {
+    float: left;
+}
+
+#kwd {
+    padding: 5px 9px;
+    height: 35px;
+    width: 380px;
+    border: 1px solid #a4c3ca;
+    font: normal 13px 'trebuchet MS', arial, helvetica;
+    background: #f1f1f1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+#kwd::-webkit-input-placeholder {
+   color: #9c9c9c;
+   font-style: italic;
+}
+
+#kwd:-moz-placeholder {
+   color: #9c9c9c;
+   font-style: italic;
+}  
+
+#kwd:-ms-placeholder {
+   color: #9c9c9c;
+   font-style: italic;
+}  
+
+#searchbox
+{
+    background-color: #292b2c;
+    margin-Left:618px;
+    border-width: 1px;
+    border-color: #292b2c #292b2c #292b2c;            
+    width: 490px;
+    padding: 3px 3px 4px 3px;
+    overflow: hidden; /* Clear floats */
+}
+
+
+.imgbox{
+	width: 70px !important;
+	height: 70px !important;
+	padding: 0px !important;
+	margin-left: 50px !important;
+	border: 1px solid #bcbdc1 !important;
+	text-align:center !important;
+
+}
+
+.point{
+	cursor: pointer;
+}
+
+a {
+	color: #000000 !important;
+}
+
+
+</style>
+
 </head>
 <body>
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
 <div class="myroomimg">
 	<div class="container">
-	<h3>market</h3>
+	<h3>Service Center</h3>
 	</div>
 </div>
+<br><br><br>
+<div class="container" id="about">
 	
+	<div class="row">
 	
 <!-- ----------------------------------------------------------------------------------- -->
-	<div class="container">
-
-      <div class="bg-faded p-4 my-4">
-      
-      <div id="content">
-			<div id="board">
-				<form id="search_form" action="${pageContext.request.contextPath }/market/search" method="get" style="text-align: center">
-					<input type="text" id="kwd" name="kwd" value="${param.kwd}">
-					<input type="hidden" id="currNo" name="currNo" value="1">
-					
-					<input type="submit" value="찾기">
-				</form>
-      </div>				
-				<div class="col-sm-12" style="text-align:right;">
-					<button type="button" id=butn2 class="btn btn-danger"  onClick="location.href='${pageContext.request.contextPath }/center/list';"><p class="hn">공지사항</p></button>
-				</div>
+	<div class="col-md-12">
+		
+            <form id="searchbox" action="${pageContext.request.contextPath }/market/search" >
+    			<input id="kwd" type="text" placeholder="Type here" id="kwd" name="kwd" value="${param.kwd}">
+    			<input type="hidden" id="currNo" name="currNo" value="1">
+    			<input id="submit" type="submit" value="Search">
+			</form>
+      	
+      	
 				
-		<table class="type09" id="tb">
+      <div class="title">
+		<span style="color:#292b2c">Market</span>
+	  </div>
+	  
+      <div class="table-responsive" id="content" style="padding-top: 5px;">	
+				
+		<table class="table table-bordered table-cart" id="tb">
+			<thead style="font-size:20px">
 			<tr>
-				<th style="text-align: center"><p class="hn">번호</p></th>
-				<th style="text-align: center"><p class="hn">그림</p></th>
-				<th style="text-align: center"><p class="hn">제목</p></th>
-				<th style="text-align: center"><p class="hn">작성자</p></th>
-				<th style="text-align: center"><p class="hn">작성일</p></th>
-				<th style="text-align: center"><p class="hn">&nbsp;</p></th>
+				<th style="text-align: center">No.</th>
+				<th style="text-align: center">Ware.</th>
+				<th style="text-align: center">Title.</th>
+				<th style="text-align: center">Writer.</th>
+				<th style="text-align: center">Date.</th>
+				<th style="text-align: center">Setting</th>
 			</tr>
-	
+			</thead>
 			<c:forEach items="${list}" var="vo">
-					<tr>
-						<td style="text-align: center"><p class="hn">${vo.rn }</p></td>
-						<td style="text-align: center"><p class="hn"><img src="${pageContext.request.contextPath }/upload/${vo.savename }" width="40px" height="40px" class="top"></td>
-						<td style="text-align: center"><a href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}"><p class="hn">${vo.title}</p></a></td>
-						<td style="text-align: center"><p class="hn">${vo.nicname }</p></td>
-						<td style="text-align: center"><p class="hn">${vo.regDate }</p></td>
-						
-						<td>
-							<c:if test="${sessionScope.authUser.no==vo.person_no }">
-							<a href="${pageContext.request.contextPath }/market/delete?no=${vo.no }&currNo=${page.currNo}" class="del"><p class="hn">삭제</p></a>
+					<tr style="text-align: center">
+						<td>${vo.rn }</td>
+						<td style="padding:3px;">
+							<div class="imgbox" style='margin-left: 20px'>
+								<a href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">
+									<img src="${pageContext.request.contextPath }/upload/${vo.savename }" height="100%" class="top">
+								</a>
+							</div>
+						</td>
+						<td style="text-align: left;"><a href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">${vo.title}</a></td>
+						<td>${vo.nicname }</td>
+						<td>${vo.regDate }</td>
+						<td><c:if test="${sessionScope.authUser.no==vo.person_no }">
+								<a href="${pageContext.request.contextPath }/market/delete?no=${vo.no }&currNo=${page.currNo}" class="del">X</a>
 							</c:if>
 						</td>
 						
@@ -179,10 +292,10 @@ height: 35px;
 						
 							
 						<c:if test="${empty param.kwd }">
-							<li><a href="${pageContext.request.contextPath }/market/list?currNo=${page.currNo+1}"><p class="hn">▶</p></a></li>
+							<li><a href="${pageContext.request.contextPath }/market/list?currNo=${page.currNo+1}">▶</a></li>
 						</c:if>
 						<c:if test="${!(empty param.kwd) }">
-							<li><a href="${pageContext.request.contextPath }/market/search?currNo=${page.currNo+1}&kwd=${param.kwd}"><p class="hn">▶</p></a></li>
+							<li><a href="${pageContext.request.contextPath }/market/search?currNo=${page.currNo+1}&kwd=${param.kwd}">▶</a></li>
 						</c:if>
 						
 						</c:if>
@@ -190,7 +303,7 @@ height: 35px;
 					</ul>
 				</div>				
 				<div class="col-sm-12" style="text-align:right;">
-					<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/market/writeform?currNo=${page.currNo}';"><p class="hn">글 쓰기</p></button>
+					<button id=butn3 type="button" class="btn btn-primary point"  onClick="location.href='${pageContext.request.contextPath }/market/writeform?currNo=${page.currNo}';"><p class="hn">글 쓰기</p></button>
 				</div>			
 				
 				
@@ -200,7 +313,7 @@ height: 35px;
 
 
       </div>
-
+</div>
 
 <!-- ---------------------------------------------------------------------- -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>

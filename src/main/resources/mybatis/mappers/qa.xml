@@ -7,7 +7,7 @@
 	<![CDATA[
 		select *
 from (select rownum rn,no,nicname,regDate,title,personNO
-from (select b.no no,nicname,b.reg_date regDate,title,person_NO personNO 
+from (select b.no no,nicname,to_char( trunc(b.reg_date), 'YYYY/MM/DD' ) regDate,title,person_NO personNO 
 from center b,person r 
 where b.person_NO=r.no and flag=1
 order by b.no))
@@ -20,7 +20,7 @@ order by rn desc
 	<![CDATA[
 		select *
 from (select rownum rn,no,nicname,regDate,title,personNO
-from (select b.no no,nicname,b.reg_date regDate,title,person_NO personNO 
+from (select b.no no,nicname,to_char( trunc(b.reg_date), 'YYYY/MM/DD' ) regDate,title,person_NO personNO 
 from center b,person r 
 where b.person_NO=r.no and flag=2
 order by b.no))
@@ -41,7 +41,7 @@ order by rn desc
 		<![CDATA[
 			select rn,no,personNo,centerNo,content,regDate,nicname
 from(select  rownum rn,no,personNo,centerNo,content,regDate,nicname
-from (select c.no no, c.person_no personNo, c.center_no centerNo,c.content content,c.reg_date regDate,p.nicname nicname
+from (select c.no no, c.person_no personNo, c.center_no centerNo,c.content content,to_char( trunc(c.reg_date), 'YYYY/MM/DD' ) regDate,p.nicname nicname
 			from center_comment c,person p
 			where p.no=c.person_no)
             where centerNo=#{no} order by no desc)
