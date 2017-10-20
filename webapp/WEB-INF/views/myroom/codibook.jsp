@@ -332,6 +332,7 @@
 		str += "		<a class='hh-line'></a>";
 		
 		
+		
 		str += "		<div class='row'>";
 		str += "			<span class='h-iec'>";
 		str += "				<img style='margin: 6px 4px 0px 8px;' class='h-image-circle pointer' src='http://localhost:8088/Vestis/upload/"+CodibookVo.profile+"'>";
