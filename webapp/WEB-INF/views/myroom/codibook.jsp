@@ -1,22 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>codibook</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-<!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+<!--자신이 만든 css-->
+<!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
+
+<!-- Theme style -->
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
+
+
 
 
 <style>
@@ -142,87 +141,7 @@
 
 </head>
 <body>
-	<!-- Modal -->
 
-	<div class="modal bs-example-modal-lg" id="modal" tabindex="-1"
-		role="dialog" aria-labelledby="gridSystemModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<p class="text-left nicname" style="margin-bottom: 0;">
-						<a>
-						<img class="prifile_photo"
-							src="http://bootdey.com/img/Content/user_1.jpg" alt="프로필사진"
-							style="margin-right: 10px;">
-						</a>
-					</p>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid bts">
-
-						<div class="row" style="height: 71%">
-							<div class="col-md-6">
-								<label
-									style="margin-left: 5%; margin-bottom: 3%; margin-top: 3%;">추천한
-									코디</label> <img class="img-responsive showPic" src=""
-									style="border: 1px solid #FFD7B9; border-radius: 1em;">
-							</div>
-
-
-							<div class="col-md-6 bts">
-								<label style="margin-left: 5%; display: inline;">실제로 입은
-									사진</label>
-								<form id="sendimgfile" action="" method="post"
-									enctype="multipart/form-data" style="display: inline;">
-									<input type="file" id="fileopen" name="file" accept="image/*"
-										style="display: none;">
-									<input type="hidden" id="codiNoSave">
-									<button id="inputfilebtn" class="btn btn-default" type="button"
-										style="margin-left: 17%; margin-bottom: 3%;">사진선택</button>
-								</form>
-								<button id="saveimgbtn" class="btn btn-default"
-									style="margin-bottom: 3%;">저장</button>
-								<div
-									style="border: 1px solid #FFD7B9; border-radius: 1em; overflow: hidden; height: 91%; position: relative;">
-									<img id="wearclothimg" class="img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/base_img.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-
-						<hr>
-						<div class="row">
-							<div class="input-group"
-								style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
-								<input class="form-control es_commentInput" placeholder="Add a comment"
-									type="text" style="width:96%;"> 
-									<button class="input-group-addon es_commentButton" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
-							</div>
-							<ul class="comments-list"
-								style="padding-left: 3.2%; padding-right: 3.2%; list-style: none; width: 100%;">
-								<li class="comment"><img
-										class="avatar pull-left" src="http://bootdey.com/img/Content/user_1.jpg"
-										alt="avatar">
-									<div class="comment-body">
-										<div class="comment-heading">
-											<h4 class="user">Gavino Free</h4>
-											<h5 class="time">5 minutes ago</h5>
-											<button class="btn btn-default btn-xs deleteCommentBtn" style="float:right;" value="">X</button>
-										</div>
-										<p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
@@ -233,74 +152,43 @@
 </div>
 
 <div class="container">
-<div class="row">
+	<div class="row">
 
-<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
+		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 
 
-<!-- ---------------------------------------------------------------------- -->
-	<div class="col-md-10">
+		<!-- ---------------------------------------------------------------------- -->
+		<div class="col-md-10">
 	
-		<!-- 서브메뉴(탭) -->
-		<ul class="nav nav-tabs flex-column flex-lg-row tb2" role="tablist">
-			<li class="nav-item h-lr active"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-type="all">All Codi Set</a> </li>
-			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" data-type="own">My Codi Set</a> </li>
-			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-type="other">Other Codi Set</a> </li>
-			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-type="system">System Codi Set</a> </li>
-		</ul>
-	
-	
-	
-	 <!-- 카드샘플 -->
-	<div class="col-md-3">
-		<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
-			<div class="row tb4">
-				<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
-				<span class="h-ic2"></span>
-				<span class="h-icr">
-					<button type="button" class="h-btn btn-outline-green" >Choice</button>
-					<button type="button" class="h-btn btn-outline-green">X</button>
-				</span>
-			</div>
-			
-		<p class="hh-line "></p>
-			<div>
-			<ul class="list-unstyled list-border-dots">
-				<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+			<!-- 서브메뉴(탭) -->
+			<ul class="nav nav-tabs flex-column flex-lg-row tb2" role="tablist">
+				<li class="nav-item h-lr active"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-type="all">All Codi Set</a> </li>
+				<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" data-type="own">My Codi Set</a> </li>
+				<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-type="other">Other Codi Set</a> </li>
+				<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-type="system">System Codi Set</a> </li>
 			</ul>
+	
+			<!-- 리스트 출력영역 -->
+			<div class="row" id="codibookItemList">
+				
+			
 			</div>
-		<a class="hh-line "></a>
-		
-			<div class="row">
-				<span class="h-ic3 h-iec">
-					<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-				</span>
-				<span class="h-ic3" style="margin-top:20px;">
-					<a href="">베라님</a>
-				</span>
-				<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
-					<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
-				</span>
-				<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
-			</div><!-- /row -->
-		</div>
-	</div><!-- /col-md-3 -->
 
 
 
-		<!-- 여기서부터 건들기 -->
-		<div
-			style="overflow: auto; width: 87%; height: 37vw; padding: 2%; padding-bottom: 0; background-color: rgba(255, 255, 255, 0.9); border-radius: 1em; float: right;">
-			<div class="bts row">
-				<div class='list-group gallery' id="codibookItemList">
+				<!-- 여기서부터 건들기 -->
+				<div
+					style="overflow: auto; width: 87%; height: 37vw; padding: 2%; padding-bottom: 0; background-color: rgba(255, 255, 255, 0.9); border-radius: 1em; float: right;">
+					<div class="bts row">
+						<div class='list-group gallery' id="codibookItemList">
+						</div>
+						<!-- list-group / end -->
+					</div>
+					<!-- row / end -->
 				</div>
-				<!-- list-group / end -->
-			</div>
-			<!-- row / end -->
 		</div>
 	</div>
-</div>
-</div>
+</div><!-- /container -->
 
 
 
@@ -365,9 +253,9 @@
 						console.log("성공");
 						console.log(codibookList.length);
 						for (var i = 0; i < codibookList.length; i++) {
-							es_render(codibookList[i]);
-							
+							es_render(codibookList[i]);	
 						}
+						
 						$('.likebtn').click(function() {
 							var $this = $(this);
 							if ($this.hasClass('likebtn')){
@@ -389,20 +277,21 @@
 						});
 						
 						$('.chsbtn').click(function() {
-							var $this = $(this);
+	
+							console.log("선택===================================")
+							/* var $this = $(this);
 							if ($this.hasClass('chsbtn')){
 								choosebtnClick($this.val());
 								$($this).addClass("btn-success");
 								$this.removeClass("chsbtn")
 							}
-
+ */
 						});
 						
 						$('.deleteCodiBtn').click(function() {
 							var $this = $(this);
-							var no = $this.val();
+							var no = $this.data("codibookitemno");
 							deletebtnClick(no);
-							
 							$("#codibookItem"+no).remove();
 						});
 					},
@@ -411,8 +300,58 @@
 					}
 				});
 	}
+
+	
+	
 	
 	function es_render(CodibookVo) {
+		var userNo = ${userNo};
+		var authNo = ${authUser.no};
+		
+		console.log(CodibookVo);
+		
+		var str = "";
+		str += "<div class='col-md-3' id='codibookItem" + CodibookVo.no + "'>";
+		str += "	<div class='card bg-white bg-shadow text-center card-outline-primary'>";
+		str += "		<div class='row tb4'>";
+		str += "			<span class='h-ic h-iec h-fs'><a href=''>"+ CodibookVo.ownername + "님 옷</a></span>";
+		str += "			<span class='h-ic2'></span>";
+		str += "			<span class='h-icr'>";
+		str += "				<button type='button' class='chsbtn h-btn btn-outline-green pointer' >Choice</button>";
+		str += "				<button type='button' class='deleteCodiBtn h-btn btn-outline-green pointer' data-codibookitemno='"+ CodibookVo.no + "'>X</button>";
+		str += "			</span>";
+		
+		str += "		</div>";
+		
+		str += "		<p class='hh-line'></p>";
+		str += "		<div>";
+		str += "			<ul class='list-unstyled list-border-dots'>";
+		str += "				<li><img src='http://localhost:8088/Vestis/upload/"+CodibookVo.codi+"' class='hh-back' ></li>";
+		str += "			</ul>";
+		str += "		</div>";
+		str += "		<a class='hh-line'></a>";
+		
+		
+		str += "		<div class='row'>";
+		str += "			<span class='h-iec'>";
+		str += "				<img style='margin: 6px 4px 0px 8px;' class='h-image-circle pointer' src='http://localhost:8088/Vestis/upload/"+CodibookVo.profile+"'>";
+		str += "			</span>";
+		str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
+		str += "			<span class='text-primary' style='margin-left: 30px'>";
+		str += "				<div><img class='pointer' style='width:32px; height:32px; margin-top:8px' src='${pageContext.request.contextPath}/assets/img/heart-skin.png'></div>";
+		str += "				<div class='pointer' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+/* CodibookVo.likes */123+"</div>";
+		str += "			</span>";
+		str += "		</div>";
+		
+		str += "	</div>";
+		str += "</div>";
+		
+		console.log("카드");
+		$("#codibookItemList").append(str);
+	} 
+	
+	
+/* 	function es_render(CodibookVo) {
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
 		
@@ -475,7 +414,7 @@
 		str += "</div>";
 
 		$("#codibookItemList").append(str);
-	}
+	} */
 		
 	function choosebtnClick(no) {
 		$.ajax({
