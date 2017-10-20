@@ -27,28 +27,27 @@ import com.vestis.vo.UserVo;
 public class MyRoomService {
 	@Autowired
 	MyRoomDao myRoomDao;
-	
-	public void SaveCodi(String[] choice, int temp, int weatherNo, int userNo, int authNo, String filename, long fileSize) {
+
+	public void SaveCodi(List<String> choice, int temp, int weatherNo, int userNo, int authNo, String filename,
+			long fileSize) {
 		ClothWeatherVo clothWeatherVo = new ClothWeatherVo(weatherNo, temp);
 		int weatherSaveNo = myRoomDao.addWeather(clothWeatherVo);
 		int weatherchsNo = myRoomDao.addWeather(clothWeatherVo);
-		System.out.println("코디북 여기까지44");
-		ImgVo imgVo = new ImgVo("D:\\javastudy\\file\\", filename, ".png", fileSize, filename+".png");
-		int imgNo = myRoomDao.addImg(imgVo);		
+
+		ImgVo imgVo = new ImgVo("D:\\javastudy\\file\\", filename, ".png", fileSize, filename + ".png");
+		int imgNo = myRoomDao.addImg(imgVo);
 
 		CodiVo codiVo = new CodiVo(authNo, userNo, 1, imgNo, 0, weatherSaveNo, weatherchsNo);
 		int codiNo = myRoomDao.addCodi(codiVo);
-		
-		System.out.println("코디북 여기까지");
-		for(int i=0; i<choice.length; i++) {
-			int no = Integer.parseInt(choice[i]);
-			System.out.println("코디북 여기까지2");
+
+		for (int i = 0; i < choice.size(); i++) {
+			int no = Integer.parseInt(choice.get(i));
 			myRoomDao.addCodiCloth(codiNo, no);
 			myRoomDao.addCalData(no, weatherSaveNo);
 		}
 
 	}
-	
+
 	public ClothWeatherVo getWeather(int type, UserVo authUser) {
 		WeatherVo weatherVo = WeatherInfo.setting(type, authUser.getLat(), authUser.getLon());
 		String code = weatherVo.getSkyCode();
@@ -64,50 +63,50 @@ public class MyRoomService {
 		} else {
 			indexNo = 2;
 		}
-		
+
 		int temp = Integer.parseInt(weatherVo.getTemperature().substring(0, 2));
-		
+
 		ClothWeatherVo clothWeatherVo = new ClothWeatherVo();
 		clothWeatherVo.setTemp(temp);
 		clothWeatherVo.setWeatherNo(indexNo);
-		
+
 		return clothWeatherVo;
 	}
-	
+
 	public List<CodibookVo> getList(String purpose, int num, int no) {
 		return myRoomDao.getList(purpose, num, no);
 	}
-	
-	public void chooseClick(int no, int temp, int weatherNo) {		
+
+	public void chooseClick(int no, int temp, int weatherNo) {
 		int choiceWeather = myRoomDao.getWeather(no);
 		System.out.println(choiceWeather);
 		myRoomDao.setChoiceWeather(choiceWeather, temp, weatherNo);
 		System.out.println("채택 날씨 저장 완료");
 		myRoomDao.chooseClick(no);
-		
+
 		List<Integer> list = myRoomDao.getCodiNo(no);
 		System.out.println(list.size());
-		
-		for(int i=0; i<list.size(); i++) {
+
+		for (int i = 0; i < list.size(); i++) {
 			myRoomDao.setCount(list.get(i));
 			myRoomDao.addCalData(list.get(i), choiceWeather);
 		}
 	}
-	
-	public void likebtnClick(int voNo, int authNo) {		
+
+	public void likebtnClick(int voNo, int authNo) {
 		myRoomDao.likebtnClick(voNo, authNo);
 	}
-	
+
 	public void deleteBtnClick(int no) {
 		System.out.println("삭제버튼2");
 		myRoomDao.deleteBtnClick(no);
 	}
-	
+
 	public List<ClothListVo> getClothList(int type, int userNo) {
 		System.out.println("옷 들어옴");
 		return myRoomDao.getClothList(type, userNo);
 	}
-	
+
 	public CodiCoVo addComment(int no, int userNo, String content) {
 		System.out.println("댓글 Vo");
 
@@ -115,16 +114,16 @@ public class MyRoomService {
 		codiCo.setCodiNo(no);
 		codiCo.setPersonNo(userNo);
 		codiCo.setContent(content);
-		
+
 		int commentNo = myRoomDao.addComment(codiCo);
-		
+
 		return myRoomDao.getComment(commentNo);
 	}
 
 	public List<CodiCoVo> getCommentList(int no) {
 		return myRoomDao.getCommentList(no);
 	}
-	
+
 	public void saveWearImg(MultipartFile file, int no) {
 		String orgName = file.getOriginalFilename(); // 원래 이름을 따로 저장
 		String exName = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")); // 파일 확장자 따로
@@ -142,7 +141,7 @@ public class MyRoomService {
 		System.out.println(saveName);
 		System.out.println(fileSize);
 		System.out.println(url);
-		
+
 		String filePath = url + saveName;
 		try {
 
@@ -158,48 +157,47 @@ public class MyRoomService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 
 		ImgVo imgVo = new ImgVo(url, orgName, exName, fileSize, saveName);
 		int imgNo = myRoomDao.saveWearImg(imgVo);
 		myRoomDao.changeSaveImg(no, imgNo);
 	}
-	
+
 	public void removeComment(int no) {
 		myRoomDao.removeComment(no);
 	}
-	
+
 	public String getWearImage(int no) {
-		String str =  myRoomDao.getWearImage(no);
+		String str = myRoomDao.getWearImage(no);
 		return str;
 	}
-	
+
 	public List<CodibookVo> getCodiThree(int no) {
 		return myRoomDao.getCodiThree(no);
 	}
-	
-	//유저의 위치정보 알아내는 것
+
+	// 유저의 위치정보 알아내는 것
 	public UserVo getUserLL(int no) {
 		return myRoomDao.getUserLL(no);
 	}
-	
+
 	public List<ImgVo> getDayCloth(int userNo, int temp, int indexNo) {
 		List<ImgVo> clothList = new ArrayList<ImgVo>();
-		//2 : top, 3:bottom, 4:shoes
+		// 2 : top, 3:bottom, 4:shoes
 		ImgVo top = myRoomDao.getDayCloth(userNo, 2, temp, indexNo);
 		clothList.add(top);
 		ImgVo bottom = myRoomDao.getDayCloth(userNo, 3, temp, indexNo);
 		clothList.add(bottom);
 		ImgVo shoes = myRoomDao.getDayCloth(userNo, 4, temp, indexNo);
 		clothList.add(shoes);
-		
+
 		return clothList;
 	}
-	
+
 	public String getTodaySystemCodi(int no) {
 		return myRoomDao.getTodaySystemCodi(no);
 	}
-	
+
 	public String getYesSystemCodi(int no) {
 		return myRoomDao.getYesSystemCodi(no);
 	}

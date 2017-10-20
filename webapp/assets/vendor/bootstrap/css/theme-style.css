@@ -200,12 +200,42 @@ h-body {
 	/* padding-bottom:80px;
 	padding-top:80px; */
 }
+/* 마의룸 메인 */
+.h-back{
+	background-color: #949494;
+}
+.hj-border{
+	border-width:2px;
+	border-style: solid;
+	border-color: #0000000;
+}
+/* 코겔 */
+.hj-line{
+	width : 100%;
+	height : 2px;
+	background-color: #949494;
+	margin-bottom:2rem;
+}
+	/* 버튼 */
+.hcg-btn-primary {
+    background-color: #55A79A;
+    color: #fff;
+}
+.hcg-btn {
+    font-size: 14px;
+    /* line-height: 1.35; */
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+}
+
 /* 카드 */
 .hh-line{
 	width : 100%;
-	height : 3px;
-	background-color: #55A79A;
+	height : 1px;
+	background-color: #949494;
 }
+
 .h-image-circle{
     border-radius: 50%;
     width: 50px;
@@ -213,21 +243,42 @@ h-body {
     margin: 3px;
     border-width:1px;
     border-style:solid;
-    border-color:#55A79A;
+    border-color:#292b2c;
+}
+.h-font{
+	font-color:#292b2c;
+	font-weight:bold;
 }
 .h-ic{
 	float:left;
+	width: 40%;
 }
 .h-iec{
-	padding-left:25px;
-	
+	padding-left:10px;
+}
+
+.h-ic2{
+	float:left;
+	width: 15%;
+}
+.h-icr{
+	float:right;
+	width: 40%;
+}
+.h-ic3{
+	float:left;
+	width: 35%;
+}
+
+.h-icr3{
+	float:right;
+	width: 30%;
 }
 
 .h-fs{
 	font-size:15px;
 	font-weight:bold;
-	margin-top:15px;
-	margin-bottom:15px;
+	
 }
 .h-btn {
     font-size: 13px;
@@ -241,6 +292,15 @@ h-body {
 	margin-top:5px;
 	margin-bottom:5px;
 }
+/* 카드에 마우스오버시 */
+.outLine {
+    padding:1px;
+}
+.outLine:hover {
+    border:2px solid #55A79A;
+    padding:0px;
+}
+/* --------------- */
 /* ------------------------------------- */
 .myroomimg{
 	background-image: url('/Vestis/assets/img/h1.jpg');
@@ -264,11 +324,7 @@ h-body {
 	margin-top:50px;
 	margin-bottom:50px;
 }
-.hj-border{
-	border-width:1px;
-	border-style: solid;
-	border-color:rgba(27, 27, 27, .7);
-}
+
 .h-bg-faded {
 	background-color: rgba(85, 167, 154, 0.9);
 }
@@ -291,9 +347,10 @@ h-body {
 	padding-right:30px;
 	padding-left:30px;
 }
+
 /* add버튼 */
 .h-border-color{
-	border-color: #55A79A!important;
+	border-color: #949494!important;
 }
 /* footer */
 body {
@@ -304,4 +361,18 @@ body {
 }
 footer {
     height: 20px;
+}
+/* 코디 */
+.h-tabtop{
+	margin-top:50px;
+}
+.h-tab{
+	padding: 0.3rem 0.4rem!important;
+	margin-right: 3px!important;
+}
+    
+/* ------ */
+
+.pointer {
+	cursor:pointer
 }

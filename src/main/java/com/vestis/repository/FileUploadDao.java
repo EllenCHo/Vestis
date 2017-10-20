@@ -7,12 +7,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.vestis.vo.ImgVo;
-
-
 
 @Repository
 public class FileUploadDao {
@@ -20,41 +16,40 @@ public class FileUploadDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public String upload(ImgVo imgVo) {
+	public int upload(ImgVo imgVo) {
+		System.out.println("파일업로드 dao");
 		System.out.println(imgVo);
 		sqlSession.insert("img.upload", imgVo);
-		String dbName=imgVo.getDbName();
-		ImgVo imgvo=sqlSession.selectOne("img.selectByImg",dbName );
-		int imgNu=imgvo.getNo();
-		String imgNo=String.valueOf(imgNu);
-		System.out.println(imgNo);
-		return imgNo;
+		return imgVo.getNo();
 	}
 	
 	
 	public void add(int valh,int huserNo,int imgNo) {
 		
 		Map<String, Object> clothMap=new HashMap<String,Object>();
-	      clothMap.put("typeNo", valh);
-	      clothMap.put("personNo", huserNo);
-	      clothMap.put("imgNo", imgNo);
+	    clothMap.put("typeNo", valh);
+	    clothMap.put("personNo", huserNo);
+	    clothMap.put("imgNo", imgNo);
 		System.out.println(clothMap);
 		sqlSession.insert("img.add", clothMap);
 	}
 	
-	public List<ImgVo> getImglist() {
+	public List<ImgVo> getImglist(int clothNo, int userNo) {
 		/*System.out.println("이미지 들어옴");*/
-		return sqlSession.selectList("img.getList");
+		Map<String, Object> clothMap = new HashMap<String,Object>();
+	    clothMap.put("clothNo", clothNo);
+	    clothMap.put("userNo", userNo);
+	    
+	    return sqlSession.selectList("img.getList",clothMap);
 	}
 	
-	public List<ImgVo> send(int clothNo) {
-		/*System.out.println("이미지 들어옴");*/
-		int typeNo=clothNo;
-		if(clothNo==0) {
-			return sqlSession.selectList("img.getList");
-		} else {
-			
-		return sqlSession.selectList("img.getList2",typeNo);
+	public void removeCloth(int no) {
+		int clothNo = sqlSession.selectOne("img.getClothNo", no);
+		sqlSession.delete("img.removeCloth", clothNo);
+		int count = sqlSession.selectOne("img.getCount", clothNo);
+		if (count != 0) {
+			sqlSession.delete("img.removeClothCal", clothNo);
 		}
+		sqlSession.delete("img.removeClothImg", no);
 	}
 }

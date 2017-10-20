@@ -38,22 +38,22 @@
 	          <div id="hyj"></div>
 	          <span class="h-name">${sessionScope.authUser.nicname}</span>
 	          <span class="nav-header">In This Section</span> 
-	          <a href="${pageContext.request.contextPath }/myroom/${authUser.no}?submenu=myroom" class="nav-link first" id="myroom">
+	          <a href="${pageContext.request.contextPath }/myroom/${userNo}" class="nav-link first" id="myroom">
 	            MY ROOM
 	            <small>나의 방</small>
 	            <i class="fa fa-angle-right"></i>
 	          </a>
-	          <a href="${pageContext.request.contextPath }/myroom/clothes/${userNo}?submenu=wardrobe" class="nav-link" id="wardrobe">
+	          <a href="${pageContext.request.contextPath }/myroom/clothes/${userNo}" class="nav-link" id="wardrobe">
 	            WARDROBE 
 	            <small>옷장</small>
 	            <i class="fa fa-angle-right"></i>
 	          </a>
-	          <a href="${pageContext.request.contextPath }/myroom/codibook/${userNo}?submenu=codibook" class="nav-link" id="codibook">
+	          <a href="${pageContext.request.contextPath }/myroom/codibook/${userNo}" class="nav-link" id="codibook">
 	            CODI BOOK 
 	            <small>코디 세트 보기</small>
 	            <i class="fa fa-angle-right"></i>
 	          </a>
-	          <a href="${pageContext.request.contextPath }/myroom/codi/${userNo}?submenu=codi" class="nav-link" id="codi">
+	          <a href="${pageContext.request.contextPath }/myroom/codi/${userNo}" class="nav-link" id="codi">
 	            CODI 
 	            <small>코디하기</small>
 	            <i class="fa fa-angle-right"></i>
@@ -71,7 +71,7 @@
 $(document).ready(function(){
 
 	//현재서브메뉴 선택
- 	var submenu = "${param.submenu}";
+ 	var submenu = "${submenu}";
  	thisSubMenu(submenu);
  	
 	

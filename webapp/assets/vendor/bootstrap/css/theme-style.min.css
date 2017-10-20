@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .card-outline-primary,
 .card-primary {
-  border-color: #55A79A
+  border-color: #949494
 }
 
 .blockquote-bubble .blockquote-footer img,
@@ -5571,7 +5571,7 @@ html.page-translucent else {
   .sidebar-right:after {
     height: 100%;
     width: 1px;
-    background: #E6E6E6;
+    background: #949494;
     content: '';
     position: absolute;
     right: 0;
@@ -6897,7 +6897,7 @@ fieldset[disabled] .btn-green:hover {
   color: #55A79A;
   background-color: transparent;
   background-image: none;
-  border-color: #55A79A
+  border-color: #949494
 }
 
 .btn-outline-green:hover {
@@ -8698,7 +8698,7 @@ fieldset[disabled] .btn-green-bright:hover {
   margin-right: 5px;
   margin-bottom: -1px;
   background: 0 0;
-  border: 1px solid #E6E6E6
+  border: 1px solid #949494
 }
 
 .nav-tabs .nav-link:hover {
@@ -8712,7 +8712,7 @@ fieldset[disabled] .btn-green-bright:hover {
 .nav-tabs .nav-link.active:focus,
 .nav-tabs .nav-link.active:hover {
   color: #55A79A;
-  border: 1px solid #E6E6E6!important;
+  border: 1px solid #949494!important;
   border-bottom-color: #fff!important;
   position: relative;
   background: #fff
@@ -8902,7 +8902,7 @@ fieldset[disabled] .btn-green-bright:hover {
 }
 
 .tab-content-bordered {
-  border: 1px solid #E6E6E6;
+  border: 1px solid #949494;
   border-top: none;
   padding: 15px;
   margin-top: -1em
@@ -8937,7 +8937,7 @@ fieldset[disabled] .btn-green-bright:hover {
   border-radius: 0;
   font-weight: 700;
   font-size: 18px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid #949494;
   margin: -1px -1px 0 3px;
   box-shadow: 1px 1px 1px #fff;
   background: #fcfcfc;
@@ -9023,7 +9023,7 @@ fieldset[disabled] .btn-green-bright:hover {
 @media (min-width:768px) {
   .nav-section-menu .nav,
   .nav-section-menu.nav {
-    border-right: 1px solid #E6E6E6
+    border-right: 1px solid #949494
   }
   .nav-section-menu .nav .nav-link i,
   .nav-section-menu.nav .nav-link i {
@@ -23235,7 +23235,7 @@ a.op-9:hover {
 .blog-roll-mini .media {
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #E6E6E6
+  border-bottom: 1px solid #949494;
 }
 
 .blog-roll-mini .blog-post:last-child,

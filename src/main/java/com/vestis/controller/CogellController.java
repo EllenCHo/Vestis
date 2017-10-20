@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vestis.repository.UserDao;
 import com.vestis.service.CogellService;
-import com.vestis.service.MyRoomService;
 import com.vestis.vo.CodibookVo;
-import com.vestis.vo.ImgVo;
 import com.vestis.vo.UserVo;
 
 @Controller

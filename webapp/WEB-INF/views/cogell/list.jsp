@@ -28,10 +28,8 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!--  -->
 
-	
-	
 
-<style>
+<!-- <style>
 .sub-menu {
 	width: 120px;
 	height: 800px;
@@ -151,7 +149,7 @@
 }
 
 
-</style>
+</style> -->
 
 
 <style>
@@ -199,19 +197,235 @@
 
 <!-- -------------------------------------------------------------------------------  -->
 
-	<div class="container">
+<div class="container">
 		<!-- 서브메뉴 -->
 	<div class="row">
 	
-	<div class="col-md-10">
+	<div class="col-md-10 tb2">
+		
+		<!-- ^^^^^^^^^^^첫번째 카테고리^^^^^^^^^^^^^ -->
+		<h3 style=" margin-left:50px; color: #292b2c;">like 순</h3>	
+		<p class="hj-line "></p>
+		<div class="row">
+		 
 		 <!-- 카드하나 -->
+<div class="col-md-3">
+	<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
+		<div class="row tb4">
+			<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
+			<span class="h-ic2"></span>
+			<span class="h-icr">
+				<button type="button" class="h-btn btn-outline-green" >Choice</button>
+				<button type="button" class="h-btn btn-outline-green">X</button>
+			</span>
+		</div>
+		
+	<p class="hh-line "></p>
+		<div>
+		<ul class="list-unstyled list-border-dots">
+			<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+		</ul>
+		</div>
+	<a class="hh-line "></a>
+	
+		<div class="row">
+			<span class="h-ic3 h-iec">
+				<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+			</span>
+			<span class="h-ic3" style="margin-top:20px;">
+				<a href="">베라님</a>
+			</span>
+			<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+				<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+			</span>
+			<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+		</div><!-- /row -->
+	</div>
+</div><!-- /col-md-3 -->
+         
+          <!-- 카드하나2 -->
+		 <div class="col-md-3">
+			<div class="card bg-white bg-shadow text-center card-outline-primary">
+				<div class="row tb4">
+					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
+					<span class="h-ic2"></span>
+					<span class="h-icr">
+						<button type="button" class="h-btn btn-outline-green" >Choice</button>
+						<button type="button" class="h-btn btn-outline-green">X</button>
+					</span>
+				</div>
+				
+			<p class="hh-line "></p>
+				<div>
+				<ul class="list-unstyled list-border-dots">
+					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+				</ul>
+				</div>
+			<a class="hh-line "></a>
+			
+				<div class="row">
+					<span class="h-ic3 h-iec">
+						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="h-ic3" style="margin-top:20px;">
+						<a href="">베라님</a>
+					</span>
+					<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+						<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+					</span>
+					<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+				</div><!-- /row -->
+			</div>
+		</div><!-- /col-md-3 -->
+         
+          <!-- 카드하나3 -->
+<div class="col-md-3">
+	<div class="card bg-white bg-shadow text-center card-outline-primary">
+		<div class="row tb4">
+			<span class="h-ic h-iec h-fs">지수님 옷</span>
+			<span class="h-ic2"></span>
+			<span class="h-icr">
+				<button type="button" class="h-btn btn-outline-green" >C</button>
+				<button type="button" class="h-btn btn-outline-green">X</button>
+			</span>
+		</div>
+		
+	<p class="hh-line "></p>
+		<div>
+		<ul class="list-unstyled list-border-dots">
+			<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+		</ul>
+		</div>
+	<a class="hh-line "></a>
+	
+		<div class="row">
+			<span class="h-ic h-iec">
+				<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+			</span>
+			<span class="h-ic2" style="margin-top:20px;">
+				<a>베라님</a>
+			</span>
+			<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+				<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+			</span>
+			<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+		</div><!-- /row -->
+	</div>
+</div><!-- /col-md-3 -->
+         
+         
+         <!-- 카드하나4 -->
+  <div class="col-md-3">
+	<div class="card bg-white bg-shadow text-center card-outline-primary">
+		<div class="row tb4">
+			<span class="h-ic h-iec h-fs">지수님 옷</span>
+			<span class="h-ic2"></span>
+			<span class="h-icr">
+				<button type="button" class="h-btn btn-outline-green" >C</button>
+				<button type="button" class="h-btn btn-outline-green">X</button>
+			</span>
+		</div>
+		
+	<p class="hh-line "></p>
+		<div>
+		<ul class="list-unstyled list-border-dots">
+			<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+		</ul>
+		</div>
+	<a class="hh-line "></a>
+	
+		<div class="row">
+			<span class="h-ic h-iec">
+				<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+			</span>
+			<span class="h-ic2" style="margin-top:20px;">
+				<a>베라님</a>
+			</span>
+			<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+				<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+			</span>
+			<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+		</div><!-- /row -->
+	</div>
+</div><!-- /col-md-3 -->
+	       <!-- 카드하나5 -->
+			<div class="col-md-3">
+				<div class="card bg-white bg-shadow text-center card-outline-primary">
+					<div class="row tb4">
+						<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
+						<span class="h-ic2"></span>
+						<span class="h-icr">
+							<button type="button" class="h-btn btn-outline-green" >Choice</button>
+							<button type="button" class="h-btn btn-outline-green">X</button>
+						</span>
+					</div>
+					
+				<p class="hh-line "></p>
+					<div>
+					<ul class="list-unstyled list-border-dots">
+						<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+					</ul>
+					</div>
+				<a class="hh-line "></a>
+				
+					<div class="row">
+						<span class="h-ic3 h-iec">
+							<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						</span>
+						<span class="h-ic3" style="margin-top:20px;">
+							<a href="">베라님</a>
+						</span>
+						<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+							<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+						</span>
+						<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+					</div><!-- /row -->
+				</div>
+			</div><!-- /col-md-3 -->
+         
+          <!-- 카드하나6 -->
+         <div class="col-md-3">
+			<div class="card bg-white bg-shadow text-center card-outline-primary">
+				<div class="row tb4">
+					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
+					<span class="h-ic2"></span>
+					<span class="h-icr">
+						<button type="button" class="h-btn btn-outline-green" >Choice</button>
+						<button type="button" class="h-btn btn-outline-green">X</button>
+					</span>
+				</div>
+				
+			<p class="hh-line "></p>
+				<div>
+				<ul class="list-unstyled list-border-dots">
+					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+				</ul>
+				</div>
+			<a class="hh-line "></a>
+			
+				<div class="row">
+					<span class="h-ic3 h-iec">
+						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="h-ic3" style="margin-top:20px;">
+						<a href="">베라님</a>
+					</span>
+					<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
+						<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+					</span>
+					<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
+				</div><!-- /row -->
+			</div>
+		</div><!-- /col-md-3 -->
+         
+          <!-- 카드하나7 -->
          <div class="col-md-3">
            <div class="card bg-white bg-shadow text-center card-outline-primary">
            	<div class="row tb4">
            		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
              	<div class="h-ic" >
              		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-		</div>
+				</div>
              	<div class="h-ic h-iec" >X</div>
            	</div>
              <p class="hh-line "></p>
@@ -238,232 +452,408 @@
          </div>
          
          
+         <!-- 카드하나8-->
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
+				</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥♡3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+	              
+	            
+	  <!-- ^^^^^^^^^^^^^^^^^두번째 카테고리^^^^^^^^^^^^^^^^ -->
+         <!-- <div class="h-snip1211" style="margin-top:30px">좋아요 순</div> -->
+         <h3 style=" margin-left:50px; color: #55A79A;">like 순</h3>
+         <p class="hj-line "></p>
+         <!-- 카드하나1 -->
+		<div class="col-md-3">
+			<div
+				class="card bg-white bg-shadow text-center card-outline-primary">
+				<div class="row tb4">
+					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span> <span
+						class="h-ic2"></span> <span class="h-icr">
+						<button type="button" class="h-btn btn-outline-green">Choice</button>
+						<button type="button" class="h-btn btn-outline-green">X</button>
+					</span>
+				</div>
+
+				<p class="hh-line "></p>
+				<div>
+					<ul class="list-unstyled list-border-dots">
+						<li><img
+							src="${pageContext.request.contextPath}/assets/img/c.JPG"
+							class="hh-back"></li>
+					</ul>
+				</div>
+				<a class="hh-line "></a>
+
+				<div class="row">
+					<span class="h-ic3 h-iec"> <img class="h-image-circle"
+						src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span> <span class="h-ic3" style="margin-top: 20px;"> <a
+						href="">베라님</a>
+					</span> <span class=" text-primary"
+						style="margin-top: 20px; float: left; width: 15%;"> <img
+						style="width: 25px; height: 25px;"
+						src="${pageContext.request.contextPath}/assets/img/heart.png"
+						onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'"
+						onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'"
+						border="0">
+					</span> <span class=" text-primary"
+						style="margin-top: 17px; float: right; width: 8%; font-size: 20px; font-weight: bold;">3</span>
+				</div>
+				<!-- /row -->
+			</div>
+		</div><!-- /col-md-3 -->
+
+
+					<!-- 카드하나2 -->
+                  <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" style="color: #55A79A;" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic2"></div>
+             	<div class="h-icr">
+					<button type="button" class="h-btn btn-outline-green" >C</button>				
+             		<button type="button" class="h-btn btn-outline-green">X</button>
+             	</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+				<div class="h-ic h-iec"><span>
+         			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             		</span>
+             	</div>
+             	<div class="h-ic2" style="margin-top:20px;">
+             		<span><a>베라님</a></span>
+             	</div>
+             	<div class=" text-primary" style="margin-top:20px; float:right; ">
+            		<span style="font-size:25px;">
+            		<img  style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
+				<span>3</span>
+				</span>
+				</div>
+             </div>
+           </div>
+         </div>
+	            
+	     
+	     <!-- 카드하나3 -->
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px; margin-top:4px;">채택</button>
+				</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+         
+         <!-- 카드하나4 -->
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px; margin-top:4px;">채택</button>
+				</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+         
+   <!-- ^^^^^^^^^^^^^^^세번째 카테고리^^^^^^^^^^^^^^^^ -->
+	    <button type="button" class="btn btn-outline-green " onclick="location.href='add'" style="margin-left:5%; margin-top:50px;">등록</button>
+         <p class="hj-line "></p>
+	    <!-- 카드하나 -->
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px; margin-top:4px;">채택</button>
+				</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+         
          <!-- 카드하나 -->
-	            <div class="col-md-3">
-	              <div class="card bg-white bg-shadow text-center card-outline-primary">
-	              	<div class="row tb4">
-	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
-	                	<div class="h-ic" >
-	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-						</div>
-	                	<div class="h-ic h-iec" >X</div>
-	              	</div>
-	                <p class="hh-line "></p>
-	                <!-- <div class="card-body"> -->
-	                <div >
-	                  <ul class="list-unstyled list-border-dots">
-	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-	                  </ul>
-	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
-	                </div>
-	                 <a class="hh-line "></a>
-	                 <div class="row">
-	               		<div class="h-ic h-iec"><span>
-	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-	                	</span></div>
-	                	<div class="h-ic" style="margin-top:20px;"><span>
-	                		<a>베라님</a>
-	                	</span></div>
-	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
-	                		<a>♥♡3</a>
-						</span></div>
-					
-	                </div>
-	              </div>
-	              
-	            </div>
-	            
-	            <!-- 카드하나 -->
-	            <div class="col-md-3">
-	              <div class="card bg-white bg-shadow text-center card-outline-primary">
-	              	<div class="row tb4">
-	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
-	                	<div class="h-ic" >
-	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-						</div>
-	                	<div class="h-ic h-iec" >X</div>
-	              	</div>
-	                <p class="hh-line "></p>
-	                <!-- <div class="card-body"> -->
-	                <div >
-	                  <ul class="list-unstyled list-border-dots">
-	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-	                  </ul>
-	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
-	                </div>
-	                 <a class="hh-line "></a>
-	                 <div class="row">
-	               		<div class="h-ic h-iec"><span>
-	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-	                	</span></div>
-	                	<div class="h-ic" style="margin-top:20px;"><span>
-	                		<a>베라님</a>
-	                	</span></div>
-	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
-	                		<a>♥♡3</a>
-						</span></div>
-					
-	                </div>
-	              </div>
-	              
-	            </div>
-	            
-	            <!-- 카드하나 -->
-	            <div class="col-md-3">
-	              <div class="card bg-white bg-shadow text-center card-outline-primary">
-	              	<div class="row tb4">
-	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
-	                	<div class="h-ic" >
-	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-						</div>
-	                	<div class="h-ic h-iec" >X</div>
-	              	</div>
-	                <p class="hh-line "></p>
-	                <!-- <div class="card-body"> -->
-	                <div >
-	                  <ul class="list-unstyled list-border-dots">
-	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-	                  </ul>
-	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
-	                </div>
-	                 <a class="hh-line "></a>
-	                 <div class="row">
-	               		<div class="h-ic h-iec"><span>
-	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-	                	</span></div>
-	                	<div class="h-ic" style="margin-top:20px;"><span>
-	                		<a>베라님</a>
-	                	</span></div>
-	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
-	                		<a>♥♡3</a>
-						</span></div>
-					
-	                </div>
-	              </div>
-	              
-	            </div>
-	            
-	            <!-- 카드하나 -->
-	            <div class="col-md-3">
-	              <div class="card bg-white bg-shadow text-center card-outline-primary">
-	              	<div class="row tb4">
-	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
-	                	<div class="h-ic" >
-	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-						</div>
-	                	<div class="h-ic h-iec" >X</div>
-	              	</div>
-	                <p class="hh-line "></p>
-	                <!-- <div class="card-body"> -->
-	                <div >
-	                  <ul class="list-unstyled list-border-dots">
-	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-	                  </ul>
-	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
-	                </div>
-	                 <a class="hh-line "></a>
-	                 <div class="row">
-	               		<div class="h-ic h-iec"><span>
-	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-	                	</span></div>
-	                	<div class="h-ic" style="margin-top:20px;"><span>
-	                		<a>베라님</a>
-	                	</span></div>
-	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
-	                		<a>♥♡3</a>
-						</span></div>
-					
-	                </div>
-	              </div>
-	              
-	            </div>
-	            
-	            <!-- 카드하나 -->
-	            <div class="col-md-3">
-	              <div class="card bg-white bg-shadow text-center card-outline-primary">
-	              	<div class="row tb4">
-	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
-	                	<div class="h-ic" >
-	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-						</div>
-	                	<div class="h-ic h-iec" >X</div>
-	              	</div>
-	                <p class="hh-line "></p>
-	                <!-- <div class="card-body"> -->
-	                <div >
-	                  <ul class="list-unstyled list-border-dots">
-	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-	                  </ul>
-	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
-	                </div>
-	                 <a class="hh-line "></a>
-	                 <div class="row">
-	               		<div class="h-ic h-iec"><span>
-	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-	                	</span></div>
-	                	<div class="h-ic" style="margin-top:20px;"><span>
-	                		<a>베라님</a>
-	                	</span></div>
-	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
-	                		<a>♥♡3</a>
-						</span></div>
-					
-	                </div>
-	              </div>
-	              
-	            </div>
-	            
-	            <!-- 카드하나 -->
-	            <div class="col-md-3">
-	              <div class="card bg-white bg-shadow text-center card-outline-primary">
-	              	<div class="row tb4">
-	              		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
-	                	<div class="h-ic" >
-	                		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px;">채택</button>
-						</div>
-	                	<div class="h-ic h-iec" >X</div>
-	              	</div>
-	                <p class="hh-line "></p>
-	                <!-- <div class="card-body"> -->
-	                <div >
-	                  <ul class="list-unstyled list-border-dots">
-	                    <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-	                  </ul>
-	                  <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
-	                </div>
-	                 <a class="hh-line "></a>
-	                 <div class="row">
-	               		<div class="h-ic h-iec"><span>
-	               			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-	                	</span></div>
-	                	<div class="h-ic" style="margin-top:20px;"><span>
-	                		<a>베라님</a>
-	                	</span></div>
-	                	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
-	                		<a>♥♡3</a>
-						</span></div>
-					
-	                </div>
-	              </div>
-	              
-	            </div>
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px; margin-top:4px;">채택</button>
+				</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+         
+         <!-- 카드하나 -->
+         <div class="col-md-3">
+           <div class="card bg-white bg-shadow text-center card-outline-primary">
+           	<div class="row tb4">
+           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+             	<div class="h-ic" >
+             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px; margin-top:4px;">채택</button>
+				</div>
+             	<div class="h-ic h-iec" >X</div>
+           	</div>
+             <p class="hh-line "></p>
+             <!-- <div class="card-body"> -->
+             <div >
+               <ul class="list-unstyled list-border-dots">
+                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+               </ul>
+               <!-- <a href="#" class="btn btn-primary btn-block btn-rounded mt-4">Sign Up</a> -->
+             </div>
+              <a class="hh-line "></a>
+              <div class="row">
+            		<div class="h-ic h-iec"><span>
+            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+             	</span></div>
+             	<div class="h-ic" style="margin-top:20px;"><span>
+             		<a>베라님</a>
+             	</span></div>
+             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+             		<a>♥3</a>
+				</span></div>
+             </div>
+           </div>
+         </div>
+         
+         <!-- 카드하나 -->
+          
+         <div class="col-md-3">
+         		
+	           <div class="card bg-white bg-shadow text-center card-outline-primary outLine">
+	           	<div class="row tb4">
+	           		<div class="h-ic h-iec" ><span class="h-fs">지수님 옷</span></div>
+	             	<div class="h-ic" >
+	             		<button type="button" class="h-btn btn-outline-green" style="margin-left:50px; margin-top:4px;">채택</button>
+					</div>
+	             	<div class="h-ic h-iec" >X</div>
+	           	</div>
+	             <p class="hh-line "></p>
+	             <div >
+	               <ul class="list-unstyled list-border-dots">
+	                 <li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+	               </ul>
+	             </div>
+	              <a class="hh-line "></a>
+	              <div class="row">
+	            		<div class="h-ic h-iec"><span>
+	            			<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+	             	</span></div>
+	             	<div class="h-ic" style="margin-top:20px;"><span>
+	             		<a>베라님</a>
+	             	</span></div>
+	             	<div class="h-ic text-primary" style="margin-top:10px; margin-left: 20px;"><span style="font-size:25px;">
+	             		<a>♥3</a>
+					</span></div>
+	             </div>
+	           </div>
+           
+         </div>
          
          
-	</div>
+	    
+         </div><!-- /row -->
+	</div><!-- /col-md-2 -->
 	
 	
-	
-	<!-- 사람프로필 리스트 -->
-	<div class="col-md-2  tb2">
+	<!-- ^^^^^^^^^^^^^^^서브메뉴^^^^^^^^^^^^^^^^^^^^ --> 
+	<div class="col-md-2 " >
+	<!-- 사람프로필 리스트 1-->
+	<div class=" sidebar-right tb2" style="margin-top:100px;">
 		<div class="mb-4">
               <ul class="nav nav-tabs">
                 <li class="nav-item active"><a href="#popular" class="nav-link " data-toggle="tab">Popular</a></li>
-                <li class="nav-item"><a href="#latest" class="nav-link" data-toggle="tab">Latest</a></li>
               </ul>
+              
               <div class="tab-content tab-content-bordered">
                 <!-- Popular tab content -->
                 <div class="tab-pane fade active show blog-roll-mini" id="popular">
                   <!-- Popular blog post 1 -->
+                  <div class="row blog-post">
+                    
+                      <div class="blog-media">
+                        <a>
+                          <img class="h-image-circle" style="margin-left:10px;" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+                        </a>
+                      </div>
+                      <div style="margin-top:18px; margin-left:10px;">
+	                     <h5>
+	                       <a href="#">jisoo</a>   
+	                     </h5>
+                 	  </div>
+                  </div>
+                  <!-- Popular blog post 2 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Jugis</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Popular blog post 3 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                         <img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Cui</a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Popular blog post 4 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/fly.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Melior</a>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <!-- Latest tab content -->
+                <div class="tab-pane fade blog-roll-mini" id="latest">
+                  <!-- Latest blog post 1 -->
                   <div class="row blog-post">
                     <div class="col-4">
                       <div class="blog-media">
@@ -474,16 +864,92 @@
                     </div>
                     <div class="col-8">
                       <h5>
-                        <a href="#">At Interdico Populus Vero</a>
+                        <a href="#">Abdo </a>
                       </h5>
                     </div>
+                  </div>
+                  <!-- Latest blog post 2 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/ape.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Accumsan </a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Latest blog post 3 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/fly.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Inhibeo </a>
+                      </h5>
+                    </div>
+                  </div>
+                  <!-- Latest blog post 4 -->
+                  <div class="row blog-post">
+                    <div class="col-4">
+                      <div class="blog-media">
+                        <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
+                          <img src="assets/img/blog/bee.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <h5>
+                        <a href="#">Praemitto</a>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+		</div>
+	
+	
+	<!-- 사람프로필 리스트 2-->
+	<div class=" sidebar-right tb2">
+		<div class="mb-4">
+              <ul class="nav nav-tabs">
+                
+                <li class="nav-item active"><a href="#latest" class="nav-link" data-toggle="tab">Latest</a></li>
+              </ul>
+              
+              <div class="tab-content tab-content-bordered">
+                <!-- Popular tab content -->
+                <div class="tab-pane fade active show blog-roll-mini" id="popular">
+                  <!-- Popular blog post 1 -->
+                  <div class="row blog-post">
+                    
+                      <div class="blog-media">
+                        <a>
+                          <img class="h-image-circle" style="margin-left:10px;" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+                        </a>
+                      </div>
+                      <div style="margin-top:18px; margin-left:10px;">
+	                     <h5>
+	                       <a href="#">jisoo</a>   
+	                     </h5>
+                 	  </div>
                   </div>
                   <!-- Popular blog post 2 -->
                   <div class="row blog-post">
                     <div class="col-4">
                       <div class="blog-media">
                         <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
-                          <img src="assets/img/blog/ladybird.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                          <img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
                         </a>
                       </div>
                     </div>
@@ -498,7 +964,7 @@
                     <div class="col-4">
                       <div class="blog-media">
                         <a href="blog-post&lt;?php echo OUTPUT_FILE_TYPE; ?&gt;&#10;                          ">
-                          <img src="assets/img/blog/ladybird.jpg" alt="Picture of frog by Ben Fredericson" class="img-fluid">
+                         <img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
                         </a>
                       </div>
                     </div>
@@ -589,9 +1055,16 @@
                 </div>
               </div>
             </div>
+		</div>
+	
+	
+	</div><!-- /col-md-2 -->
+	
+	
 	</div>
+	
 	</div>
-	</div>
+	</div><!-- /container -->
 	
 	
 	

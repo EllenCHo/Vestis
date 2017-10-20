@@ -2,7 +2,6 @@ package com.vestis.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,12 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vestis.service.MarketService;
-import com.vestis.vo.CommentVo;
 import com.vestis.vo.ImgVo;
 import com.vestis.vo.MarketCommentVo;
 import com.vestis.vo.MarketVo;
 import com.vestis.vo.PageVo;
-import com.vestis.vo.QaVo;
 import com.vestis.vo.UserVo;
 
 @Controller
