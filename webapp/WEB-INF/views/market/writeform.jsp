@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<title>Market</title>
+<title>Vestis-Market</title>
 
 <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -147,6 +147,8 @@ div > #paging {
 }
 
 </style>
+
+
 </head>
 <body>
 
@@ -155,7 +157,7 @@ div > #paging {
 
 <div class="myroomimg">
 	<div class="container">
-		<h3>Service Center</h3>
+		<h3>Market</h3>
 	</div>
 </div>
 	
@@ -305,15 +307,20 @@ $("#sendh").on("click", "img", function(){
  
 
 
+
+
 $(document).ready(function(){	//all뿌려줌
-	var no="4";
+	/* 형주씨 */
+	var authNo = ${authUser.no};
+    var clothNo = 0;
+	
 	console.log("start");
    	
   
     $.ajax({
     	url : "${pageContext.request.contextPath }/myroom/get",
         type : "post",
-		data: {no:no},
+		data: {clothNo:clothNo, userNo: authNo},
         dataType : "json",
         success : function(clothList){   
 	        console.log("ajax들어옴");

@@ -126,7 +126,7 @@ margin-bottom:10px;
 	background-color:#55a79a;
 }
 
-
+/* ---------여기까지 받아온 스타일입니다.-------------------------- */
 #labe {
 	width:70px;
 }
@@ -162,45 +162,46 @@ margin-bottom:10px;
 		
 		<div class="row">
 <!-- -----------------------------------------------------------------------------------	 -->	
-		<div id="content">
-				<div id="board">
-					<form class="board-form" method="post" action="${pageContext.request.contextPath }/qa/modify?currNo=${param.currNo }&no=${vo.no }&kwd=${param.kwd}">
+	<div class="col-md-12">
+		<div class="title">
+			<span style="color:#292b2c">FAQ & QNA</span>
+	  	</div>
+		
+		
+		<div class="table-responsive">
+			<form class="board-form" method="post" action="${pageContext.request.contextPath }/qa/modify?currNo=${param.currNo }&no=${vo.no }&kwd=${param.kwd}">
 						<input type="hidden" name="no" value="${qaVo.no}" />
 		
-		
-			
-				<table class="table table-strip">
-<tr>
-							<th colspan="2">글수정</th>
-						</tr>
-						<tr>
-							<td id="labe" class="label">제목</td>
-							<td><input id="titles" type="text" name="title" value=""></td>
-						</tr>
+			<table class="table table-bordered table-cart" id="tb">
+				<thead style="font-size:15px;" >
+					<tr>
+						<td id="labe" class="label">제목</td>
+						<td><input id="titles" type="text" name="title" value=""  style="width:904px;"></td>
+					</tr>
 						<tr>
 							<td id="labe" class="label">내용</td>
 							<td>
-								<textarea id="contents" name="content"></textarea>
+								<textarea id="contents" name="content" style="width:904px;"></textarea>
 							</td>
 						</tr>
 					</table>
+					
+				<div class="row">
 				
-					<div class="bottom">
-						<a href="${pageContext.request.contextPath}/qa/list?currNo=1">취소</a>
-						<input type="submit" value="수정">
+					<div class="col-md-12 text-right" >
+						<a class="btn btn-primary" href="${pageContext.request.contextPath}/qa/list?currNo=1">취소</a>
+						<input type="submit" class="btn btn-primary" value="수정">
 					</div>
-				</form>				
-			</div>
+				</div>	
+			</form>				
 		</div>
-
-		
-	</div><!-- /container -->
-	 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-    <!-- Bootstrap core JavaScript -->
-    <script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	</div>		
+</div><!-- /container -->
 </div>
+<br><br><br>
+	 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+
+
 
 </body>
 </html>

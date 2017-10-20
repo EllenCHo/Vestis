@@ -237,13 +237,13 @@ a {
 					<tr style="text-align: center">
 						<td>${vo.rn }</td>
 						<td style="padding:3px;">
-							<div class="imgbox" style='margin-left: 20px'>
-								<a href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">
+							<div class="imgbox">
+								<a style="text-align: center;" href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">
 									<img src="${pageContext.request.contextPath }/upload/${vo.savename }" height="100%" class="top">
 								</a>
 							</div>
 						</td>
-						<td style="text-align: left;"><a href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">${vo.title}</a></td>
+						<td style="text-align: left;padding-top: 26px;"><a href="${pageContext.request.contextPath }/market/read?no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">${vo.title}</a></td>
 						<td>${vo.nicname }</td>
 						<td>${vo.regDate }</td>
 						<td><c:if test="${sessionScope.authUser.no==vo.person_no }">
