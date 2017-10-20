@@ -12,7 +12,7 @@
 	<insert id="snsjoin" parameterType="com.vestis.vo.UserVo">
 		<![CDATA[
 		insert into person
-			values(seq_person_no.nextval,0,'noinput',#{email},#{password},#{name},'noinput','noinput',#{nicname},sysdate,0,0,0,sysdate)	
+			values(seq_person_no.nextval,0,'noinput',#{email},#{password},#{name},'noinput','noinput',#{nicname},sysdate,0,37.5221709,126.89871540000001,sysdate)	
 				]]>
 	</insert>
 	

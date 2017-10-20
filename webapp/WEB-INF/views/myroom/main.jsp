@@ -146,7 +146,7 @@
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
-						<canvas id="todayCanvas" width="412" height="522.61"
+						<canvas id="todayCanvas" width="412" height="453"
 							style="background: #FFFFF;"></canvas>
 						<input id="data" name="data" type="hidden"> <input
 							id="info_weather" name="weather" type="hidden"
@@ -235,9 +235,9 @@
 			$('#todayCanvas').remove();
 			
 			str = "";
-			str += "<img class=\"d-block img-fluid w-100\"";
+			str += "<img class=\"d-block img-fluid w-100\" style=\"height:452.83px;\"";
 			str += "	src=\"${pageContext.request.contextPath}/upload/${todayImg}\"";
-			str += "	alt=\"1\">";
+			str += "	alt=\"1\"/>";
 			
 			$('#todaySystem').prepend(str);
 			
