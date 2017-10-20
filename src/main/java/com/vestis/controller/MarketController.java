@@ -55,16 +55,16 @@ public class MarketController {
 		return "market/writeform";
 	}
 
-	// �빀寃�
+	//합격
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(@ModelAttribute MarketVo marketVo) {
 		marketService.insert(marketVo);
 		return "redirect:/market/list?currNo=1";
 	}
-
-	// �빀寃�
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(@RequestParam("no") int no) {
+	
+	//합격
+	@RequestMapping(value="/delete",method=RequestMethod.GET)
+	public String delete(@RequestParam("no") int no ) {
 		marketService.delete(no);
 		return "redirect:/market/list?currNo=1";
 	}
