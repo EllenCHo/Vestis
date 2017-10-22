@@ -7,7 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<title>Vestis</title>
+
+<title>Service Center</title>
 <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -16,37 +17,54 @@
     <link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
       
       
-    <style>
+<style>
     
-    @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
- 	p { font-size: 18px; }
- 	.hn { font-family: 'Hanna'; }
-    
-    
-    
-    #container {
-      width: 70%;
-      margin: 0 auto;     /* 가로로 중앙에 배치 */
-      padding-top: 0%;   /* 테두리와 내용 사이의 패딩 여백 */
-    }
-    /* Bootstrap 수정 */
-    .table > thead {
-      background-color: #b3c6ff;
-    }
-    .table > thead > tr > th {
-      text-align: center;
-    }
-    .table-hover > tbody > tr:hover {
-      background-color: #e6ecff;
-    }
-    .table > tbody > tr > td {
-      text-align: reft;
-    }
-    .table > tbody > tr > #title {
-      text-align: center;
-    }
+
+/* 완전 겉 테두리 */
+.table-bordered {
+  border: 1px solid #bcbdc1 !important;
+}
+
+/* 전체 테두리 */
+.table-bordered th,
+.table-bordered td {
+ border: 1px solid  #bcbdc1 !important;
+ text-align: center;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+ /* 번호,제목,작성자,작성일 밑 테두리 */
+  border-bottom-width: 1px !important;
+  text-align: center;
+  font-weight:bold;
+}
+
+
+.table th, .table td {
+	padding-top:5px;/* !important; */
+	padding-bottom:5px;
+}
+.table th{
+font-weight:bold !important;
+}
+.table td{
+font-weight:bold;
+}
+
+
+.title {
+	border-bottom:3px solid #55a79a;
+	font-weight:bold;
+}   
+.title{
+font-size:25px;
+line-height:1.5;
+margin:0 0 10px;
+padding:0;
+}  
      
-    div > #paging {
+div > #paging {
       text-align: center;
     }
     
@@ -59,48 +77,71 @@
     <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
     
-  <div id="container">
+<div class="myroomimg">
+	<div class="container">
+	<h3>Service Center</h3>
+	</div>
+</div>
+<div class="container" id="about">
+	
+	<div class="row">
+	
+	
+<!-- --------------------------------------------------------------------------------- -->
+	<!--main content-->
+	<div class="col-md-12">
+		<ul class="nav nav-tabs flex-column flex-lg-row tb2" role="tablist">
+			<li class="nav-item h-lr active"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true"  onClick="location.href='${pageContext.request.contextPath }/center/list';"> Notice </a> </li>
+			<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" onClick="location.href='${pageContext.request.contextPath }/qa/list?currNo=1';">FAQ & QnA</a> </li>
+		</ul>
+	
+		<div class="title">
+			<span style="color:#292b2c">Notice</span>
+		</div>
 		
-		 
-		<div class="bg-faded p-4 my-4">
-		
-		<div id="content">
-			<div id="center" class="center-form">
-					<table class="table table-condensed">
+			<div class="table-responsive">
+  			<table class="table table-bordered table-cart" id="tb">
+				<thead style="font-size:15px">
 						<tr>
-							<th colspan="2"><p class="hn">Vestis 공지사항</p></th>
+							<td class="label">제목</td>
+							<td>${centerVo.title }</td>
 						</tr>
 						<tr>
-							<td class="label"><p class="hn">제목</p></td>
-							<td><p class="hn">${centerVo.title }</p></td>
+							<td class="label">내용</td>
+							<td>${centerVo.content }</td>
 						</tr>
-						<tr>
-							<td class="label"><p class="hn">내용</p></td>
-							<td><p class="hn">${centerVo.content }</p></td>
-						</tr>
+				</thead>
 					</table>
+				<div class="row">
+					<div class="col-md-12 text-right" >
+					
+					<c:if test="${empty param.kwd }">
+						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/list?currNo=${param.currNo}"><p class="hn">글목록</p></a>
+					</c:if>
 				
-					<div class="bottom" style="text-align: right">
-						<a href="${pageContext.request.contextPath }/center/list"><p class="hn">글목록</p></a>
-					
-					<%-- <c:if test="${authUser.no == boardVo.userNo }"> 
- 						<a href="${pageContext.request.contextPath }/board/modifyform?no=${boardVo.no }">글수정</a> 
- 					</c:if>  --%>
+					<c:if test="${!(empty param.kwd) }">
+						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/search?currNo=${param.currNo}&kwd=${param.kwd}">글목록</a>
+					</c:if>
 					
 					
+					<c:if test="${sessionScope.authUser.no==vo.personNO }">	
+						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/modifyform?no=${vo.no}&currNo=${param.currNo}&kwd=${param.kwd}">글수정</a>				
+					</c:if>
+					
+					
+					</div>
 				</div>
+				
+				
+					
 			</div>
 		</div>
 	</div>
 		
 	</div><!-- /container -->
-	
+	<br><br><br>
 	 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     
 </body>
 </html>		

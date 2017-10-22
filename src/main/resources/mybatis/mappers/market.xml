@@ -37,13 +37,13 @@
 	<select id="getlist2" parameterType="map"  resultType="com.vestis.vo.MarketVo">
 	<![CDATA[
 		select *
-from (select rownum rn,no,nicname,regDate,title,person_no,cloth_no
-from (select b.no no,nicname,b.reg_date regDate,title,person_no person_no,cloth_no 
-from market b,person r 
-where b.person_NO=r.no
-order by b.no))
-where rn<=#{endNum} and rn>#{startNum}
-order by rn desc
+		from (select rownum rn,no,nicname,regDate,title,person_no,cloth_no
+			  from (select b.no no,nicname,to_char( trunc(b.reg_date), 'YYYY/MM/DD' ) regDate,title,person_no person_no,cloth_no 
+					from market b,person r 
+			  where b.person_NO=r.no
+			  order by b.no))
+		where rn<=#{endNum} and rn>#{startNum}
+		order by rn desc
 	]]>
 	</select>
 	
@@ -61,14 +61,14 @@ where title like #{nicname} or nicname like  #{nicname}
 	<select id="search"  parameterType="map" resultType="com.vestis.vo.MarketVo">
 	<![CDATA[
 		select *
-from (select rownum rn,no,nicname,regDate,title,person_no
-from (select b.no no,nicname,b.reg_date regDate,title,person_no 
-from market b,person r 
-where b.person_no = r.no
-order by b.no)
-where title like #{nicname} or nicname like #{nicname})
-where rn<=#{endNum} and rn>#{startNum}
-order by rn desc
+		from (select rownum rn,no,nicname,regDate,title,person_no,cloth_no
+			from (select b.no no,nicname,to_char( trunc(b.reg_date), 'YYYY/MM/DD' ) regDate,title,person_no, cloth_no 
+				  from market b,person r 
+				  where b.person_no = r.no
+				  order by b.no)
+            where title like #{nicname} or nicname like #{nicname})
+        where rn<=#{endNum} and rn>#{startNum}
+        order by rn desc
 	]]>
 	</select>
 	
@@ -79,7 +79,7 @@ order by rn desc
 	
 	<select id="getmarket" parameterType="com.vestis.vo.MarketVo" resultType="com.vestis.vo.MarketVo">
 		<![CDATA[
-			select title,content,person_no,no,cloth_no,reg_date regDate
+			select title,content,person_no,no,cloth_no,to_char( trunc(reg_date), 'YYYY/MM/DD' ) regDate
 			from market
 			where no=#{no}
 		]]>
@@ -103,7 +103,7 @@ order by rn desc
 		<![CDATA[
 			select rn,no,personNo,marketNo,content,regDate,nicname
 from(select  rownum rn,no,personNo,marketNo,content,regDate,nicname
-from (select c.no no, c.person_no personNo, c.market_no marketNo,c.content content,c.reg_date regDate,p.nicname nicname
+from (select c.no no, c.person_no personNo, c.market_no marketNo,c.content content,to_char( trunc(c.reg_date), 'YYYY/MM/DD' ) regDate,p.nicname nicname
 			from market_comment c,person p
 			where p.no=c.person_no)
             where marketNo=#{no} order by no desc)

@@ -1,80 +1,68 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Vestis</title>
-
-<!-- Bootstrap core CSS -->
-<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<title>ServiceCenter</title>
 
 
-<!-- Custom fonts for this template -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+<!--자신이 만든 css-->
+<!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
 
-<!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+<!-- Theme style -->
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
 
- <!-- Theme style -->
-	<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
 
 <style>
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
- p { font-size: 18px; }
- .hn { font-family: 'Hanna'; }
 
-table.type09 {
-    border-collapse: collapse;
-    text-align: center;
-    line-height: 1.5;
 
+/* 완전 겉 테두리 */
+.table-bordered {
+  border: 1px solid #bcbdc1 !important;
 }
-table.type09 thead th {
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: center;
-    color: #369;
-    border-bottom: 3px solid #036;
+
+/* 전체 테두리 */
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid  #bcbdc1 !important;
+  text-align: center;
 }
-table.type09 tbody th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: center;
-    border-bottom: 7px solid #ccc;
-    background: #f3f6f7;
-}
-table.type09 td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: center;
-    border-bottom: 7px solid #ccc;
-    white-space:nowrap;
+
+.table-bordered thead th,
+.table-bordered thead td {
+ /* 번호,제목,작성자,작성일 밑 테두리 */
+  border-bottom-width: 3px !important;
+  text-align: center;
+  font-weight:bold;
 }
 
 
+.table th, .table td {
+	padding-top:5px;/* !important; */
+	padding-bottom:5px;
+}
+.table th{
+font-weight:bold !important;
+}
+.table td{
+font-weight:bold;
+}
 
+.title {
+	border-bottom:3px solid #55a79a;
+	font-weight:bold;
+}   
+.title{
+font-size:25px;
+line-height:1.5;
+margin:0 0 10px;
+padding:0;
+}
 
-</style>
-
-<!-- <style type="text/css">
- a:link { color: red; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
- a:hover { color: blue; text-decoration: underline;}
-
-
-</style> -->
-
-
-
-</head>
-
- <style>
- 
- .pager { 
+.pager { 
  	/* float: left;  */
  	width: 100%;
  	padding-right: 20px;
@@ -100,82 +88,94 @@ height: 35px;
 width: 75px;
 height: 35px;
 }
- 
- </style>
 
- <body>
-	
-    
-    
+#tabs{
+margin-bottom:10px
+}
+
+</style>
+ 
+</head>
+<body>
+
+
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+
 
 <div class="myroomimg">
 	<div class="container">
-	<h3>market</h3>
+	<h3>Service Center</h3>
 	</div>
 </div>
+
+<div class="container" id="about">
+	
+	<div class="row">
+
 <!-- ----------------------------------------------------------------------------------- -->
-
-
-    <div class="container">
-
-      <div class="bg-faded p-4 my-4">
-      
-      <div id="content">
-			<div id="board">
-				<form id="search_form" action="${pageContext.request.contextPath }/qa/search" method="get" style="text-align: center">
-					<input type="text" id="kwd" name="kwd" value="${param.kwd}">
-					<input type="hidden" id="currNo" name="currNo" value="1">
-					
-					<input type="submit" value="찾기">
-				</form>
-      </div>				
-				<div class="col-sm-12" style="text-align:right;">
-					<button type="button" id=butn2 class="btn btn-danger"  onClick="location.href='${pageContext.request.contextPath }/center/list';"><p class="hn">공지사항</p></button>
-				</div>
+    <div class="col-md-12">
+		
+	<!-- 서브메뉴(탭) -->
+	<ul id="tabs" class="nav nav-tabs flex-column flex-lg-row tb2" role="tablist">
+		<li class="nav-item h-lr"> <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true"  onClick="location.href='${pageContext.request.contextPath }/center/list';"> Notice </a> </li>
+		<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" onClick="location.href='${pageContext.request.contextPath }/qa/list?currNo=1';">FAQ & QnA</a> </li>
+	</ul>
+	
+	<div id=wributn class="col-sm-12" style="text-align:right; padding-right: 2px;" >
+		<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/qa/writeform?currNo=${page.currNo}';">글 쓰기</button>
+	</div>
 				
-		<table class="type09" id="tb">
+      <div class="title">
+		<span style="color:#292b2c">FAQ & QNA</span>
+	  </div>
+	  
+      <div class="table-responsive" id="content" style="padding-top: 5px;">				
+				
+		<table class="table table-bordered table-cart" id="tb">
+			<thead style="font-size:20px">
 			<tr>
-				<th style="text-align: center"><p class="hn">번호</p></th>
-				<th style="text-align: center"><p class="hn">제목</p></th>
-				<th style="text-align: center"><p class="hn">작성자</p></th>
-				<th style="text-align: center"><p class="hn">작성일</p></th>
-				<th style="text-align: center"><p class="hn">&nbsp;</p></th>
+				<th style="text-align: center">No.</th>
+				<th style="text-align: center">Title.</th>
+				<th style="text-align: center">Writer.</th>
+				<th style="text-align: center">Date.</th>
 			</tr>
+			</thead>
 			<c:forEach items="${fq}" var="faq">
 					<tr>
-						<td style="text-align: center"><p class="hn">★</p></td>
-						<td style="text-align: center"><a href="${pageContext.request.contextPath }/qa/read?flag=1&no=${faq.no }&currNo=${page.currNo}&kwd=${param.kwd}"><p class="hn">${faq.title}</p></a></td>
-						<td style="text-align: center"><p class="hn">${faq.nicname }</p></td>
-						<td style="text-align: center"><p class="hn">${faq.regDate }</p></td>
-						
-						<td>
-							<c:if test="${sessionScope.authUser.no==faq.personNO }">
-							<a href="${pageContext.request.contextPath }/qa/delete?no=${faq.no }&currNo=${page.currNo}" class="del"><p class="hn">삭제</p></a>
-							</c:if>
-						</td>
+						<td style="text-align: center">FAQ</td>
+						<td style="text-align: center"><a href="${pageContext.request.contextPath }/qa/read?flag=1&no=${faq.no }&currNo=${page.currNo}&kwd=${param.kwd}">${faq.title}</a></td>
+						<td style="text-align: center">${faq.nicname }</td>
+						<td style="text-align: center">${faq.regDate }<c:if test="${sessionScope.authUser.no==faq.personNO }"></c:if></td>
+					
 						
 					</tr>
 					</c:forEach>
 			<c:forEach items="${list}" var="vo">
 					<tr>
-						<td style="text-align: center"><p class="hn">${vo.rn }</td>
-						<td style="text-align: center"><a href="${pageContext.request.contextPath }/qa/read?flag=1&no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}"><p class="hn">${vo.title}</p></a></td>
-						<td style="text-align: center"><p class="hn">${vo.nicname }</p></td>
-						<td style="text-align: center"><p class="hn">${vo.regDate }</p></td>
+						<td style="text-align: center">${vo.rn }</td>
+						<td style="text-align: center"><a href="${pageContext.request.contextPath }/qa/read?flag=1&no=${vo.no }&currNo=${page.currNo}&kwd=${param.kwd}">${vo.title}</a></td>
+						<td style="text-align: center">${vo.nicname }</td>
+						<td style="text-align: center">${vo.regDate }&nbsp;&nbsp;<c:if test="${sessionScope.authUser.no==vo.personNO }"></c:if></td>
 						
-						<td>
-							<c:if test="${sessionScope.authUser.no==vo.personNO }">
-							<a href="${pageContext.request.contextPath }/qa/delete?no=${vo.no }&currNo=${page.currNo}" class="del"><p class="hn">삭제</p></a>
-							</c:if>
-						</td>
 						
 					</tr>
 					</c:forEach>
 			
  
 </table>
-				<br>
+				
+				
+				<div id="board">
+				<form id="search_form" action="${pageContext.request.contextPath }/qa/search" method="get" style="text-align: center">
+					<input type="text" id="kwd" name="kwd" value="${param.kwd}">
+					<input type="hidden" id="currNo" name="currNo" value="1">
+					
+					<input type="submit" value="찾기">
+				</form>
+      	</div>
+				
+				
+				
 				
 				
 				<div class="pager">
@@ -204,7 +204,7 @@ height: 35px;
 								
 							</c:if>
 							<c:if test="${i == page.currNo }">
-								<li class="selected" style="color:blue"><p class="hn">${i }</p></li>
+								<li class="selected" style="color:blue">${i }</li>
 							</c:if>
 						</c:forEach>
 						<c:if test="${page.currNo != page.pageEnd }">
@@ -221,9 +221,7 @@ height: 35px;
 					
 					</ul>
 				</div>				
-				<div class="col-sm-12" style="text-align:right;">
-					<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/qa/writeform?currNo=${page.currNo}';"><p class="hn">글 쓰기</p></button>
-				</div>			
+							
 				
 				
 			</div>
@@ -233,17 +231,11 @@ height: 35px;
 
       </div>
 	
-
+</div>
    
 <!-- ----------------------------------------------------------------------------------- -->
 
-   	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	
+  <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	
 	
 	

@@ -137,6 +137,9 @@
  a:visited { color: black; text-decoration: none;} */
  a:hover { color: black; text-decoration: none;}
 
+
+
+
 </style>
 
 </head>
@@ -258,37 +261,38 @@
 						
 						$('.likebtn').click(function() {
 							var $this = $(this);
-							if ($this.hasClass('likebtn')){
-								console.log("좋아요 버튼");
+							console.log("종아요 버튼");
 
-								var authNo = ${authUser.no};
-								console.log($this);
+							if ($this.hasClass('likebtn')){
+								console.log("종아요 버튼");
+
 								
-								var no = $this.data('no');
-								console.log(no);
+								var no = $this.data('codibookitemno');
+								var c = $this.data('count');
 								
 								likebtnClick(no, authNo);
 								
-								var c = $this.data('count');
-								console.log(c);
 								c++;
-								$this.data('count', c);							
-								$('#' + this.id + '-count').text(c);
-								$($this).attr('src', '${pageContext.request.contextPath}/assets/img/heart-skin.png');
+								$this.data('count', c);
+								$this.parent().siblings('.likesCount').text(c);
+								
+								$this.attr('src', '/Vestis/assets/img/heart-red.png');
+								
 								$this.removeClass("likebtn");
-							}
+							} 
 						});
 						
-						$('.chsbtn').click(function() {
+						$('.choiceBtn').click(function() {
 	
 							console.log("선택===================================")
-							/* var $this = $(this);
-							if ($this.hasClass('chsbtn')){
-								choosebtnClick($this.val());
-								$($this).addClass("btn-success");
-								$this.removeClass("chsbtn")
+							var $this = $(this);
+							var no = $this.data("codibookitemno");
+							if ($this.hasClass('choiceBtn')){
+								choosebtnClick(no);
+								$($this).addClass("choicEDBtn");
+								$this.removeClass("choiceBtn");
 							}
- */
+ 
 						});
 						
 						$('.deleteCodiBtn').click(function() {
@@ -311,6 +315,8 @@
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
 		
+		console.log(CodibookVo);
+		
 		var str = "";
 		str += "<div class='col-md-3' id='codibookItem" + CodibookVo.no + "'>";
 		str += "	<div class='card bg-white bg-shadow text-center card-outline-primary'>";
@@ -318,14 +324,18 @@
 		str += "			<span class='h-ic h-iec h-fs'><a href=''>"+ CodibookVo.ownername + "님 옷</a></span>";
 		str += "			<span class='h-ic2'></span>";
 		str += "			<span class='h-icr'>";
+		
+		
 		if (userNo == authNo) {
 			if (CodibookVo.choose != 0) {
-				str += "				<button type='button' class='h-btn btn-outline-green pointer' >Choice</button>";
-			} else {
-				str += "				<button type='button' class='chsbtn h-btn btn-outline-green pointer' >Choice</button>";
-			}
-			str += "				<button type='button' class='deleteCodiBtn h-btn btn-outline-green pointer' data-codibookitemno='"+ CodibookVo.no + "'>X</button>";
+				str += "		<button type='button' class='choicEDBtn h-btn pointer' data-codibookitemno='"+ CodibookVo.no + "'>Choice</button>";
+			}else {
+				str += "		<button type='button' class='choiceBtn h-btn pointer' data-codibookitemno='"+ CodibookVo.no + "'>Choice</button>";
+			} 	
 		}
+		
+		
+		str += "				<button type='button' class='deleteCodiBtn h-btn btn-outline-green pointer' data-codibookitemno='"+ CodibookVo.no + "'>X</button>";
 		str += "			</span>";
 		
 		str += "		</div>";
@@ -333,18 +343,7 @@
 		str += "		<p class='hh-line'></p>";
 		str += "		<div>";
 		str += "			<ul class='list-unstyled list-border-dots'>";
-		str += "				<li>";
-		str += "				<div id=\"openModal"+CodibookVo.no+"\"";
-		str += "	 				data-no=\""+CodibookVo.no+"\" ";
-		str += "	 				data-other=\""+CodibookVo.otherNo+"\" ";
-		str += "	 				data-image=\"${pageContext.request.contextPath}/upload/"+CodibookVo.codi+"\" ";
-		str += "	 				data-profile=\"${pageContext.request.contextPath}/upload/"+CodibookVo.profile+"\" ";
-		str += "	 				data-nicname=\""+CodibookVo.otherNicname+"\" ";
-		str += "					data-toggle=\"modal\" data-target=\'#modal\' data-keyboard=\"true\"";
-		str += "					data-backdrop=\"false\">";
-		str += "					<img src='http://localhost:8088/Vestis/upload/"+CodibookVo.codi+"' class='hh-back' style=\"cursor:pointer\"/>";
-		str += "				</div> ";
-		str += "				</li>";
+		str += "				<li><img src='http://localhost:8088/Vestis/upload/"+CodibookVo.codi+"' class='hh-back' ></li>";
 		str += "			</ul>";
 		str += "		</div>";
 		str += "		<a class='hh-line'></a>";
@@ -356,20 +355,22 @@
 		str += "			</span>";
 		str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
 		str += "			<span class='text-primary' style='margin-left: 30px'>";
-		if(CodibookVo.likeflag != 0){
-			str += "				<div><img class='pointer' style='width:32px; height:32px; margin-top:8px' src='${pageContext.request.contextPath}/assets/img/heart-skin.png'></div>";
-			str += "				<div class='pointer' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+CodibookVo.likes+"</div>";
-		} else {
-			str += "				<div><img class='pointer likebtn' style='width:32px; height:32px; margin-top:8px' ";
-			str += "					data-count=\""+CodibookVo.likes+"\" data-no=\""+CodibookVo.no+"\" id=\"like"+CodibookVo.no+"\" src='${pageContext.request.contextPath}/assets/img/heart.png'></div>";
-			str += "				<div id=\"like"+ CodibookVo.no + "-count\" class='pointer' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+CodibookVo.likes+"</div>";
+		
+		
+		if(CodibookVo.likeflag != 0){                                    
+			str += "			<div><img class='' style='width:32px; height:32px; margin-top:8px' data-codibookitemno='"+CodibookVo.no+"' data-count='"+CodibookVo.likes+"' src='${pageContext.request.contextPath}/assets/img/heart-red.png'></div>";
+		}else {
+			str += "			<div><img class='likebtn pointer' style='width:32px; height:32px; margin-top:8px'data-codibookitemno='"+CodibookVo.no+"' data-count='"+CodibookVo.likes+"' src='${pageContext.request.contextPath}/assets/img/heart-gray.png'></div>";
 		}
+		
+		str += "				<div class='likesCount' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+ CodibookVo.likes +"</div>";
 		str += "			</span>";
 		str += "		</div>";
 		
 		str += "	</div>";
 		str += "</div>";
 		
+		console.log("카드");
 		$("#codibookItemList").append(str);
 	} 
 	
