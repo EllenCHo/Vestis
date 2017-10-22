@@ -50,43 +50,43 @@ public class MyRoomController {
 		String ToTemps;
 		int ToTemp;
 		int ToindexNo;
-		// �궡�씪 �궇�뵪
+		// 내일 날씨
 		try {
 			ClothWeatherVo clothToWeatherVo = myRoomService.getWeather(1, userVo);
 			ToTemp = clothToWeatherVo.getTemp();
-			ToTemps = clothToWeatherVo.getTemp() + "째C";
+			ToTemps = clothToWeatherVo.getTemp() + "°C";
 			ToindexNo = clothToWeatherVo.getWeatherNo();
 		} catch (Exception e) {
-			System.out.println("�궡�씪 �궇�뵪 �삤瑜�");
+			System.out.println("내일 날씨 오류");
 			ToTemp = 18;
-			ToTemps = 18 + "째C";
+			ToTemps = 18 + "°C";
 			ToindexNo = 3;
 		}
 
 		System.out.println(ToTemp);
 		System.out.println(weather[ToindexNo]);
 
-		// db�뿉�꽌 �궇�뵪�뿉 留욊쾶 �샆�쓣 媛��졇�삤湲�
+		// db에서 날씨에 맞게 옷을 가져오기
 
-		// db�뿉�꽌 �샆�쓣 戮묒븘���꽌 諛곗뿴�뿉 ���옣
+		// db에서 옷을 뽑아와서 배열에 저장
 		List<ImgVo> ToclothImg = myRoomService.getDayCloth(userNo, ToTemp, ToindexNo);
 		model.addAttribute("tomorrowCloth", ToclothImg);
 
 		model.addAttribute("tomorrowTemp", ToTemps);
 		model.addAttribute("tomorrowWeather", weather[ToindexNo]);
-		// �궡�씪 �궇�뵪 �걹
+		// 내일 날씨 끝
 
-		// �삤�뒛 �궇�뵪
-		// �삤�닃 �궇�뵪�뿉 ���븳 肄붾뵒 �뀒�씠釉붿씠 �엳�뒗吏� 寃��궗 -> �엳�쑝硫� 洹멸구�쓣 �솕硫댁뿉 肉뚮젮吏�
+		// 오늘 날씨
+		// 오눌 날씨에 대한 코디 테이블이 있는지 검사 -> 있으면 그걸을 화면에 뿌려짐
 		String dbName = myRoomService.getTodaySystemCodi(userNo);
 		if (dbName != null) {
 			model.addAttribute("todayImg", dbName);
 
 		} else {
-			System.out.println("�삤�뒛 �떆�뒪�뀥 肄붾뵒 異붿쿇");
+			System.out.println("오늘 시스템 코디 추천");
 
-			// �삤�뒛 �궇�뵪�뿉 ���븳 肄붾뵒 �뀒�씠釉붿씠 �뾾�쓣 �븣 �궇�뵪瑜� 諛쏆븘���꽌 洹몄뿉 留욌뒗 �샆�쓣 媛��졇�샂
-			// �삤�뒛 �궇�뵪 媛��졇�삤湲�
+			// 오늘 날씨에 대한 코디 테이블이 없을 때 날씨를 받아와서 그에 맞는 옷을 가져옴
+			// 오늘 날씨 가져오기
 
 			String temps;
 			int temp;
@@ -95,17 +95,17 @@ public class MyRoomController {
 			try {
 				ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, userVo);
 				temp = clothWeatherVo.getTemp();
-				temps = clothWeatherVo.getTemp() + "째C";
+				temps = clothWeatherVo.getTemp() + "°C";
 				indexNo = clothWeatherVo.getWeatherNo();
 			} catch (Exception e) {
-				System.out.println("�삤�뒛 �궇�뵪 �삤瑜�");
+				System.out.println("오늘 날씨 오류");
 				temp = 20;
-				temps = 20 + "째C";
+				temps = 20 + "°C";
 				indexNo = 1;
 			}
 
-			// db�뿉�꽌 �궇�뵪�뿉 留욊쾶 �샆�쓣 媛��졇�삤湲�
-			// �삩�룄�옉 �궇�뵪, index �꽆湲곌린
+			// db에서 날씨에 맞게 옷을 가져오기
+			// 온도랑 날씨, index 넘기기
 			List<ImgVo> clothImg = myRoomService.getDayCloth(userNo, temp, indexNo);
 			System.out.println(clothImg.toString());
 			model.addAttribute("todayCloth", clothImg);
@@ -130,7 +130,7 @@ public class MyRoomController {
 		
 		model.addAttribute("submenu", "codi");
 		
-		// �옄�떊�쓽 �럹�씠吏��뿉�꽌 肄붾뵒�븷 寃쎌슦 吏�湲덉쓽 �궇�뵪瑜� �븣�젮以�
+		// 자신의 페이지에서 코디할 경우 지금의 날씨를 알려줌
 		if (userNo == authNo) {
 			String temp;
 			int indexNo;
@@ -138,11 +138,11 @@ public class MyRoomController {
 			try {
 				ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
 
-				temp = clothWeatherVo.getTemp() + "째C";
+				temp = clothWeatherVo.getTemp() + "°C";
 				indexNo = clothWeatherVo.getWeatherNo();
 			} catch (Exception e) {
-				System.out.println("肄붾뵒�븯湲� �삤�뒛 �궇�뵪 �삤瑜�");
-				temp = 20 + "째C";
+				System.out.println("코디하기 오늘 날씨 오류");
+				temp = 20 + "°C";
 				indexNo = 1;
 			}
 			System.out.println(temp);
@@ -153,7 +153,7 @@ public class MyRoomController {
 			model.addAttribute("userNo", userNo);
 
 		} else {
-			// �떎瑜� �궗�엺�씠 �샆�쓣 肄붾뵒�븷�븣
+			// 다른 사람이 옷을 코디할때
 			Random random = new Random();
 			int temp = random.nextInt(61) - 20;
 			int ran = random.nextInt(4);
@@ -163,7 +163,7 @@ public class MyRoomController {
 				ran = 2;
 			}
 			System.out.println(weather[ran]);
-			String temperature = temp + "째C";
+			String temperature = temp + "°C";
 
 			model.addAttribute("temp", temperature);
 			model.addAttribute("weather", weather[ran]);
@@ -187,7 +187,7 @@ public class MyRoomController {
 			@RequestParam("weather") String weather, @RequestParam("temp") String temper,
 			@PathVariable("userNo") int userNo, @RequestParam("authNo") int authNo, Model model, HttpSession session)
 			throws Exception {
-		System.out.println("save �뱾�뼱�샂");
+		System.out.println("save 들어옴");
 
 		temper = temper.substring(0, temper.length() - 2);
 		int temp = Integer.parseInt(temper);
@@ -232,11 +232,11 @@ public class MyRoomController {
 			stream = new FileOutputStream("D:\\javastudy\\file\\" + fileName + ".png");
 			stream.write(file);
 			stream.close();
-			System.out.println(fileName + ".png �뙆�씪 �옉�꽦 �셿猷�");
+			System.out.println(fileName + ".png 파일 작성 완료");
 
 			myRoomService.SaveCodi(choice, temp, weatherNo, userNo, authNo, fileName, file.length);
 		} catch (Exception e) {
-			System.out.println("�뙆�씪�씠 �젙�긽�쟻�쑝濡� �꽆�뼱�삤吏� �븡�븯�뒿�땲�떎");
+			System.out.println("파일이 정상적으로 넘어오지 않았습니다");
 		} finally {
 			stream.close();
 		}
@@ -265,7 +265,7 @@ public class MyRoomController {
 	public String chooseClick(@RequestParam("no") int no, HttpSession session) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
-		System.out.println("梨꾪깮踰꾪듉 �겢由�");
+		System.out.println("채택버튼 클릭");
 		myRoomService.chooseClick(no, clothWeatherVo.getTemp(), clothWeatherVo.getWeatherNo());
 		return "success";
 	}
@@ -280,7 +280,7 @@ public class MyRoomController {
 	@ResponseBody
 	@RequestMapping(value = "/deleteBtnClick", method = RequestMethod.POST)
 	public String deleteBtnClick(@RequestParam("no") int no) {
-		System.out.println("�궘�젣踰꾪듉1");
+		System.out.println("삭제버튼1");
 		myRoomService.deleteBtnClick(no);
 		return "seccess";
 	}
@@ -297,9 +297,9 @@ public class MyRoomController {
 
 	@RequestMapping(value = "/clothes/{userNo}")
 	public String clothes(Model model, @PathVariable("userNo") int userNo) {
-		// userNo瑜� 蹂대궡�꽌 no�뿉 留욌뒗 �샆�뱾留� 媛��졇�삤�룄濡� �닔�젙
+		// userNo를 보내서 no에 맞는 옷들만 가져오도록 수정
 		List<ImgVo> list = fileUploadService.list(0, userNo);
-		System.out.println("�샆�옣");
+		System.out.println("옷장");
 		model.addAttribute("list", list);
 		model.addAttribute("userNo", userNo);
 		model.addAttribute("submenu", "wardrobe");
@@ -312,28 +312,28 @@ public class MyRoomController {
 	}
 
 	/**
-	 * �샆�쓣 db�뿉 異붽��븳 �뮘�뿉 �떎�떆 �샆 由ъ뒪�듃瑜� 媛��졇���꽌 肉뚮━�뒗 �븿�닔
+	 * 옷을 db에 추가한 뒤에 다시 옷 리스트를 가져와서 뿌리는 함수
 	 * @param file
 	 * @param model
-	 * @param valh : �샆���엯 no
-	 * @param userNo : �샆�옣 二쇱씤 no 
+	 * @param valh : 옷타입 no
+	 * @param userNo : 옷장 주인 no 
 	 * @return
 	 */
 	@RequestMapping(value="/upload/{userNo}", method=RequestMethod.POST)
 	public String upload(@RequestParam("file") MultipartFile file, Model model, 
 						@RequestParam("valh") int valh,	@PathVariable("userNo") int userNo) {
-		System.out.println(valh);	//�샆 ���엯 踰덊샇
+		System.out.println(valh);	//옷 타입 번호
 		
-		//�씠誘몄� ���옣 �븿�닔 imgDB
+		//이미지 저장 함수 imgDB
 		int imgNo=fileUploadService.restore(file);
 		
-		System.out.println(imgNo);	//�씠誘몄� 踰덊샇 
+		System.out.println(imgNo);	//이미지 번호 
 			
-		//cloth DB ���옣
+		//cloth DB 저장
 		fileUploadService.add(valh, userNo, imgNo);
 		
-		//�뿬湲� 怨좎퀜�빞�븿 �궗�슜�옄 no 蹂대궡�꽌 �샆 媛��졇�삤湲�
-		//�떎�떆 �샆 媛��졇�삤�뒗 �븿�닔
+		//여기 고쳐야함 사용자 no 보내서 옷 가져오기
+		//다시 옷 가져오는 함수
 		List<ImgVo> list1= fileUploadService.list(0, userNo);
 		model.addAttribute("list",list1);
 		model.addAttribute("userNo", userNo);
@@ -342,12 +342,10 @@ public class MyRoomController {
 		return "redirect:/myroom/clothes/"+userNo;
 	}
 
-	//�샆 遺꾨쪟�뿉 �뵲瑜� �샆 由ъ뒪�듃 媛��졇�삤湲�
+	//옷 분류에 따른 옷 리스트 가져오기
 	@ResponseBody
 	@RequestMapping(value="/get", method=RequestMethod.POST)
 	public List<ImgVo> list(@RequestParam ("clothNo") int clothNo, @RequestParam("userNo") int userNo) {
-		System.out.println(userNo);
-		
 		List<ImgVo> list=fileUploadService.list(clothNo, userNo);
 		return list;
 	}
