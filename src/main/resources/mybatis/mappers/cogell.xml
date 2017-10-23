@@ -35,14 +35,15 @@
 	<select id="getCodiBookList" resultType="com.vestis.vo.CodibookVo" parameterType="int">
 		<![CDATA[
 			select *                                   
-			from (select rownum rn,no, otherNo, otherNicname,ownerNo,ownername, profile, codi, wear, likes, choose,codi_date, likeflag                                          
-			from (select no, otherNo, otherNicname,ownerNo,ownername, profile, codi, wear, likes, choose,codi_date, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from (select rownum rn,no, otherNo, otherNicname,ownerNo,ownername, ownerprofile, profile, codi, wear, likes, choose,codi_date, likeflag                                          
+			from (select no, otherNo, otherNicname,ownerNo,ownername, profile, ownerprofile, codi, wear, likes, choose,codi_date, nvl2(like_person.person_no, 1, 0 ) likeflag
 						from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname,person.no ownerNo,person.nicname ownername, 
 												pro_img.db_name profile,
+												owner_img.db_name ownerprofile,
 												codiimg.db_name codi,
 												wear.db_name wear,
 												choose, NVL(likes, 0) likes,codi_date
-												from codi, person, img wear, img codiimg, img pro_img, person p2,
+												from codi, person, img wear, img codiimg, img pro_img, img owner_img, person p2,
 												     (select codi_no like_codi_no,count(codi_no) likes
 			                                            from like_person
 			                                            group by codi_no)
@@ -52,6 +53,7 @@
 						                            and codi_no = codiimg.no
 												    and codi_photo_no = wear.no
 												    and p2.profile_no = pro_img.no
+												    and person.profile_no = owner_img.no
 						                            and codi.no = like_codi_no(+)
 												order by codi_date desc)
 						where no =like_person.CODI_NO(+)
@@ -66,14 +68,15 @@
 	<select id="getCodiBookList2" resultType="com.vestis.vo.CodibookVo" parameterType="int">
 		<![CDATA[
 			select *                                   
-			from (select rownum rn,no, otherNo, otherNicname,ownerNo,ownername, profile, codi, wear, likes, choose,codi_date, likeflag                                          
-			from (select no, otherNo, otherNicname,ownerNo,ownername, profile, codi, wear, likes, choose,codi_date, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from (select rownum rn,no, otherNo, otherNicname,ownerNo,ownername, ownerprofile, profile, codi, wear, likes, choose,codi_date, likeflag                                          
+			from (select no, otherNo, otherNicname,ownerNo,ownername, profile, ownerprofile, codi, wear, likes, choose,codi_date, nvl2(like_person.person_no, 1, 0 ) likeflag
 						from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname,person.no ownerNo,person.nicname ownername, 
 												pro_img.db_name profile,
+												owner_img.db_name ownerprofile,
 												codiimg.db_name codi,
 												wear.db_name wear,
 												choose, NVL(likes, 0) likes,codi_date
-												from codi, person, img wear, img codiimg, img pro_img, person p2,
+												from codi, person, img wear, img codiimg, img pro_img, img owner_img, person p2,
 												     (select codi_no like_codi_no,count(codi_no) likes
 			                                            from like_person
 			                                            group by codi_no)
@@ -83,6 +86,7 @@
 						                            and codi_no = codiimg.no
 												    and codi_photo_no = wear.no
 												    and p2.profile_no = pro_img.no
+												    and person.profile_no = owner_img.no
 						                            and codi.no = like_codi_no(+)
 												order by codi_date desc)
 						where no =like_person.CODI_NO(+)
@@ -96,14 +100,15 @@
 	<select id="getCodiBookList3" resultType="com.vestis.vo.CodibookVo" parameterType="int">
 		<![CDATA[
 			select *                                   
-			from (select rownum rn,no, otherNo, otherNicname,ownerNo,ownername, profile, codi, wear, likes, choose,codi_date, likeflag                                          
-			from (select no, otherNo, otherNicname,ownerNo,ownername, profile, codi, wear, likes, choose,codi_date, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from (select rownum rn,no, otherNo, otherNicname,ownerNo,ownername, ownerprofile, profile, codi, wear, likes, choose,codi_date, likeflag                                          
+			from (select no, otherNo, otherNicname,ownerNo,ownername, profile, ownerprofile, codi, wear, likes, choose,codi_date, nvl2(like_person.person_no, 1, 0 ) likeflag
 						from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname,person.no ownerNo,person.nicname ownername, 
 												pro_img.db_name profile,
+												owner_img.db_name ownerprofile,
 												codiimg.db_name codi,
 												wear.db_name wear,
 												choose, NVL(likes, 0) likes,codi_date
-												from codi, person, img wear, img codiimg, img pro_img, person p2,
+												from codi, person, img wear, img codiimg, img pro_img, img owner_img, person p2,
 												     (select like_codi_no,count(like_codi_no) likes
 												from (select codi_no like_codi_no,person_no,reg_date
 												from like_person
@@ -116,6 +121,7 @@
 						                            and codi_no = codiimg.no
 												    and codi_photo_no = wear.no
 												    and p2.profile_no = pro_img.no
+									   				and person.profile_no = owner_img.no
 						                            and codi.no = like_codi_no(+)
 												order by likes desc)
 						where no =like_person.CODI_NO(+)
