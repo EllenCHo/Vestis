@@ -323,7 +323,6 @@
 		}
 		weatherImg.src = "${pageContext.request.contextPath}/assets/img/${tomorrowWeather}.png";
 
-		console.log("변경6");
 		var canvas = document.getElementById('tomorrowCanvas');
 		var ctx = canvas.getContext("2d");
 		ctx.fillStyle = "white";
@@ -356,10 +355,10 @@
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
 			ctx.drawImage(weatherImg, 12, 6, 65, 65);
 		};
-		console.log("234");
+
 		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${tomorrowTemp}", 77, 46);
+		ctx.fillText("${tomorrowTemp}", 82, 46);
 	}
 
 	function drawTodayCloth() {
@@ -384,7 +383,7 @@
 
 		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${todayTemp}", 77, 46);
+		ctx.fillText("${todayTemp}", 82, 46);
 
 		console.log("todayCloth");
 		var todayImgData = document.getElementById('todayCanvas').toDataURL();
