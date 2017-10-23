@@ -54,9 +54,9 @@
 
 .left-box {
 	background: #FFFFFF;
-	height: 600px;
+	height: 530px;
 	width: 100%;
-	min-height: 65%;
+	min-height: 50%;
 	padding: 1%;
 	border: 1px solid;
 	border-color: #949494;
@@ -64,8 +64,8 @@
 }
 
 .right-box {
-	height: 600px;
-	min-height: 65%;
+	height: 530px;
+	min-height: 50%;
 	background-color: rgba(255, 255, 255, 0.9);
 	padding: 1%;
 	border: 1px solid #949494;
@@ -210,7 +210,7 @@
 
 
 					<div class="bts right-box">
-						<div style="overflow: auto; width: 100%; height: 85.6%;">
+						<div style="overflow: auto; width: 100%; height: 100%;">
 							<ul id="clothList"
 								style="list-style: none; padding-left: 0px; text-align: center; display: block;">
 							</ul>
