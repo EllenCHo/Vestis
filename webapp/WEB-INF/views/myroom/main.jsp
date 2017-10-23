@@ -354,12 +354,12 @@
 		weatherImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(weatherImg, 6, 6, 45, 45);
+			ctx.drawImage(weatherImg, 12, 6, 65, 65);
 		};
-
-		ctx.font = "15px Arial";
+		console.log("234");
+		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${tomorrowTemp}", 53, 33);
+		ctx.fillText("${tomorrowTemp}", 77, 46);
 	}
 
 	function drawTodayCloth() {
@@ -380,11 +380,11 @@
 		ctx.drawImage(shoseImg, 200, 280, 150, 150);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
-		ctx.drawImage(weatherImg, 6, 6, 45, 45);
+		ctx.drawImage(weatherImg, 12, 6, 65, 65);
 
-		ctx.font = "15px Arial";
+		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${todayTemp}", 53, 33);
+		ctx.fillText("${todayTemp}", 77, 46);
 
 		console.log("todayCloth");
 		var todayImgData = document.getElementById('todayCanvas').toDataURL();
