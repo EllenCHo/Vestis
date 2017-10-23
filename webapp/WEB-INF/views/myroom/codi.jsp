@@ -6,26 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<<<<<<< HEAD
+
 <title>Codi</title>
-=======
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 
 <!--자신이 만든 css-->
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
 
-<<<<<<< HEAD
-=======
+
 <!-- Custom styles for this template -->
 <link
 	href="${pageContext.request.contextPath}/assets/css/business-casual.css"
 	rel="stylesheet">
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 
 <!-- Theme style -->
 <link
@@ -170,20 +167,14 @@
 						<div style="float: right; margin-top: 15px; display: inline;">
 							<strong>표시된 날씨에 맞는 코디를 해주세요.&emsp;</strong>
 						</div>
-<<<<<<< HEAD
-						<div style="float:right; margin-top:15px; ">
-						<strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.&emsp;</strong>
-=======
+
 					</div>
 					<div class="left-box" style="overflow:auto;">
 						<div style="float: left;">
 							<img alt="날씨"
 								src="${pageContext.request.contextPath}/assets/img/${weather}.png"
 								style="width: 60px; height: auto;">${temp}
-
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 						</div>
-
 					</div>
 				</div>
 
@@ -289,13 +280,8 @@
 	</div>
 	</div>
 
-<<<<<<< HEAD
-<!-- ---------------------------------------------------------------------- -->
-=======
 
 	<!-- ---------------------------------------------------------------------- -->
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
-
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
 </body>
@@ -355,17 +341,10 @@
 	});
 </script>
 
-<<<<<<< HEAD
-
-<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-	
-=======
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.5.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 <!-- 옷 이미지에 대한 자바스크립트 -->
 <script type="text/javascript">
 	//메뉴에서 옷을 클릭했을 때 왼쪽 공간에 옷이 추가되도록 함
@@ -434,14 +413,9 @@
 	});
 </script>
 
-<<<<<<< HEAD
 
-	
-=======
 <script
 	src="https://github.com/niklasvh/html2canvas/releases/download/v0.5.0-beta4/html2canvas.min.js"></script>
-
->>>>>>> branch 'master' of https://github.com/EllenCHo/Vestis.git
 <!-- 왼쪽 공간에 넣은 이미지를 저장하기 위한 자바스크립트 -->
 <script type="text/javascript">
 	$("#save").click(function() {
