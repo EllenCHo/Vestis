@@ -13,34 +13,38 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		
+
 <link rel="stylesheet" type="text/css"
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
 
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/css/business-casual.css"
+	rel="stylesheet">
 
 <!-- Theme style -->
-<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css"
+	rel="stylesheet">
 
 
 <title>Codi</title>
 
 <style type="text/css">
-.box {
+.clothBox {
 	position: absolute;
 	overflow: hidden;
 	width: 200px;
 	height: 200px;
 	min-width: 30px;
 	min-height: 30px;
-	top: 7%;
-	left: 2%;
+	top: 17%;
+	left: 5%;
 	background-color: #FFFFFFFF;
 }
 
-.dragger {
+.clothdragger {
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -51,12 +55,12 @@
 .left-box {
 	background: #FFFFFF;
 	height: 600px;
-	width:100%;
+	width: 100%;
 	min-height: 65%;
 	padding: 1%;
-	border:1px solid;
+	border: 1px solid;
 	border-color: #949494;
-	margin-bottom:50px;
+	margin-bottom: 50px;
 }
 
 .right-box {
@@ -64,8 +68,8 @@
 	min-height: 65%;
 	background-color: rgba(255, 255, 255, 0.9);
 	padding: 1%;
-	border:1px solid #949494;
-	margin-bottom:50px;
+	border: 1px solid #949494;
+	margin-bottom: 50px;
 }
 
 #space {
@@ -73,9 +77,9 @@
 	height: 100%;
 }
 
-div:focus {
+/* div:focus {
 	background-color: Aqua;
-}
+} */
 
 .profile {
 	float: left;
@@ -102,121 +106,120 @@ div:focus {
 
 .thumbnail {
 	overflow: hidden;
-	position: absoulte; 
-	width: auto; 
+	position: absoulte;
+	width: auto;
 	height: 20%;
 }
 
 .thumbnail img {
-	position: absoulte; 
-	width: 100%; 
+	position: absoulte;
+	width: 100%;
 	height: 100%;
 }
-.btn-default,
-.btn-primary,
-.btn-success,
-.btn-info,
-.btn-warning,
-.btn-danger {
-    -webkit-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:    0px 3px 0px rgba(0, 0, 0, 0.3);
-    box-shadow:         0px 3px 0px rgba(0, 0, 0, 0.3);
+
+.btn-default, .btn-primary, .btn-success, .btn-info, .btn-warning,
+	.btn-danger {
+	-webkit-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
 }
 
-.btn-default:active,
-.btn-primary:active,
-.btn-success:active,
-.btn-info:active,
-.btn-warning:active,
-.btn-danger:active {
-    margin-top: 3px;
-    margin-bottom: -3px;
+.btn-default:active, .btn-primary:active, .btn-success:active, .btn-info:active,
+	.btn-warning:active, .btn-danger:active {
+	margin-top: 3px;
+	margin-bottom: -3px;
 }
 </style>
 </head>
 <body>
 
-<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
-	<div class="container">
-	<h3>codi</h3>
+	<div class="myroomimg">
+		<div class="container">
+			<h3>codi</h3>
+		</div>
 	</div>
-</div>
-	
-<div class="container">
-<div class="row">
 
-<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
-		
+	<div class="container">
+		<div class="row">
 
-<!-- ---------------------------------------------------------------------- -->
+			<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 
-		<div class="col-md-10">			
-			
-			
-			
+
+			<!-- ---------------------------------------------------------------------- -->
+
+			<div class="col-md-10">
+
+
+
 				<!-- 좌 -->
 				<div class="col-md-6">
-				<div class="h-tabtop">
-					<button id="reset" type="button" class="btn btn-outline-green " style="margin-bottom:5px;">Reset</button>
-					<form id="canvas" action="${pageContext.request.contextPath}/myroom/save" method="post" style="margin: 0px; display: inline">
-						<button id="save" type="button" class="btn btn-outline-green " style="margin-bottom:5px;">Save</button>
-						<input id="data" name="data" type="hidden">
-						<input id="info_weather" name="weather" type="hidden" value="${weatherNo }">
-						<input id="info_temp" name="temp" type="hidden" value="${temp }">	
-					</form>
-				</div>	
-					
-					<div class="left-box">
-						<div style="float:left;">
-							<img alt="날씨" src="${pageContext.request.contextPath}/assets/img/${weather}.png" style="width: 60px; height: auto;">${temp}
+					<div class="h-tabtop">
+						<button id="reset" type="button" class="btn btn-outline-green "
+							style="margin-bottom: 5px;">Reset</button>
+						<form id="canvas" action="${pageContext.request.contextPath}/myroom/save" method="post" style="margin: 0px; display: inline">
+							<button id="save" type="button" class="btn btn-outline-green " style="margin-bottom: 5px;">Save</button>
+							<input id="data" name="data" type="hidden"> 
+							<input id="info_weather" name="weather" type="hidden" value="${weatherNo }"> 
+							<input id="info_temp" name="temp" type="hidden" value="${temp }">
+						</form>
+						<div style="float: right; margin-top: 15px; display: inline;">
+							<strong>표시된 날씨에 맞는 코디를 해주세요.&emsp;</strong>
 						</div>
-						<div style="float:right; margin-top:15px;">
-						<strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.&emsp;</strong>
+					</div>
+					<div class="left-box" style="overflow:auto;">
+						<div style="float: left;">
+							<img alt="날씨"
+								src="${pageContext.request.contextPath}/assets/img/${weather}.png"
+								style="width: 60px; height: auto;">${temp}
+
 						</div>
-					</div> 
-				
+
+					</div>
 				</div>
-				
+
+
+
 				<!-- 우 -->
 				<div class="col-md-6">
-						
+
 					<!-- 탭 -->
-					<ul  class="nav nav-tabs flex-column flex-lg-row h-tabtop" style="margin-bottom:5px;" id="selectbarh" role="tablist">
-		              <li class="nav-item active" style="margin-left:10px;"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-selectnum="0">ALL</a>
-		               </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" data-selectnum="1">OUTER</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-selectnum="2">TOP</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-selectnum="3">BOTTOMS</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false" data-selectnum="4">SHOES</a> 
-		              </li>
-		              <li class="nav-item"> 
-		              	<a class="nav-link h-tab" data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false" data-selectnum="5">ACCESSORY</a>
-		              </li>
-		            </ul>
-					
-					
-					
+					<ul class="nav nav-tabs flex-column flex-lg-row h-tabtop"
+						style="margin-bottom: 5px;" id="selectbarh" role="tablist">
+						<li class="nav-item active" style="margin-left: 10px;"><a
+							class="nav-link h-tab" data-toggle="tab" href="#tab-1" role="tab"
+							aria-expanded="true" data-selectnum="0">ALL</a></li>
+						<li class="nav-item"><a class="nav-link h-tab"
+							data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false"
+							data-selectnum="1">OUTER</a></li>
+						<li class="nav-item"><a class="nav-link h-tab"
+							data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false"
+							data-selectnum="2">TOP</a></li>
+						<li class="nav-item"><a class="nav-link h-tab"
+							data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false"
+							data-selectnum="3">BOTTOMS</a></li>
+						<li class="nav-item"><a class="nav-link h-tab"
+							data-toggle="tab" href="#tab-3" role="tab" aria-expanded="false"
+							data-selectnum="4">SHOES</a></li>
+						<li class="nav-item"><a class="nav-link h-tab"
+							data-toggle="tab" href="#tab-4" role="tab" aria-expanded="false"
+							data-selectnum="5">ACCESSORY</a></li>
+					</ul>
+
+
+
 					<div class="bts right-box">
-						<div style="overflow:auto; width: 100%; height: 85.6%;">
+						<div style="overflow: auto; width: 100%; height: 85.6%;">
 							<ul id="clothList"
 								style="list-style: none; padding-left: 0px; text-align: center; display: block;">
 							</ul>
 						</div>
-					</div> 
+					</div>
 				</div>
-			
-		</div>
-			
+
+			</div>
+
 			<!-- 위의 문구   왼쪽에 있어야지-->
 			<%-- <div class="bts" style="margin-top: 27px; margin-bottom:5px;">
 				<h4 class="text-left" style="display:inline;"><strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.</strong></h4>
@@ -229,21 +232,21 @@ div:focus {
 					<input id="info_temp" name="temp" type="hidden" value="${temp }">	
 				</form>
 			</div> --%>
-			
-			
-				
-				<!-- 왼쪽박스 -->
-				<%-- <div class="left-box">
+
+
+
+			<!-- 왼쪽박스 -->
+			<%-- <div class="left-box">
 					<div style="float:left;">
 						<img alt="날씨"
 							src="${pageContext.request.contextPath}/assets/img/${weather}.png"
 							style="width: 30%; height: auto;">${temp}
 					</div>
 				</div> --%>
-				
-				
-				<!-- 오른쪽 박스 -->	
-				<!-- <div class="bts right-box">
+
+
+			<!-- 오른쪽 박스 -->
+			<!-- <div class="bts right-box">
 				<ul class="nav nav-pills" style="width: 100%; font-size: small">
 						<li class="active menu" value="0"><a>전체
 						</a></li>
@@ -264,21 +267,22 @@ div:focus {
 						</ul>
 					</div>
 				</div> -->
-				
-				
-		
-		
-		
-		</div><!-- /col-md-10 -->
-	
-	
-	
-	
+
+
+
+
+
+		</div>
+		<!-- /col-md-10 -->
+
+
+
+
 	</div>
-</div>
+	</div>
 
 
-<!-- ---------------------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------------------- -->
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
@@ -287,16 +291,19 @@ div:focus {
 	$(document).ready(function() {
 		fetchList(0);
 		console.log("ready!");
-			
+
 	});
-	
+
 	function fetchList(type) {
 		var userNo = ${userNo};
 		$.ajax({
 			url : "${pageContext.request.contextPath }/myroom/clothList",
 			dataType : "json",
 			type : "post",
-			data : {"type":type, "userNo":userNo},
+			data : {
+				"type" : type,
+				"userNo" : userNo
+			},
 			success : function(clothList) {
 				console.log("성공");
 				for (var i = 0; i < clothList.length; i++) {
@@ -309,17 +316,17 @@ div:focus {
 			}
 		});
 	}
-	
+
 	function renderCloth(ClothListVo) {
-		str="";
+		str = "";
 		str += "<li class=\"col-sm-3\" style=\"padding-left: 0px;\">";
 		str += "<div class=\"thumbnail\">";
-		str += "	<img src=\"${pageContext.request.contextPath}/upload/"+ClothListVo.dbName+"\" id="+ClothListVo.no+" name=\"cloth\">";
+		str += "	<img src=\"${pageContext.request.contextPath}/upload/"+ClothListVo.dbName+"\" id="+ClothListVo.no+" name=\"cloth\" style=\"cursor:pointer\">";
 		str += "</div>";
 		str += "</li>";
-		
+
 		$("#clothList").append(str);
-		
+
 	}
 </script>
 <!-- 메뉴에 대한 자바스크립트 -->
@@ -327,7 +334,7 @@ div:focus {
 	//메뉴를 클릭했을 때 그 메뉴가 강조
 	$(".nav-link").click(function() {
 		$(".menu").removeClass("active");
-		
+
 		var menunum = $(this).data("selectnum");
 		$("#clothList").empty();
 		fetchList(menunum);
@@ -338,111 +345,42 @@ div:focus {
 
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-	
+<script src="https://code.jquery.com/jquery-1.5.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <!-- 옷 이미지에 대한 자바스크립트 -->
 <script type="text/javascript">
-	//옷 이미지 드래그
-	$.fn.dragTouch = function() {
-
-		var offset = null;
-		var start = function(e) {
-			var orig = e.originalEvent;
-			var pos = $(".box").position();
-			offset = {
-				x : orig.changedTouches[0].pageX - pos.left,
-				y : orig.changedTouches[0].pageY - pos.top
-			};
-		};
-		var move = function(e) {
-			e.preventDefault();
-			var orig = e.originalEvent;
-			$(".box").css({
-				top : orig.changedTouches[0].pageY - offset.y,
-				left : orig.changedTouches[0].pageX - offset.x
-			});
-		};
-		this.bind("touchstart", start);
-		this.bind("touchmove", move);
-	};
-
-	//옷 이미지 사이즈 조절
-	$.fn.resizeTouch = function() {
-		var offset = null;
-		var start = function(e) {
-			var orig = e.originalEvent;
-			var pos = $(this).position();
-			offset = {
-				x : orig.changedTouches[0].pageX - pos.left,
-				y : orig.changedTouches[0].pageY - pos.top
-			};
-		};
-		var resize = function(e) {
-			e.preventDefault();
-			var orig = e.originalEvent;
-			$(".box").css({
-				height : orig.changedTouches[0].pageY - offset.y,
-				width : orig.changedTouches[0].pageX - offset.x
-			});
-			$(".dragger").css({
-				height : $(".box").height(),
-				width : $(".box").width()
-			});
-		};
-		this.bind("touchstart", start);
-		this.bind("touchmove", resize);
-	};
-
 	//메뉴에서 옷을 클릭했을 때 왼쪽 공간에 옷이 추가되도록 함
-	function clothAdd(){
-	var count = 0;
-	$("[name=cloth]").click(
-					function choose() {
-						var layer = event.srcElement;
-						
-						var img = layer.src;
-						console.log(layer);
-						var value = layer.id;
-						console.log(layer.id);
+	function clothAdd() {
+		var count = 0;
+		$("[name=cloth]").click(function choose() {
+			var layer = event.srcElement;
 
-						//tabindex : 옷 이미지를 클릭했을 때 하늘색 테두리가 나오도록 하기 위함
-						//select(count) : 옷 이미지를 클릭했을 때 옷이 맨 앞으로 나오도록 zIndex를 설정하도록 함	
-						//remove(count) : 옷을 더블클릭하면 옷 이미지가 사라지도록 하는 메소드
-						var tag = "<div id=\"cloth"
-								+ count
-								+ "\" tabindex=\"1\" onclick=\"select("
-								+ count
-								+ ")\" class=\"box\" >"
-								+ "<img src="
-								+ img
-								+ " ondblclick=\"remove("
-								+ count
-								+ ")\" id="+value+" class=\"dragger\" name=\"img\" style=\"width: 100%; height: 100%; cursor:pointer\" />"
-								+ "</div>";
+			var img = layer.src;
+			console.log(layer);
+			var value = layer.id;
+			console.log(layer.id);
 
-						count++;
+			//tabindex : 옷 이미지를 클릭했을 때 하늘색 테두리가 나오도록 하기 위함
+			//select(count) : 옷 이미지를 클릭했을 때 옷이 맨 앞으로 나오도록 zIndex를 설정하도록 함	
+			//remove(count) : 옷을 더블클릭하면 옷 이미지가 사라지도록 하는 메소드
+			var tag = "<div id=\"cloth"+ count+ "\" tabindex=\"1\" onclick=\"select("+ count+ ")\" class=\"clothBox\" >"
+					+ "<img src="+ img+ " ondblclick=\"remove("+ count+ ")\" id="+ value+ " class=\"clothdragger\" name=\"img\" style=\"width: 100%; height: 100%; cursor:pointer\" />"
+					+ "</div>";
 
-						console.log(tag);
+			count++;
 
-						//왼쪽 공간에 이미지 추가
-						$(".left-box").append(tag);
+			console.log(tag);
 
-						console.log(img);
+			//왼쪽 공간에 이미지 추가
+			$(".left-box").append(tag);
 
-						//드래그와 이미지 조절이 되도록 함
-						// jQuery UI implementation for mouse drag/resize   
-						$(".box").draggable();
-						$(".box").resizable();
-						// implementation for touch drag/resize 
-						$(".dragger").dragTouch();
+			console.log(img);
 
-						$(".ui-resizable-se").resizeTouch();
-
-					});
+			//드래그와 이미지 조절이 되도록 함
+			// jQuery UI implementation for mouse drag/resize   
+			$(".clothBox").draggable();
+			$(".clothBox").resizable();
+		});
 	}
 
 	//더블클릭했을 경우 이미지를 삭제해주는 메소드
@@ -464,7 +402,7 @@ div:focus {
 		$("#cloth" + no).css("zIndex", index);
 		index++;
 
-		$(".box").css("background", "transparent");
+		$(".clothBox").css("background", "transparent");
 
 		$("#cloth" + no).focus();
 		console.log("click" + index);
@@ -473,18 +411,17 @@ div:focus {
 	//리셋 버튼을 클릭했을 때 옷이 다 사라지도록 설정
 	$("#reset").click(function() {
 		console.log("remove!");
-		$(".box").remove();
+		$(".clothBox").remove();
 	});
 </script>
 
 <script
 	src="https://github.com/niklasvh/html2canvas/releases/download/v0.5.0-beta4/html2canvas.min.js"></script>
-	
+
 <!-- 왼쪽 공간에 넣은 이미지를 저장하기 위한 자바스크립트 -->
 <script type="text/javascript">
 	$("#save").click(function() {
 		event.preventDefault();
-
 		var chsitems = new Array();
 		$.each($("[name=img]"), function(index, item) {
 			console.log(index + "번째 요소 : " + item.id);

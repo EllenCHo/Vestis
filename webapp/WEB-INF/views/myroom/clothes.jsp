@@ -123,7 +123,7 @@
 				
 			
 				<c:if test="${authUser.no == userNo }">
-					<button type="button" class="btn btn-outline-green " onclick="location.href='add/${userNo}'" style="height:42px;">등록</button>
+					<button type="button" class="btn btn-outline-green " onclick="location.href='add/${userNo}?submenu=wardrobe'" style="height:42px;">등록</button>
 				</c:if>
 			</div>
 
@@ -157,7 +157,7 @@
 			</div>	<!-- 옷사진뿌려줌 -->
 		</div>
 	</div>
-
+	</div>
 
 
 
