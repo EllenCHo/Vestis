@@ -160,7 +160,7 @@ a:hover { text-decoration: none !important;}
               			</script>
 				</c:when>
 				<c:otherwise>
-					<a  href="${pageContext.request.contextPath }/myroom/${authUser.no}?submenu=myroom">my room
+					<a  href="${pageContext.request.contextPath }/myroom/${authUser.no}">my room
                 	<span class="sr-only">(current)</span>
               		</a>
 				</c:otherwise>

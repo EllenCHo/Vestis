@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<title>Codi</title>
+<title>Vestis</title>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -39,8 +39,8 @@
 	height: 200px;
 	min-width: 30px;
 	min-height: 30px;
-	top: 17%;
-	left: 5%;
+	top: 22%;
+	left: 7%;
 	background-color: #FFFFFFFF;
 }
 
@@ -170,10 +170,11 @@
 
 					</div>
 					<div class="left-box" style="overflow:auto;">
-						<div style="float: left;">
+						<div style="display:inline;">
 							<img alt="날씨"
 								src="${pageContext.request.contextPath}/assets/img/${weather}.png"
-								style="width: 60px; height: auto;">${temp}
+								style="float: left; margin-left:3%; width: 80px; height: auto;">
+							<h2 style="float: left; margin-top:5%; margin-left:2%;">${temp}</h2>
 						</div>
 					</div>
 				</div>
