@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title>Vestis-Login</title>
     <!-- 구글맵  위도 경도 구할때 사용  -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJKNfD945xU1q-W9XikGXR5zNnas7fJLo"></script>
     
@@ -24,11 +24,69 @@
 
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
+	
+	
 	<style>
+	
+	/* ------------------------------------------------------------------------ */
+	/* 완전 겉 테두리 */
+.table-bordered {
+  border: 1px solid #bcbdc1 !important;
+}
+
+/* 전체 테두리 */
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid  #bcbdc1 !important;
+  text-align: center;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+ /* 번호,제목,작성자,작성일 밑 테두리 */
+  border-bottom-width: 3px !important;
+  text-align: center;
+  font-weight:bold;
+}
+
+
+.table th, .table td {
+	padding-top:5px;/* !important; */
+	padding-bottom:5px;
+}
+.table th{
+font-weight:bold !important;
+}
+.table td{
+font-weight:bold;
+}
+
+
+#butn1{
+width:90px;
+height:30px;
+font-weight:bold !important;
+}
+
+
+.title {
+	border-bottom:3px solid #55a79a;
+	font-weight:bold;
+}   
+.title{
+font-size:25px;
+line-height:1.5;
+margin:0 0 10px;
+padding:0;
+}  
+	
+	
+	/* ------------------------------------------------------------------------ */
+	
 	#joinform{
 		background:white;
 		margin-top:15px;
-		height:700px;
+   		height: 550px;
 		margin-bottom:10px;
 	}
 	.form-signin {
@@ -89,12 +147,14 @@
 	#btnb {
 		margin-top:10px;
 		background:#404040;
+		width: 600px;
+		margin: auto;
 	}
 	
 	#birth_form {
 		height: 30px;
 		margin-top: 10px;
-		
+		margin-left: 170px !important;
 	}
 	
 	#gender {
@@ -129,6 +189,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#passwords {
 		color: red;
@@ -140,6 +201,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#passwordd {
 		color: red;
@@ -151,6 +213,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#name {
 		color: red;
@@ -162,6 +225,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#nicname {
 		color: red;
@@ -173,6 +237,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#phone {
 		color: red;
@@ -184,8 +249,17 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
+	}
+	.table-responsive{
+	padding:10px;
+	padding-top:30px !important;
+	border: 1px solid  #bcbdc1 !important;
 	}
 	</style>
+	
+	
+	
 	<script language="javascript" charset="UTF-8">
 
 function goPopup(){
@@ -276,163 +350,145 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	
     <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	
-	
-    <div class="container" style="width: 100%">
+<div class="myroomimg">
+	<div class="container">
+		<h3>Login</h3>
+	</div>
+</div>
+
+<div class="container" id="about">
+	<div class="row">
+ 
+ 
+ <!-- =================================================================================== -->  
    
-    <div id="joinform">
-	 <form class="form-signin" method="get" action="${pageContext.request.contextPath }/user/join" disabled>
-      	 <h4 id="joinName">회원가입</h4>
-        <div class="row">
-  			<div class="col-md-10">
-  				 <label for="inputEmail" class="sr-only">Email address</label>
-   				 <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address">
- 			 </div>
- 			 <div class="col-md-2">
-   				 <input id="email" disabled></input>
-  			</div>
-  		</div>
-  		
-  		<div class="row">
-  			<div class="col-md-10">
-  				 <label for="inputPassword" class="sr-only">Password</label>
-   				 <input type="password" id="inputPassword" value="" name="password" class="form-control" placeholder="Password">
- 			 </div>
- 			 <div class="col-md-2">
-   				 <input id="passwordd" disabled></input>
-  			</div>
-  		</div>
-  		
-  		<div class="row">
-  			<div class="col-md-10">
-  				 <label for="inputPasswords" class="sr-only">Passwords</label>
-   				 <input type="password" id="inputPasswords" name="passwords" value="" class="form-control" placeholder="Password확인">
- 			 </div>
- 			 <div class="col-md-2">
-   				 <input id="passwords" disabled></input>
-  			</div>
-  		</div>
-  		
-  		<div class="row">
-  			<div class="col-md-10">
-  				 <label for="inputName" class="sr-only">Name</label>
-   				 <input type="text" id="inputName" name="name" class="form-control" placeholder="Name">
- 			 </div>
- 			 <div class="col-md-2">
-   				 <input id="name" disabled></input>
-  			</div>
-  		</div>
-  		
-  		<div class="row">
-  			<div class="col-md-10">
-  				 <label for="inputNicname" class="sr-only">Nicname</label>
-   				 <input type="text" id="inputNicname" name="nicname" class="form-control" placeholder="Nicname">
- 			 </div>
- 			 <div class="col-md-2" >
-   				 <input id="nicname" disabled>
-  			</div>
-  		</div>
-  		
-  		<div class="row">
-  			<div class="col-md-10">
-  				 <label for="inputPhone" class="sr-only">inputPhone</label>
-   				 <input type="text" id="inputPhone" name="phone" class="form-control" placeholder="inputPhone">
- 			 </div>
- 			 <div class="col-md-2">
-   				 <input id="phone" disabled>
-  			</div>
-  		</div>
-  		
-		<input id="add" type="button" onClick="goPopup();" value="주소검색" />
-					<div id="list"></div>
+   
+<div id="joinform" class="col-md-12">
+    
+	<div class="title">
+		<span style="color:#292b2c">Login</span>
+	</div>
+    <div class="table-responsive">
+    <div class="col-md-10 container" >
+  		<table class="table table-bordered table-cart" id="tb">
+	 		<form class="form-signin" method="get" action="${pageContext.request.contextPath }/user/join" disabled>
+  				
+  			<div class="col-md-9 container" style="margin-left: 160px;">	
+  				
+  				<!-- 아이디 적는란 -->
+  		<div class="row" style="margin: auto;">		
+  			<div class="col-md-10">	
+  				<label for="inputEmail" class="sr-only">Email address</label>
+   				<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" style="margin-bottom: 5px !important;">
+   			</div>	
+   				<div class="col-md-2">
+   					<input id="email" disabled></input>
+   				</div>
+   		</div>
+   					
+   				<!-- 비밀번호 적는란 -->
+   		<div class="row" style="margin: auto;">		
+  			<div class="col-md-10" >	
+  				<label for="inputPassword" class="sr-only">Password</label>
+   				<input type="password" id="inputPassword" value="" name="password" class="form-control" placeholder="Password" style="margin-bottom: 5px !important;">
+   			</div>
+   				<div class="col-md-2">
+   					<input id="passwordd" disabled></input>
+   				</div>
+   		</div>
+   				
+   				<!-- 비밀번호 확인 란 -->
+   		<div class="row" style="margin: auto;">		
+  			<div class="col-md-10">		
+  				<label for="inputPasswords" class="sr-only">Passwords</label>
+   				<input type="password" id="inputPasswords" name="passwords" value="" class="form-control" placeholder="Password확인" style="margin-bottom: 5px !important;">
+   			</div>	
+   				<div class="col-md-2">
+   					<input id="passwords" disabled></input>
+   				</div>
+   		</div>		
+   				<!-- 이름 적는란 -->
+   		<div class="row" style="margin: auto;">		
+  			<div class="col-md-10">		
+  				<label for="inputName" class="sr-only">Name</label>
+   				<input type="text" id="inputName" name="name" class="form-control" placeholder="Name" style="margin-bottom: 5px !important;">
+   			</div>	
+   				<div class="col-md-2">
+   					<input id="name" disabled></input>
+   				</div>
+   		</div>
+   			
+   				<!-- 닉네임 적는란 -->
+   		<div class="row" style="margin: auto;">		
+  			<div class="col-md-10">		
+  				<label for="inputNicname" class="sr-only">Nicname</label>
+   				<input type="text" id="inputNicname" name="nicname" class="form-control" placeholder="Nicname" style="margin-bottom: 5px !important;">
+   			</div>		
+   				<div class="col-md-2">
+   					<input id="nicname" disabled>
+   				</div>
+   			</div>
+   			
+   					
+   				<!-- 핸드폰 번호 적는란 -->
+   		<div class="row" style="margin: auto;">		
+  			<div class="col-md-10">			
+  				<label for="inputPhone" class="sr-only">inputPhone</label>
+   				<input type="text" id="inputPhone" name="phone" class="form-control" placeholder="inputPhone" style="margin-bottom: 5px !important;">
+   			</div>
+   			<div class="col-md-2">	
+   				<input id="phone" disabled>
+   			</div>
+   		</div>		
+  			
+  					<!-- 주소입력 란 -->			
+					<div id="list" ></div>
 					<div id="callBackDiv">
-						<table>
+						<table style="margin-Left: 188px;">
 							<tr>
-								<td id="addName">주소</td>
-								<td><input type="text" style="width: 500px;"
-									id="roadFullAddr" name="address" /></td>
+								<td><input type="text" style="width: 410px !important;"
+									id="roadFullAddr" name="address" />
+									<span><input id="add" type="button" onClick="goPopup();" value="주소검색" /></span>
+								</td>
 							</tr>
-							<tr>
-								<td id="teach">*주소는</td>
-								<td id="teach"> 간단하게!</td>
 							
 							
-								
+							<tr>
+							<!-- <td></td> -->	
+								<td><input type="hidden" style="width: 500px;" id="lat" name="lat" /></td>
 							</tr>
 							<tr>
-								<!-- <td></td> -->	
-								<td><input type="hidden" style="width: 500px;" id="lat"
-									name="lat" /></td>
-							</tr>
-							<tr>
-								<!-- <td></td> -->
-								<td><input type="hidden" style="width: 500px;" id="lng"
-									name="lon" /></td>
+								<td><input type="hidden" style="width: 500px;" id="lng" name="lon" /></td>
 							</tr>
 						</table>
-					</div>
-					
-					
-					
-							
-
-				<div id="birth_form">
-  		<tr>
-									<th class="title">생년월일</th>
-									<td class="birth"><select id="birthyear" name="birthyear" class="MS_select MS_birthday">
-<option value="">선택</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option></select>년<select id="birthmonth"name="birthmonth" class="MS_select MS_birthday">
-<option value="">선택</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>월<select id="birthday" name="birthday" class="MS_select MS_birthday">
-<option value="">선택</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>일&nbsp;&nbsp;<input id="gender" type="radio" name="gender" value="male" class="MS_radio">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" checked="">여</td>
-								</tr>
-  		</div>     
-        <button class="btn btn-lg btn-primary btn-block" id="btnb" type="button">회원가입 완료</button>
-      	<a href="${pageContext.request.contextPath }/main" class="btn btn-lg btn-info btn-block" id="default">메인으로</a>	
+						<div id="birth_form" style="margin-left: 190px !important;">
+						<tr> 
+							<th class="title">생년월일</th>
+								<td class="birth"><select id="birthyear" name="birthyear" class="MS_select MS_birthday">
+									<option value="">선택</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option></select>년<select id="birthmonth"name="birthmonth" class="MS_select MS_birthday">
+									<option value="">선택</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>월<select id="birthday" name="birthday" class="MS_select MS_birthday">
+									<option value="">선택</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>일&nbsp;&nbsp;<input id="gender" type="radio" name="gender" value="male" class="MS_radio">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" checked="">여</td>
+						</tr>
+				
+  						</div>
+  						<br>
+  						<button class="btn btn-lg btn-primary btn-block" id="btnb" type="button">회원가입 완료</button>
+						<a href="${pageContext.request.contextPath }/main" class="btn btn-lg btn-info btn-block" id="default">메인으로</a>	
+				</div> <!-- col-10 -->
+				
+			<br>
       </form>
-      
-      <!-- <form name="form" id="form" method="post">
-
-					<input type="button" onClick="goPopup();" value="팝업_domainChk" />
-					<div id="list"></div>
-					<div id="callBackDiv">
-						<table>
-							<tr>
-								<td>주소</td>
-								<td><input type="text" style="width: 500px;"
-									id="roadFullAddr" name="roadFullAddr" /></td>
-							</tr>
-							<tr>
-								<td>X 좌표</td>
-								<td><input type="hidden" style="width: 500px;" id="entX"
-									name="entX" /></td>
-							</tr>
-							<tr>
-								<td>Y 좌표</td>
-								<td><input type="hidden" style="width: 500px;" id="entY"
-									name="entY" /></td>
-							</tr>
-						</table>
-					</div>
-
-				</form> -->
-      <%-- <label id="sns">*SNS계정으로 Vestis를 이용 가능합니다</label>
-      <a type="button" data-toggle="modal" data-target="#loginpop" class="btn btn-primary btn-block" id="facebook">로그인 하러 가기</a>
-	<!--   <a href="#" class="btn btn-warning btn-block" id="kakaotalk">카카오톡 로그인</a> -->	
-	  <a href="${pageContext.request.contextPath }/main/test" class="btn btn-info btn-block" id="default">메인으로</a>	 --%>
-	  
+    </table>
     </div>
-    </div> 
+    </div>
+   </div> <!-- responsive -->
+   <br><br><br><br><br>
+ </div> <!-- 조인폼 -->
+</div> <!-- 첫 row -->
    
-    <!-- /.container -->
-
-    <footer class="bg-faded text-center py-5">
-      <div class="container">
-        <p class="m-0">Copyright &copy; Your Website 2017</p>
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+</div> <!-- container -->
+<br>
+   <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	
 	
 	
