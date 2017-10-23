@@ -56,7 +56,6 @@ padding:0;
 
 .itemlist {
 	margin-bottom: 50px;
-
 }
 
 
@@ -406,14 +405,14 @@ function es_renderRegDate(CodibookVo) {
 	str += "			<span class='h-icr'>";
 	
 	
-/* 	if (userNo == authNo) {
+	if (userNo == authNo) {
 		if (CodibookVo.choose != 0) {
 			str += "		<button type='button' class='choicEDBtn h-btn pointer' data-codibookitemno='"+ CodibookVo.no + "'>Choice</button>";
 		}else {
 			str += "		<button type='button' class='choiceBtn h-btn pointer' data-codibookitemno='"+ CodibookVo.no + "'>Choice</button>";
 		} 	
 	}
-	 */
+	
 	
 	/* str += "				<button type='button' class='deleteCodiBtn h-btn pointer' style='margin-right:10px' data-codibookitemno='"+ CodibookVo.no + "'><span style='font-color:red;'>X</span></button>"; */
 	str += "			</span>";
