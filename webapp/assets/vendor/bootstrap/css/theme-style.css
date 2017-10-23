@@ -315,8 +315,8 @@ h-body {
     margin: 0;
     text-transform: uppercase;
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-    color: #999;
-    font-weight: 700;
+    color: #292b2c;
+    font-weight: bolder;
     font-size: 15px;
     display: block;
 }
@@ -390,4 +390,9 @@ footer {
   background-color: #55A79A;
   background-image: none;
   border-color: #55A79A;
+}
+/* 메인 */
+.h-paddingtb{
+	padding-top:10px;
+	padding-bottom:10px;
 }
