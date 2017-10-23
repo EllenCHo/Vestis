@@ -432,8 +432,9 @@
 			} 	
 		}
 		
-		
-		str += "				<button type='button' class='deleteCodiBtn h-btn pointer' style='margin-right:10px' data-codibookitemno='"+ CodibookVo.no + "'><span style='font-color:red;'>X</span></button>";
+		if (userNo == authNo) {
+			str += "				<button type='button' class='deleteCodiBtn h-btn pointer' style='margin-right:10px' data-codibookitemno='"+ CodibookVo.no + "'><span style='font-color:red;'>X</span></button>";
+		}
 		str += "			</span>";
 		
 		str += "		</div>";

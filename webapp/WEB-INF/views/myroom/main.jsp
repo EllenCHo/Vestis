@@ -135,7 +135,7 @@
 				<!-- 사진 -->
 				<div class="carousel-inner systemCodiList" role="listbox">
 					<div class="carousel-item">
-						<img id="yesterdayCodi" class="d-block img-fluid w-100"
+						<img id="yesterdayCodi" style="height:440px;" class="d-block img-fluid w-100"
 							src="${pageContext.request.contextPath}/assets/img/base_systemRecommendImg.png"
 							alt="1">
 						<div class="carousel-caption d-none d-md-block systemLabel">
@@ -146,7 +146,7 @@
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
-						<canvas id="todayCanvas" width="412" height="453"
+						<canvas id="todayCanvas" width="357" height="440"
 							style="background: #FFFFF;"></canvas>
 						<input id="data" name="data" type="hidden"> <input
 							id="info_weather" name="weather" type="hidden"
@@ -161,7 +161,7 @@
 						</div>
 					</div>
 					<div class="carousel-item">
-						<canvas id="tomorrowCanvas" width="412" height="453"
+						<canvas id="tomorrowCanvas"  width="357" height="440"
 							style="background: #FFFFFF;"></canvas>
 						<div class="carousel-caption d-none d-md-block systemLabel">
 							<h3 class="text-shadow" style="color: black;">
@@ -235,7 +235,7 @@
 			$('#todayCanvas').remove();
 			
 			str = "";
-			str += "<img class=\"d-block img-fluid w-100\" style=\"height:452.83px;\"";
+			str += "<img class=\"d-block img-fluid w-100\" style=\"height:440px;\"";
 			str += "	src=\"${pageContext.request.contextPath}/upload/${todayImg}\"";
 			str += "	alt=\"1\"/>";
 			

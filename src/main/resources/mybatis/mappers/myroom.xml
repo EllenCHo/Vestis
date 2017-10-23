@@ -122,6 +122,13 @@
 		]]>
 	</delete>
 	
+	<delete id="codiComment" parameterType="int">
+		<![CDATA[
+			delete from codi_comment
+			where codi_no = #{no}		
+		]]>
+	</delete>
+	
 	<delete id="likepersonDelete" parameterType="int">
 		<![CDATA[
 			delete from like_person
