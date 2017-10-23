@@ -36,7 +36,8 @@
 	        <div class="nav nav-list" id="submenu">
 	        
 	          <div id="hyj"></div>
-	          <span class="h-name">${sessionScope.authUser.nicname}</span>
+	          <span class="h-name">${sessionScope.authUser.nicname} <a href="${pageContext.request.contextPath }/user/modifyform"><img src="${pageContext.request.contextPath }/assets/img/grey.png" width="20px" height="20px" style="margin-left:20px; margin-bottom:3px;" /></a></span>
+	          <br>
 	          <span class="nav-header">In This Section</span> 
 	          <a href="${pageContext.request.contextPath }/myroom/${authUser.no}?submenu=myroom" class="nav-link first" id="myroom">
 	            MY ROOM
@@ -58,7 +59,6 @@
 	            <small>코디하기</small>
 	            <i class="fa fa-angle-right"></i>
 	          </a>
-	         <a href="${pageContext.request.contextPath }/user/modifyform"><img src="${pageContext.request.contextPath }/assets/img/s.png" width="20px" height="20px" class="top" /></a>
 	        </div>
 	      </div>
 	    </div>

@@ -21,6 +21,10 @@
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.css" rel="stylesheet">
 
 
+<!-- Bootstrap core JavaScript -->
+<script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 
 <c:import url="/WEB-INF/views/user/loginform.jsp"></c:import>
@@ -56,6 +60,23 @@
 	font-weight:bolder;
 	color:#FFFFFF;
 }
+
+.point{
+	cursor: pointer;
+}
+
+.gap{
+	font-size: 15px !important;
+	margin: 0px 20px 0px 0px !important;
+}
+
+a:link { text-decoration: none !important;}
+a:visited { text-decoration: none !important;}
+a:hover { text-decoration: none !important;}
+
+
+
+
 </style>
 
 <body>
@@ -66,13 +87,13 @@
 		<div class="header-block-flex order-1 mr-auto">
 		
 		<c:choose>
-		<c:when test="${empty sessionScope.authUser }">
-		<!-- 로그인 전 -->
-			<nav class="nav nav-sm header-block-flex">
-				<a class="gap d-md-block text-uppercase" data-role="button" data-toggle="modal" data-target="#loginpop">login</a>
-				<a class="gap d-md-block text-uppercase" data-role="button" href="/Vestis/user/joinform">join</a>
-			</nav>
-		</c:when>
+			<c:when test="${empty sessionScope.authUser }">
+			<!-- 로그인 전 -->
+				<nav class="nav nav-sm header-block-flex">
+					<a class="gap d-md-block text-uppercase point" data-role="button" data-toggle="modal" data-target="#loginpop">login</a>
+					<a class="gap d-md-block text-uppercase" data-role="button" href="/Vestis/user/joinform">join</a>
+				</nav>
+			</c:when>
 			<c:otherwise>	
 				<!-- 로그인 후 -->
 				<nav class="nav nav-sm header-block-flex">
@@ -124,7 +145,7 @@
 	<div class="header-slogan">여러분의 옷장을 공유해보아요~ 환영합니다.</div>
 		
 	
-		<ul class="h-snip1211" >
+		<ul class="h-snip1211" style="margin-left:172px;">
         	<li>
         	            	
         	<c:choose>
