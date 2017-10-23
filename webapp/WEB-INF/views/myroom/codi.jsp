@@ -1,31 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		
-<link rel="stylesheet" type="text/css"
-	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
+<title>Codi</title>
 
+<!--자신이 만든 css-->
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
 
-<!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
 
 <!-- Theme style -->
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
 
-
-<title>Codi</title>
+<script	src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/html2canvas.min.js"></script>
 
 <style type="text/css">
 .box {
@@ -172,7 +162,7 @@ div:focus {
 						<div style="float:left;">
 							<img alt="날씨" src="${pageContext.request.contextPath}/assets/img/${weather}.png" style="width: 60px; height: auto;">${temp}
 						</div>
-						<div style="float:right; margin-top:15px;">
+						<div style="float:right; margin-top:15px; ">
 						<strong>왼쪽 위의 날씨에 맞는 코디를 해주세요.&emsp;</strong>
 						</div>
 					</div> 
@@ -277,7 +267,6 @@ div:focus {
 	</div>
 </div>
 
-
 <!-- ---------------------------------------------------------------------- -->
 
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
@@ -336,13 +325,9 @@ div:focus {
 	});
 </script>
 
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 	
 <!-- 옷 이미지에 대한 자바스크립트 -->
 <script type="text/javascript">
@@ -477,8 +462,7 @@ div:focus {
 	});
 </script>
 
-<script
-	src="https://github.com/niklasvh/html2canvas/releases/download/v0.5.0-beta4/html2canvas.min.js"></script>
+
 	
 <!-- 왼쪽 공간에 넣은 이미지를 저장하기 위한 자바스크립트 -->
 <script type="text/javascript">
@@ -528,7 +512,7 @@ div:focus {
 						success : function(result) {
 							console.log(result);
 							alert("저장됐습니다.");
-							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}");
+							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}?submenu=codibook");
 						},
 	
 						error : function(XHR, status, error) {

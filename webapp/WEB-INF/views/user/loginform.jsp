@@ -60,8 +60,7 @@
       </div>
       </div>
       <div class="modal-body">
-				<form id="loginForm" method="POST" action="${pageContext.request.contextPath }/main"
-					novalidate="novalidate">
+				<form id="loginForm" method="POST" action="${pageContext.request.contextPath }/main" novalidate="novalidate">
 					<div class="form-group">
 						<label for="username" class="control-label">UserEmail</label> 
 						<input type="text" class="form-control" id="username" name="username"

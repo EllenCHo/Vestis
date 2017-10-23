@@ -1111,7 +1111,8 @@ ul.inline>li:first-child {
 }
 
 .header-inner .header-brand {
-  margin-right: auto
+  /* margin-right: auto; */
+  margin-right: 0px !important;
 }
 
 @media (min-width:768px) {
