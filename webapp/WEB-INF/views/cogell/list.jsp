@@ -91,7 +91,7 @@ padding:0;
 			<div class="itemlist">	
 				<!-- 최신순 타이틀 -->
 				<div class="title">
-					<span style="color:#292b2c">최신코드세트</span>
+					<span style="color:#292b2c">최신코디세트</span>
 		  		</div>
 		  		
 		  		<!-- 최신순 카드 -->
@@ -106,7 +106,7 @@ padding:0;
 			<div class="itemlist">	
 				<!-- 인기순 타이틀 -->
 				<div class="title">
-					<span style="color:#292b2c">인기코드세트</span>
+					<span style="color:#292b2c">인기코디세트</span>
 		  		</div>
 		  		
 		  		<!-- 인기순 카드 -->
@@ -151,7 +151,7 @@ padding:0;
                 		<div class="tab-pane fade active show blog-roll-mini" >
                 			
                 			<!-- 옷많은 순위 프로필리스트 -->
-                 			<c:forEach items="${list }" var="vo">
+                 			<c:forEach items="${clist }" var="vo">
                   			
                   				<div class="row blog-post">
                       				<div class="blog-media">
@@ -229,24 +229,24 @@ padding:0;
 <!-- 코디북 리스트 뿌리기 -->
 <script type="text/javascript">
 $(document).ready(function() {
- 	es_fetchBookRegDate("all", "regDate");
-	es_fetchBookRegDate("all", "hit");  
-	es_fetchBookRegDate("all", "random");
+ 	es_fetchBookRegDate("regDate");
+	es_fetchBookRegDate("hit");  
+	es_fetchBookRegDate("random");
 	console.log("ready!");
 });
 
 
 /* 카드가져오기 */
-function es_fetchBookRegDate(purpose, typeNo) {
+function es_fetchBookRegDate(typeNo) {
 	var authNo = "${authUser.no}";
-	if(authNo == null){
-		authNo = "0";
-	}
-	
-	var num = authNo;	//아무런 영향이 없음
-	
-	
-	
+	/* if("${authUser.no}" != null){
+		authNo = "${authUser.no}";
+	} else {
+		authNo = 0;
+		
+		console.log("로그인 안함");
+	} */
+		/* 
 	var url =""
 	
 	if(typeNo=="regDate"){
@@ -259,13 +259,13 @@ function es_fetchBookRegDate(purpose, typeNo) {
 		url = "${pageContext.request.contextPath }/cogell/codibookList3";
 		console.log("random");
 	}
-	
+	 */
 	
 	$.ajax({
-		url : url,
+		url : "${pageContext.request.contextPath }/cogell/codibookList",
 		dataType : "json",
 		type : "post",
-		data : {"purpose":purpose, "num":num, "no":authNo},
+		data : {"purpose":typeNo, "no":authNo},
 		
 		success : function(codibookList) {
 			console.log("성공");
@@ -309,7 +309,7 @@ function es_fetchBookRegDate(purpose, typeNo) {
 				} 
 			});
 
-			$('.choiceBtn').click(function() {
+			/* $('.choiceBtn').click(function() {
 				console.log("선택 버튼");
 				var $this = $(this);
 				var no = $this.data("codibookitemno");
@@ -327,7 +327,7 @@ function es_fetchBookRegDate(purpose, typeNo) {
 				var no = $this.data("codibookitemno");
 				deletebtnClick(no);
 				$("#codibookItem"+no).remove();
-			});
+			}); */
 			
 		},
 		error : function(XHR, status, error) { //실패했을때 에러메세지 찍어달라는것, 통신상의 에러라던지 그런것들
@@ -352,8 +352,8 @@ function choosebtnClick(no) {
 		}
 	});
 }
-
-/* 좋아요함수 */
+/* 
+// 좋아요함수 
 function likebtnClick(voNo, authNo) {
 	console.log(voNo+authNo);
 	$.ajax({
@@ -370,7 +370,7 @@ function likebtnClick(voNo, authNo) {
 	});
 }
 
-/* 삭제함수 */
+// 삭제함수
 function deletebtnClick(no) {
 	$.ajax({
 		url : "${pageContext.request.contextPath }/myroom/deleteBtnClick",
@@ -386,16 +386,13 @@ function deletebtnClick(no) {
 	});
 }
 
-
+ */
 
 	
 /* 카드랜더링 */
 function es_renderRegDate(CodibookVo) {
-	var authNo = "${authUser.no}";
-	var userNo =authNo;
-	
-	
-	console.log(CodibookVo);
+	var authNo = "${authUser.no}";	
+	console.log(authNo);
 	
 	var str = "";
 	str += "<div class='col-md-3' id='codibookItem" + CodibookVo.no + "'>";
@@ -404,18 +401,7 @@ function es_renderRegDate(CodibookVo) {
 	str += "			<span class='h-ic h-iec h-fs' style='margin-left:5px'><a href=''>"+ CodibookVo.ownername + "님 옷</a></span>";
 	str += "			<span class='h-ic2'></span>";
 	str += "			<span class='h-icr'>";
-	
-	
-	if (userNo == authNo) {
-		if (CodibookVo.choose != 0) {
-			str += "		<button type='button' class='choicEDBtn h-btn pointer' data-codibookitemno='"+ CodibookVo.no + "'>Choice</button>";
-		}else {
-			str += "		<button type='button' class='choiceBtn h-btn pointer' data-codibookitemno='"+ CodibookVo.no + "'>Choice</button>";
-		} 	
-	}
-	
-	
-	/* str += "				<button type='button' class='deleteCodiBtn h-btn pointer' style='margin-right:10px' data-codibookitemno='"+ CodibookVo.no + "'><span style='font-color:red;'>X</span></button>"; */
+
 	str += "			</span>";
 	
 	str += "		</div>";
@@ -436,14 +422,16 @@ function es_renderRegDate(CodibookVo) {
 	str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
 	str += "			<span class='text-primary' style='margin-left: 30px'>";
 	
-	
-	if(CodibookVo.likeflag != 0){                                    
-		str += "			<div><img class='' style='width:32px; height:32px; margin-top:8px' data-codibookitemno='"+CodibookVo.no+"' data-count='"+CodibookVo.likes+"' src='${pageContext.request.contextPath}/assets/img/heart-red.png'></div>";
-	}else {
-		str += "			<div><img class='likebtn pointer' style='width:32px; height:32px; margin-top:8px'data-codibookitemno='"+CodibookVo.no+"' data-count='"+CodibookVo.likes+"' src='${pageContext.request.contextPath}/assets/img/heart-gray.png'></div>";
+	if(authNo != "") {
+		if(CodibookVo.likeflag != 0){                                    
+			str += "			<div><img class='' style='width:32px; height:32px; margin-top:8px' data-codibookitemno='"+CodibookVo.no+"' data-count='"+CodibookVo.likes+"' src='${pageContext.request.contextPath}/assets/img/heart-red.png'></div>";
+			str += "				<div class='likesCount' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+ CodibookVo.likes +"</div>";
+		}else {
+			str += "			<div><img class='likebtn pointer' style='width:32px; height:32px; margin-top:8px'data-codibookitemno='"+CodibookVo.no+"' data-count='"+CodibookVo.likes+"' src='${pageContext.request.contextPath}/assets/img/heart-gray.png'></div>";
+			str += "				<div class='likesCount' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+ CodibookVo.likes +"</div>";	
+		}
 	}
 	
-	str += "				<div class='likesCount' style='position: relative; top: -6px; color: black; font-size:14px; align: center'>"+ CodibookVo.likes +"</div>";
 	str += "			</span>";
 	str += "		</div>";
 	
