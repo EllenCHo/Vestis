@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Business Casual - Start Bootstrap Theme</title>
+<title>Vestis</title>
 <!-- 구글맵  위도 경도 구할때 사용  -->
 <script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJKNfD945xU1q-W9XikGXR5zNnas7fJLo"></script>
