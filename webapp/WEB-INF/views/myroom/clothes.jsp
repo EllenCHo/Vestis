@@ -62,13 +62,23 @@
 	border-radius: .25rem;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+.clothes{
+	background-image: url('/Vestis/assets/img/back25.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
+
 </style>
 </head>
 <body>
 
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-	<div class="myroomimg">
+	<div class="clothes">
 		<div class="container">
 			<h3>clothes</h3>
 		</div>

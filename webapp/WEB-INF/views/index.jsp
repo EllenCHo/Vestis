@@ -83,264 +83,178 @@
           </div>
         </div>
       </div>
-      
-      <div class="row bg-faded h-paddingtb" style="margin-right: 0px; margin-left: 0px; border:1px solid #949494;">
- <!-- 지역별 날씨에 맞는 코디세트 -->     
-     <div class="col-md-8">
-      <div class="row">
-       <h5 class="col-md-4" style="text-align: center;">서울 날씨 코디 </h5>
-       <h5 class="col-md-4" style="text-align: center;">춘천 날씨 코디 </h5>
-       <h5 class="col-md-4" style="text-align: center;">강릉 날씨 코디 </h5>
-      </div>
-      
-      <div class="row"  >
-      	 <!-- 카드샘플 -->
-		<div class="col-md-4">
-			<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
-				<div class="row tb4">
-					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
-					<span class="h-ic2"></span>
-					<span class="h-icr">
-						<button type="button" class="h-btn btn-outline-green" >Choice</button>
-						<button type="button" class="h-btn btn-outline-green">X</button>
-					</span>
-				</div>
-				
-			<p class="hh-line "></p>
-				<div>
-				<ul class="list-unstyled list-border-dots">
-					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-				</ul>
-				</div>
-			<a class="hh-line "></a>
-			
-				<div class="row">
-					<span class="h-ic3 h-iec">
-						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-					</span>
-					<span class="h-ic3" style="margin-top:20px;">
-						<a href="">베라님</a>
-					</span>
-					<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
-						<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
-					</span>
-					<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
-				</div><!-- /row -->
-			</div>
-		</div><!-- /col-md-3 -->
-		 <!-- 카드샘플 -->
-		<div class="col-md-4">
-			<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
-				<div class="row tb4">
-					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
-					<span class="h-ic2"></span>
-					<span class="h-icr">
-						<button type="button" class="h-btn btn-outline-green" >Choice</button>
-						<button type="button" class="h-btn btn-outline-green">X</button>
-					</span>
-				</div>
-				
-			<p class="hh-line "></p>
-				<div>
-				<ul class="list-unstyled list-border-dots">
-					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-				</ul>
-				</div>
-			<a class="hh-line "></a>
-			
-				<div class="row">
-					<span class="h-ic3 h-iec">
-						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-					</span>
-					<span class="h-ic3" style="margin-top:20px;">
-						<a href="">베라님</a>
-					</span>
-					<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
-						<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
-					</span>
-					<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
-				</div><!-- /row -->
-			</div>
-		</div><!-- /col-md-3 -->
-		 <!-- 카드샘플 -->
-		<div class="col-md-4">
-			<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
-				<div class="row tb4">
-					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
-					<span class="h-ic2"></span>
-					<span class="h-icr">
-						<button type="button" class="h-btn btn-outline-green" >Choice</button>
-						<button type="button" class="h-btn btn-outline-green">X</button>
-					</span>
-				</div>
-				
-			<p class="hh-line "></p>
-				<div>
-				<ul class="list-unstyled list-border-dots">
-					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-				</ul>
-				</div>
-			<a class="hh-line "></a>
-			
-				<div class="row">
-					<span class="h-ic3 h-iec">
-						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-					</span>
-					<span class="h-ic3" style="margin-top:20px;">
-						<a href="">베라님</a>
-					</span>
-					<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
-						<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
-					</span>
-					<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
-				</div><!-- /row -->
-			</div>
-		</div><!-- /col-md-3 -->
-	</div>
-		<div class="row">
-       <h5 class="col-md-4" style="text-align: center;">대전 날씨 코디 </h5>
-       <h5 class="col-md-4" style="text-align: center;">청주 날씨 코디</h5>
-       <h5 class="col-md-4" style="text-align: center;">대구 날씨 코디</h5>
-      </div>
-      <div class="row">
-		 <!-- 카드샘플 -->
-		<div class="col-md-4">
-			<div class="card bg-white bg-shadow text-center card-outline-primary outLine">
-				<div class="row tb4">
-					<span class="h-ic h-iec h-fs"><a href="">지수님 옷</a></span>
-					<span class="h-ic2"></span>
-					<span class="h-icr">
-						<button type="button" class="h-btn btn-outline-green" >Choice</button>
-						<button type="button" class="h-btn btn-outline-green">X</button>
-					</span>
-				</div>
-				
-			<p class="hh-line "></p>
-				<div>
-				<ul class="list-unstyled list-border-dots">
-					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
-				</ul>
-				</div>
-			<a class="hh-line "></a>
-			
-				<div class="row">
-					<span class="h-ic3 h-iec">
-						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
-					</span>
-					<span class="h-ic3" style="margin-top:20px;">
-						<a href="">베라님</a>
-					</span>
-					<span class=" text-primary" style="margin-top:20px; float:left; width: 15%;" >
-						<img style="width:25px; height:25px;" src="${pageContext.request.contextPath}/assets/img/heart.png" onmouseover="this.src='${pageContext.request.contextPath}/assets/img/heart-skin.png'" onmouseout="this.src='${pageContext.request.contextPath}/assets/img/heart.png'" border="0">
-					</span>
-					<span class=" text-primary" style="margin-top:17px; float:right; width: 8%; font-size:20px; font-weight:bold;">3</span>
-				</div><!-- /row -->
-			</div>
-		</div><!-- /col-md-3 -->
-      </div>
-      </div>
- <!-- /------지역별 날씨에 맞는 코디세트---- -->  
+<!--  ------------------------------------------------------------------------------------------------------------------------ -->
  
- 
- 
- <div class="col-md-4 " >
-	<img style="width:100%; height:450px; border:1px solid #949494;" src="${pageContext.request.contextPath}/assets/img/weather.JPG">
-	<!-- 사람프로필 리스트 1-->
-	<div class=" sidebar-right tb2" style="margin-top:100px;">
-		<div class="mb-4">
-              <ul class="nav nav-tabs">
-                <li class="nav-item active"><a  class="nav-link " style="padding-right:0.2rem; padding-left:0.2rem;">옷 많은 순위</a></li>
-              </ul>
-              
-              <div class="tab-content tab-content-bordered">
-               
-                <!-- Popular tab content -->
-                <div class="tab-pane fade active show blog-roll-mini" >
-                 
-                 <c:forEach items="${clist }" var="vo">
-                  <!-- 옷많은 순위 프로필리스트 -->
-                  <div class="row blog-post">
-                      <div class="blog-media">
-                        <a href="">
-                          <img class="h-image-circle" style="margin-left:10px;" src="${pageContext.request.contextPath}/upload/${vo.savename }">
-                        </a>
-                      </div>
-                      <div style="margin-top:18px; margin-left:10px;">
-	                     <h5>
-	                       <a href="${pageContext.request.contextPath}/myroom/codibook/${vo.no }">${vo.nicname }</a>   
-	                     </h5>
-                 	  </div>
-                  </div>
-      			</c:forEach>
-                </div> 
-              </div>
-            </div>
+  <div class="row">
+ <!-- 최신 -->
+  	<div class="h-pa bg-faded p-3" style="border:1px solid #949494; width:31.5%; ">
+      <hr class="divider">
+      <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
+        <strong>showcase your content</strong>
+      </h2>
+      <hr class="divider">
+       <div class="row">
+			<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; margin-left:18px;">
+				<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
+					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+				</ul>
+			<a class="hh-line "></a>
+				<div class="row">
+					<span class="h-ic3 h-iec">
+						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="h-ic3" style="margin-top:20px;">
+						<a href="">베라님</a>
+					</span>
+				</div><!-- /row -->
+			</div>
+			<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; margin-left:3px;">
+				<div>
+				<ul class="list-unstyled list-border-dots">
+					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+				</ul>
+				</div>
+			<a class="hh-line "></a>
+				<div class="row">
+					<span class="h-ic3 h-iec">
+						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="h-ic3" style="margin-top:20px;">
+						<a href="">베라님</a>
+					</span>
+				</div><!-- /row -->
+			</div>
 		</div>
-	
-	
-	<!-- 사람프로필 리스트 2-->
-	<div class=" sidebar-right tb2">
-		<div class="mb-4">
-              <ul class="nav nav-tabs">
-                <li class="nav-item active"><a  class="nav-link" style="padding-right:0.2rem; padding-left:0.2rem;">최근 가입 순위</a></li>
-              </ul>
-              <div class="tab-content tab-content-bordered">
-                
-                <!-- Popular tab content -->
-                <div class="tab-pane fade active show blog-roll-mini" id="popular">
-                  
-                  <c:forEach items="${list }" var="vo">
-                  <!-- 최근가입한 사람 순위 프로필리스트 -->
-                  <div class="row blog-post">
-                      <div class="blog-media">
-                        <a>
-                          <img class="h-image-circle" style="margin-left:10px;" src="${pageContext.request.contextPath}/upload/${vo.savename }">
-                        </a>
-                      </div>
-                      <div style="margin-top:18px; margin-left:10px;">
-	                     <h5>
-	                       <a href="${pageContext.request.contextPath}/myroom/codibook/${vo.no }">${vo.nicname }</a>  
-	                     </h5>
-                 	  </div>
-                  </div>
-                  </c:forEach>
-                
-              </div>
-            </div>
-		</div>
-	
-	</div><!-- /col-md-2 -->
-</div>
- 
- </div>
- 
-  
- 
-     <%--  <div class="bg-faded p-4 my-4">
-        <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Build a website
-          <strong>worth visitng</strong>
-        </h2>
-        <hr class="divider">
-        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="${pageContext.request.contextPath}/assets/img/intro-pic.jpg" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
-      </div> --%>
-
-      <div class="bg-faded p-4 my-4" style="border:1px solid #949494;">
-        <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
-          <strong>showcase your content</strong>
-        </h2>
-        <hr class="divider">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
-      </div>
-
     </div>
-    <!-- /.container -->
+ <!-- 인기 -->   
+   <div class="h-pa bg-faded p-3" style="border:1px solid #949494; width:31.5%; ">
+      <hr class="divider">
+      <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
+        <strong>showcase your content</strong>
+      </h2>
+      <hr class="divider">
+       <div class="row">
+			<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; margin-left:18px;">
+				<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
+					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+				</ul>
+			<a class="hh-line "></a>
+				<div class="row">
+					<span class="h-ic3 h-iec">
+						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="h-ic3" style="margin-top:20px;">
+						<a href="">베라님</a>
+					</span>
+				</div><!-- /row -->
+			</div>
+			<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; margin-left:3px;">
+				<div>
+				<ul class="list-unstyled list-border-dots">
+					<li><img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" ></li>
+				</ul>
+				</div>
+			<a class="hh-line "></a>
+				<div class="row">
+					<span class="h-ic3 h-iec">
+						<img class="h-image-circle" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="h-ic3" style="margin-top:20px;">
+						<a href="">베라님</a>
+					</span>
+				</div><!-- /row -->
+			</div>
+		</div>
+    </div>
+  <!-- 최신 -->
+  	<div class="h-pa bg-faded p-3 " style="border:1px solid #949494; width:31.5%;">
+      <hr class="divider">
+      <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
+        <strong>showcase your content</strong>
+      </h2>
+      <hr class="divider">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+    </div>        
+   </div> 
+  
+ <!-- /------지역별 날씨에 맞는 코디세트---- -->  
+ <div class="row">
+ <!-- 마켓 -->
+<div class="h-pa bg-faded p-3" style="width:64.3%; border:1px solid #949494;">
+  <hr class="divider">
+  <h2 class="text-center text-lg text-uppercase my-0">Take a look at
+    <strong>the market</strong>
+  </h2>
+  <hr class="divider">
+	<div class="row">
+		<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine" style="width:22%;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+	
+		<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine" style="width:22%;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+		
+		<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine" style="width:22%;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+		
+		<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine" style="width:22%;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+	</div>
+</div>
+<%-- <div  style="width:30.3%; height:400px; border:1px solid #949494;" >
+	<div class="row">
+		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px; margin-left:15px;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
 
+		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+		
+		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+		
+		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px;">
+				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
+		</div>
+	</div>
+</div> --%><!-- /마켓 -->
+
+<div class="h-pa p-3" style="width:15.1%;  border:1px solid #949494; ">
+	<hr class="divider">
+      <h2 class="text-center text-lg text-uppercase my-0">옷 부자</h2>
+      <hr class="divider">
+<h4 class="h-pa">1</h4>
+<h4 class="h-pa">1</h4>
+<h4 class="h-pa">1</h4>
+<h4 class="h-pa">1</h4>
+<h4 class="h-pa">1</h4>
+<h4 class="h-pa">1</h4>
+</div>
+
+
+
+
+<div class="h-pa" style="width:15.1%; height:250px; border:1px solid #949494; ">
+<h3>옷 부자</h3>
+<br>
+<h5>1</h5>
+<h5>2</h5>
+<h5>3</h5>
+<h5>4</h5>
+<h5>5</h5>
+<h5>6</h5>
+</div>
+
+</div><!-- /row -->
+
+</div>
+  
 
 
 <!-- -------------------------------------------------------------------- -->
