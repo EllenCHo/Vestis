@@ -635,7 +635,7 @@
 								</span> 
 								</div>
 							</form>
-							<div class="row" style="margin-top:7%; margin-left:10%; margin-bottom:5%;">
+							<div class="row" style="margin-top:7%; margin-left:10%; margin-bottom:2%;">
 								<span id="profilehh" class='col-lg-3 col-sm-12 tb '
 									style="margin-left: 10px;"> </span>
 								
@@ -678,7 +678,7 @@
 				$('#mo').val("change");
 				var total_file = document.getElementById("images").files.length;
 				for (var i = 0; i < total_file; i++) {
-					$('#profilehh').append("<div style=\"text-align:center\"><img class='imgSize' style='width:100px; height:100px;' src='"+ URL.createObjectURL(event.target.files[i])+ "'></div>");
+					$('#profilehh').append("<div style=\"text-align:right\"><img class='imgSize' style='width:100px; height:100px;' src='"+ URL.createObjectURL(event.target.files[i])+ "'></div>");
 				}
 
 			}
@@ -799,7 +799,7 @@
 	function render(result) {
 		console.log("render 들어옴");
 		var str = "";
-		str += "<div style='text-align:center'><img src='${pageContext.request.contextPath }/upload/"
+		str += "<div style='text-align:right'><img src='${pageContext.request.contextPath }/upload/"
 				+ result
 				+ "' class='imgSize' style='width:100px; height:100px; border: 3px solid #bcbdc1 !important;'/>";
 		str += "</div>";

@@ -347,14 +347,14 @@
 		bottomImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(bottomImg, 70, 120, 200, 200);
+			ctx.drawImage(bottomImg, 70, 130, 200, 200);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		shoesImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(shoesImg, 185, 230, 130, 130);
+			ctx.drawImage(shoesImg, 185, 250, 130, 130);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
@@ -381,10 +381,10 @@
 		ctx.drawImage(topImg, 15, 10, 200, 200);
 
 		var bottomImg = document.getElementById("todayImg1");
-		ctx.drawImage(bottomImg, 70, 120, 200, 200);
+		ctx.drawImage(bottomImg, 70, 130, 200, 200);
 
 		var shoseImg = document.getElementById("todayImg2");
-		ctx.drawImage(shoseImg, 185, 230, 130, 130);
+		ctx.drawImage(shoseImg, 185, 250, 130, 130);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
 		ctx.drawImage(weatherImg, 12, 6, 65, 65);
