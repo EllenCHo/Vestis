@@ -370,13 +370,13 @@
 
 		var topImg = document.getElementById("todayImg0");
 		console.log(topImg);
-		ctx.drawImage(topImg, 30, 20, 200, 200);
+		ctx.drawImage(topImg, 15, 10, 200, 200);
 
 		var bottomImg = document.getElementById("todayImg1");
-		ctx.drawImage(bottomImg, 90, 150, 200, 200);
+		ctx.drawImage(bottomImg, 70, 120, 200, 200);
 
 		var shoseImg = document.getElementById("todayImg2");
-		ctx.drawImage(shoseImg, 200, 280, 150, 150);
+		ctx.drawImage(shoseImg, 185, 230, 130, 130);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
 		ctx.drawImage(weatherImg, 12, 6, 65, 65);
