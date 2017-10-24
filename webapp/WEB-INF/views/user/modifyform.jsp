@@ -472,9 +472,9 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			<div style="text-align:center; width: 100px;">
 		  		
 		  		<input style="width: 426px !important; margin-bottom: 10px; margin-left: 173px !important;" type="file" class="form-control" id="images" name="file" onchange="preview_images();">
-		  	<%-- <div >	
-		  		<img  src="${pageContext.request.contextPath }/upload" class="imgSize" style="background-color: red; width: 100px; height: 100px; margin-bottom: 0px;">
-		  	</div> --%>	
+		   <%-- <div >	
+		  		<img  src="${pageContext.request.contextPath }/Vestis/upload" class="imgSize" style="background-color: red; width: 100px; height: 100px; margin-bottom: 0px;">
+		  	</div>  --%>
 		  	</div>
 
 				
@@ -495,6 +495,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			<div class="row" id="image_preview"></div>
 		 </form>
 		
+		 <div class="row" id="image_preview"></div>
 </div>
 <script type="text/javascript">
 function preview_images() 

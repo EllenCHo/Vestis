@@ -169,7 +169,7 @@
 						</div>
 
 					</div>
-					<div class="left-box" style="overflow:auto;">
+					<div class="left-box" style="overflow:hidden;">
 						<div style="display:inline;">
 							<img alt="날씨"
 								src="${pageContext.request.contextPath}/assets/img/${weather}.png"
