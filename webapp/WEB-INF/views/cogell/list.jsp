@@ -336,7 +336,7 @@ padding:0;
 	
 						<hr>
 						<div class="row bts">
-							<c:if test="${authUser.no == '' }">
+							<c:if test="${authUser != '' }">
 								<div class="input-group" style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
 									<input class="form-control es_commentInput" placeholder="Add a comment" type="text" style="width:96%;"> 
 									<button class="input-group-addon es_commentButton" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
