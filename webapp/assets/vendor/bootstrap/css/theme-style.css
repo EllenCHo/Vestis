@@ -302,14 +302,7 @@ h-body {
 }
 /* --------------- */
 /* ------------------------------------- */
-.myroomimg{
-	background-image: url('/Vestis/assets/img/h1.jpg');
-	width : 100%;
-	height : 200px;
-	text-align: center;
-	padding-bottom:80px;
-	padding-top:80px;
-}
+
 .h-name{
     padding-left: 55px;
     margin: 0;
@@ -381,6 +374,10 @@ footer {
 .h-paddingtb{
 	padding-top:10px;
 	padding-bottom:10px;
+}
+.h-pa{
+	margin-left:15px;
+	margin-bottom:15px;
 }
 =======
 @charset "UTF-8";
@@ -688,7 +685,7 @@ h-body {
 /* --------------- */
 /* ------------------------------------- */
 .myroomimg{
-	background-image: url('/Vestis/assets/img/h1.jpg');
+	background-image: url('/Vestis/assets/img/back.JPG');
 	width : 100%;
 	height : 200px;
 	text-align: center;
