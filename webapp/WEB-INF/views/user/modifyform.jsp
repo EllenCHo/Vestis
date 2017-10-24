@@ -152,6 +152,7 @@ padding:0;
 	
 	#birth_form {
 		height: 30px;
+		margin-bottom: 10px;
 		margin-top: 10px;
 	}
 	
@@ -253,16 +254,12 @@ padding:0;
 	padding:10px;
 	padding-top:30px !important;
 	border: 1px solid  #bcbdc1 !important;
-	height: 600px;
+	height: 652px;
 	}
 	
+	#images{
 	
-	#absol{
-		
-	}
 	
-	#imaages {
-		width:35px;
 	}
 	
 	#inputEmail{
@@ -357,7 +354,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 
 
 	
-    <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	
 <div class="myroomimg">
 	<div class="container">
@@ -460,7 +457,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 				<input id="gender" type="radio" name="gender" value="male" class="MS_radio">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" checked="">여</td>
 				</c:when>	
 				<c:otherwise>
-<input id="gender" type="radio" name="gender" value="male" class="MS_radio" checked="">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" >여</td>				
+					<input id="gender" type="radio" name="gender" value="male" class="MS_radio" checked="">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" >여</td>				
 				</c:otherwise>
 			</c:choose>	
 				
@@ -470,13 +467,16 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			</div>
 				</span>
 				<span id="profilehh" class='col-lg-3 col-sm-12 tb ' style="margin-left: 10px;"> 
-				
 				</span>
-			</div>	
-							
-			<span id="absol" class="col-lg-4">
-		      <input style="width: 596px !important;" type="file" class="form-control" id="images" name="file" onchange="preview_images();">
-		  </span>
+			</div>
+			<div style="text-align:center; width: 100px;">
+		  		
+		  		<input style="width: 426px !important; margin-bottom: 10px; margin-left: 173px !important;" type="file" class="form-control" id="images" name="file" onchange="preview_images();">
+		  	<%-- <div >	
+		  		<img  src="${pageContext.request.contextPath }/upload" class="imgSize" style="background-color: red; width: 100px; height: 100px; margin-bottom: 0px;">
+		  	</div> --%>	
+		  	</div>
+
 				
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------  --> 
          
@@ -485,16 +485,16 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
         <a href="${pageContext.request.contextPath }/user/modifyform" class="btn btn-lg btn-info btn-block" id="default">다시하기</a>
       </form>
     </div>
-    </div>
+    
     </div>
     </div>
     </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
-<div class="row tb">
+<div class="row tb" style="width:100px; border:1px;">
 		 <form id="ffff" action="${pageContext.request.contextPath }/user/proimage" method="post" enctype="multipart/form-data">
+			<div class="row" id="image_preview"></div>
 		 </form>
 		
-		 <div class="row" id="image_preview"></div>
 </div>
 <script type="text/javascript">
 function preview_images() 
@@ -504,7 +504,7 @@ $('#mo').val("change");
  var total_file=document.getElementById("images").files.length;
  for(var i=0;i<total_file;i++)
  {
-  $('#profilehh').append("<img class='imgSize' style='width:100px;' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
+  $('#profilehh').append("<img class='imgSize' style='width:100px; height:100px;' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
  }
 
 }
@@ -512,7 +512,7 @@ $('#mo').val("change");
 
 		
   <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-   	<!--  sns로그인자의 비밀번호 변경을 막을려함 -->
+   	<%-- <!--  sns로그인자의 비밀번호 변경을 막을려함 -->
     <c:choose>
     <c:when test="${(user.email != user.password) && user.phone != 'noinput'}">
    
@@ -568,12 +568,14 @@ $('#mo').val("change");
       <c:otherwise>
       </c:otherwise>
       </c:choose>
+      --%>
       <form id="move" method="get" action="${pageContext.request.contextPath}/user/index">
    <input id="mo" type="hidden" value="${sessionScope.authUser.profile_no}">
    </form> 
-    <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->   
+   
+    <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
 <br><br><br><br><br><br><br>
-
+</div>
     <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
   </body>
   
@@ -595,7 +597,7 @@ $(document).ready(function(){
 	var mo=$('#mo').val();
 	console.log(mo);
 	$.ajax({	
-		url : "${pageContext.request.contextPath }/user/image",		
+		url : "${pageContext.request.contextPath }/user/image2",		
 			type : "post",
 			data : {mo: mo},  
 		 	dataType : 'text', 
@@ -615,7 +617,7 @@ $(document).ready(function(){
 function render(result){
 	console.log("render 들어옴");
 	var str ="";
-	str+="<div style='text-align:center'><img src='${pageContext.request.contextPath }/upload/"+result+"' class='imgSize' />";
+	str+="<div style='text-align:center'><img src='${pageContext.request.contextPath }/upload/"+result+"' class='imgSize' style='width:100px; height:100px; border: 3px solid #bcbdc1 !important;'/>";
 	str+="</div>";
 	console.log("render 끝");
 	$("#profilehh").append(str);	
