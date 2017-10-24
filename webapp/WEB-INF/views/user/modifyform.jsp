@@ -271,7 +271,8 @@
 }
 
 #images {
-	
+	width: 438px;
+	border: 1px solid #bcbdc1 !important;
 }
 
 #inputEmail {
