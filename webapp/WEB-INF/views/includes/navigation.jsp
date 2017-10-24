@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <style>
 .image-circle{
@@ -36,7 +37,11 @@
 	        <div class="nav nav-list" id="submenu">
 	        
 	          <div id="hyj"></div>
-	          <span class="h-name">${sessionScope.authUser.nicname} <a href="${pageContext.request.contextPath }/user/modifyform"><img src="${pageContext.request.contextPath }/assets/img/grey.png" width="20px" height="20px" style="margin-left:20px; margin-bottom:3px;" /></a></span>
+	          <span class="h-name" style="text-align:center; padding:0;">
+	          <c:if test="${authUser.no == userNo }">
+	          	<a href="${pageContext.request.contextPath }/user/modifyform"><img src="${pageContext.request.contextPath }/assets/img/grey.png" width="20px" height="20px" style="margin-left:20px; margin-bottom:3px;" /></a>
+	          </c:if>
+	          </span>
 	          <br>
 	          <span class="nav-header">In This Section</span> 
 	          <a href="${pageContext.request.contextPath }/myroom/${userNo}" class="nav-link first" id="myroom">
@@ -63,10 +68,6 @@
 	      </div>
 	    </div>
 
-<form id="move" method="POST" action="#">
-   <input id="mo" type="hidden" value="${sessionScope.authUser.no}">
-</form>
-   
 <script type="text/javascript">	
 $(document).ready(function(){
 
@@ -74,20 +75,17 @@ $(document).ready(function(){
  	var submenu = "${submenu}";
  	thisSubMenu(submenu);
  	
-	
-	
-	
-	var mo=$('#mo').val();
-	console.log(mo);
+	var no=${userNo};
 	$.ajax({	
-		url : "${pageContext.request.contextPath }/user/image",		
+		url : "${pageContext.request.contextPath }/user/getUserInfo",		
 			type : "post",
-			data : {mo: mo},  
+			data : {"no": no},  
 		 	dataType : 'json', 
 			success : function(result){	
 				console.log(result);
 				console.log(result.profileDBName);
 				profileRender(result.profileDBName);
+				$('.h-name').prepend(result.nicname);
 				console.log("성공");
 			},
 			error : function(XHR, status, error) {
