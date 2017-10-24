@@ -405,10 +405,13 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-12">
-									<label for="inputName" class="sr-only">Name</label> <input
+								<div class="col-md-2" style="padding-top:1%;">
+									<label>Name</label> 
+								</div>
+								<div class="col-md-10">
+									<input
 										type="text" id="inputName" name="name" class="form-control"
-										value="${user.name}" placeholder="Name">
+										value="${user.name}" placeholder="Name" readonly>
 								</div>
 								<div class="col-md-2">
 									<input id="name" disabled></input>
@@ -416,8 +419,11 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-12">
-									<label for="inputNicname" class="sr-only">Nicname</label> <input
+								<div class="col-md-2" style="padding-top:1%;">
+									<label>Nicname</label> 
+								</div>
+								<div class="col-md-10">
+									<input
 										type="text" id="inputNicname" name="nicname"
 										class="form-control" value="${user.nicname}"
 										placeholder="Nicname">
@@ -428,8 +434,11 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-12">
-									<label for="inputPhone" class="sr-only">inputPhone</label> <input
+								<div class="col-md-2" style="padding-top:1%;">
+									<label>Phone</label> 
+								</div>
+								<div class="col-md-10">
+									<input
 										type="text" id="inputPhone" name="phone" class="form-control"
 										value="${user.phone}" placeholder="inputPhone">
 								</div>
