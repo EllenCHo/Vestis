@@ -175,7 +175,15 @@
 }
 
 
-
+.codibook{
+	background-image: url('/Vestis/assets/img/back37.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 
 
 </style>
@@ -186,7 +194,7 @@
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg" >
+<div class="codibook" >
 	<div class="container">
 	<h3>codibook</h3>
 	</div>
