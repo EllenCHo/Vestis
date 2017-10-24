@@ -65,18 +65,11 @@
 		]]>
 	</delete>
 	
-	<delete id="removeCal" parameterType="int">
+	<delete id="removeClothCal" parameterType="int">
 		<![CDATA[
 			delete from calculation
-			where cloth+_no = #{no}
-		]]>
-	</delete>
-	
-	<select id="getCount" parameterType="int" resultType="int">
-		<![CDATA[
-			select count(cloth_no)
-			from calculation
 			where cloth_no = #{no}
 		]]>
-	</select>
+	</delete>
+
 </mapper>
