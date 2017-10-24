@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Market</title>
+<title>Vestis</title>
 	
 <!--자신이 만든 css-->
 <!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
@@ -188,16 +188,24 @@ a {
 	color: #000000 !important;
 }
 
-
+.market{
+	background-image: url('/Vestis/assets/img/back21.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 </style>
 
 </head>
 <body>
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
+<div class="market">
 	<div class="container">
-	<h3>Service Center</h3>
+	<h3>Market</h3>
 	</div>
 </div>
 <br><br><br>

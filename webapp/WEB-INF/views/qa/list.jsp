@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>ServiceCenter</title>
+<title>Vestis</title>
 
 
 <!--자신이 만든 css-->
@@ -93,6 +93,16 @@ height: 35px;
 margin-bottom:10px
 }
 
+.service{
+	background-image: url('/Vestis/assets/img/back18.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
+
 </style>
  
 </head>
@@ -102,7 +112,7 @@ margin-bottom:10px
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
 
-<div class="myroomimg">
+<div class="service">
 	<div class="container">
 	<h3>Service Center</h3>
 	</div>

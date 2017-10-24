@@ -354,6 +354,7 @@ public class MyRoomController {
 	public String add(@PathVariable("userNo") int userNo, Model model) {
 		System.out.println("add");
 		model.addAttribute("userNo", userNo);
+		model.addAttribute("submenu", "wardrobe");
 		return "myroom/add";
 	}
 

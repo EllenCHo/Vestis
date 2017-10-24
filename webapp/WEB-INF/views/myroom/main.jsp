@@ -74,15 +74,23 @@
 	bottom: 1px !important;
 	padding-bottom: 1px !important;
 }
+.mymain{
+	background-image: url('/Vestis/assets/img/back39.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 </style>
-
 
 </head>
 <body>
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
+<div class="mymain">
 	<div class="container">
 	<h3>MY ROOM</h3>
 	</div>
@@ -339,14 +347,14 @@
 		bottomImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(bottomImg, 70, 120, 200, 200);
+			ctx.drawImage(bottomImg, 70, 130, 200, 200);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		shoesImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(shoesImg, 185, 230, 130, 130);
+			ctx.drawImage(shoesImg, 185, 250, 130, 130);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
@@ -370,13 +378,13 @@
 
 		var topImg = document.getElementById("todayImg0");
 		console.log(topImg);
-		ctx.drawImage(topImg, 30, 20, 200, 200);
+		ctx.drawImage(topImg, 15, 10, 200, 200);
 
 		var bottomImg = document.getElementById("todayImg1");
-		ctx.drawImage(bottomImg, 90, 150, 200, 200);
+		ctx.drawImage(bottomImg, 70, 130, 200, 200);
 
 		var shoseImg = document.getElementById("todayImg2");
-		ctx.drawImage(shoseImg, 200, 280, 150, 150);
+		ctx.drawImage(shoseImg, 185, 250, 130, 130);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
 		ctx.drawImage(weatherImg, 12, 6, 65, 65);

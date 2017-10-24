@@ -76,9 +76,13 @@ public class FileUploadService {
 		try {
 			BufferedImage bfImg = ImageIO.read(file.getInputStream());
 			System.out.println(bfImg);
-			MarvinImage image = new MarvinImage(bfImg);
+			
 			String path = new File(URI.create("file:///C:/Users/BIT/git/Vestis/marvin/plugins/image/").getPath()).getAbsolutePath() + "/";
 			MarvinDefinitions.setImagePluginPath(path);
+			
+			MarvinImage image = new MarvinImage(bfImg);
+			scale(image.clone(), image, 400, 400); // 500 and 400 are the new width and height.	
+			
 			// MarvinImage image =
 			// MarvinImageIO.loadImage("D:/javastudy/workspace/marvin/images/123.jpg");
 			MarvinImage bin = MarvinColorModelConverter.rgbToBinary(image, 110);
@@ -94,7 +98,7 @@ public class FileUploadService {
 				}
 			}
 
-			scale(image.clone(), image, 400, 400); // 500 and 400 are the new width and height.	
+			
 			MarvinImageIO.saveImage(image, filePath);
 			System.out.println("저장완료");
 		} catch (IOException e1) {

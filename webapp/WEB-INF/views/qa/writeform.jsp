@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<title>Service Center</title>
+<title>Vestis</title>
 
 <!-- Bootstrap core CSS -->
 <!-- Custom fonts for this template -->

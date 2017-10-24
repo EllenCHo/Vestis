@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>clothes</title>
+<title>Vestis</title>
 
 
 <!--자신이 만든 css-->
@@ -119,6 +119,16 @@ padding:0;
 
 }
 
+.codigallery{
+	background-image: url('/Vestis/assets/img/back24.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
+
 .modalBackdrop{
  		
   position: fixed;
@@ -142,8 +152,6 @@ padding:0;
     overflow-y: auto;
 }
 
-
-
 </style>
 
 
@@ -154,9 +162,9 @@ padding:0;
 	
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	
-<div class="myroomimg">
+<div class="codigallery">
 	<div class="container">
-	<h3>codi gallery</h3>
+	<h3>Codi Gallery</h3>
 	</div>
 </div>
 
@@ -336,7 +344,7 @@ padding:0;
 	
 						<hr>
 						<div class="row bts">
-							<c:if test="${authUser.no == '' }">
+							<c:if test="${authUser != null }">
 								<div class="input-group" style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
 									<input class="form-control es_commentInput" placeholder="Add a comment" type="text" style="width:96%;"> 
 									<button class="input-group-addon es_commentButton" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
