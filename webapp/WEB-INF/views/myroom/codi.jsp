@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<title>Codi</title>
+<title>Vestis</title>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -39,8 +39,8 @@
 	height: 200px;
 	min-width: 30px;
 	min-height: 30px;
-	top: 17%;
-	left: 5%;
+	top: 22%;
+	left: 7%;
 	background-color: #FFFFFFFF;
 }
 
@@ -54,9 +54,9 @@
 
 .left-box {
 	background: #FFFFFF;
-	height: 600px;
+	height: 530px;
 	width: 100%;
-	min-height: 65%;
+	min-height: 50%;
 	padding: 1%;
 	border: 1px solid;
 	border-color: #949494;
@@ -64,8 +64,8 @@
 }
 
 .right-box {
-	height: 600px;
-	min-height: 65%;
+	height: 530px;
+	min-height: 50%;
 	background-color: rgba(255, 255, 255, 0.9);
 	padding: 1%;
 	border: 1px solid #949494;
@@ -170,10 +170,11 @@
 
 					</div>
 					<div class="left-box" style="overflow:auto;">
-						<div style="float: left;">
+						<div style="display:inline;">
 							<img alt="날씨"
 								src="${pageContext.request.contextPath}/assets/img/${weather}.png"
-								style="width: 60px; height: auto;">${temp}
+								style="float: left; margin-left:3%; width: 80px; height: auto;">
+							<h2 style="float: left; margin-top:5%; margin-left:2%;">${temp}</h2>
 						</div>
 					</div>
 				</div>
@@ -209,7 +210,7 @@
 
 
 					<div class="bts right-box">
-						<div style="overflow: auto; width: 100%; height: 85.6%;">
+						<div style="overflow: auto; width: 100%; height: 100%;">
 							<ul id="clothList"
 								style="list-style: none; padding-left: 0px; text-align: center; display: block;">
 							</ul>
@@ -414,8 +415,6 @@
 </script>
 
 
-<script
-	src="https://github.com/niklasvh/html2canvas/releases/download/v0.5.0-beta4/html2canvas.min.js"></script>
 <!-- 왼쪽 공간에 넣은 이미지를 저장하기 위한 자바스크립트 -->
 <script type="text/javascript">
 	$("#save").click(function() {

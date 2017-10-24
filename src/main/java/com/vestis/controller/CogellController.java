@@ -53,8 +53,23 @@ public class CogellController {
 	
 	@ResponseBody
 	@RequestMapping(value ="/codibookList", method=RequestMethod.POST)
-	public List<CodibookVo> getCodibookList(@RequestParam("purpose") String purpose, @RequestParam("num") int num, @RequestParam("no") int no) {
-		List<CodibookVo> list = cogellService.getList(purpose, num, no);
+	public List<CodibookVo> getCodibookList(@RequestParam("purpose") String purpose, @RequestParam("no") Integer no) {
+		List<CodibookVo> list = null;
+		System.out.println("코디갤러리" + no);
+		if(no == null) {
+			no = 0;
+		}
+		
+		System.out.println("코디갤러리" + no);
+		
+		if(purpose.equals("regDate")) {
+			list = cogellService.getList(no);
+		} else if(purpose.equals("hit")) {
+			list = cogellService.getList2(no);
+		} else {
+			list = cogellService.getList3(no);
+		}
+		
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i).getOtherNo());
 			
@@ -62,7 +77,7 @@ public class CogellController {
 		return list;
 	}
 	
-	@ResponseBody
+	/*@ResponseBody
 	@RequestMapping(value ="/codibookList2", method=RequestMethod.POST)
 	public List<CodibookVo> getCodibookList2(@RequestParam("purpose") String purpose, @RequestParam("num") int num, @RequestParam("no") int no) {
 		List<CodibookVo> list = cogellService.getList2(purpose, num, no);
@@ -83,8 +98,8 @@ public class CogellController {
 		}
 		return list;
 	}
-	
-	
+	*/
+/*	
 	@ResponseBody
 	@RequestMapping(value ="/codibookRList", method=RequestMethod.POST)
 	public List<CodibookVo> getCodibookRList(@RequestParam("purpose") String purpose, @RequestParam("num") int num, @RequestParam("no") int no) {
@@ -92,9 +107,9 @@ public class CogellController {
 		System.out.println("RANDOM");
 		
 		return list;
-	}
+	}*/
 	
-	@ResponseBody
+	/*@ResponseBody
 	@RequestMapping(value ="/codibookList4", method=RequestMethod.POST)
 	public List<CodibookVo> getCodibookList4(@RequestParam("purpose") String purpose, @RequestParam("num") int num, @RequestParam("no") int no) {
 		List<CodibookVo> list = cogellService.getList4(purpose, num, no);
@@ -103,6 +118,6 @@ public class CogellController {
 			
 		}
 		return list;
-	}
+	}*/
 	
 }
