@@ -60,7 +60,7 @@ public class MyRoomController {
 			System.out.println("내일 날씨 오류");
 			ToTemp = 18;
 			ToTemps = 18 + "°C";
-			ToindexNo = 3;
+			ToindexNo = 2;
 		}
 
 		System.out.println(ToTemp);

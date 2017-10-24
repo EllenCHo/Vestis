@@ -98,16 +98,7 @@ padding:0;
 		margin:auto;
 	
 	}
-	
-	
-	/* .row > .col-md-7 {
-		padding-right:3px;
-	}
-	
-	.row > .col-md-2 {
-		padding-left:3px;
-		background:white;
-	} */
+
 	
 	#sns {
 		text-align:center;
@@ -346,9 +337,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 
    
 	
-
-	
-    <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	
 <div class="myroomimg">
 	<div class="container">
@@ -361,13 +350,11 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
  
  
  <!-- =================================================================================== -->  
-   
-   
 <div id="joinform" class="col-md-12">
-    
-	<div class="title">
-		<span style="color:#292b2c">Login</span>
-	</div>
+<div class="title">
+	<span style="color:#292b2c">Login</span>
+</div>
+	
     <div class="table-responsive">
     <div class="col-md-10 container" >
   		<table class="table table-bordered table-cart" id="tb">
@@ -446,8 +433,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 					<div id="callBackDiv">
 						<table style="margin-Left: 188px;">
 							<tr>
-								<td><input type="text" style="width: 410px !important;"
-									id="roadFullAddr" name="address" />
+								<td><input type="text" style="width: 410px !important;" id="roadFullAddr" name="address" />
 									<span><input id="add" type="button" onClick="goPopup();" value="주소검색" /></span>
 								</td>
 							</tr>

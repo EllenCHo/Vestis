@@ -26,14 +26,66 @@
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/assets/css/business-casual.css" rel="stylesheet">
 	<style>
-	.imgSize{
-		width:126px;
-		height:126px;
-	}
+	
+	/* ------------------------------------------------------------------------ */
+	/* 완전 겉 테두리 */
+.table-bordered {
+  border: 1px solid #bcbdc1 !important;
+}
+
+/* 전체 테두리 */
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid  #bcbdc1 !important;
+  text-align: center;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+ /* 번호,제목,작성자,작성일 밑 테두리 */
+  border-bottom-width: 3px !important;
+  text-align: center;
+  font-weight:bold;
+}
+
+
+.table th, .table td {
+	padding-top:5px;/* !important; */
+	padding-bottom:5px;
+}
+.table th{
+font-weight:bold !important;
+}
+.table td{
+font-weight:bold;
+}
+
+
+#butn1{
+width:90px;
+height:30px;
+font-weight:bold !important;
+}
+
+
+.title {
+	border-bottom:3px solid #55a79a;
+	font-weight:bold;
+}   
+.title{
+font-size:25px;
+line-height:1.5;
+margin:0 0 10px;
+padding:0;
+}  
+	
+	
+	/* ------------------------------------------------------------------------ */
+	
 	#joinform{
 		background:white;
 		margin-top:15px;
-		height:1200px;
+   		height: 550px;
 		margin-bottom:10px;
 	}
 	.form-signin {
@@ -43,8 +95,36 @@
 		background:white;
 		/* text-align:center; */
 		margin:auto;
-		margin-top:30px; 
 	
+	}
+	
+	
+	/* .row > .col-md-7 {
+		padding-right:3px;
+	}
+	
+	.row > .col-md-2 {
+		padding-left:3px;
+		background:white;
+	} */
+	
+	#sns {
+		text-align:center;
+		position:relative;
+		left:250px;
+		margin-top:30px;
+	}
+	
+	#facebook {
+		width: 600px;
+		margin:auto;
+		margin-top:5px;
+		color: white;
+	}
+	#kakaotalk {
+		width: 600px;
+		margin:auto;
+		margin-top:10px;
 	}
 	
 	#default {
@@ -56,29 +136,24 @@
 	
 	/* 바꾸기  */
 	#joinName {
-		position: relative;
-		bottom:10px;
-		 text-align: center;
+		text-align: center;
 		font-weight: bold;
-		
-		/*padding: 15px;
-		height: 50px; 
-		margin-bottom: 3px; */
+		padding: 15px;
+		height: 50px;
+		margin-bottom: 3px;
 	}
 	
 	#btnb {
 		margin-top:10px;
-		background:#404040; 
+		background:#404040;
+		width: 600px;
+		margin: auto;
 	}
 	
-	#btnpass {
-		margin-top:10px;
-		background:#404040; 
-	}
 	#birth_form {
 		height: 30px;
+		margin-bottom: 10px;
 		margin-top: 10px;
-		
 	}
 	
 	#gender {
@@ -87,7 +162,6 @@
 
 	#add {
 		margin-top:10px;
-		text-align:left;
 	}
 	
 	#sns {
@@ -114,6 +188,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#passwords {
 		color: red;
@@ -125,6 +200,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#passwordd {
 		color: red;
@@ -136,6 +212,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#name {
 		color: red;
@@ -147,6 +224,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#nicname {
 		color: red;
@@ -158,6 +236,7 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
 	}
 	#phone {
 		color: red;
@@ -169,60 +248,25 @@
 		boder-left:0px;
 		boder-bottom:0px;
 		background:white;
+		width:125px;
+	}
+	.table-responsive{
+	padding:10px;
+	padding-top:30px !important;
+	border: 1px solid  #bcbdc1 !important;
+	height: 652px;
 	}
 	
-	#passform {
-		margin-top:100px;
-	}
-	#password1{
-		color: red;
-		font-weight: bold;
-		text-align:left;
-		border:none;
-		border-right:0px;
-		border-top:0px;
-		boder-left:0px;
-		boder-bottom:0px;
-		background:white;
-	}
-	#password2{
-		color: red;
-		font-weight: bold;
-		text-align:left;
-		border:none;
-		border-right:0px;
-		border-top:0px;
-		boder-left:0px;
-		boder-bottom:0px;
-		background:white;
+	#images{
+	
+	
 	}
 	
-	#password3{
-		color: red;
-		font-weight: bold;
-		text-align:left;
-		border:none;
-		border-right:0px;
-		border-top:0px;
-		boder-left:0px;
-		boder-bottom:0px;
-		background:white;
+	#inputEmail{
+	style="margin-bottom: 5px !important;"
+	
 	}
 	
-	.tb {
-   margin-top:10px;
-   margin-bottom:10px;
-	}
-	
-	#absol{
-		position:absolute;
-		top:660px;
-		left:780px;
-	}
-	
-	#imaages {
-		width:35px;
-	}
 	</style>
 	<script language="javascript" charset="UTF-8">
 
@@ -308,48 +352,36 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
   </head>
   <body>
 
+
+	
+<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	
+<div class="myroomimg">
+	<div class="container">
+		<h3>Login</h3>
+	</div>
+</div>	
+	
+
+  <div class="container" id="about">
+	<div class="row">
+ 
+ 
+ <!-- =================================================================================== -->  
    
-	
-
-	
-    <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
-	
-
-    <div class="container" style="width: 100%">
-	<!-- 지수씨거 그림가져오는 방법   
-   				<div class="row tb">
-		 <form action="multiupload.php" method="post" enctype="multipart/form-data">
-		  <div class="col-md-6">
-		      <input type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple/>
-		  </div>
-		  <div class="col-md-6">
-		      <input type="submit" class="btn btn-primary" name='submit_image' value="Upload Multiple Image"/>
-		  </div>
-		 </form>
-		
-		 <div class="row" id="image_preview"></div>
-		
-         </div>
-        <script>
-function preview_images() 
-{
- var total_file=document.getElementById("images").files.length;
- for(var i=0;i<total_file;i++)
- {
-  $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
- }
-}
-</script> -->
-
-
-    <div id="joinform">
+   
+<div id="joinform" class="col-md-12">
+	<div class="title">
+		<span style="color:#292b2c">Login-Modify</span>
+	</div>
+	<div class="table-responsive">
+    <div class="col-md-12 container" >
 	 <form id="forminf"  class="form-signin" method="get" action="${pageContext.request.contextPath }/user/changeinfo" disabled>
-      	 <h4 id="joinName">회원정보수정</h4>
-
+      	 
 		<div class="row">
-  			<div class="col-md-10">
+  			<div class="col-md-12">
   				 <label for="inputEmail" class="sr-only">Email address</label>
-   				 <input type="hidden" id="inputEmail" name="email" class="form-control" value="${user.email}"placeholder="Email address">
+   				 <input type="hidden"  id="inputEmail" name="email" class="form-control" value="${user.email}"placeholder="Email address">
  			 </div>
  			 <div class="col-md-2">
    				 <input id="email" type="hidden" disabled></input>
@@ -357,7 +389,7 @@ function preview_images()
   		</div>
   		
   		<div class="row">
-  			<div class="col-md-10">
+  			<div class="col-md-12">
   				 <label for="inputName" class="sr-only">Name</label>
    				 <input type="text" id="inputName" name="name" class="form-control" value="${user.name}" placeholder="Name">
  			 </div>
@@ -367,7 +399,7 @@ function preview_images()
   		</div>
   		
   		<div class="row">
-  			<div class="col-md-10">
+  			<div class="col-md-12">
   				 <label for="inputNicname" class="sr-only">Nicname</label>
    				 <input type="text" id="inputNicname" name="nicname" class="form-control" value="${user.nicname}" placeholder="Nicname">
  			 </div>
@@ -377,7 +409,7 @@ function preview_images()
   		</div>
   		
   		<div class="row">
-  			<div class="col-md-10">
+  			<div class="col-md-12">
   				 <label for="inputPhone" class="sr-only">inputPhone</label>
    				 <input type="text" id="inputPhone" name="phone" class="form-control" value="${user.phone}" placeholder="inputPhone">
  			 </div>
@@ -386,16 +418,15 @@ function preview_images()
   			</div>
   		</div>
   		
-		<input id="add" type="button" onClick="goPopup();" value="주소검색" />
-					<div id="list"></div>
-					<div id="callBackDiv">
+				<div id="list" ></div>
+					<div id="callBackDiv" style="height: 50px;
+">
 						<table>
 							<tr>
-								<td id="addName">주소</td>
-								<td><input type="text" style="width: 500px;"
-									id="roadFullAddr" name="address" value="${user.address}" /></td>
-							</tr>
-							<tr>			
+								<td><input type="text" style="width: 512px !important;"
+									id="roadFullAddr" name="address" />
+									<span><input id="add" type="button" onClick="goPopup();" value="주소검색" /></span>
+								</td>
 							</tr>
 							<tr>
 								<!-- <td></td> -->	
@@ -426,7 +457,7 @@ function preview_images()
 				<input id="gender" type="radio" name="gender" value="male" class="MS_radio">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" checked="">여</td>
 				</c:when>	
 				<c:otherwise>
-<input id="gender" type="radio" name="gender" value="male" class="MS_radio" checked="">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" >여</td>				
+					<input id="gender" type="radio" name="gender" value="male" class="MS_radio" checked="">남 <input id="gender" type="radio" name="gender" value="female" class="MS_radio" >여</td>				
 				</c:otherwise>
 			</c:choose>	
 				
@@ -435,12 +466,17 @@ function preview_images()
 				
 			</div>
 				</span>
-				<span id="profilehh" class='col-lg-3 col-sm-12 tb '> 
-				
+				<span id="profilehh" class='col-lg-3 col-sm-12 tb ' style="margin-left: 10px;"> 
 				</span>
-			</div>	
-							
-			
+			</div>
+			<div style="text-align:center; width: 100px;">
+		  		
+		  		<input style="width: 426px !important; margin-bottom: 10px; margin-left: 173px !important;" type="file" class="form-control" id="images" name="file" onchange="preview_images();">
+		  	<%-- <div >	
+		  		<img  src="${pageContext.request.contextPath }/upload" class="imgSize" style="background-color: red; width: 100px; height: 100px; margin-bottom: 0px;">
+		  	</div> --%>	
+		  	</div>
+
 				
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------  --> 
          
@@ -448,20 +484,18 @@ function preview_images()
         <button class="btn btn-lg btn-primary btn-block" id="btnb" type="button">수정완료</button>
         <a href="${pageContext.request.contextPath }/user/modifyform" class="btn btn-lg btn-info btn-block" id="default">다시하기</a>
       </form>
+    </div>
     
+    </div>
+    </div>
+    </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
-<div class="row tb">
+<div class="row tb" style="width:100px; border:1px;">
 		 <form id="ffff" action="${pageContext.request.contextPath }/user/proimage" method="post" enctype="multipart/form-data">
-		  <div id="absol" class="col-lg-2 col-sm-12 tb ">
-		      <input type="file" class="form-control" id="images" name="file" onchange="preview_images();">
-		  </div>
-		 <!--  <div class="col-lg-3 col-sm-12 tb ">
-		      <input id="bttt" type="submit" class="btn btn-primary" name='submit_image' value="Upload Multiple Image" disabled/>
-		  </div>  -->
+			<div class="row" id="image_preview"></div>
 		 </form>
 		
-		 <div class="row" id="image_preview"></div>
-
+</div>
 <script type="text/javascript">
 function preview_images() 
 {
@@ -470,7 +504,7 @@ $('#mo').val("change");
  var total_file=document.getElementById("images").files.length;
  for(var i=0;i<total_file;i++)
  {
-  $('#profilehh').append("<img class='imgSize' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
+  $('#profilehh').append("<img class='imgSize' style='width:100px; height:100px;' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
  }
 
 }
@@ -478,7 +512,7 @@ $('#mo').val("change");
 
 		
   <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-   	<!--  sns로그인자의 비밀번호 변경을 막을려함 -->
+   	<%-- <!--  sns로그인자의 비밀번호 변경을 막을려함 -->
     <c:choose>
     <c:when test="${(user.email != user.password) && user.phone != 'noinput'}">
    
@@ -534,30 +568,15 @@ $('#mo').val("change");
       <c:otherwise>
       </c:otherwise>
       </c:choose>
-    </div>
-    </div> 
-    
-    <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-	<form id="move" method="get" action="${pageContext.request.contextPath}/user/index">
+      --%>
+      <form id="move" method="get" action="${pageContext.request.contextPath}/user/index">
    <input id="mo" type="hidden" value="${sessionScope.authUser.profile_no}">
-   </form>    
+   </form> 
    
-    <!-- /.container -->
-
-    <footer class="bg-faded text-center py-5">
-      <div class="container">
-        <p class="m-0">Copyright &copy; Your Website 2017</p>
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/popper/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	
-	
-	
-	
+    <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
+<br><br><br><br><br><br><br>
+</div>
+    <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
   </body>
   
   
@@ -578,7 +597,7 @@ $(document).ready(function(){
 	var mo=$('#mo').val();
 	console.log(mo);
 	$.ajax({	
-		url : "${pageContext.request.contextPath }/user/image",		
+		url : "${pageContext.request.contextPath }/user/image2",		
 			type : "post",
 			data : {mo: mo},  
 		 	dataType : 'text', 
@@ -598,7 +617,7 @@ $(document).ready(function(){
 function render(result){
 	console.log("render 들어옴");
 	var str ="";
-	str+="<div style='text-align:center'><img src='${pageContext.request.contextPath }/upload/"+result+"' class='imgSize' />";
+	str+="<div style='text-align:center'><img src='${pageContext.request.contextPath }/upload/"+result+"' class='imgSize' style='width:100px; height:100px; border: 3px solid #bcbdc1 !important;'/>";
 	str+="</div>";
 	console.log("render 끝");
 	$("#profilehh").append(str);	

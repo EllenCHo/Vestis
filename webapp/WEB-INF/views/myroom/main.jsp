@@ -12,7 +12,7 @@
 <meta name="author" content="">
 
 
-<title>My room</title>
+<title>Vestis</title>
 
 <!-- Custom fonts for this template -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -143,7 +143,7 @@
 				<!-- 사진 -->
 				<div class="carousel-inner systemCodiList" role="listbox">
 					<div class="carousel-item">
-						<img id="yesterdayCodi" class="d-block img-fluid w-100"
+						<img id="yesterdayCodi" style="height:440px;" class="d-block img-fluid w-100"
 							src="${pageContext.request.contextPath}/assets/img/base_systemRecommendImg.png"
 							alt="1">
 						<div class="carousel-caption d-none d-md-block systemLabel">
@@ -154,7 +154,7 @@
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
-						<canvas id="todayCanvas" width="412" height="453"
+						<canvas id="todayCanvas" width="357" height="440"
 							style="background: #FFFFF;"></canvas>
 						<input id="data" name="data" type="hidden"> <input
 							id="info_weather" name="weather" type="hidden"
@@ -169,7 +169,7 @@
 						</div>
 					</div>
 					<div class="carousel-item">
-						<canvas id="tomorrowCanvas" width="412" height="453"
+						<canvas id="tomorrowCanvas"  width="357" height="440"
 							style="background: #FFFFFF;"></canvas>
 						<div class="carousel-caption d-none d-md-block systemLabel">
 							<h3 class="text-shadow" style="color: black;">
@@ -243,7 +243,7 @@
 			$('#todayCanvas').remove();
 			
 			str = "";
-			str += "<img class=\"d-block img-fluid w-100\" style=\"height:452.83px;\"";
+			str += "<img class=\"d-block img-fluid w-100\" style=\"height:440px;\"";
 			str += "	src=\"${pageContext.request.contextPath}/upload/${todayImg}\"";
 			str += "	alt=\"1\"/>";
 			
@@ -331,7 +331,6 @@
 		}
 		weatherImg.src = "${pageContext.request.contextPath}/assets/img/${tomorrowWeather}.png";
 
-		console.log("변경6");
 		var canvas = document.getElementById('tomorrowCanvas');
 		var ctx = canvas.getContext("2d");
 		ctx.fillStyle = "white";
@@ -362,12 +361,12 @@
 		weatherImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(weatherImg, 6, 6, 45, 45);
+			ctx.drawImage(weatherImg, 12, 6, 65, 65);
 		};
 
-		ctx.font = "15px Arial";
+		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${tomorrowTemp}", 53, 33);
+		ctx.fillText("${tomorrowTemp}", 82, 46);
 	}
 
 	function drawTodayCloth() {
@@ -388,11 +387,11 @@
 		ctx.drawImage(shoseImg, 200, 280, 150, 150);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
-		ctx.drawImage(weatherImg, 6, 6, 45, 45);
+		ctx.drawImage(weatherImg, 12, 6, 65, 65);
 
-		ctx.font = "15px Arial";
+		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${todayTemp}", 53, 33);
+		ctx.fillText("${todayTemp}", 82, 46);
 
 		console.log("todayCloth");
 		var todayImgData = document.getElementById('todayCanvas').toDataURL();

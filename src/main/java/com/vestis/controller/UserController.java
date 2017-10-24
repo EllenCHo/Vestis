@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.vestis.repository.UserDao;
 import com.vestis.service.UserService;
 import com.vestis.vo.UserVo;
 
@@ -22,9 +23,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private UserDao userDao;
+	
 	@RequestMapping("joinform")
 	public String joinform() {
-		System.out.println("joinform에 들어옴");
+		System.out.println("joinform�뿉 �뱾�뼱�샂");
 		return "user/joinform";
 	}
 	
@@ -32,12 +36,12 @@ public class UserController {
 	public String join(@ModelAttribute UserVo userVo){
 		System.out.println(userVo);
 		userService.join(userVo);
-		//weatherVo 사용법
+		//weatherVo �궗�슜踰�
 		/*WeatherVo we=new WeatherVo();
 		we.setting(userVo.getLat(),userVo.getLon());
 		System.out.println(we);
 		*/
-		System.out.println("join 들어옴");
+		System.out.println("join �뱾�뼱�샂");
 		return "index";
 	}
 	
@@ -54,7 +58,7 @@ public class UserController {
 		System.out.println(password);
 		int result;
 		UserVo authUser=userService.check(email,password);
-		System.out.println("마지막단계");
+		System.out.println("留덉�留됰떒怨�");
 		if(authUser != null) {
 			session.setAttribute("authUser", authUser);
 			result=1;
@@ -67,7 +71,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value="idcheck",method=RequestMethod.POST)
 	public int idcheck(@RequestParam("email") String email) {
-		System.out.println("들어옴");
+		System.out.println("�뱾�뼱�샂");
 		System.out.println(email);
 		int result=1;
 		result=userService.idcheck(email);
@@ -76,13 +80,19 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="image",method=RequestMethod.POST)
-	public UserVo getUserInfo(@RequestParam("mo") int mo) {
-		System.out.println(mo);
-		UserVo userVo =userService.getUserInfo(mo);
+	@RequestMapping(value="getUserInfo",method=RequestMethod.POST)
+	public UserVo getUserInfo(@RequestParam("no") int no) {
+		UserVo userVo =userService.getUserInfo(no);
 		System.out.println("완주");
 		System.out.println(userVo);
 		return userVo;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="image2",method=RequestMethod.POST)
+	public String image2(@RequestParam("mo") int mo) {
+		String saveName=userDao.image(mo);
+		return saveName;
 	}
 	
 	@ResponseBody
@@ -102,21 +112,21 @@ public class UserController {
 			System.out.println(authUser);
 			
 			if(auths != null) {
-				//이미 로그인이 되어 있는 상태
+				//�씠誘� 濡쒓렇�씤�씠 �릺�뼱 �엳�뒗 �긽�깭
 				return 2;
 			} else {
-				//로그인이 안되어 있는 상태
+				//濡쒓렇�씤�씠 �븞�릺�뼱 �엳�뒗 �긽�깭
 				
-				//회원가입 유무 확인
+				//�쉶�썝媛��엯 �쑀臾� �솗�씤
 				if(authUser != null) {
-				//회원가입은 되어 있음
+				//�쉶�썝媛��엯�� �릺�뼱 �엳�쓬
 				session.setAttribute("authUser", authUser);
 				
 				return 1;	
 						
 				}
 				UserVo auth=new UserVo();
-				//회원가입도 안되어 있음
+				//�쉶�썝媛��엯�룄 �븞�릺�뼱 �엳�쓬
 				auth.setEmail(id);
 				auth.setPassword(id);
 				auth.setName(name);
@@ -131,8 +141,8 @@ public class UserController {
 			}
 			
 		} else {
-			//페북로그인 실패
-			System.out.println("로그인실패");
+			//�럹遺곷줈洹몄씤 �떎�뙣
+			System.out.println("濡쒓렇�씤�떎�뙣");
 			
 			return 0;
 		}
@@ -165,7 +175,7 @@ public class UserController {
 		user.setBirthmonth(value[1]);
 		user.setBirthday(val[0]);
 		
-		System.out.println("모든 정보");
+		System.out.println("紐⑤뱺 �젙蹂�");
 		System.out.println(user);
 		model.addAttribute("user", user);
 		
@@ -187,7 +197,7 @@ public class UserController {
 		int num=userService.restore(file,personNo);
 		authuser.setProfile_no(num);
 		System.out.println(num);
-		System.out.println("들어옴");
+		System.out.println("�뱾�뼱�샂");
 		System.out.println(file);
 		return "index";
 	}

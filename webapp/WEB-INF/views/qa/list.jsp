@@ -176,13 +176,13 @@ margin-bottom:10px
 				
 				
 				<div id="board">
-				<form id="search_form" action="${pageContext.request.contextPath }/qa/search" method="get" style="text-align: center">
-					<input type="text" id="kwd" name="kwd" value="${param.kwd}">
-					<input type="hidden" id="currNo" name="currNo" value="1">
+					<form id="search_form" action="${pageContext.request.contextPath }/qa/search" method="get" style="text-align: center">
+						<input type="text" id="kwd" name="kwd" value="${param.kwd}">
+						<input type="hidden" id="currNo" name="currNo" value="1">
 					
-					<input type="submit" value="찾기">
-				</form>
-      	</div>
+						<input type="submit" value="찾기">
+					</form>
+      			</div>
 				
 				
 				

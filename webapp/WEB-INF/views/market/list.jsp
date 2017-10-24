@@ -216,11 +216,25 @@ a {
 <!-- ----------------------------------------------------------------------------------- -->
 	<div class="col-md-12">
 		
-            <form id="searchbox" action="${pageContext.request.contextPath }/market/search" >
+		<div id="board">
+		 <div class="container" style="padding-left: 680px; padding-right: 0px;">
+			<form id="search_form" action="${pageContext.request.contextPath }/market/search" method="get">
+				<input type="text" id="kwd" name="kwd" value="${param.kwd}">
+				<input type="hidden" id="currNo" name="currNo" value="1">
+				<input type="submit" value="찾기"  style="padding-bottom:1px; height: 35px;">
+			</form>
+		 </div>	
+      	</div>
+		
+		
+		
+		
+		
+            <%-- <form id="searchbox" action="${pageContext.request.contextPath }/market/search" >
     			<input id="kwd" type="text" placeholder="Type here" id="kwd" name="kwd" value="${param.kwd}">
     			<input type="hidden" id="currNo" name="currNo" value="1">
     			<input id="submit" type="submit" value="Search">
-			</form>
+			</form> --%>
       	
       	
 				

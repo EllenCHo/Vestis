@@ -22,6 +22,7 @@ import com.vestis.vo.MarketVo;
 import com.vestis.vo.PageVo;
 import com.vestis.vo.UserVo;
 
+
 @Controller
 @RequestMapping("/market")
 public class MarketController {
@@ -144,7 +145,8 @@ public class MarketController {
 	// 3
 	@ResponseBody
 	@RequestMapping(value = "/comment", method = RequestMethod.POST)
-	public List<MarketCommentVo> comment(@RequestParam("text") String text, @RequestParam("no") int no, HttpSession session) {
+	public List<MarketCommentVo> comment(@RequestParam("text") String text, @RequestParam("no") int no,
+			HttpSession session) {
 		System.out.println("===============================================");
 		
 		UserVo userVo = (UserVo) session.getAttribute("authUser");
