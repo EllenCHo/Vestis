@@ -536,7 +536,7 @@ function choosebtnClick(no) {
 		}
 	});
 }
-/* 
+ 
 // 좋아요함수 
 function likebtnClick(voNo, authNo) {
 	console.log(voNo+authNo);
@@ -554,6 +554,7 @@ function likebtnClick(voNo, authNo) {
 	});
 }
 
+/*
 // 삭제함수
 function deletebtnClick(no) {
 	$.ajax({
