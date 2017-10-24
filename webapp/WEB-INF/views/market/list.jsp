@@ -323,11 +323,13 @@ a {
 						</c:if>
 					
 					</ul>
-				</div>				
+				</div>	
+				
+				<c:if test="${authUser != null }">			
 				<div class="col-sm-12" style="text-align:right;">
 					<button id=butn3 type="button" class="btn btn-primary point"  onClick="location.href='${pageContext.request.contextPath }/market/writeform?currNo=${page.currNo}';"><p class="hn">글 쓰기</p></button>
 				</div>			
-				
+				</c:if>
 				
 			</div>
 		</div>
