@@ -271,7 +271,7 @@
 }
 
 #images {
-	width: 438px;
+	width: 470px;
 	border: 1px solid #bcbdc1 !important;
 }
 
