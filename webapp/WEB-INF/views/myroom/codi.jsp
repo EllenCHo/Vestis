@@ -340,12 +340,12 @@
 <script type="text/javascript">
 	//메뉴를 클릭했을 때 그 메뉴가 강조
 	$(".nav-link").click(function() {
-		$(".menu").removeClass("active");
-
 		var menunum = $(this).data("selectnum");
 		$("#clothList").empty();
 		fetchList(menunum);
 		/* $this.addClass("active"); */
+		
+		$(".nav-item a").removeClass("active");
 
 	});
 </script>

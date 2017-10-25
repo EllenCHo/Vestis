@@ -623,7 +623,6 @@
 		$("#codibookItemList").empty();
 		es_fetchBook(listType);
 		
-		$(".nav-item a").parents("li").removeClass("active");
 		$(".nav-item a").removeClass("active");
 	});
 </script>
