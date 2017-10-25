@@ -104,7 +104,7 @@
 
 <!-- ---------------------------------------------------------------------- -->
 
-	<div class="col-md-10 content container tb2" >
+	<div class="col-md-10 container tb2" >
 		<!-- 사진 전체틀1 -->
 		<div class="photo-size h-back my-4 hj-border">
 			<!-- Image Carousel -->
@@ -304,9 +304,8 @@
 		var str = "";
 		str += "<div class=\"list"+no+" carousel-item\">";
 		str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/upload/"+codiList.codi+"\" alt=\"추천코디\">";
-		str += "    <div class=\"carousel-caption d-none d-md-block\">";
-		str += "      <h5 class=\"text-shadow\" style=\"color:black;\">\""
-				+ codiList.otherNicname + "\"님의 추천 코디</h5>";
+		str += "    <div class=\"carousel-caption d-none d-md-block\" style=\"bottom:1px;\">";
+		str += "      <h5 class=\"text-shadow\" style=\"color:black;\"><strong>\""+ codiList.otherNicname + "\"님의 추천 코디</strong></h5>";
 		str += "    </div>";
 		str += "</div>";
 		$(".personCodiList").append(str);

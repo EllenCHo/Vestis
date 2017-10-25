@@ -471,7 +471,7 @@
 		
 		
 		str += "		<div class='row'>";
-		str += "			<a style=\"display:inline-flex; margin-bottom:2%;\" href=\"${pageContext.request.contextPath}/myroom/"+CodibookVo.otherNo+"\"";
+		str += "			<a style=\"display:inline-flex; margin-bottom:2%;\" href=\"${pageContext.request.contextPath}/myroom/"+CodibookVo.otherNo+"\">";
 		str += "			<span class='h-iec'>";
 		str += "				<img style='margin: 6px 4px 0px 8px;' class='h-image-circle pointer' src='http://localhost:8088/Vestis/upload/"+CodibookVo.profile+"'>";
 		str += "			</span>";
@@ -622,6 +622,9 @@
 		console.log(listType);
 		$("#codibookItemList").empty();
 		es_fetchBook(listType);
+		
+		$(".nav-item a").parents("li").removeClass("active");
+		$(".nav-item a").removeClass("active");
 	});
 </script>
 
