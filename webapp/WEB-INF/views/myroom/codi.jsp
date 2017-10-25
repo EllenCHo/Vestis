@@ -357,9 +357,12 @@
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <!-- 옷 이미지에 대한 자바스크립트 -->
 <script type="text/javascript">
+	//z-index를 위한 변수 
+	//select함수에서 쓰임
+	var index = 0;
+	var count = 0;
 	//메뉴에서 옷을 클릭했을 때 왼쪽 공간에 옷이 추가되도록 함
 	function clothAdd() {
-		var count = 0;
 		$("[name=cloth]").click(function choose() {
 			var layer = event.srcElement;
 
@@ -370,13 +373,14 @@
 
 			//tabindex : 옷 이미지를 클릭했을 때 하늘색 테두리가 나오도록 하기 위함
 			//select(count) : 옷 이미지를 클릭했을 때 옷이 맨 앞으로 나오도록 zIndex를 설정하도록 함	
-			//remove(count) : 옷을 더블클릭하면 옷 이미지가 사라지도록 하는 메소드
-			var tag = "<div id=\"cloth"+ count+ "\" tabindex=\"1\" onclick=\"select("+ count+ ")\" class=\"clothBox\" >"
+			//remove(value) : 옷을 더블클릭하면 옷 이미지가 사라지도록 하는 메소드
+			var tag = "<div id=\"cloth"+ count+ "\" tabindex=\"1\" onclick=\"select("+ count+ ")\" class=\"clothBox\" style=\"z-index:"+index+"\">"
 					+ "<img src="+ img+ " ondblclick=\"remove("+ count+ ")\" id="+ value+ " class=\"clothdragger\" name=\"img\" style=\"width: 100%; height: 100%; cursor:pointer\" />"
 					+ "</div>";
 
 			count++;
-
+			index++;
+			
 			console.log(tag);
 
 			//왼쪽 공간에 이미지 추가
@@ -405,7 +409,6 @@
 	};
 
 	//이미지를 클릭했을 때 zIndex값을 1씩 증가시켜서 맨 앞으로 나오게 하는 메소드
-	var index = 1;
 	function select(no) {
 		$("#cloth" + no).css("zIndex", index);
 		index++;
