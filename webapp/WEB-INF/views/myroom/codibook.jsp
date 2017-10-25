@@ -150,8 +150,8 @@
 
 
 .deleteCodiBtn {
-  color: red;
-  background-color: none;
+  color: #55A79A;
+  background-color: white;
   background-image: none;
   border-color: #ababab;
 }
@@ -443,7 +443,7 @@
 		}
 		
 		if (userNo == authNo) {
-			str += "				<button type='button' class='deleteCodiBtn h-btn pointer' style='margin-right:10px' data-codibookitemno='"+ CodibookVo.no + "'><span style='font-color:red;'>X</span></button>";
+			str += "				<button type='button' class='deleteCodiBtn h-btn btn-outline-green' style='margin-right:10px; cursor:pointer' data-codibookitemno='"+ CodibookVo.no + "'>X</button>";
 		}
 		str += "			</span>";
 		

@@ -110,7 +110,7 @@
 				
 				
 				<!-- 탭 -->
-				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist" style="width: 90%;">
+				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist" style="width: 92.8%;">
 	              <li class="nav-item h-lr active"> 
 	              	<a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-selectnum="0">ALL</a>
 	               </li>
@@ -200,7 +200,7 @@
 		str += "			<span style=\"float:left; width: 80%;\"></span>";
 		str += "			<span  style=\"float:right; width: 10%;\">";
 						if(authNo == userNo) {
-							str +=  "<button type=\"button\" class=\"h-btn btn-outline-green deleteClothBtn\" value="+clothVo.no+">X</button>";
+							str +=  "<button type=\"button\" class=\"h-btn btn-outline-green deleteClothBtn\" style=\"cursor:pointer;\" value="+clothVo.no+">X</button>";
 						}
 		str += "			</span>";
 		str += "		</div>";
