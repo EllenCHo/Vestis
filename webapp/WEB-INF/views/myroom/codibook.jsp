@@ -42,6 +42,10 @@
 	width: 100%;
 }
 
+.btn {
+	cursor:pointer;
+}
+
 .btn-hover {
 	font-weight: normal;
 	color: #333333;
@@ -274,7 +278,7 @@
 						<hr>
 						<div class="row bts">
 							<div class="input-group" style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
-								<input class="form-control es_commentInput" placeholder="Add a comment" type="text" style="width:96%;"> 
+								<input class="form-control es_commentInput" placeholder="Add a comment" type="text" style="width:96% !important;"> 
 								<button class="input-group-addon es_commentButton" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
 							</div>
 							<ul class="comments-list" style="padding-left: 3.2%; padding-right: 3.2%; list-style: none; width: 100%;">

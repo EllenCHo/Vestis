@@ -19,6 +19,10 @@
 
 } 
 
+.btn {
+	cursor:pointer;
+}
+
 #kakao-login-btn {
 	width:180px;
 }

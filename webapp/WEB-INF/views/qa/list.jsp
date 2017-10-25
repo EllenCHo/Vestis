@@ -131,10 +131,11 @@ margin-bottom:10px
 		<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" onClick="location.href='${pageContext.request.contextPath }/qa/list?currNo=1';">FAQ & QnA</a> </li>
 	</ul>
 	
-	<div id=wributn class="col-sm-12" style="text-align:right; padding-right: 2px;" >
-		<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/qa/writeform?currNo=${page.currNo}';">글 쓰기</button>
-	</div>
-				
+	<c:if test="${authUser != null }">
+		<div id=wributn class="col-sm-12" style="text-align:right; padding-right: 2px;" >
+			<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/qa/writeform?currNo=${page.currNo}';">글 쓰기</button>
+		</div>
+	</c:if>		
       <div class="title">
 		<span style="color:#292b2c">FAQ & QNA</span>
 	  </div>
@@ -180,7 +181,7 @@ margin-bottom:10px
 						<input type="text" id="kwd" name="kwd" value="${param.kwd}">
 						<input type="hidden" id="currNo" name="currNo" value="1">
 					
-						<input type="submit" value="찾기">
+						<input type="submit" style="cursor:pointer;" value="찾기">	
 					</form>
       			</div>
 				

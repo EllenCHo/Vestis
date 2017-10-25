@@ -150,7 +150,7 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>어제의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow" style="color: black;">어제의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black; font-size:small">어제 날씨의 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
@@ -165,7 +165,7 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>오늘의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow" style="color: black;">오늘의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black; font-size:small">오늘 날씨의 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -175,7 +175,7 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>내일의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow" style="color: black;">내일의 날씨에 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black; font-size:small">내일 날씨의 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 				</div>

@@ -40,6 +40,10 @@
 	padding-bottom: 10px !important;
 }
 
+.btn {
+	cursor:pointer;
+}
+
 .h-top {
 	padding-bottom: 10px !important;
 }
@@ -134,6 +138,10 @@
 			
 				<c:if test="${authUser.no == userNo }">
 					<button type="button" class="btn btn-outline-green " onclick="location.href='add/${userNo}?submenu=wardrobe'" style="height:42px;">등록</button>
+				</c:if>
+				
+				<c:if test="${authUser.no != userNo }">
+					<ul  class="nav nav-tabs flex-column flex-lg-row" style="width:5.7%;"></ul>
 				</c:if>
 			</div>
 
