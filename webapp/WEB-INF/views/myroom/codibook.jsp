@@ -467,11 +467,13 @@
 		
 		
 		str += "		<div class='row'>";
+		str += "			<a style=\"display:inline-flex; margin-bottom:2%;\" href=\"${pageContext.request.contextPath}/myroom/"+CodibookVo.otherNo+"\"";
 		str += "			<span class='h-iec'>";
 		str += "				<img style='margin: 6px 4px 0px 8px;' class='h-image-circle pointer' src='http://localhost:8088/Vestis/upload/"+CodibookVo.profile+"'>";
 		str += "			</span>";
-		str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
-		str += "			<span class='text-primary' style='margin-left: 30px'>";
+		str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px; width:60%;' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
+		str += "			</a>";
+		str += "			<span class='text-primary' style='position:absolute; right:5%;'>";
 		
 		
 		if(CodibookVo.likeflag != 0){                                    
