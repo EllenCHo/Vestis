@@ -6,7 +6,7 @@
 
 
 
-<title>Insert title here</title>
+<title>Vestis</title>
 <% 
 
 	//response.setContentType("text/html; charset=UTF-8");

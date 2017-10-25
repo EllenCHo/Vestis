@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>clothes</title>
+<title>Vestis</title>
 
 
 <!--자신이 만든 css-->
@@ -213,7 +213,7 @@ padding:0;
 			<div class="itemlist">	
 				<!-- 랜덤순 타이틀 -->
 				<div class="title">
-					<span style="color:#292b2c">우연한만남</span>
+					<span id="startRamdomCloth" style="color:#292b2c; cursor:pointer;">우연한만남</span>
 		  		</div>
 		  		
 		  		<!-- 랜덤순 카드 -->
@@ -473,6 +473,7 @@ function es_fetchBookRegDate(typeNo) {
 					$("#hitItem").append(str);
 					console.log("hitItem");
 				}else if(typeNo=="random"){
+					$("#randomItem").empty();
 					$("#randomItem").append(str);
 					console.log("randomItem");
 				}
@@ -660,6 +661,13 @@ function es_renderRegDate(CodibookVo) {
 	}
 	
 	
+</script>
+
+<script type="text/javascript">
+	$('#startRamdomCloth').on("click", function(){
+		console.log("랜덤 클릭");
+		es_fetchBookRegDate("random");
+	});
 </script>
 <!-- 댓글창 스크립트 -->
 <script type="text/javascript">

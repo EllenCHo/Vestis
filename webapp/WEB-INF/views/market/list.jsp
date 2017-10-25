@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Market</title>
+<title>Vestis</title>
 	
 <!--자신이 만든 css-->
 <!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
@@ -323,11 +323,13 @@ a {
 						</c:if>
 					
 					</ul>
-				</div>				
+				</div>	
+				
+				<c:if test="${authUser != null }">			
 				<div class="col-sm-12" style="text-align:right;">
 					<button id=butn3 type="button" class="btn btn-primary point"  onClick="location.href='${pageContext.request.contextPath }/market/writeform?currNo=${page.currNo}';"><p class="hn">글 쓰기</p></button>
 				</div>			
-				
+				</c:if>
 				
 			</div>
 		</div>

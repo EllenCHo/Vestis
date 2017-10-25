@@ -31,6 +31,10 @@
 	margin-bottom:5px;
 }
 
+.form-control{
+	width:100% !important;
+}
+
 </style>
 
 <!-- 로그인관련 페이스북 js -->
