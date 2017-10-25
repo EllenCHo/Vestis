@@ -147,10 +147,10 @@ div > #paging {
 }
 
 /* Important part */
-.modal-dialog{
+#modalCloset{
     overflow-y: initial !important
 }
-.modal-body{
+#sendh{
     height: 700px;
     overflow-y: auto;
 }
@@ -351,7 +351,7 @@ function render(clothVo,updown,i){	//사진뿌리는 틀
 	var str ="";  
 	
 	
-	str+="<div href='#close' class='imgbox' style=\"margin-bottom:3% !important\" onclick='return false;' >"; 
+	str+="<div href='#close' class='imgbox' style=\"margin-bottom:3% !important; margin-right:0 !important;\" onclick='return false;' >"; 
 	str+="	<img id='"+i+"' height='100%'  class='point closetImg' src='${pageContext.request.contextPath }/upload/"+ clothVo.dbName +"'>";
 	str+="	<div style=\"text-align:center;\">입은 횟수 : "+clothVo.count+"번</div>";
 	str+="</div>";
