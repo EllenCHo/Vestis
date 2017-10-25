@@ -473,7 +473,6 @@ function es_fetchBookRegDate(typeNo) {
 					$("#hitItem").append(str);
 					console.log("hitItem");
 				}else if(typeNo=="random"){
-					$("#randomItem").empty();
 					$("#randomItem").append(str);
 					console.log("randomItem");
 				}
@@ -668,6 +667,7 @@ function es_renderRegDate(CodibookVo) {
 <script type="text/javascript">
 	$('#startRamdomCloth').on("click", function(){
 		console.log("랜덤 클릭");
+		$("#randomItem").empty();
 		es_fetchBookRegDate("random");
 	});
 </script>

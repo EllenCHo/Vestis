@@ -246,8 +246,8 @@ div > #paging {
 <!-- 옷올리기 모달 -->
 <div class="white_content" id="open">
 	<div id='modalCloset'>
-		<div style="margin-bottom:2%;">
-		<span style="margin-left:1%;">잘 안 입는 옷 순서대로 표시됩니다.</span>
+		<div>
+		<span style="margin-left:1%; font-size:x-large;"><strong>잘 안 입는 옷 순서입니다.</strong></span>
         <div class="text-right" style="display:inline; position:absolute; right:5%;">
         	<input type="button" class="btn btn-primary point" value="닫기" id="modalCloseBtn">
         </div>
