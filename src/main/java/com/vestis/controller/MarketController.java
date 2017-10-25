@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vestis.service.MarketService;
+import com.vestis.vo.ClothVo;
 import com.vestis.vo.ImgVo;
 import com.vestis.vo.MarketCommentVo;
 import com.vestis.vo.MarketVo;
@@ -101,8 +102,8 @@ public class MarketController {
 	//
 	@ResponseBody
 	@RequestMapping(value = "/get")
-	public List<ImgVo> get() {
-		List<ImgVo> list = marketService.get();
+	public List<ClothVo> get(@RequestParam("userNo") int userNo) {
+		List<ClothVo> list = marketService.get(userNo);
 		System.out.println(list);
 		return list;
 	}

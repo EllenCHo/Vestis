@@ -146,6 +146,14 @@ div > #paging {
 	align: center !important;
 }
 
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 700px;
+    overflow-y: auto;
+}
 </style>
 
 
@@ -318,9 +326,9 @@ $(document).ready(function(){	//all뿌려줌
    	
   
     $.ajax({
-    	url : "${pageContext.request.contextPath }/myroom/get",
+    	url : "${pageContext.request.contextPath }/market/get",
         type : "post",
-		data: {clothNo:clothNo, userNo: authNo},
+		data: {userNo: authNo},
         dataType : "json",
         success : function(clothList){   
 	        console.log("ajax들어옴");
@@ -339,10 +347,13 @@ $(document).ready(function(){	//all뿌려줌
 
 
 function render(clothVo,updown,i){	//사진뿌리는 틀
+	console.log("여기!");
 	var str ="";  
-
-	str+="<div href='#close' class='imgbox' onclick='return false;' >"; 
+	
+	
+	str+="<div href='#close' class='imgbox' style=\"margin-bottom:3% !important\" onclick='return false;' >"; 
 	str+="	<img id='"+i+"' height='100%'  class='point closetImg' src='${pageContext.request.contextPath }/upload/"+ clothVo.dbName +"'>";
+	str+="	<div style=\"text-align:center;\">입은 횟수 : "+clothVo.count+"번</div>";
 	str+="</div>";
     
 	

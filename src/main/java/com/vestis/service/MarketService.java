@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vestis.repository.MarketDao;
-import com.vestis.vo.ImgVo;
+import com.vestis.vo.ClothVo;
 import com.vestis.vo.MarketCommentVo;
 import com.vestis.vo.MarketVo;
 import com.vestis.vo.PageVo;
@@ -21,8 +21,8 @@ public class MarketService {
 		return marketDao.insert(marketVo);
 	}
 	
-	public List<ImgVo> get() {//보내줄 조건 없고 리스트로 받아
-		return marketDao.getlist();
+	public List<ClothVo> get(int userNo) {//보내줄 조건 없고 리스트로 받아
+		return marketDao.getlist(userNo);
 		/*public List<MarkwtVo> getlist(int )*/
 	}
 	

@@ -10,11 +10,12 @@
 		]]>
 	</insert>
 	
-	<select id="getList" resultType="com.vestis.vo.ImgVo">
+	<select id="getList" parameterType="int" resultType="com.vestis.vo.ClothVo">
 	<![CDATA[
-		select c.img_no imgNo,i.db_name dbName, c.count count
+		select c.no no,i.db_name dbName, c.count count
 		from cloth c,img i
 		where c.img_no=i.no
+			and c.person_no = #{no}
 		order by c.count asc
 	]]>
 	</select> 
