@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vestis.service.CogellService;
 import com.vestis.service.MarketService;
@@ -51,7 +48,7 @@ public class MainController {
 		
 		
 		
-		/*중고장터*/
+		/*중고장터
 		int currNo = 1;
 
 		PageVo pageVo2 = marketService.getPage2(currNo);
@@ -60,7 +57,7 @@ public class MainController {
 		for (int i = 0; i < marketList.size(); i++) {
 			marketList.get(i).setSavename(marketService.image(marketList.get(i).getCloth_no()));
 		}
-		System.out.println("marketList:" + marketList.toString());
+		System.out.println("marketList:" + marketList.toString());*/
 
 		
 		model.addAttribute("redateList", redateList);
@@ -68,7 +65,7 @@ public class MainController {
 		model.addAttribute("randomList", randomList);
 		model.addAttribute("clothRankList", clothRankList);
 		model.addAttribute("joinRankList", joinRankList);
-		model.addAttribute("marketList", marketList);
+		/*model.addAttribute("marketList", marketList);*/
 		
 		
 		return "index";
