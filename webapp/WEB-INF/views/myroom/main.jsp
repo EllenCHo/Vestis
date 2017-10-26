@@ -246,13 +246,13 @@
 			
 			console.log("로딩 끝");
 
-			console.log("오늘의 코디");
 			
-			//캔버스에 옷 그리기
-			drawTodayCloth();
+			
+			
 
+			
 			//캔버스에 그려진것 저장하는 함수
-			saveTodayCodi();
+			//saveTodayCodi();
 			
 			
 		} else {
@@ -271,6 +271,18 @@
 		getPersonCodi(no);
 	});
 
+	$(window).ready(function(){ 
+		if ("${todayImg}" == "") {
+			console.log("오늘의 코디");
+			//캔버스에 옷 그리기
+			setTimeout(function() { drawTodayCloth();}, 300);
+			console.log("지연")
+			
+			//캔버스에 그려진것 저장하는 함수
+			setTimeout(function() { saveTodayCodi();}, 500);
+			console.log("완료")
+		}
+	});
 	
 	//사용자 추천 ajax 함수
 	function getPersonCodi(no) {
@@ -343,21 +355,21 @@
 		topImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(topImg, 15, 10, 200, 200);
+			ctx.drawImage(topImg, 20, 70, 130, 130);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		bottomImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(bottomImg, 70, 130, 200, 200);
+			ctx.drawImage(bottomImg, 110, 160, 130, 130);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		shoesImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(shoesImg, 185, 250, 130, 130);
+			ctx.drawImage(shoesImg, 210, 270, 100, 100);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
@@ -383,15 +395,15 @@
 
 		var topImg = document.getElementById("todayImg0");
 		console.log(topImg);
-		ctx.drawImage(topImg, 15, 10, 200, 200);
+		ctx.drawImage(topImg, 20, 70, 130, 130);
 
 		var bottomImg = document.getElementById("todayImg1");
 		console.log(bottomImg);
-		ctx.drawImage(bottomImg, 70, 130, 200, 200);
+		ctx.drawImage(bottomImg, 110, 160, 130, 130);
 
 		var shoseImg = document.getElementById("todayImg2");
 		console.log(shoseImg);
-		ctx.drawImage(shoseImg, 185, 250, 130, 130);
+		ctx.drawImage(shoseImg, 210, 270, 100, 100);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
 		console.log(weatherImg);
@@ -403,9 +415,8 @@
 
 		console.log("todayCloth");
 		var todayImgData = document.getElementById('todayCanvas').toDataURL();
-		console.log(todayImgData);
 		$('#data').val(todayImgData);
-
+		
 	}
 
 	function saveTodayCodi(clothItems) {
