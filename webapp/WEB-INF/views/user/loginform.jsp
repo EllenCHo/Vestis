@@ -76,7 +76,8 @@
 						<span class="help-block"></span>
 					</div>
 					<div class="form-group">
-						<label for="password" class="control-label">Password</label> <input
+						<label for="password" class="control-label">Password</label> 
+						<input
 							type="password" class="form-control" id="password"
 							name="password" value="" required=""
 							title="Please enter your password" placeholder="Password"> <span
@@ -270,6 +271,15 @@ document.getElementById('loginBtnn').addEventListener('click', function() {
 				<!-- 로그인 관련  -->
 				<script type="text/javascript">	
 				$("#loginbtn").on("click",function(){
+					loginfunction();
+					
+				});
+				
+				<!-- 엔터를 쳤을 시에 로그인이  됨 -->
+				$("#password").keyup(function(e){if(e.keyCode == 13)  loginfunction(); });
+				$("#username").keyup(function(e){if(e.keyCode == 13)  loginfunction(); });
+				
+				function loginfunction() {
 					var email=$('#username').val();
 					var password=$('#password').val();
 					console.log(email);
@@ -302,7 +312,7 @@ document.getElementById('loginBtnn').addEventListener('click', function() {
 								
 							}
 						});
-				});
+				}
 				</script>
 			</div>
       <div class="modal-footer">
