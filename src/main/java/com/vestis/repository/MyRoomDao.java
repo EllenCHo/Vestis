@@ -177,4 +177,14 @@ public class MyRoomDao {
 	public String getYesSystemCodi(int no) {
 		return sqlSession.selectOne("myroom.getYesSystemCodi", no);
 	}
+	
+	public CodibookVo codibookset(int codiNo,int personNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("codiNo", codiNo);
+		map.put("personNo", personNo);
+		List<CodibookVo> codi= sqlSession.selectList("myroom.codibookset", map);
+		CodibookVo coVo=codi.get(0);
+		return coVo;
+	}
+	
 }

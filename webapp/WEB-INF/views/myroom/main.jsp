@@ -153,7 +153,7 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>어제의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow" style="color: black; font-size:small">어제 날씨의 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black;">어제의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
@@ -168,7 +168,7 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>오늘의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow" style="color: black; font-size:small">오늘 날씨의 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black;">오늘의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -178,7 +178,7 @@
 							<h3 class="text-shadow" style="color: black;">
 								<strong>내일의 추천 코디</strong>
 							</h3>
-							<p class="text-shadow" style="color: black; font-size:small">내일 날씨의 맞춘 시스템 추천 코디입니다.</p>
+							<p class="text-shadow" style="color: black;">내일의 날씨에 맞춘 시스템 추천 코디입니다.</p>
 						</div>
 					</div>
 				</div>
@@ -239,8 +239,21 @@
 				if("${cloth.dbName}" != "") {
 					console.log("${cloth.dbName}");
 					$("#todayImg${status.index}").attr('src', "${pageContext.request.contextPath}/upload/${cloth.dbName}");
+					
+					console.log($("#todayImg${status.index}").attr('src'));
 				}
 			</c:forEach>
+			
+			console.log("로딩 끝");
+
+			console.log("오늘의 코디");
+			
+			//캔버스에 옷 그리기
+			drawTodayCloth();
+
+			//캔버스에 그려진것 저장하는 함수
+			saveTodayCodi();
+			
 			
 		} else {
 			$('#todayCanvas').remove();
@@ -258,20 +271,7 @@
 		getPersonCodi(no);
 	});
 
-	window.onload = function() {
-		console.log("로딩 끝");
-		if ("${todayImg}" != "") {
-			console.log("오늘 코디 이미 해줌");
-		} else {
-			console.log("오늘의 코디");
-			//캔버스에 옷 그리기
-			drawTodayCloth();
-
-			//캔버스에 그려진것 저장하는 함수
-			saveTodayCodi();
-		}
-
-	}
+	
 	//사용자 추천 ajax 함수
 	function getPersonCodi(no) {
 		$.ajax({
@@ -307,8 +307,9 @@
 		var str = "";
 		str += "<div class=\"list"+no+" carousel-item\">";
 		str += " <img class=\"d-block img-fluid w-100\" src=\"${pageContext.request.contextPath}/upload/"+codiList.codi+"\" alt=\"추천코디\">";
-		str += "    <div class=\"carousel-caption d-none d-md-block\" style=\"bottom:1px;\">";
-		str += "      <h5 class=\"text-shadow\" style=\"color:black;\"><strong>\""+ codiList.otherNicname + "\"님의 추천 코디</strong></h5>";
+		str += "    <div class=\"carousel-caption d-none d-md-block\">";
+		str += "      <h5 class=\"text-shadow\" style=\"color:black;\">\""
+				+ codiList.otherNicname + "\"님의 추천 코디</h5>";
 		str += "    </div>";
 		str += "</div>";
 		$(".personCodiList").append(str);
@@ -374,6 +375,8 @@
 	function drawTodayCloth() {
 		var canvas = document.getElementById('todayCanvas');
 		var ctx = canvas.getContext("2d");
+		
+		//topImg.src = $("#todayImg0").attr('src');
 
 		ctx.fillStyle = "white";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -383,12 +386,15 @@
 		ctx.drawImage(topImg, 15, 10, 200, 200);
 
 		var bottomImg = document.getElementById("todayImg1");
+		console.log(bottomImg);
 		ctx.drawImage(bottomImg, 70, 130, 200, 200);
 
 		var shoseImg = document.getElementById("todayImg2");
+		console.log(shoseImg);
 		ctx.drawImage(shoseImg, 185, 250, 130, 130);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
+		console.log(weatherImg);
 		ctx.drawImage(weatherImg, 12, 6, 65, 65);
 
 		ctx.font = "25px Arial bold";

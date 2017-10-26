@@ -201,4 +201,9 @@ public class MyRoomService {
 	public String getYesSystemCodi(int no) {
 		return myRoomDao.getYesSystemCodi(no);
 	}
+	
+	public CodibookVo codibookset(int codiNo,int personNo) {
+		return myRoomDao.codibookset(codiNo,personNo);
+	}
+	
 }
