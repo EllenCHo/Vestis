@@ -307,4 +307,32 @@
 			and person_no = 0
 		]]>
 	</select>
+	
+	
+	<select id="codibookset" parameterType="int" resultType="com.vestis.vo.CodibookVo">
+		<![CDATA[
+			select choose,likes,likeflag
+from (select no, otherNo, ownername, otherNicname, profile, codi, likes, choose, nvl2(like_person.person_no, 1, 0 ) likeflag
+			from like_person, (select codi.no no, p2.no otherNo, p2.nicname otherNicname, person.nicname ownername,
+									pro_img.db_name profile,
+									codiimg.db_name codi,
+									choose, NVL(likes, 0) likes
+									from codi, person, img codiimg, img pro_img, person p2,
+									     (select codi_no like_codi_no, count(like_person.person_no) likes 
+						                 from like_person
+						                 group by codi_no)
+									where p2.no = codi.person_no
+                            			and person.no = codi.other_no	
+										and other_no=#{personNo}
+			                            and codi_no = codiimg.no
+									    and p2.profile_no = pro_img.no
+			                            and codi.no = like_codi_no(+)
+									order by codi.no desc)
+			where no =like_person.CODI_NO(+)
+			and #{personNo}=like_person.PERSON_NO(+))
+            where no=#{codiNo}
+		]]>
+	</select>
+	
+	
 </mapper>

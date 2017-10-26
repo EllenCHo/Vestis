@@ -30,4 +30,11 @@ public class ClothListVo {
 		this.dbName = dbName;
 	}
 
+	@Override
+	public String toString() {
+		return "ClothListVo [no=" + no + ", dbName=" + dbName + "]";
+	}
+	
+	
+
 }
