@@ -65,6 +65,13 @@
 		]]>
 	</delete>
 	
+	<delete id="removeCodiCloth" parameterType="int">
+		<![CDATA[
+			delete from codi_cloth
+			where cloth_no = #{no}
+		]]>
+	</delete>
+	
 	<delete id="removeClothCal" parameterType="int">
 		<![CDATA[
 			delete from calculation

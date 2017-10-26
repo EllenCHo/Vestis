@@ -47,6 +47,7 @@ public class FileUploadDao {
 		int clothNo = sqlSession.selectOne("img.getClothNo", no);
 		System.out.println(clothNo);
 		sqlSession.delete("img.removeClothCal", clothNo);
+		sqlSession.delete("img.removeCodiCloth", clothNo);
 		sqlSession.delete("img.removeCloth", clothNo);
 		sqlSession.delete("img.removeClothImg", no);
 	}
