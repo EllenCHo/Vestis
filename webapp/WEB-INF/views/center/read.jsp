@@ -116,11 +116,11 @@ div > #paging {
 					<div class="col-md-12 text-right" >
 					
 					<c:if test="${empty param.kwd }">
-						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/list?currNo=${param.currNo}"><p class="hn">글목록</p></a>
+						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/list?currNo=${param.currNo}" style=" height: 36px;">글목록</a>
 					</c:if>
 				
 					<c:if test="${!(empty param.kwd) }">
-						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/search?currNo=${param.currNo}&kwd=${param.kwd}">글목록</a>
+						<a class="btn btn-primary" href="${pageContext.request.contextPath }/center/search?currNo=${param.currNo}&kwd=${param.kwd}" style=" height: 36px;">글목록</a>
 					</c:if>
 					
 					

@@ -151,6 +151,16 @@ padding:0;
     height: 700px;
     overflow-y: auto;
 }
+.codigallery{
+	background-image: url('/Vestis/assets/img/back58.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
+}
 
 </style>
 
@@ -164,7 +174,7 @@ padding:0;
 	
 <div class="codigallery">
 	<div class="container">
-	<h3>Codi Gallery</h3>
+	<h1>Codi Gallery</h1>
 	</div>
 </div>
 

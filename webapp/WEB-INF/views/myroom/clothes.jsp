@@ -67,13 +67,14 @@
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .clothes{
-	background-image: url('/Vestis/assets/img/back25.jpg');
+	background-image: url('/Vestis/assets/img/back38.jpg');
 	background-size:100%;
 	width : 100%;
 	height : 200px;
 	text-align: center;
 	padding-bottom:80px;
 	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
 
 </style>
@@ -84,7 +85,7 @@
 
 	<div class="clothes">
 		<div class="container">
-			<h3>clothes</h3>
+			<h1>clothes</h1>
 		</div>
 	</div>
 

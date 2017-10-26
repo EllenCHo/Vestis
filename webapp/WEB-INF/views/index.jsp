@@ -206,29 +206,29 @@ point
 	      	
 	      	<div class="carousel-inner" style="height:250px;" role="listbox">
 	        	<!-- 이미지 슬라이드  1번 -->
-	        	<div class="carousel-item active">
-	          		<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-1.jpg" alt="1">
+	        	<div class="item carousel-item active">
+	          		<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/banner01.png" alt="1">
 	          		<div class="carousel-caption d-none d-md-block">
-	            		<h3 class="text-shadow">First Slide</h3>
-	            		<p class="text-shadow">This is the caption for the first slide.</p>
+<!-- 	            		<h3 class="text-shadow">First Slide</h3>
+	            		<p class="text-shadow">This is the caption for the first slide.</p> -->
 	          		</div>
 	        	</div>
 	        
 	        	<!-- 이미지 슬라이드  2번 -->
-	        	<div class="carousel-item">
+	        	<div class="item carousel-item">
 	          		<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-2.jpg" alt="2">
 	          		<div class="carousel-caption d-none d-md-block">
-	            		<h3 class="text-shadow">Second Slide</h3>
-	            		<p class="text-shadow">This is the caption for the second slide.</p>
+	            		<!-- <h3 class="text-shadow">Second Slide</h3>
+	            		<p class="text-shadow">This is the caption for the second slide.</p> -->
 	          		</div>
 	        	</div>
 	        	
 	        	<!-- 이미지 슬라이드  3번 -->
-	        	<div class="carousel-item">
+	        	<div class="item carousel-item">
 	          		<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/assets/img/slide-3.jpg" alt="3">
 	          		<div class="carousel-caption d-none d-md-block">
-	            		<h3 class="text-shadow">Third Slide</h3>
-	            		<p class="text-shadow">This is the caption for the third slide.</p>
+	            		<!-- <h3 class="text-shadow">Third Slide</h3>
+	            		<p class="text-shadow">This is the caption for the third slide.</p> -->
 	          		</div>
 	        	</div>
 	      	</div>
@@ -414,84 +414,84 @@ point
 			<div class="row">
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[0].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[0].title}
 					</div>
 				</div>
 			
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[1].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[1].title}
 					</div>
 				</div>
 				
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[2].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[2].title}
 					</div>
 				</div>
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[3].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[3].title}
 					</div>
 				</div>
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[4].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[4].title}
 					</div>
 				</div>
 			
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[5].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[5].title}
 					</div>
 				</div>
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[6].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[6].title}
 					</div>
 				</div>
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/assets/img/markePro.png" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[7].savename}" class="hh-back marketImg" >
 					</div>
 					<div class="hh-line"></div>
 					<div class="marketText">
-						진짜 꼭 보네요. 안보면 후회 합니다.
+						${marketList[7].title}
 					</div>
 				</div>
 			</div>
@@ -511,7 +511,7 @@ point
 						<b>1</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/img/${clothRankList[0].profileDBName}">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${clothRankList[0].savename}">
 					</span>
 					<span class="userName"><b>${clothRankList[0].nicname}</b></span>
 					
@@ -522,9 +522,9 @@ point
 						<b>2</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${clothRankList[1].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${clothRankList[1].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-left" >
@@ -532,9 +532,9 @@ point
 						<b>3</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${clothRankList[2].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${clothRankList[2].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-right" >
@@ -542,9 +542,9 @@ point
 						<b>4</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${clothRankList[3].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${clothRankList[3].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-bottom-left" >
@@ -552,19 +552,19 @@ point
 						<b>5</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${clothRankList[4].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${clothRankList[4].nicname}</b></span>
 				</div>
 					
-				<div class="userItemBox-bottom-right" >
-					<span class="numberBox bg_blue">
+				<div class="userItemBox-bottom-right" style="height:47px;" >
+					<%-- <span class="numberBox bg_blue">
 						<b>6</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${clothRankList[5].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${clothRankList[5].nicname}</b></span> --%>
 				</div>
 			</div>
 		
@@ -578,10 +578,9 @@ point
 						<b>1</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${joinRankList[0].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
-					
+					<span class="userName"><b>${joinRankList[0].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-right" >
@@ -589,9 +588,9 @@ point
 						<b>2</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${joinRankList[1].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${joinRankList[1].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-left" >
@@ -599,9 +598,9 @@ point
 						<b>3</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${joinRankList[2].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${joinRankList[2].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-right" >
@@ -609,9 +608,9 @@ point
 						<b>4</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${joinRankList[3].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${joinRankList[3].nicname}</b></span>
 				</div>
 					
 				<div class="userItemBox-bottom-left" >
@@ -619,19 +618,19 @@ point
 						<b>5</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${joinRankList[4].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${joinRankList[4].nicname}</b></span>
 				</div>
 					
-				<div class="userItemBox-bottom-right" >
-					<span class="numberBox bg_purple">
+				<div class="userItemBox-bottom-right" style="height:47px;" >
+					<%-- <span class="numberBox bg_purple">
 						<b>6</b>
 					</span>
 					<span class="">
-						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/${joinRankList[5].savename}">
 					</span>
-					<span class="userName"><b>베라님</b></span>
+					<span class="userName"><b>${joinRankList[5].nicname}</b></span> --%>
 				</div>
 			</div>
 			
@@ -641,15 +640,15 @@ point
 				</div>
 				
 				<div class="noticeText dottedBorder-top" >
-					공지사항 입니다 공지사항
+					${noticeList[0].title}
 				</div>
 					
 				<div class="noticeText dottedBorder-top" >
-					공지사항 입니다 공지사항
+					${noticeList[1].title}
 				</div>
 				
 				<div class="noticeText dottedBorder-top" >
-					공지사항 입니다 공지사항
+					${noticeList[2].title}
 				</div>
 				
 				

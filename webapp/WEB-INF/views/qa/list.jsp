@@ -94,13 +94,14 @@ margin-bottom:10px
 }
 
 .service{
-	background-image: url('/Vestis/assets/img/back18.jpg');
+	background-image: url('/Vestis/assets/img/back50.jpg');
 	background-size:100%;
 	width : 100%;
 	height : 200px;
 	text-align: center;
 	padding-bottom:80px;
 	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
 
 </style>
@@ -114,7 +115,7 @@ margin-bottom:10px
 
 <div class="service">
 	<div class="container">
-	<h3>Service Center</h3>
+	<h1>Service Center</h1>
 	</div>
 </div>
 

@@ -75,14 +75,17 @@
 	padding-bottom: 1px !important;
 }
 .mymain{
-	background-image: url('/Vestis/assets/img/back39.jpg');
+	background-image: url('/Vestis/assets/img/back59.jpg');
 	background-size:100%;
 	width : 100%;
 	height : 200px;
 	text-align: center;
 	padding-bottom:80px;
 	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
+
+
 </style>
 
 </head>
@@ -92,7 +95,7 @@
 
 <div class="mymain">
 	<div class="container">
-	<h3>MY ROOM</h3>
+	<h1>MY ROOM</h1>
 	</div>
 </div>
 

@@ -109,13 +109,14 @@
 	height:300px;
 }
 .add{
-	background-image: url('/Vestis/assets/img/back5.jpg');
+	background-image: url('/Vestis/assets/img/back38.jpg');
 	background-size:100%;
 	width : 100%;
 	height : 200px;
 	text-align: center;
 	padding-bottom:80px;
 	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
 </style>
 
@@ -128,7 +129,7 @@
 
 <div class="add">
 	<div class="container">
-	<h3>plus</h3>
+	<h1>plus</h1>
 	</div>
 </div>
 

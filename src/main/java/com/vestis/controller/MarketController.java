@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vestis.service.MarketService;
 import com.vestis.vo.ClothVo;
-import com.vestis.vo.ImgVo;
 import com.vestis.vo.MarketCommentVo;
 import com.vestis.vo.MarketVo;
 import com.vestis.vo.PageVo;

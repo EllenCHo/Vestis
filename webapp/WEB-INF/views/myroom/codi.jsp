@@ -129,13 +129,14 @@
 	margin-bottom: -3px;
 }
 .codi{
-	background-image: url('/Vestis/assets/img/back34.jpg');
+	background-image: url('/Vestis/assets/img/back39.jpg');
 	background-size:100%;
 	width : 100%;
 	height : 200px;
 	text-align: center;
 	padding-bottom:80px;
 	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
 </style>
 </head>
@@ -145,7 +146,7 @@
 
 	<div class="codi">
 		<div class="container">
-			<h3>codi</h3>
+			<h1>codi</h1>
 		</div>
 	</div>
 

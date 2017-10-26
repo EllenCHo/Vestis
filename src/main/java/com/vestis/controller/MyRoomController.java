@@ -264,7 +264,15 @@ public class MyRoomController {
 	@RequestMapping(value = "/chooseClick", method = RequestMethod.POST)
 	public String chooseClick(@RequestParam("no") int no, HttpSession session) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		ClothWeatherVo clothWeatherVo = myRoomService.getWeather(0, authUser);
+		ClothWeatherVo clothWeatherVo = null;
+		try {
+			clothWeatherVo = myRoomService.getWeather(0, authUser);
+		} catch (Exception e) {
+			System.out.println("날씨 오류/기본정보(20도 맑음)으로 저장");
+			clothWeatherVo = new ClothWeatherVo();
+			clothWeatherVo.setTemp(20);
+			clothWeatherVo.setWeatherNo(0);
+		}
 		System.out.println("채택버튼 클릭");
 		myRoomService.chooseClick(no, clothWeatherVo.getTemp(), clothWeatherVo.getWeatherNo());
 		return "success";

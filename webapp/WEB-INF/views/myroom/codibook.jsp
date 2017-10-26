@@ -182,6 +182,7 @@
 	text-align: center;
 	padding-bottom:80px;
 	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
 
 /* Important part */
@@ -203,7 +204,7 @@
 
 <div class="codibook" >
 	<div class="container">
-	<h3>codibook</h3>
+	<h1>codibook</h1>
 	</div>
 </div>
 
