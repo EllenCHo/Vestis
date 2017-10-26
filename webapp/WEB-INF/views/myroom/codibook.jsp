@@ -6,11 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>codibook</title>
+<title>Vestis</title>
 
 
 <!--자신이 만든 css-->
-<!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>
 
 <!-- Theme style -->
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css" rel="stylesheet">
@@ -42,6 +42,10 @@
 	width: 100%;
 }
 
+.btn {
+	cursor:pointer;
+}
+
 .btn-hover {
 	font-weight: normal;
 	color: #333333;
@@ -57,13 +61,21 @@
 	background-color: inherit;
 	border-color: transparent;
 }
-
+/* 
 .prifile_photo {
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
-}
+} */
 
+.prifile_photo{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-width:2px;
+    border-style:dashed;
+    border-color:rgba(27, 27, 27, .7);
+}
 .comments-list .comment .avatar {
 	border-radius: 50%;
 	width: 50px;
@@ -106,19 +118,6 @@
 	border-bottom: 1px dashed gray;
 }
 
-.btn-default, .btn-primary, .btn-success, .btn-info, .btn-warning,
-	.btn-danger {
-	-webkit-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
-}
-
-.btn-default:active, .btn-primary:active, .btn-success:active, .btn-info:active,
-	.btn-warning:active, .btn-danger:active {
-	margin-top: 3px;
-	margin-bottom: -3px;
-}
-
 #wearclothimg {
 	position: absolute;
 	max-width: 100%;
@@ -138,7 +137,61 @@
  a:hover { color: black; text-decoration: none;}
 
 
+.choiceBtn {
+  color: #ffffff;
+  background-color: #ababab;
+  background-image: none;
+  border-color: #ababab;
+}
 
+
+.choicEDBtn {
+  color: #fff;
+  background-color: #55A79A;
+  background-image: none;
+  border-color: #55A79A;
+}
+
+
+.deleteCodiBtn {
+  color: #55A79A;
+  background-color: white;
+  background-image: none;
+  border-color: #ababab;
+}
+
+.modalBackdrop{
+ 		
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: rgba( 0, 0, 0, 0.7 );
+  z-index: 1040;
+  /* opacity:0.5; */
+}
+
+
+.codibook{
+	background-image: url('/Vestis/assets/img/back37.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 700px;
+    overflow-y: auto;
+}
 
 </style>
 
@@ -148,7 +201,7 @@
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
+<div class="codibook" >
 	<div class="container">
 	<h3>codibook</h3>
 	</div>
@@ -177,26 +230,86 @@
 			
 			</div>
 
-
-
-				<!-- 여기서부터 건들기 -->
-				<div
-					style="overflow: auto; width: 87%; height: 37vw; padding: 2%; padding-bottom: 0; background-color: rgba(255, 255, 255, 0.9); border-radius: 1em; float: right;">
-					<div class="bts row">
-						<div class='list-group gallery' id="codibookItemList">
-						</div>
-						<!-- list-group / end -->
-					</div>
-					<!-- row / end -->
-				</div>
 		</div>
 	</div>
 </div><!-- /container -->
 
 
 
+<!-- 코디이미지 상세내용 Modal -->
+<div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modalBackdrop"> 
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				
+				<div class="modal-header">
+					<p class="text-left nicname" style="margin-bottom: 0;">
+						<a>
+							<img class="prifile_photo" src="http://bootdey.com/img/Content/user_1.jpg" alt="프로필사진" style="margin-right: 10px;">
+						</a>
+					</p>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;</button>
+				</div><!-- modal-header -->
+				
+				<div class="modal-body" >
+					<div class="container-fluid" >
+	
+						<div class="row" style="height: 71%">
+							<div class="col-md-6">
+								<label style="margin-left: 5%; margin-bottom: 3.5%; margin-top: 3%;">추천한코디</label> 
+								<img class="img-responsive showPic" src="" style="max-width:100%; height:auto; border: 1px solid;">
+							</div>
+	
+	
+							<div class="col-md-6">
+								<label style="margin-left: 5%; display: inline;">실제로 입은 사진</label>
+								<form id="sendimgfile" action="" method="post" enctype="multipart/form-data" style="display: inline;">
+									<input type="file" id="fileopen" name="file" accept="image/*"  style="display: none;">
+									<input type="hidden" id="codiNoSave">
+									<button id="inputfilebtn" class="btn btn-outline-green" type="button" style="margin-left: 17%; margin-bottom: 3%;">사진선택</button>
+								</form>
+								<button id="saveimgbtn" class="btn btn-outline-green" style="margin-bottom:3%;">저장</button>
+								<div style="border: 1px solid; overflow: hidden; height: 90.5%; position: relative;">
+									<img id="wearclothimg" class="img-responsive" src="${pageContext.request.contextPath}/assets/img/base_img.png" alt="">
+								</div>
+							</div>
+						</div><!-- /row -->
+	
+						<hr>
+						<div class="row bts">
+							<div class="input-group" style="padding-left: 2%; padding-right: 2%; margin-bottom: 2%;">
+								<input class="form-control es_commentInput" placeholder="Add a comment" type="text" style="width:96% !important;"> 
+								<button class="input-group-addon es_commentButton" style="height:34px; width:4%; padding:0;"><span class="glyphicon glyphicon-edit"></span></button>
+							</div>
+							<ul class="comments-list" style="padding-left: 3.2%; padding-right: 3.2%; list-style: none; width: 100%;">
+								<li class="comment"><img class="avatar pull-left" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+									<div class="comment-body">
+										<div class="comment-heading">
+											<h4 class="user">Gavino Free</h4>
+											<h5 class="time">5 minutes ago</h5>
+											<button class="btn btn-default btn-xs deleteCommentBtn" style="float:right;" value="">X</button>
+										</div>
+										<p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+					</div><!-- /container-fluid -->
+				</div><!-- /modal-body -->
+				
+				
+			</div><!-- modal-content -->
+		</div> <!-- /modal-dialog -->
+	</div>
+</div><!-- /modal -->
+<!-- /코디이미지 상세내용 Modal -->
+
+ 
+
+
 <!-- ---------------------------------------------------------------------- -->
-	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -209,6 +322,7 @@
 		
 		$('#modal').on('show.bs.modal', function (event) {
 			  console.log('모달모달');
+			  
 			  var info = $(event.relatedTarget.dataset); // Button that triggered the modal
 			  console.log(info);
 			  var no = info[0].no;
@@ -284,7 +398,6 @@
 						
 						$('.choiceBtn').click(function() {
 	
-							console.log("선택===================================")
 							var $this = $(this);
 							var no = $this.data("codibookitemno");
 							if ($this.hasClass('choiceBtn')){
@@ -310,7 +423,6 @@
 
 	
 	
-	
 	function es_render(CodibookVo) {
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
@@ -321,7 +433,7 @@
 		str += "<div class='col-md-3' id='codibookItem" + CodibookVo.no + "'>";
 		str += "	<div class='card bg-white bg-shadow text-center card-outline-primary'>";
 		str += "		<div class='row tb4'>";
-		str += "			<span class='h-ic h-iec h-fs'><a href=''>"+ CodibookVo.ownername + "님 옷</a></span>";
+		str += "			<span class='h-ic h-iec h-fs' style='margin-left:5px'><a href=''>"+ CodibookVo.ownername + "님 옷</a></span>";
 		str += "			<span class='h-ic2'></span>";
 		str += "			<span class='h-icr'>";
 		
@@ -334,27 +446,38 @@
 			} 	
 		}
 		
-		
-		str += "				<button type='button' class='deleteCodiBtn h-btn btn-outline-green pointer' data-codibookitemno='"+ CodibookVo.no + "'>X</button>";
+		if (userNo == authNo) {
+			str += "				<button type='button' class='deleteCodiBtn h-btn btn-outline-green' style='margin-right:10px; cursor:pointer' data-codibookitemno='"+ CodibookVo.no + "'>X</button>";
+		}
 		str += "			</span>";
 		
 		str += "		</div>";
 		
-		str += "		<p class='hh-line'></p>";
-		str += "		<div>";
-		str += "			<ul class='list-unstyled list-border-dots'>";
-		str += "				<li><img src='http://localhost:8088/Vestis/upload/"+CodibookVo.codi+"' class='hh-back' ></li>";
+		str += "		<p class='hh-line' style=\"margin:0;\"></p>";
+		str += "		<div id='openModal"+CodibookVo.no+"'";
+		str += "	 			data-no='"+CodibookVo.no+"' ";
+		str += "	 			data-other='"+CodibookVo.otherNo+"' ";
+		str += "	 			data-image='${pageContext.request.contextPath}/upload/"+CodibookVo.codi+"' ";
+		str += "	 			data-profile='${pageContext.request.contextPath}/upload/"+CodibookVo.ownerprofile+"' ";
+		str += "	 			data-nicname='"+CodibookVo.ownername+"' ";
+		str += "				data-toggle='modal' data-target='#modal' data-keyboard='true'";
+		str += "				data-backdrop='false'>";
+		str += "			<ul class='list-unstyled list-border-dots point' style=\"margin:0;\">";
+		str += "				<li><img src='http://localhost:8088/Vestis/upload/"+CodibookVo.codi+"' class='hh-back' style=\"max-width:100%; height:auto; \" ></li>";
 		str += "			</ul>";
 		str += "		</div>";
 		str += "		<a class='hh-line'></a>";
 		
 		
+		
 		str += "		<div class='row'>";
+		str += "			<a style=\"display:inline-flex; margin-bottom:2%;\" href=\"${pageContext.request.contextPath}/myroom/"+CodibookVo.otherNo+"\">";
 		str += "			<span class='h-iec'>";
 		str += "				<img style='margin: 6px 4px 0px 8px;' class='h-image-circle pointer' src='http://localhost:8088/Vestis/upload/"+CodibookVo.profile+"'>";
 		str += "			</span>";
-		str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
-		str += "			<span class='text-primary' style='margin-left: 30px'>";
+		str += "			<span class='h-ic3' style='margin-top:22px; text-align:left; font-size:13px; width:60%;' ><b class='pointer'>" + CodibookVo.otherNicname + "</b>님 </span>";
+		str += "			</a>";
+		str += "			<span class='text-primary' style='position:absolute; right:5%;'>";
 		
 		
 		if(CodibookVo.likeflag != 0){                                    
@@ -375,7 +498,8 @@
 	} 
 	
 	
-/* 	function es_render(CodibookVo) {
+	
+/*  	function es_render(CodibookVo) {
 		var userNo = ${userNo};
 		var authNo = ${authUser.no};
 		
@@ -393,7 +517,7 @@
 		str += "	 	data-nicname=\""+CodibookVo.otherNicname+"\" ";
 		str += "		data-toggle=\"modal\" data-target=\'#modal\' data-keyboard=\"true\"";
 		str += "		data-backdrop=\"false\">";
-		str += "		<img class=\"img-responsive getSrc\" alt=\"\"";
+		str += "		aaaa<img class=\"img-responsive getSrc\" alt=\"\"";
 		str += "			src=${pageContext.request.contextPath}/upload/"+CodibookVo.codi+" style=\"cursor:pointer\"/>";
 		str += "	</div> ";
 		str += "	<div class=\"row\">";
@@ -438,8 +562,12 @@
 		str += "</div>";
 
 		$("#codibookItemList").append(str);
-	} */
+	} 
+
+ */		
 		
+		
+	
 	function choosebtnClick(no) {
 		$.ajax({
 			url : "${pageContext.request.contextPath }/myroom/chooseClick",
@@ -494,8 +622,12 @@
 		console.log(listType);
 		$("#codibookItemList").empty();
 		es_fetchBook(listType);
+		
+		$(".nav-item a").removeClass("active");
 	});
 </script>
+
+
 
 <!-- 댓글창 스크립트 -->
 <script type="text/javascript">
@@ -563,7 +695,7 @@
  		
  		var str = "";
  		str += "<li id=\"coDel"+codiCoVo.no+"\" class=\"comment\" style=\"padding-top:1%;\">";
- 		str += "	<img class=\"avatar pull-left\" src=\"${pageContext.request.contextPath}/upload/"+codiCoVo.dbName+"\" alt=\"avatar\">";
+ 		str += "	<img class=\"prifile_photo pull-left\" style=\"border:1px solid\" src=\"${pageContext.request.contextPath}/upload/"+codiCoVo.dbName+"\" alt=\"avatar\">";
 		str += "	<div class=\"comment-body\">";
 		str += "		<div class=\"comment-heading\">";
 		str += "			<h4 class=\"user\">"+codiCoVo.nicname+"</h4>";

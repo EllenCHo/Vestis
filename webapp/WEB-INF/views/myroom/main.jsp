@@ -12,7 +12,7 @@
 <meta name="author" content="">
 
 
-<title>My room</title>
+<title>Vestis</title>
 
 <!-- Custom fonts for this template -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -74,15 +74,23 @@
 	bottom: 1px !important;
 	padding-bottom: 1px !important;
 }
+.mymain{
+	background-image: url('/Vestis/assets/img/back39.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 </style>
-
 
 </head>
 <body>
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
+<div class="mymain">
 	<div class="container">
 	<h3>MY ROOM</h3>
 	</div>
@@ -96,7 +104,7 @@
 
 <!-- ---------------------------------------------------------------------- -->
 
-	<div class="col-md-10 content container tb2" >
+	<div class="col-md-10 container tb2" >
 		<!-- 사진 전체틀1 -->
 		<div class="photo-size h-back my-4 hj-border">
 			<!-- Image Carousel -->
@@ -135,7 +143,7 @@
 				<!-- 사진 -->
 				<div class="carousel-inner systemCodiList" role="listbox">
 					<div class="carousel-item">
-						<img id="yesterdayCodi" class="d-block img-fluid w-100"
+						<img id="yesterdayCodi" style="height:440px;" class="d-block img-fluid w-100"
 							src="${pageContext.request.contextPath}/assets/img/base_systemRecommendImg.png"
 							alt="1">
 						<div class="carousel-caption d-none d-md-block systemLabel">
@@ -146,7 +154,7 @@
 						</div>
 					</div>
 					<div id = "todaySystem" class="carousel-item active">
-						<canvas id="todayCanvas" width="412" height="453"
+						<canvas id="todayCanvas" width="357" height="440"
 							style="background: #FFFFF;"></canvas>
 						<input id="data" name="data" type="hidden"> <input
 							id="info_weather" name="weather" type="hidden"
@@ -161,7 +169,7 @@
 						</div>
 					</div>
 					<div class="carousel-item">
-						<canvas id="tomorrowCanvas" width="412" height="453"
+						<canvas id="tomorrowCanvas"  width="357" height="440"
 							style="background: #FFFFFF;"></canvas>
 						<div class="carousel-caption d-none d-md-block systemLabel">
 							<h3 class="text-shadow" style="color: black;">
@@ -228,14 +236,27 @@
 				if("${cloth.dbName}" != "") {
 					console.log("${cloth.dbName}");
 					$("#todayImg${status.index}").attr('src', "${pageContext.request.contextPath}/upload/${cloth.dbName}");
+					
+					console.log($("#todayImg${status.index}").attr('src'));
 				}
 			</c:forEach>
+			
+			console.log("로딩 끝");
+
+			console.log("오늘의 코디");
+			
+			//캔버스에 옷 그리기
+			drawTodayCloth();
+
+			//캔버스에 그려진것 저장하는 함수
+			saveTodayCodi();
+			
 			
 		} else {
 			$('#todayCanvas').remove();
 			
 			str = "";
-			str += "<img class=\"d-block img-fluid w-100\" style=\"height:452.83px;\"";
+			str += "<img class=\"d-block img-fluid w-100\" style=\"height:440px;\"";
 			str += "	src=\"${pageContext.request.contextPath}/upload/${todayImg}\"";
 			str += "	alt=\"1\"/>";
 			
@@ -247,20 +268,7 @@
 		getPersonCodi(no);
 	});
 
-	window.onload = function() {
-		console.log("로딩 끝");
-		if ("${todayImg}" != "") {
-			console.log("오늘 코디 이미 해줌");
-		} else {
-			console.log("오늘의 코디");
-			//캔버스에 옷 그리기
-			drawTodayCloth();
-
-			//캔버스에 그려진것 저장하는 함수
-			saveTodayCodi();
-		}
-
-	}
+	
 	//사용자 추천 ajax 함수
 	function getPersonCodi(no) {
 		$.ajax({
@@ -323,7 +331,6 @@
 		}
 		weatherImg.src = "${pageContext.request.contextPath}/assets/img/${tomorrowWeather}.png";
 
-		console.log("변경6");
 		var canvas = document.getElementById('tomorrowCanvas');
 		var ctx = canvas.getContext("2d");
 		ctx.fillStyle = "white";
@@ -340,51 +347,56 @@
 		bottomImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(bottomImg, 70, 120, 200, 200);
+			ctx.drawImage(bottomImg, 70, 130, 200, 200);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		shoesImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(shoesImg, 185, 230, 130, 130);
+			ctx.drawImage(shoesImg, 185, 250, 130, 130);
 		};
 
 		//페이지 로드후 이미지가 로드 되었을 때 이미지 출력
 		weatherImg.onload = function() {
 			//canvas.drawImage() 함수를 사용하여 이미지 출력
 			//drawImage ( image sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-			ctx.drawImage(weatherImg, 6, 6, 45, 45);
+			ctx.drawImage(weatherImg, 12, 6, 65, 65);
 		};
 
-		ctx.font = "15px Arial";
+		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${tomorrowTemp}", 53, 33);
+		ctx.fillText("${tomorrowTemp}", 82, 46);
 	}
 
 	function drawTodayCloth() {
 		var canvas = document.getElementById('todayCanvas');
 		var ctx = canvas.getContext("2d");
+		
+		//topImg.src = $("#todayImg0").attr('src');
 
 		ctx.fillStyle = "white";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		var topImg = document.getElementById("todayImg0");
 		console.log(topImg);
-		ctx.drawImage(topImg, 30, 20, 200, 200);
+		ctx.drawImage(topImg, 15, 10, 200, 200);
 
 		var bottomImg = document.getElementById("todayImg1");
-		ctx.drawImage(bottomImg, 90, 150, 200, 200);
+		console.log(bottomImg);
+		ctx.drawImage(bottomImg, 70, 130, 200, 200);
 
 		var shoseImg = document.getElementById("todayImg2");
-		ctx.drawImage(shoseImg, 200, 280, 150, 150);
+		console.log(shoseImg);
+		ctx.drawImage(shoseImg, 185, 250, 130, 130);
 
 		var weatherImg = document.getElementById("todayWeatherImg");
-		ctx.drawImage(weatherImg, 6, 6, 45, 45);
+		console.log(weatherImg);
+		ctx.drawImage(weatherImg, 12, 6, 65, 65);
 
-		ctx.font = "15px Arial";
+		ctx.font = "25px Arial bold";
 		ctx.fillStyle = 'black';
-		ctx.fillText("${todayTemp}", 53, 33);
+		ctx.fillText("${todayTemp}", 82, 46);
 
 		console.log("todayCloth");
 		var todayImgData = document.getElementById('todayCanvas').toDataURL();

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>clothes</title>
+<title>Vestis</title>
 
 
 
@@ -40,6 +40,10 @@
 	padding-bottom: 10px !important;
 }
 
+.btn {
+	cursor:pointer;
+}
+
 .h-top {
 	padding-bottom: 10px !important;
 }
@@ -62,13 +66,23 @@
 	border-radius: .25rem;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+.clothes{
+	background-image: url('/Vestis/assets/img/back25.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
+
 </style>
 </head>
 <body>
 
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-	<div class="myroomimg">
+	<div class="clothes">
 		<div class="container">
 			<h3>clothes</h3>
 		</div>
@@ -100,7 +114,7 @@
 				
 				
 				<!-- 탭 -->
-				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist" style="width: 90%;">
+				<ul  class="nav nav-tabs flex-column flex-lg-row " id="selectbarh" role="tablist" style="width: 92.8%;">
 	              <li class="nav-item h-lr active"> 
 	              	<a class="nav-link" data-toggle="tab" href="#tab-1" role="tab" aria-expanded="true" data-selectnum="0">ALL</a>
 	               </li>
@@ -124,6 +138,10 @@
 			
 				<c:if test="${authUser.no == userNo }">
 					<button type="button" class="btn btn-outline-green " onclick="location.href='add/${userNo}?submenu=wardrobe'" style="height:42px;">등록</button>
+				</c:if>
+				
+				<c:if test="${authUser.no != userNo }">
+					<ul  class="nav nav-tabs flex-column flex-lg-row" style="width:5.7%;"></ul>
 				</c:if>
 			</div>
 
@@ -190,7 +208,7 @@
 		str += "			<span style=\"float:left; width: 80%;\"></span>";
 		str += "			<span  style=\"float:right; width: 10%;\">";
 						if(authNo == userNo) {
-							str +=  "<button type=\"button\" class=\"h-btn btn-outline-green deleteClothBtn\" value="+clothVo.no+">X</button>";
+							str +=  "<button type=\"button\" class=\"h-btn btn-outline-green deleteClothBtn\" style=\"cursor:pointer;\" value="+clothVo.no+">X</button>";
 						}
 		str += "			</span>";
 		str += "		</div>";

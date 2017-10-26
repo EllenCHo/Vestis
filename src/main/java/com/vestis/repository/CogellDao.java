@@ -1,8 +1,6 @@
 package com.vestis.repository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,37 +25,27 @@ public class CogellDao {
 		return sqlSession.selectList("cogell.clothrank");
 	}
 	
-	public List<CodibookVo> getList(String purpose, int num, int no) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		System.out.println(num+purpose+no);
-		map.put("purpose", purpose);	
+	public List<CodibookVo> getList(int no) {
+		/*Map<String, Object> map = new HashMap<String, Object>();
 		map.put("num", num);
-		map.put("authNo", no);
-		List<CodibookVo> list =sqlSession.selectList("cogell.getCodiBookList", map);
-		System.out.println(list.size());
-		return sqlSession.selectList("cogell.getCodiBookList", map);
+		map.put("authNo", no);*/
+		return sqlSession.selectList("cogell.getCodiBookList", no);
 	}
 	
-	public List<CodibookVo> getList2(String purpose, int num, int no) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		System.out.println(num+purpose+no);
-		map.put("purpose", purpose);	
+	public List<CodibookVo> getList2(int no) {
+		/*Map<String, Object> map = new HashMap<String, Object>();
 		map.put("num", num);
-		map.put("authNo", no);
-		List<CodibookVo> list =sqlSession.selectList("cogell.getCodiBookList", map);
-		System.out.println(list.size());
-		return sqlSession.selectList("cogell.getCodiBookList2", map);
+		map.put("authNo", no);*/
+		return sqlSession.selectList("cogell.getCodiBookList2", no);
 	}
 	
-	public List<CodibookVo> getList3(String purpose, int num, int no) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		System.out.println(num+purpose+no);
-		map.put("purpose", purpose);	
+	public List<CodibookVo> getList3(int no) {
+		/*Map<String, Object> map = new HashMap<String, Object>();
 		map.put("num", num);
-		map.put("authNo", no);
-		return sqlSession.selectList("cogell.getCodiBookList3", map);
+		map.put("authNo", no);*/
+		return sqlSession.selectList("cogell.getCodiBookList3", no);
 	}
-	
+	/*
 	
 	public List<CodibookVo> getRList(String purpose, int num, int no) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -76,5 +64,5 @@ public class CogellDao {
 		map.put("authNo", no);
 		
 		return sqlSession.selectList("cogell.getCodiBookList4", map);
-	}
+	}*/
 }

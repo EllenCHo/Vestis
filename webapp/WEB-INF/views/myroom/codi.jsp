@@ -1,15 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+<title>Vestis</title>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -17,6 +14,8 @@
 <link rel="stylesheet" type="text/css"
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
 
+<!--자신이 만든 css-->
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css">
 
 <!-- Custom styles for this template -->
 <link
@@ -28,8 +27,7 @@
 	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/theme-style.min.css"
 	rel="stylesheet">
 
-
-<title>Codi</title>
+<script	src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/html2canvas.min.js"></script>
 
 <style type="text/css">
 .clothBox {
@@ -39,8 +37,8 @@
 	height: 200px;
 	min-width: 30px;
 	min-height: 30px;
-	top: 17%;
-	left: 5%;
+	top: 22%;
+	left: 7%;
 	background-color: #FFFFFFFF;
 }
 
@@ -54,9 +52,9 @@
 
 .left-box {
 	background: #FFFFFF;
-	height: 600px;
+	height: 530px;
 	width: 100%;
-	min-height: 65%;
+	min-height: 50%;
 	padding: 1%;
 	border: 1px solid;
 	border-color: #949494;
@@ -64,13 +62,14 @@
 }
 
 .right-box {
-	height: 600px;
-	min-height: 65%;
+	height: 530px;
+	min-height: 50%;
 	background-color: rgba(255, 255, 255, 0.9);
 	padding: 1%;
 	border: 1px solid #949494;
 	margin-bottom: 50px;
 }
+
 
 #space {
 	position: relative;
@@ -129,13 +128,22 @@
 	margin-top: 3px;
 	margin-bottom: -3px;
 }
+.codi{
+	background-image: url('/Vestis/assets/img/back34.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 </style>
 </head>
 <body>
 
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-	<div class="myroomimg">
+	<div class="codi">
 		<div class="container">
 			<h3>codi</h3>
 		</div>
@@ -167,15 +175,15 @@
 						<div style="float: right; margin-top: 15px; display: inline;">
 							<strong>표시된 날씨에 맞는 코디를 해주세요.&emsp;</strong>
 						</div>
+
 					</div>
-					<div class="left-box" style="overflow:auto;">
-						<div style="float: left;">
+					<div class="left-box" style="overflow:hidden;">
+						<div style="display:inline;">
 							<img alt="날씨"
 								src="${pageContext.request.contextPath}/assets/img/${weather}.png"
-								style="width: 60px; height: auto;">${temp}
-
+								style="float: left; margin-left:3%; width: 80px; height: auto;">
+							<h2 style="float: left; margin-top:5%; margin-left:2%;">${temp}</h2>
 						</div>
-
 					</div>
 				</div>
 
@@ -210,7 +218,7 @@
 
 
 					<div class="bts right-box">
-						<div style="overflow: auto; width: 100%; height: 85.6%;">
+						<div style="overflow: auto; width: 100%; height: 100%;">
 							<ul id="clothList"
 								style="list-style: none; padding-left: 0px; text-align: center; display: block;">
 							</ul>
@@ -279,7 +287,6 @@
 
 
 	</div>
-	</div>
 
 
 	<!-- ---------------------------------------------------------------------- -->
@@ -333,15 +340,16 @@
 <script type="text/javascript">
 	//메뉴를 클릭했을 때 그 메뉴가 강조
 	$(".nav-link").click(function() {
-		$(".menu").removeClass("active");
-
 		var menunum = $(this).data("selectnum");
 		$("#clothList").empty();
 		fetchList(menunum);
 		/* $this.addClass("active"); */
+		
+		$(".nav-item a").removeClass("active");
 
 	});
 </script>
+
 
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -349,9 +357,12 @@
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <!-- 옷 이미지에 대한 자바스크립트 -->
 <script type="text/javascript">
+	//z-index를 위한 변수 
+	//select함수에서 쓰임
+	var index = 0;
+	var count = 0;
 	//메뉴에서 옷을 클릭했을 때 왼쪽 공간에 옷이 추가되도록 함
 	function clothAdd() {
-		var count = 0;
 		$("[name=cloth]").click(function choose() {
 			var layer = event.srcElement;
 
@@ -362,13 +373,14 @@
 
 			//tabindex : 옷 이미지를 클릭했을 때 하늘색 테두리가 나오도록 하기 위함
 			//select(count) : 옷 이미지를 클릭했을 때 옷이 맨 앞으로 나오도록 zIndex를 설정하도록 함	
-			//remove(count) : 옷을 더블클릭하면 옷 이미지가 사라지도록 하는 메소드
-			var tag = "<div id=\"cloth"+ count+ "\" tabindex=\"1\" onclick=\"select("+ count+ ")\" class=\"clothBox\" >"
+			//remove(value) : 옷을 더블클릭하면 옷 이미지가 사라지도록 하는 메소드
+			var tag = "<div id=\"cloth"+ count+ "\" tabindex=\"1\" onclick=\"select("+ count+ ")\" class=\"clothBox\" style=\"z-index:"+index+"\">"
 					+ "<img src="+ img+ " ondblclick=\"remove("+ count+ ")\" id="+ value+ " class=\"clothdragger\" name=\"img\" style=\"width: 100%; height: 100%; cursor:pointer\" />"
 					+ "</div>";
 
 			count++;
-
+			index++;
+			
 			console.log(tag);
 
 			//왼쪽 공간에 이미지 추가
@@ -397,7 +409,6 @@
 	};
 
 	//이미지를 클릭했을 때 zIndex값을 1씩 증가시켜서 맨 앞으로 나오게 하는 메소드
-	var index = 1;
 	function select(no) {
 		$("#cloth" + no).css("zIndex", index);
 		index++;
@@ -414,9 +425,6 @@
 		$(".clothBox").remove();
 	});
 </script>
-
-<script
-	src="https://github.com/niklasvh/html2canvas/releases/download/v0.5.0-beta4/html2canvas.min.js"></script>
 
 <!-- 왼쪽 공간에 넣은 이미지를 저장하기 위한 자바스크립트 -->
 <script type="text/javascript">
@@ -465,7 +473,7 @@
 						success : function(result) {
 							console.log(result);
 							alert("저장됐습니다.");
-							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}");
+							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}?submenu=codibook");
 						},
 	
 						error : function(XHR, status, error) {

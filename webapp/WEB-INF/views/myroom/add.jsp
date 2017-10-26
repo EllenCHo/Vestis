@@ -108,6 +108,15 @@
 	width:300px;
 	height:300px;
 }
+.add{
+	background-image: url('/Vestis/assets/img/back5.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 </style>
 
 
@@ -117,7 +126,7 @@
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
 
-<div class="myroomimg">
+<div class="add">
 	<div class="container">
 	<h3>plus</h3>
 	</div>
@@ -145,14 +154,15 @@
 			</select>
 			</div>
 		
-			 <form action="${pageContext.request.contextPath }/myroom/upload/${userNo}" method="post" enctype="multipart/form-data" >
+			 <form id="uploadImage" action="${pageContext.request.contextPath }/myroom/upload/${userNo}" method="post" enctype="multipart/form-data" >
 			  <div class="lo">
 			      <input type="file" class="form-control h-border-color" id="images" name="file" onchange="preview_images();"/>
 			      <input id="valh" name="valh" type="hidden" ></input>   <!-- 옷종류번호 -->
 			      <input type="hidden" name="huserNo" value="${sessionScope.authUser.no}"></input>
 			  </div>
+			  </form>
 			  <div class="lo">
-			      <input type="submit" class="tb4 btn btn-primary" name='submit_image' value="submit"/>
+			      <button id="submitBtn" class="tb4 btn btn-primary" name='submit_image'>submit</button>
 			  </div>
 			  
 			
@@ -165,7 +175,7 @@
 				 		}
 					}
 				</script>
-    		 </form>
+    		 
 			 
 			<script type="text/javascript">
 			$('#clothNum').blur(function() {
@@ -181,11 +191,24 @@
 	</div>
 </div>
 
-
 	
 	
 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
  	
 
 </body>
+
+<script type="text/javascript">
+	$('#submitBtn').on("click", function() {
+		var val=$('#clothNum').val();
+		var fileVal=$('#images').val();
+		
+		if(val != 0 && fileVal != "") {
+			console.log("사진 업로드");
+			$('#uploadImage').submit();
+		}
+		console.log(val);
+		console.log(fileVal);
+	});
+</script>
 </html>

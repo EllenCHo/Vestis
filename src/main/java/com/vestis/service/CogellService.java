@@ -23,24 +23,24 @@ public class CogellService {
 		return cogellDao.clothrank();
 	}
 	
-	public List<CodibookVo> getList(String purpose, int num, int no) {
-		return cogellDao.getList(purpose, num, no);
+	public List<CodibookVo> getList(int no) {
+		return cogellDao.getList(no);
 	}
 	
-	public List<CodibookVo> getList2(String purpose, int num, int no) {
-		return cogellDao.getList2(purpose, num, no);
+	public List<CodibookVo> getList2(int no) {
+		return cogellDao.getList2(no);
 	}
 	
-	public List<CodibookVo> getList3(String purpose, int num, int no) {
-		return cogellDao.getList3(purpose, num, no);
+	public List<CodibookVo> getList3(int no) {
+		return cogellDao.getList3(no);
 	}
 	
-	public List<CodibookVo> getRList(String purpose, int num, int no) {
+	/*public List<CodibookVo> getRList(String purpose, int num, int no) {
 		return cogellDao.getRList(purpose, num, no);
-	}
-	
+	}*/
+	/*
 	public List<CodibookVo> getList4(String purpose, int num, int no) {
 		return cogellDao.getList4(purpose, num, no);
 	}
-
+*/
 }

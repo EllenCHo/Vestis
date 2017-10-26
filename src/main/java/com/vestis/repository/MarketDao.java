@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.vestis.vo.ClothVo;
-import com.vestis.vo.ImgVo;
 import com.vestis.vo.MarketCommentVo;
 import com.vestis.vo.MarketVo;
 
@@ -25,9 +24,9 @@ public class MarketDao {
 		return sqlSession.insert("market.insert", marketVo);
 	}
 	
-	public List<ImgVo> getlist() {
+	public List<ClothVo> getlist(int userNo) {
 		/*System.out.println("이미지 들어옴");*/
-		return sqlSession.selectList("market.getList");
+		return sqlSession.selectList("market.getList", userNo);
 	}
 	
 	public List<MarketVo> getlist2(int endNum,int startNum) {

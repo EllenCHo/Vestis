@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>ServiceCenter</title>
+<title>Vestis</title>
 
 
 <!--자신이 만든 css-->
@@ -93,6 +93,16 @@ height: 35px;
 margin-bottom:10px
 }
 
+.service{
+	background-image: url('/Vestis/assets/img/back18.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
+
 </style>
  
 </head>
@@ -102,7 +112,7 @@ margin-bottom:10px
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
 
-<div class="myroomimg">
+<div class="service">
 	<div class="container">
 	<h3>Service Center</h3>
 	</div>
@@ -121,10 +131,11 @@ margin-bottom:10px
 		<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-expanded="false" onClick="location.href='${pageContext.request.contextPath }/qa/list?currNo=1';">FAQ & QnA</a> </li>
 	</ul>
 	
-	<div id=wributn class="col-sm-12" style="text-align:right; padding-right: 2px;" >
-		<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/qa/writeform?currNo=${page.currNo}';">글 쓰기</button>
-	</div>
-				
+	<c:if test="${authUser != null }">
+		<div id=wributn class="col-sm-12" style="text-align:right; padding-right: 2px;" >
+			<button id=butn3 type="button" class="btn btn-primary"  onClick="location.href='${pageContext.request.contextPath }/qa/writeform?currNo=${page.currNo}';">글 쓰기</button>
+		</div>
+	</c:if>		
       <div class="title">
 		<span style="color:#292b2c">FAQ & QNA</span>
 	  </div>
@@ -166,13 +177,13 @@ margin-bottom:10px
 				
 				
 				<div id="board">
-				<form id="search_form" action="${pageContext.request.contextPath }/qa/search" method="get" style="text-align: center">
-					<input type="text" id="kwd" name="kwd" value="${param.kwd}">
-					<input type="hidden" id="currNo" name="currNo" value="1">
+					<form id="search_form" action="${pageContext.request.contextPath }/qa/search" method="get" style="text-align: center">
+						<input type="text" id="kwd" name="kwd" value="${param.kwd}">
+						<input type="hidden" id="currNo" name="currNo" value="1">
 					
-					<input type="submit" value="찾기">
-				</form>
-      	</div>
+						<input type="submit" style="cursor:pointer;" value="찾기">	
+					</form>
+      			</div>
 				
 				
 				

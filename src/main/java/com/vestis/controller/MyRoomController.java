@@ -60,7 +60,7 @@ public class MyRoomController {
 			System.out.println("내일 날씨 오류");
 			ToTemp = 18;
 			ToTemps = 18 + "°C";
-			ToindexNo = 3;
+			ToindexNo = 2;
 		}
 
 		System.out.println(ToTemp);
@@ -354,6 +354,7 @@ public class MyRoomController {
 	public String add(@PathVariable("userNo") int userNo, Model model) {
 		System.out.println("add");
 		model.addAttribute("userNo", userNo);
+		model.addAttribute("submenu", "wardrobe");
 		return "myroom/add";
 	}
 

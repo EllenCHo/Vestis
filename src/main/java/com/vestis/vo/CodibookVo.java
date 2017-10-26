@@ -6,6 +6,7 @@ public class CodibookVo {
 	private int ownerNo;	//코디 받은 사람
 	private String ownername; //코디 받은 사람 닉네임
 	private String otherNicname;	//코디해준 사람 닉네임
+	private String ownerprofile;	//옷주인 프로필사진
 	private String profile;		//프로필사진 
 	private String codi;		//코디사진
 	private String wear;		//입은 사진
@@ -116,8 +117,22 @@ public class CodibookVo {
 	public void setOwnername(String ownername) {
 		this.ownername = ownername;
 	}
-	
-	
-	
 
+	public String getOwnerprofile() {
+		return ownerprofile;
+	}
+
+	public void setOwnerprofile(String ownerprofile) {
+		this.ownerprofile = ownerprofile;
+	}
+
+	@Override
+	public String toString() {
+		return "CodibookVo [no=" + no + ", otherNo=" + otherNo + ", ownerNo=" + ownerNo + ", ownername=" + ownername
+				+ ", otherNicname=" + otherNicname + ", ownerprofile=" + ownerprofile + ", profile=" + profile
+				+ ", codi=" + codi + ", wear=" + wear + ", choose=" + choose + ", likes=" + likes + ", likeflag="
+				+ likeflag + "]";
+	}
+	
+	
 }

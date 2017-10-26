@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<title>Vestis-Market</title>
+<title>Vestis</title>
 
 <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -146,6 +146,14 @@ div > #paging {
 	align: center !important;
 }
 
+/* Important part */
+#modalCloset{
+    overflow-y: initial !important
+}
+#sendh{
+    height: 700px;
+    overflow-y: auto;
+}
 </style>
 
 
@@ -238,8 +246,11 @@ div > #paging {
 <!-- 옷올리기 모달 -->
 <div class="white_content" id="open">
 	<div id='modalCloset'>
-        <div class="text-right" style="margin-bottom:10px">
+		<div>
+		<span style="margin-left:1%; font-size:x-large;"><strong>잘 안 입는 옷 순서입니다.</strong></span>
+        <div class="text-right" style="display:inline; position:absolute; right:5%;">
         	<input type="button" class="btn btn-primary point" value="닫기" id="modalCloseBtn">
+        </div>
         </div>
         <div id="sendh" class="row">
         	<!-- 옷장의 옷 이미지 출력 영역 -->
@@ -318,9 +329,9 @@ $(document).ready(function(){	//all뿌려줌
    	
   
     $.ajax({
-    	url : "${pageContext.request.contextPath }/myroom/get",
+    	url : "${pageContext.request.contextPath }/market/get",
         type : "post",
-		data: {clothNo:clothNo, userNo: authNo},
+		data: {userNo: authNo},
         dataType : "json",
         success : function(clothList){   
 	        console.log("ajax들어옴");
@@ -339,10 +350,13 @@ $(document).ready(function(){	//all뿌려줌
 
 
 function render(clothVo,updown,i){	//사진뿌리는 틀
+	console.log("여기!");
 	var str ="";  
-
-	str+="<div href='#close' class='imgbox' onclick='return false;' >"; 
+	
+	
+	str+="<div href='#close' class='imgbox' style=\"margin-bottom:3% !important; margin-right:0 !important;\" onclick='return false;' >"; 
 	str+="	<img id='"+i+"' height='100%'  class='point closetImg' src='${pageContext.request.contextPath }/upload/"+ clothVo.dbName +"'>";
+	str+="	<div style=\"text-align:center;\">입은 횟수 : "+clothVo.count+"번</div>";
 	str+="</div>";
     
 	

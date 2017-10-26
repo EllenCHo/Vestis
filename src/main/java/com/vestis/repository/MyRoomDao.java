@@ -95,6 +95,7 @@ public class MyRoomDao {
 		System.out.println("삭제버튼3");
 		sqlSession.delete("myroom.codiclothDelete",	no);
 		sqlSession.delete("myroom.likepersonDelete", no);
+		sqlSession.delete("myroom.codiComment", no);
 		sqlSession.delete("myroom.deleteBtnClick", no);
 	}
 	

@@ -19,6 +19,10 @@
 
 } 
 
+.btn {
+	cursor:pointer;
+}
+
 #kakao-login-btn {
 	width:180px;
 }
@@ -29,6 +33,10 @@
 #sty {
 	height:25px;
 	margin-bottom:5px;
+}
+
+.form-control{
+	width:100% !important;
 }
 
 </style>
@@ -60,8 +68,7 @@
       </div>
       </div>
       <div class="modal-body">
-				<form id="loginForm" method="POST" action="${pageContext.request.contextPath }/main"
-					novalidate="novalidate">
+				<form id="loginForm" method="POST" action="${pageContext.request.contextPath }/main" novalidate="novalidate">
 					<div class="form-group">
 						<label for="username" class="control-label">UserEmail</label> 
 						<input type="text" class="form-control" id="username" name="username"
@@ -83,8 +90,10 @@
 					</p>		
 	
 					<button id="loginbtn" type="button" class="btn btn-success btn-block">로그인</button>
-					<button type="button" class="btn btn-primary btn-block" id="loginBtnn">페이스북 로그인</button>
-					<a id="kakao-login-btn"></a>
+					<div class="row" style="margin-left:auto; margin-right:auto; margin-top:2%">
+						<a id="loginBtnn" style="margin-right:2%;"><img class="btn-img" src="${pageContext.request.contextPath }/assets/img/facebook-login.png" style="cursor:pointer"></a>
+						<a id="kakao-login-btn"></a>
+					</div>
 					<!-- 1. 카카오톡 버튼 바꾸기 일치되는 느낌을 주는 아이콘으로 바꾸기  -->
 					
 	<!-- 카카오톡 로그인 API -->				

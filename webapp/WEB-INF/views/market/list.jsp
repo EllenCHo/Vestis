@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Market</title>
+<title>Vestis</title>
 	
 <!--자신이 만든 css-->
 <!--<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/codi_bootstrap.css" rel="stylesheet"	>-->
@@ -188,16 +188,24 @@ a {
 	color: #000000 !important;
 }
 
-
+.market{
+	background-image: url('/Vestis/assets/img/back21.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+}
 </style>
 
 </head>
 <body>
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
+<div class="market">
 	<div class="container">
-	<h3>Service Center</h3>
+	<h3>Market</h3>
 	</div>
 </div>
 <br><br><br>
@@ -208,11 +216,25 @@ a {
 <!-- ----------------------------------------------------------------------------------- -->
 	<div class="col-md-12">
 		
-            <form id="searchbox" action="${pageContext.request.contextPath }/market/search" >
+		<div id="board">
+		 <div class="container" style="padding-left: 680px; padding-right: 0px;">
+			<form id="search_form" action="${pageContext.request.contextPath }/market/search" method="get">
+				<input type="text" id="kwd" name="kwd" value="${param.kwd}">
+				<input type="hidden" id="currNo" name="currNo" value="1">
+				<input type="submit" value="찾기"  style="padding-bottom:1px; height: 35px;">
+			</form>
+		 </div>	
+      	</div>
+		
+		
+		
+		
+		
+            <%-- <form id="searchbox" action="${pageContext.request.contextPath }/market/search" >
     			<input id="kwd" type="text" placeholder="Type here" id="kwd" name="kwd" value="${param.kwd}">
     			<input type="hidden" id="currNo" name="currNo" value="1">
     			<input id="submit" type="submit" value="Search">
-			</form>
+			</form> --%>
       	
       	
 				
@@ -301,11 +323,13 @@ a {
 						</c:if>
 					
 					</ul>
-				</div>				
+				</div>	
+				
+				<c:if test="${authUser != null }">			
 				<div class="col-sm-12" style="text-align:right;">
 					<button id=butn3 type="button" class="btn btn-primary point"  onClick="location.href='${pageContext.request.contextPath }/market/writeform?currNo=${page.currNo}';"><p class="hn">글 쓰기</p></button>
 				</div>			
-				
+				</c:if>
 				
 			</div>
 		</div>

@@ -6,7 +6,8 @@ public class ClothVo {
 	private int typeNo;
 	private int imgNo;
 	private int count;
-
+	private String dbName;
+	
 	public ClothVo() {
 		super();
 	}
@@ -58,6 +59,16 @@ public class ClothVo {
 
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	
+	
+	public String getDbName() {
+		return dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
 	}
 
 	@Override
