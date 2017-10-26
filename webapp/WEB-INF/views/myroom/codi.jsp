@@ -473,7 +473,6 @@
 						
 						success : function(result) {
 							console.log(result);
-							alert("저장됐습니다.");
 							window.location.replace("${pageContext.request.contextPath}/myroom/codibook/${userNo}?submenu=codibook");
 						},
 	

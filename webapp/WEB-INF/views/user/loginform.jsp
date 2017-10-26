@@ -129,7 +129,7 @@
           		 	dataType : 'text', 
           			success : function(result){	//list-ajax에서 보낸 것을 guestbook으로 받음
           				/* console.log("성공"); */
-          				alert("로그인에 성공하였습니다.");
+          				/* alert("로그인에 성공하였습니다."); */
           				$('#move').submit();
           				
           				/* if(result==0){
@@ -194,7 +194,7 @@ function getUserData() {
 					
 					return false;
 				} else if (result==1){
-					alert("로그인에 성공하였습니다.");
+					/* alert("로그인에 성공하였습니다."); */
       				$('#move').submit();
       				
 				} else {
@@ -288,7 +288,7 @@ document.getElementById('loginBtnn').addEventListener('click', function() {
 									alert("아이디와 비밀번호가 맞지 않습니다.");
 									return false;
 								} else if(result==1) {
-									alert("로그인에 성공하였습니다.");
+									/* alert("로그인에 성공하였습니다."); */
 									$('#loginForm').submit();
 									
 								} else {
