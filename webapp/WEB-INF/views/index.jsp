@@ -86,10 +86,98 @@
 }
 
 .marketText{
-  font-size: 11px;
+  font-size: 12px;
   text-align: left;
   margin: 5px;
 }
+
+point
+
+.userListBox{
+  padding:15px !important;
+}
+
+.userTitle{
+  margin: 0px 0px 5px 0px;
+  font-size:14px;
+}
+
+.userItemBox-left{
+  width:50%;
+  border-left:1px solid #949494; 
+  border-top:1px solid #949494;
+  border-right:1px solid #949494;
+  float:left; 
+}
+
+.userItemBox-right{
+  width:50%; 
+  border-top:1px solid #949494;
+  border-right:1px solid #949494;
+  float:left; 
+}
+
+.userItemBox-bottom-left{
+  width:50%;
+  border-left:1px solid #949494; 
+  border-top:1px solid #949494;
+  border-right:1px solid #949494;
+  border-bottom:1px solid #949494;
+  float:left; 
+}
+
+.userItemBox-bottom-right{
+  width:50%; 
+  border-top:1px solid #949494;
+  border-right:1px solid #949494;
+  border-bottom:1px solid #949494;
+  float:left; 
+}
+
+.numberBox {
+	width: 20px; 
+	height: 100%; 
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	color: #FFFFFF;
+}
+
+.bg_blue {
+	background-color: #0100bb;
+}
+
+.bg_purple {
+	background-color: #75016a;
+}
+
+.userProfileImg {
+	width: 40px !important;
+	height: 40px !important;
+	margin: 3px 0px 2px 5px !important;
+}
+
+.userName {
+	margin: 15px 0px 0px 0px !important;
+	text-align: left;
+	width: auto !important;
+	font-size: 14px;
+}
+
+
+.noticeText {
+	font-size: 14px;
+}
+
+.dottedBorder-top{
+	border-top: 1px dotted #949494;
+}
+
+.dottedBorder-top-bottom{
+	border-bottom: 1px dotted #949494;
+}
+
+
 
 </style>
 
@@ -176,25 +264,25 @@
   	<div class="row">
   		<!-- 최신코디세트 -->
 		<div class="h-pa bg-faded p-3 codiSetBox"> 
-  			<div class="codiTitle"><strong>최신코드세트</strong></div>
+  			<div class="codiTitle"><strong>최신코디세트</strong></div>
 			<div class="row">
 				
 				<!-- 1번째 -->
 				<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:47%; height:255px; margin-left:8px; ">
 					<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
-						<li><img src="${pageContext.request.contextPath}/assets/img/codissetSample.png" class="codiImgSize" ></li>
+						<li><img src="${pageContext.request.contextPath}/upload/${redateList[0].codi}" class="codiImgSize" ></li>
 					</ul>
 					<div class="hh-line"></div>
 					
 					<div class="row">
 						<span class="h-ic3 h-iec">
-							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/upload/${redateList[0].profile}">
 						</span>
-						<span class="h-ic3 codiName"><b>베라님</b></span>
+						<span class="h-ic3 codiName"><b>${redateList[0].otherNicname}</b></span>
 					
-						<span class="text-primary" style="margin-left: 30px">
+						<span class="text-primary" style="position:absolute; right:1%;">
 							<div><img class="" style="width:30px; height:30px; margin-top:4px" data-codibookitemno="8" data-count="1" src="/Vestis/assets/img/heart-red.png"></div>
-							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">1</div>
+							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">${redateList[0].likes}</div>
 						</span>
 					</div><!-- /row -->
 				</div><!-- /1번째 -->
@@ -202,19 +290,19 @@
 				<!-- 2번째 -->
 				<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:47%; height:255px; margin-left:8px; ">
 					<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
-						<li><img src="${pageContext.request.contextPath}/assets/img/codissetSample.png" class="codiImgSize" ></li>
+						<li><img src="${pageContext.request.contextPath}/upload/${redateList[1].codi}" class="codiImgSize" ></li>
 					</ul>
 					<div class="hh-line"></div>
 					
 					<div class="row">
 						<span class="h-ic3 h-iec">
-							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/upload/${redateList[1].profile}">
 						</span>
-						<span class="h-ic3 codiName"><b>베라님</b></span>
+						<span class="h-ic3 codiName"><b>${redateList[1].otherNicname}</b></span>
 					
-						<span class="text-primary" style="margin-left: 30px">
+						<span class="text-primary" style="position:absolute; right:1%;">
 							<div><img class="" style="width:30px; height:30px; margin-top:4px" data-codibookitemno="8" data-count="1" src="/Vestis/assets/img/heart-red.png"></div>
-							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">1</div>
+							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">${redateList[1].likes}</div>
 						</span>
 					</div><!-- /row -->
 				</div><!-- /2번째 -->
@@ -223,25 +311,25 @@
   	
   		<!-- 인기코디세트 -->
 		<div class="h-pa bg-faded p-3 codiSetBox"> 
-  			<div class="codiTitle"><strong>인기코드세트</strong></div>
+  			<div class="codiTitle"><strong>인기코디세트</strong></div>
 			<div class="row">
 				
 				<!-- 1번째 -->
 				<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:47%; height:255px; margin-left:8px; ">
 					<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
-						<li><img src="${pageContext.request.contextPath}/assets/img/codissetSample.png" class="codiImgSize" ></li>
+						<li><img src="${pageContext.request.contextPath}/upload/${hitList[0].codi}" class="codiImgSize" ></li>
 					</ul>
 					<div class="hh-line"></div>
 					
 					<div class="row">
 						<span class="h-ic3 h-iec">
-							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/upload/${hitList[0].profile}">
 						</span>
-						<span class="h-ic3 codiName"><b>베라님</b></span>
+						<span class="h-ic3 codiName"><b>${hitList[0].otherNicname}</b></span>
 					
-						<span class="text-primary" style="margin-left: 30px">
+						<span class="text-primary" style="position:absolute; right:1%;">
 							<div><img class="" style="width:30px; height:30px; margin-top:4px" data-codibookitemno="8" data-count="1" src="/Vestis/assets/img/heart-red.png"></div>
-							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">1</div>
+							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">${hitList[0].likes}</div>
 						</span>
 					</div><!-- /row -->
 				</div><!-- /1번째 -->
@@ -249,19 +337,19 @@
 				<!-- 2번째 -->
 				<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:47%; height:255px; margin-left:8px; ">
 					<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
-						<li><img src="${pageContext.request.contextPath}/assets/img/codissetSample.png" class="codiImgSize" ></li>
+						<li><img src="${pageContext.request.contextPath}/upload/${hitList[1].codi}" class="codiImgSize" ></li>
 					</ul>
 					<div class="hh-line"></div>
 					
 					<div class="row">
 						<span class="h-ic3 h-iec">
-							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/upload/${hitList[1].profile}">
 						</span>
-						<span class="h-ic3 codiName"><b>베라님</b></span>
+						<span class="h-ic3 codiName"><b>${hitList[1].otherNicname}</b></span>
 					
-						<span class="text-primary" style="margin-left: 30px">
+						<span class="text-primary" style="position:absolute; right:1%;">
 							<div><img class="" style="width:30px; height:30px; margin-top:4px" data-codibookitemno="8" data-count="1" src="/Vestis/assets/img/heart-red.png"></div>
-							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">1</div>
+							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">${hitList[1].likes}</div>
 						</span>
 					</div><!-- /row -->
 				</div><!-- /2번째 -->
@@ -270,25 +358,25 @@
   		
   		<!-- 우연한코디세트 -->
 		<div class="h-pa bg-faded p-3 codiSetBox"> 
-  			<div class="codiTitle"><strong>우연한코드세트</strong></div>
+  			<div class="codiTitle"><strong>우연한코디세트</strong></div>
 			<div class="row">
 				
 				<!-- 1번째 -->
 				<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:47%; height:255px; margin-left:8px; ">
 					<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
-						<li><img src="${pageContext.request.contextPath}/assets/img/codissetSample.png" class="codiImgSize" ></li>
+						<li><img src="${pageContext.request.contextPath}/upload/${randomList[0].codi}" class="codiImgSize" ></li>
 					</ul>
 					<div class="hh-line"></div>
 					
 					<div class="row">
 						<span class="h-ic3 h-iec">
-							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/upload/${randomList[0].profile}">
 						</span>
-						<span class="h-ic3 codiName"><b>베라님</b></span>
+						<span class="h-ic3 codiName"><b>${randomList[0].otherNicname}</b></span>
 					
-						<span class="text-primary" style="margin-left: 30px">
+						<span class="text-primary" style="position:absolute; right:1%;">
 							<div><img class="" style="width:30px; height:30px; margin-top:4px" data-codibookitemno="8" data-count="1" src="/Vestis/assets/img/heart-red.png"></div>
-							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">1</div>
+							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">${randomList[0].likes}</div>
 						</span>
 					</div><!-- /row -->
 				</div><!-- /1번째 -->
@@ -296,19 +384,19 @@
 				<!-- 2번째 -->
 				<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:47%; height:255px; margin-left:8px; ">
 					<ul class="list-unstyled list-border-dots" style="margin-bottom: 0;">
-						<li><img src="${pageContext.request.contextPath}/assets/img/codissetSample.png" class="codiImgSize" ></li>
+						<li><img src="${pageContext.request.contextPath}/upload/${randomList[1].codi}" class="codiImgSize" ></li>
 					</ul>
 					<div class="hh-line"></div>
 					
 					<div class="row">
 						<span class="h-ic3 h-iec">
-							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+							<img class="h-image-circle codiProfileImg" src="${pageContext.request.contextPath}/upload/${randomList[1].profile}">
 						</span>
-						<span class="h-ic3 codiName"><b>베라님</b></span>
+						<span class="h-ic3 codiName"><b>${randomList[1].otherNicname}</b></span>
 					
-						<span class="text-primary" style="margin-left: 30px">
+						<span class="text-primary" style="position:absolute; right:1%;">
 							<div><img class="" style="width:30px; height:30px; margin-top:4px" data-codibookitemno="8" data-count="1" src="/Vestis/assets/img/heart-red.png"></div>
-							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">1</div>
+							<div class="likesCount" style="position: relative; top: -6px; color: black; font-size:14px; align: center">${randomList[1].likes}</div>
 						</span>
 					</div><!-- /row -->
 				</div><!-- /2번째 -->
@@ -320,7 +408,7 @@
 	<!--  중고장터 -->  
 	<div class="row">
  		<!-- 마켓 -->
-		<div class="h-pa bg-faded p-3" style="width:70.0%; height:490px; border:1px solid #949494; ">
+		<div class="h-pa bg-faded p-3" style="width:70.0%; height:500px; border:1px solid #949494; ">
   			<div class="codiTitle"><strong>중고마켓</strong></div>
   
 			<div class="row">
@@ -409,58 +497,168 @@
 			</div>
 			
 		</div>
+		<!-- /마켓 -->
+		
+		<!-- 하단오른쪽 -->
+		<div style="width:25.9%;">
+	
+			<div class="userListBox h-pa" style="width:100%; height:182px; border:1px solid #949494; padding:7px;">
+				<div class="userTitle"><strong>옷많은사람</strong>
+				</div>
+				
+				<div class="userItemBox-left" >
+					<span class="numberBox bg_blue">
+						<b>1</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/upload/img/${clothRankList[0].profileDBName}">
+					</span>
+					<span class="userName"><b>${clothRankList[0].nicname}</b></span>
+					
+				</div>
+					
+				<div class="userItemBox-right" >
+					<span class="numberBox bg_blue">
+						<b>2</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-left" >
+					<span class="numberBox bg_blue">
+						<b>3</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-right" >
+					<span class="numberBox bg_blue">
+						<b>4</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-bottom-left" >
+					<span class="numberBox bg_blue">
+						<b>5</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-bottom-right" >
+					<span class="numberBox bg_blue">
+						<b>6</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+			</div>
 		
 		
+			<div class="h-pa userListBox" style="width:100%; height:182px; border:1px solid #949494; padding:7px;">
+				<div class="userTitle"><strong>새로운얼굴</strong>
+				</div>
+				
+				<div class="userItemBox-left" >
+					<span class="numberBox bg_purple">
+						<b>1</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+					
+				</div>
+					
+				<div class="userItemBox-right" >
+					<span class="numberBox bg_purple">
+						<b>2</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-left" >
+					<span class="numberBox bg_purple">
+						<b>3</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-right" >
+					<span class="numberBox bg_purple">
+						<b>4</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-bottom-left" >
+					<span class="numberBox bg_purple">
+						<b>5</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+					
+				<div class="userItemBox-bottom-right" >
+					<span class="numberBox bg_purple">
+						<b>6</b>
+					</span>
+					<span class="">
+						<img class="h-image-circle userProfileImg" src="${pageContext.request.contextPath}/assets/img/f.jpg">
+					</span>
+					<span class="userName"><b>베라님</b></span>
+				</div>
+			</div>
+			
+			
+			<div class="h-pa userListBox" style="width:100%; height:105px; border:1px solid #949494; padding:7px;">
+				<div class="userTitle"><strong>공지사항</strong>
+				</div>
+				
+				<div class="noticeText dottedBorder-top" >
+					공지사항 입니다 공지사항
+				</div>
+					
+				<div class="noticeText dottedBorder-top" >
+					공지사항 입니다 공지사항
+				</div>
+				
+				<div class="noticeText dottedBorder-top" >
+					공지사항 입니다 공지사항
+				</div>
+				
+				
+			</div>
 		
-		
-		
-<%-- <div  style="width:30.3%; height:400px; border:1px solid #949494;" >
-	<div class="row">
-		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px; margin-left:15px;">
-				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
 		</div>
-
-		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px;">
-				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
-		</div>
 		
-		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px;">
-				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
-		</div>
 		
-		<div class="card bg-white bg-shadow text-center card-outline-primary outLine" style="width:45%; height:180px;">
-				<img src="${pageContext.request.contextPath}/assets/img/c.JPG" class="hh-back" >
-		</div>
-	</div>
-</div> --%><!-- /마켓 -->
-
-<div class="h-pa p-3" style="width:15.1%;  border:1px solid #949494; ">
-	<hr class="divider">
-      <h2 class="text-center text-lg text-uppercase my-0">옷 부자</h2>
-      <hr class="divider">
-<h4 class="h-pa">1</h4>
-<h4 class="h-pa">1</h4>
-<h4 class="h-pa">1</h4>
-<h4 class="h-pa">1</h4>
-<h4 class="h-pa">1</h4>
-<h4 class="h-pa">1</h4>
-</div>
-
-
-
-
-<div class="h-pa" style="width:15.1%; height:250px; border:1px solid #949494; ">
-<h3>옷 부자</h3>
-<br>
-<h5>1</h5>
-<h5>2</h5>
-<h5>3</h5>
-<h5>4</h5>
-<h5>5</h5>
-<h5>6</h5>
-</div>
-
-</div><!-- /row -->
+	</div><!-- /row -->	
 
 </div><!-- container -->
   

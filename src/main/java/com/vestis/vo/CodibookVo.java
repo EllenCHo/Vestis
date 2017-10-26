@@ -125,4 +125,14 @@ public class CodibookVo {
 	public void setOwnerprofile(String ownerprofile) {
 		this.ownerprofile = ownerprofile;
 	}
+
+	@Override
+	public String toString() {
+		return "CodibookVo [no=" + no + ", otherNo=" + otherNo + ", ownerNo=" + ownerNo + ", ownername=" + ownername
+				+ ", otherNicname=" + otherNicname + ", ownerprofile=" + ownerprofile + ", profile=" + profile
+				+ ", codi=" + codi + ", wear=" + wear + ", choose=" + choose + ", likes=" + likes + ", likeflag="
+				+ likeflag + "]";
+	}
+	
+	
 }
