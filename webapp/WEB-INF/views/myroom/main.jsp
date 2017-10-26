@@ -85,6 +85,11 @@
 	border-bottom:0.5px solid rgba(85, 167, 154, .6)
 }
 
+.text_border {
+	text-shadow: -2px 0 #1f1e23, 0 2px #1f1e23, 2px 0 #1f1e23, 0 -2px #1f1e23;
+	-moz-text-shadow: -2px 0 #f00, 0 2px #f00, 2px 0 #f00, 0 -2px #f00;
+	-webkit-text-shadow: -2px 0 #f00, 0 2px #f00, 2px 0 #f00, 0 -2px #f00;
+}
 
 </style>
 
@@ -95,7 +100,7 @@
 
 <div class="mymain">
 	<div class="container">
-	<h1>MY ROOM</h1>
+	<h1>My Room</h1>
 	</div>
 </div>
 

@@ -63,6 +63,13 @@ line-height:1.5;
 margin:0 0 10px;
 padding:0;
 }
+.text_border {
+	text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+	-moz-text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+	-webkit-text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+}
+
+
 
 </style>
  <style>
@@ -206,7 +213,7 @@ a {
 
 <div class="market">
 	<div class="container">
-	<h1>Market</h1>
+	<h1 class=text_border>Market</h1>
 	</div>
 </div>
 <br><br><br>

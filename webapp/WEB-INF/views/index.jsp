@@ -75,26 +75,28 @@
 }
 
 .marketImgBox{
-  width: 186px !important;
+  width: 159px !important;
   height: 159px !important;
-  margin: 2px;
+  margin: 2px 2px 2px 17px;
+  display:table-cell; vartical-align:middle;
 }
 
 
 .marketImg {
   height: 100% !important;
+  display:block;
 }
 
 .marketText{
   font-size: 12px;
   text-align: left;
   margin: 5px;
+  border-top:1px solid #949494;
 }
 
-point
 
 .userListBox{
-  padding:15px !important;
+  padding:5px 5px 0px 5px !important;
 }
 
 .userTitle{
@@ -413,10 +415,9 @@ point
   
 			<div class="row">
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
-					<div class="marketImgBox">
+					<div class="marketImgBox ">
 						<img src="${pageContext.request.contextPath}/upload/${marketList[0].savename}" class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[0].title}
 					</div>
@@ -427,7 +428,6 @@ point
 					<div class="marketImgBox">
 						<img src="${pageContext.request.contextPath}/upload/${marketList[1].savename}" class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[1].title}
 					</div>
@@ -436,9 +436,8 @@ point
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/upload/${marketList[2].savename}" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[2].savename}" style="height:100%; class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[2].title}
 					</div>
@@ -446,9 +445,8 @@ point
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/upload/${marketList[3].savename}" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[3].savename}" style="height:100%; class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[3].title}
 					</div>
@@ -456,9 +454,8 @@ point
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/upload/${marketList[4].savename}" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[4].savename}" style="height:100%; class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[4].title}
 					</div>
@@ -467,9 +464,8 @@ point
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/upload/${marketList[5].savename}" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[5].savename}" style="height:100%; class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[5].title}
 					</div>
@@ -477,9 +473,8 @@ point
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/upload/${marketList[6].savename}" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[6].savename}" style="height:100%; class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[6].title}
 					</div>
@@ -487,9 +482,8 @@ point
 				
 				<div class="h-pa card bg-white bg-shadow text-center card-outline-primary outLine marketItem">
 					<div class="marketImgBox">
-						<img src="${pageContext.request.contextPath}/upload/${marketList[7].savename}" class="hh-back marketImg" >
+						<img src="${pageContext.request.contextPath}/upload/${marketList[7].savename}" style="height:100%; class="hh-back marketImg" >
 					</div>
-					<div class="hh-line"></div>
 					<div class="marketText">
 						${marketList[7].title}
 					</div>
