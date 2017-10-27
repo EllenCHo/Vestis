@@ -148,6 +148,10 @@ public class MyRoomDao {
 		return sqlSession.selectList("myroom.getCodiThree", no);
 	}
 	
+	public List<CodibookVo> getCodiThree2(int no) {
+		return sqlSession.selectList("myroom.getCodiThree2", no);
+	}
+	
 	public UserVo getUserLL(int no) {
 		return sqlSession.selectOne("myroom.getUserLL", no);
 	}

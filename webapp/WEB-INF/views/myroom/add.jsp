@@ -163,7 +163,7 @@
 			  </div>
 			  </form>
 			  <div class="lo">
-			      <button id="submitBtn" class="tb4 btn btn-primary" name='submit_image'>submit</button>
+			      <button id="submitBtn" class="tb4 btn btn-primary" name='submit_image'>등록</button>
 			  </div>
 			  
 			

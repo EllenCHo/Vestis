@@ -147,7 +147,7 @@ public class HttpController {
 	public JSONCodiListVo myroom(@RequestParam("no") int no) {
 		System.out.println(no);
 		System.out.println("myroom 들어옴");
-		List<CodibookVo> list= myRoomService.getCodiThree(no);
+		List<CodibookVo> list= myRoomService.getCodiThree2(no);
 		Collections.reverse(list);
 		JSONCodiListVo jsonclothlist=new JSONCodiListVo();
 		for(int i=0;i<list.size();i++) {

@@ -154,6 +154,21 @@ div > #paging {
     height: 700px;
     overflow-y: auto;
 }
+.market{
+	background-image: url('/Vestis/assets/img/back61.jpg');
+	background-size:100%;
+	width : 100%;
+	height : 200px;
+	text-align: center;
+	padding-bottom:80px;
+	padding-top:80px;
+	border-bottom:0.5px solid rgba(85, 167, 154, .6)
+}
+.text_border {
+	text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+	-moz-text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+	-webkit-text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+}
 </style>
 
 
@@ -163,9 +178,9 @@ div > #paging {
 
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-<div class="myroomimg">
+<div class="market">
 	<div class="container">
-		<h3>Market</h3>
+		<h1 class=text_border>Market</h1s>
 	</div>
 </div>
 	

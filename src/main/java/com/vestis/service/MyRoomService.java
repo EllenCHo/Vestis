@@ -175,6 +175,10 @@ public class MyRoomService {
 	public List<CodibookVo> getCodiThree(int no) {
 		return myRoomDao.getCodiThree(no);
 	}
+	
+	public List<CodibookVo> getCodiThree2(int no) {
+		return myRoomDao.getCodiThree2(no);
+	}
 
 	// 유저의 위치정보 알아내는 것
 	public UserVo getUserLL(int no) {
